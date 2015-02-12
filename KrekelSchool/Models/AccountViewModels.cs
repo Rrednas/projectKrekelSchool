@@ -8,7 +8,7 @@ namespace KrekelSchool.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-        // hallo
+        // hallo2
     }
 
     public class ExternalLoginListViewModel
