@@ -1,19 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="KrekelSchool.Leerling">
-    <Position X="8" Y="0.5" Width="1.5" />
+    <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAABA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAABA=</HashCode>
       <FileName>Leerling.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Uitleningen" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="KrekelSchool.Gebruiker">
     <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAQAEAAAMAAABABAgAAAAgAAAAgAEAAAAAAAAAAA=</HashCode>
+      <HashCode>BAAAAQAkAAAMAAABABAgAAAAgAAAAgAEAAgAAAAAQAA=</HashCode>
       <FileName>Leerling.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -32,57 +29,43 @@
     </TypeIdentifier>
   </Class>
   <Class Name="KrekelSchool.CD">
-    <Position X="0.75" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAIAAAAAIABgAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Leerling.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.3" />
   </Class>
   <Class Name="KrekelSchool.Verteltas">
-    <Position X="2.75" Y="3" Width="1.5" />
-    <AssociationLine Name="Items" Type="KrekelSchool.Item" ManuallyRouted="true">
-      <Path>
-        <Point X="4.25" Y="3.434" />
-        <Point X="4.792" Y="3.434" />
-        <Point X="4.792" Y="1.317" />
-        <Point X="3.25" Y="1.317" />
-      </Path>
-    </AssociationLine>
+    <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Leerling.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Items" />
-    </ShowAsCollectionAssociation>
     <Lollipop Position="0.1" />
   </Class>
   <Class Name="KrekelSchool.Spel">
-    <Position X="0.75" Y="3" Width="1.5" />
+    <Position X="2" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAACAAAAAAABEAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>Leerling.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.273" />
   </Class>
   <Class Name="KrekelSchool.Boek">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="3.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACBAAAASEACAAAAAAAAAIAAAAAAAAAAAACAAAQAAA=</HashCode>
       <FileName>Leerling.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.1" />
   </Class>
   <Class Name="KrekelSchool.Uitlening">
-    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAACEAAAAAAAEAAAAgAAAAAACAAAAAAAAAAgYAAAAA=</HashCode>
       <FileName>Leerling.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Item" />
-    </ShowAsAssociation>
   </Class>
   <Interface Name="KrekelSchool.Item">
     <Position X="1.75" Y="0.5" Width="1.5" />
