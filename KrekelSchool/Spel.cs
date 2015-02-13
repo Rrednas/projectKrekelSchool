@@ -6,8 +6,7 @@ using System.ComponentModel;
 
 namespace KrekelSchool
 {
-    public interface Item
+    public class Spel : Iitem
     {
-        Uitlening GetUitlening();
     }
 }

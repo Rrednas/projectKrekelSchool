@@ -7,9 +7,9 @@ using System.ComponentModel;
 
 namespace KrekelSchool
 {
-    public class Leerling
+    public class Verteltas : Iitem
     {
-        public Collection<Uitlening> Uitleningen
+        public Collection<Iitem> Items
         {
             get
             {

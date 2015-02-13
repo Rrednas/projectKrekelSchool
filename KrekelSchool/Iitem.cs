@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace KrekelSchool
 {
-    public class Boek : Iitem
+    public interface Iitem
     {
     }
 }
