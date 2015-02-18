@@ -7,9 +7,9 @@ using System.ComponentModel;
 
 namespace KrekelSchool
 {
-    public class ItemController
+    public class GebruikerController
     {
-        public Collection<Iitem> Items
+        public Collection<Gebruiker> Gebruikers
         {
             get
             {
@@ -20,27 +20,27 @@ namespace KrekelSchool
             }
         }
 
-        public void addItem(string naam, string beschrijving, bool beschikbaar)
+        public void addGebruiker(bool admin, string naam, string voornaam, string email)
         {
             throw new System.NotImplementedException();
         }
 
-        public Collection<Iitem> getItems()
+        public void editGebruiker(int ID)
         {
             throw new System.NotImplementedException();
         }
 
-        public void removeItem(int ID)
+        public Gebruiker getGebruiker()
         {
             throw new System.NotImplementedException();
         }
 
-        public void editItem(int ID)
+        public Collection<Gebruiker> getGebruikers()
         {
             throw new System.NotImplementedException();
         }
 
-        public Iitem getItem()
+        public void removeGerbuiker(int ID)
         {
             throw new System.NotImplementedException();
         }

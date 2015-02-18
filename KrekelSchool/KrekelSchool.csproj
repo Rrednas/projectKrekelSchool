@@ -162,7 +162,9 @@
     <Compile Include="CD.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DVD.cs" />
     <Compile Include="Gebruiker.cs" />
+    <Compile Include="GebruikerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

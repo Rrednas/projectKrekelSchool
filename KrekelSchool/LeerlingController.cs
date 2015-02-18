@@ -19,28 +19,28 @@ namespace KrekelSchool
             {
             }
         }
-    
-        public void addLeerling()
+
+        public void addLeerling(string naam, string voornaam)
         {
             throw new System.NotImplementedException();
         }
 
-        public void getLeerling()
+        public Leerling getLeerling()
         {
             throw new System.NotImplementedException();
         }
 
-        public void getLeerlingen()
+        public Collection<Leerling>  getLeerlingen()
         {
             throw new System.NotImplementedException();
         }
 
-        public void editLeerling()
+        public void editLeerling(int ID)
         {
             throw new System.NotImplementedException();
         }
 
-        public void removeLeerling()
+        public void removeLeerling(int ID)
         {
             throw new System.NotImplementedException();
         }

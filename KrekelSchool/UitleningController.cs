@@ -20,27 +20,32 @@ namespace KrekelSchool
             }
         }
     
-        public void editUitlening()
+        public void editUitlening(int ID)
         {
             throw new System.NotImplementedException();
         }
 
-        public void removeUitlening()
+        public void removeUitlening(int ID)
         {
             throw new System.NotImplementedException();
         }
 
-        public void editUitlening1()
+        public Uitlening getUitlening()
         {
             throw new System.NotImplementedException();
         }
 
-        public void checkOutUitlening()
+        public Collection<Uitlening> getUitleningen()
         {
             throw new System.NotImplementedException();
         }
 
-        public void addUitlening()
+        public void checkOutUitlening(int ID)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void addUitlening(Leerling leerling, DateTime uitlendatum, Collection<Iitem> items)
         {
             throw new System.NotImplementedException();
         }

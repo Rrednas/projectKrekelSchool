@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -7,9 +6,9 @@ using System.ComponentModel;
 
 namespace KrekelSchool
 {
-    public class Leerling
+    public class Gebruiker
     {
-        public System.Collections.ObjectModel.Collection<Uitlening> Uitleningen
+        public String Naam
         {
             get
             {
@@ -20,7 +19,7 @@ namespace KrekelSchool
             }
         }
 
-        public string Naam
+        public bool Admin
         {
             get
             {
@@ -43,6 +42,17 @@ namespace KrekelSchool
         }
 
         public int ID
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public string Email
         {
             get
             {
