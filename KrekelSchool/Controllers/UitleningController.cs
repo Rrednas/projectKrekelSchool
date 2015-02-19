@@ -19,7 +19,7 @@ namespace KrekelSchool
             {
             }
         }
-    
+
         public void editUitlening(int ID)
         {
             throw new System.NotImplementedException();

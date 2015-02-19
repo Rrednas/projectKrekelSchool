@@ -23,7 +23,7 @@ namespace KrekelSchool
         {
             get
             {
-                
+
             }
             set
             {
