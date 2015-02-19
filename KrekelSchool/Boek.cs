@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace KrekelSchool
 {
-    public class CD : Iitem
+    public class Boek : Iitem
     {
         public int ID { get; set; }
         public string Naam { get; set; }
@@ -23,6 +23,17 @@ namespace KrekelSchool
             set
             {
                 throw new NotImplementedException();
+            }
+        }
+
+        public string Isbn
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
             }
         }
     }
