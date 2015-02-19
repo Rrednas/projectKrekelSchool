@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="KrekelSchool.Leerling">
-    <Position X="8.25" Y="3.5" Width="1.5" />
+    <Position X="8.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAgAAAAAAABAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Leerling.cs</FileName>
@@ -83,14 +83,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="KrekelSchool.DVD">
-    <Position X="1" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>DVD.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="KrekelSchool.GebruikerController">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -108,15 +100,23 @@
       <FileName>Gebruiker.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.Uitlening">
-    <Position X="5.75" Y="3.5" Width="1.5" />
+  <Class Name="KrekelSchool.DVD">
+    <Position X="2.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAkABAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>DVD.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KrekelSchool.Uitlening">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
       <FileName>Uitlening.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Item" />
-    </ShowAsCollectionAssociation>
+    <ShowAsAssociation>
+      <Property Name="Iitem" />
+    </ShowAsAssociation>
   </Class>
   <Interface Name="KrekelSchool.Iitem">
     <Position X="1" Y="3" Width="1.5" />
