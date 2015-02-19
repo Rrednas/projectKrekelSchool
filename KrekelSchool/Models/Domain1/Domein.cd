@@ -20,14 +20,6 @@
   </Class>
   <Class Name="KrekelSchool.Verteltas">
     <Position X="2.75" Y="5.5" Width="1.5" />
-    <AssociationLine Name="Items" Type="KrekelSchool.Iitem" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4.25" Y="6.348" />
-        <Point X="5.313" Y="6.348" />
-        <Point X="5.313" Y="4.303" />
-        <Point X="2.5" Y="4.303" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAiAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Verteltas.cs</FileName>
@@ -89,9 +81,6 @@
       <HashCode>AAAAEAQAAAAAgAAAAAAAAAAAAAACAAAAAAAAAAAABAA=</HashCode>
       <FileName>Models\Domain1\Uitlening.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Iitem" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="KrekelSchool.DVD">
     <Position X="2.75" Y="9.5" Width="1.5" />
@@ -108,7 +97,7 @@
       <FileName>Models\Domain1\Categorie.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="KrekelSchool.Iitem">
+  <Interface Name="KrekelSchool.Models.Domain1.Iitem">
     <Position X="1" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
