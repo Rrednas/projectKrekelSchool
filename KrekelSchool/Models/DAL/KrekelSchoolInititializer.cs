@@ -14,11 +14,12 @@ namespace KrekelSchool.Models.DAL
             {
                 Leerling boy = new Leerling("kleinen","dude",1);
                 context.Leerlingen.Add(boy);
+                context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 
-                throw;
+                throw(e);
             }
             context.SaveChanges();
             base.Seed(context); 
