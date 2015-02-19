@@ -6,9 +6,9 @@ using System.ComponentModel;
 
 namespace KrekelSchool
 {
-    public class CD : Iitem
+    public class DVD : Iitem
     {
-         public int ID { get; set; }
+        public int ID { get; set; }
         public string Naam { get; set; }
         public string Beschrijving { get; set; }
         public bool Beschikbaar { get; set; }
