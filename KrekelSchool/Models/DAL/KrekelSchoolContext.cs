@@ -7,7 +7,7 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool.Models.DAL
 {
-    public class KrekelSchoolContext:DbContext
+    public class KrekelSchoolContext: DbContext
     {
         public KrekelSchoolContext():base("KrekelSchool")
         {
