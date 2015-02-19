@@ -8,28 +8,10 @@ namespace KrekelSchool
 {
     public interface Iitem
     {
-        int ID
-        {
-            get;
-            set;
-        }
-
-        string Naam
-        {
-            get;
-            set;
-        }
-
-        string Beschrijving
-        {
-            get;
-            set;
-        }
-
-        bool Beschikbaar
-        {
-            get;
-            set;
-        }
+        int ID { get; set; }
+        string Naam { get; set; }
+        string Beschrijving { get; set; }
+        bool Beschikbaar { get; set; }
+        Categorie Categorie { get; set; }
     }
 }

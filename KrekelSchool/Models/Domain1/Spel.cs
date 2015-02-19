@@ -12,5 +12,8 @@ namespace KrekelSchool
         public string Naam { get; set; }
         public string Beschrijving { get; set; }
         public bool Beschikbaar { get; set; }
+
+
+        public Categorie Categorie { get; set; }
     }
 }

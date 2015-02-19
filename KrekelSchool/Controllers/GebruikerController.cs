@@ -9,16 +9,6 @@ namespace KrekelSchool
 {
     public class GebruikerController
     {
-        public Collection<Gebruiker> Gebruikers
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
 
         public void addGebruiker(bool admin, string naam, string voornaam, string email)
         {

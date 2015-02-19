@@ -9,48 +9,9 @@ namespace KrekelSchool
 {
     public class Leerling
     {
-        public System.Collections.ObjectModel.Collection<Uitlening> Uitleningen
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+        public System.Collections.ObjectModel.Collection<Uitlening> Uitleningen { get; set; }
+        public string Naam { get; set; }
+        public string Voornaam { get; set; }
+        public int ID { get; set; }
         }
-
-        public string Naam
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public string Voornaam
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public int ID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-    }
 }
