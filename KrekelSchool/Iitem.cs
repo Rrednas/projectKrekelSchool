@@ -31,5 +31,11 @@ namespace KrekelSchool
             get;
             set;
         }
+
+        Categorie Categorie
+        {
+            get;
+            set;
+        }
     }
 }

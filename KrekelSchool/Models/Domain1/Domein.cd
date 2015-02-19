@@ -13,7 +13,7 @@
   <Class Name="KrekelSchool.Boek">
     <Position X="1" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Boek.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -22,14 +22,14 @@
     <Position X="2.75" Y="5.5" Width="1.5" />
     <AssociationLine Name="Items" Type="KrekelSchool.Iitem" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.25" Y="6.348" />
-        <Point X="5.313" Y="6.348" />
+        <Point X="4.25" Y="6.445" />
+        <Point X="5.313" Y="6.445" />
         <Point X="5.313" Y="4.452" />
         <Point X="2.5" Y="4.452" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAiAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAiAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Verteltas.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -40,7 +40,7 @@
   <Class Name="KrekelSchool.Spel">
     <Position X="1" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Spel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -78,27 +78,10 @@
   <Class Name="KrekelSchool.CD">
     <Position X="2.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>CD.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="KrekelSchool.GebruikerController">
-    <Position X="10.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAACAAAAEAAAAIBAAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
-      <FileName>GebruikerController.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Gebruikers" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="KrekelSchool.Gebruiker">
-    <Position X="10.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAgACAAgAAAAAAABQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Gebruiker.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="KrekelSchool.DVD">
     <Position X="2.75" Y="9.5" Width="1.5" />
@@ -118,12 +101,22 @@
       <Property Name="Iitem" />
     </ShowAsAssociation>
   </Class>
+  <Class Name="KrekelSchool.Categorie">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Categorie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="KrekelSchool.Iitem">
     <Position X="1" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Iitem.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Categorie" />
+    </ShowAsAssociation>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
