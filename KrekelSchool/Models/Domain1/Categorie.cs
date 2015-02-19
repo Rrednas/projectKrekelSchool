@@ -19,11 +19,11 @@ namespace KrekelSchool
             }
         }
 
-        public string beschrijving
+        public int Beschrijving
         {
             get
             {
-                
+                throw new System.NotImplementedException();
             }
             set
             {

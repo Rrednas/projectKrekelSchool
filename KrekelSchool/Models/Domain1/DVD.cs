@@ -12,5 +12,29 @@ namespace KrekelSchool
         public string Naam { get; set; }
         public string Beschrijving { get; set; }
         public bool Beschikbaar { get; set; }
+
+        int Iitem.Beschikbaar
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public Categorie Categorie
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

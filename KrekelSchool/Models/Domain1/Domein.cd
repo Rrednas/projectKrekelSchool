@@ -24,8 +24,8 @@
       <Path>
         <Point X="4.25" Y="6.348" />
         <Point X="5.313" Y="6.348" />
-        <Point X="5.313" Y="4.452" />
-        <Point X="2.5" Y="4.452" />
+        <Point X="5.313" Y="4.303" />
+        <Point X="2.5" Y="4.303" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -96,17 +96,27 @@
   <Class Name="KrekelSchool.DVD">
     <Position X="2.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAEAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\DVD.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KrekelSchool.Categorie">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain1\Categorie.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="KrekelSchool.Iitem">
     <Position X="1" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>Models\Domain1\Item.cs</FileName>
+      <FileName>Models\Domain1\Iitem.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Categorie" />
+    </ShowAsAssociation>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
