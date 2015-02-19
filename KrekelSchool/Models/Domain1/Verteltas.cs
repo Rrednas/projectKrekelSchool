@@ -10,16 +10,7 @@ namespace KrekelSchool
 {
     public class Verteltas : Iitem
     {
-        public Collection<Iitem> Items
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public virtual Collection<Iitem> Items { get; set; }
 
         public int ID { get; set; }
         public string Naam { get; set; }
@@ -27,16 +18,6 @@ namespace KrekelSchool
         public int Beschikbaar { get; set; }
 
 
-        public Categorie Categorie
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Categorie Categorie { get; set; }
     }
 }

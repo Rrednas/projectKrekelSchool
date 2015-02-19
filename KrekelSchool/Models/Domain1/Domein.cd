@@ -24,9 +24,6 @@
       <HashCode>AAAAAAAAAAAAiAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Verteltas.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Items" />
-    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="KrekelSchool.Spel">

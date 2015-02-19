@@ -9,24 +9,9 @@ namespace KrekelSchool
 {
     public class Uitlening
     {
-        public Iitem Iitem
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public Iitem Iitem{ get; set; }
 
-        public DateTime beginDatum
-        {
-            get { return beginDatum; }
-            set
-            {
-            }
-        }
+        public DateTime beginDatum { get; set; }
 
         public DateTime eindDatum
         {
@@ -39,16 +24,7 @@ namespace KrekelSchool
             }
         }
 
-        public int ID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public int ID { get; set; }
 
         public bool isTerug
         {

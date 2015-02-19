@@ -14,28 +14,8 @@ namespace KrekelSchool
         public string Beschrijving { get; set; }
         public bool Beschikbaar { get; set; }
 
-        int Iitem.Beschikbaar
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        int Iitem.Beschikbaar { get; set; }
 
-        public Categorie Categorie
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Categorie Categorie { get; set; }
     }
 }

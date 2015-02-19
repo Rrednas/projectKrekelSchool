@@ -10,6 +10,17 @@ namespace KrekelSchool.Models.DAL
     {
         protected override void Seed(KrekelSchoolContext context)
         {
+            try
+            {
+                Leerling boy = new Leerling("kleinen","dude",1);
+                context.Leerlingen.Add(boy);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            context.SaveChanges();
             base.Seed(context); 
         }
     }

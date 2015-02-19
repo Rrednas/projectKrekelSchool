@@ -15,16 +15,6 @@ namespace KrekelSchool
         public int Beschikbaar { get; set; }
 
 
-        public Categorie Categorie
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Categorie Categorie { get; set; }
     }
 }

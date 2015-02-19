@@ -9,7 +9,13 @@ namespace KrekelSchool
 {
     public class Leerling
     {
-        public System.Collections.ObjectModel.Collection<Uitlening> Uitleningen { get; set; }
+        public Leerling(string naam, string voornaam, int id)
+        {
+            Naam = naam;
+            Voornaam = voornaam;
+            ID = id;
+        }
+        public virtual Collection<Uitlening> Uitleningen { get; set; }
         public string Naam { get; set; }
         public string Voornaam { get; set; }
         public int ID { get; set; }
