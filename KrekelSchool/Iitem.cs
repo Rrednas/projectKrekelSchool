@@ -26,7 +26,7 @@ namespace KrekelSchool
             set;
         }
 
-        bool Beschikbaar
+        int Beschikbaar
         {
             get;
             set;
