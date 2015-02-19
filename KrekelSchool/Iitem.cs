@@ -29,7 +29,7 @@ namespace KrekelSchool
         int Beschikbaar
         {
             get;
-            set;
+             set;
         }
 
         Categorie Categorie
