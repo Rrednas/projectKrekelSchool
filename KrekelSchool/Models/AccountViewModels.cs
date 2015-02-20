@@ -21,18 +21,18 @@ namespace KrekelSchool.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "Huidig wachtwoord")]
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Het {0} mag maar {2} tekens lang zijn!!", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Nieuw wachtwoord")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "Bevestig nieuw wachtwoord")]
+        [Compare("NewPassword", ErrorMessage = "Het wachtwoord en het bevestigings wachtwoord komen niet overeen!!")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -45,10 +45,10 @@ namespace KrekelSchool.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Wachtwoord")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Mij onthouden")]
         public bool RememberMe { get; set; }
     }
 
@@ -60,14 +60,14 @@ namespace KrekelSchool.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Het {0} mag maar {2} tekens lang zijn!!", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Wachtwoord")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Wachtwoord Bevestigen")]
+        [Compare("Wachtwoord", ErrorMessage = "Het wachtwoord en het bevestigings wachtwoord komen niet overeen!!")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -79,14 +79,14 @@ namespace KrekelSchool.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Het {0} mag maar {2} tekens lang zijn!!", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Wachtwoord")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Wachtwoord Bevestigen")]
+        [Compare("Wachtwoord", ErrorMessage = "Het wachtwoord en het bevestigings wachtwoord komen niet overeen!!")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

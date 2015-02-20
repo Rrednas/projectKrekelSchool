@@ -169,7 +169,6 @@
     </Compile>
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Models\Domain1\Iitem.cs" />
-    <Compile Include="Models\Domain1\Item.cs" />
     <Compile Include="Models\Domain1\Leerling.cs" />
     <Compile Include="Controllers\LeerlingController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -186,11 +185,18 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\GrandHotel-Regular-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\krekelBanner.jpg" />
+    <Content Include="images\krekelBanner.png" />
+    <Content Include="images\krekelBgnd.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Models\Domain1\Domein.cd" />
+    <Content Include="fonts\GrandHotel-Regular-webfont.eot" />
+    <Content Include="fonts\GrandHotel-Regular-webfont.ttf" />
+    <Content Include="fonts\GrandHotel-Regular-webfont.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -233,6 +239,7 @@
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\AdminScreen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

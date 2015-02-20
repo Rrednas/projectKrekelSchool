@@ -1,6 +1,11 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url("../images/krekelBgnd.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -14,4 +19,149 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+
+@font-face {
+  font-family: 'Grand Hotel';
+  src: url('../fonts/GrandHotel-Regular-webfont.eot');
+  src: url('../fonts/GrandHotel-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/GrandHotel-Regular-webfont.woff') format('woff'), url('../fonts/GrandHotel-Regular-webfont.ttf') format('truetype'), url('../fonts/GrandHotel-Regular-webfont.svg') format('svg');
+}
+
+h2 {
+    font-family: "Grand Hotel";
+    font-size: 40px;
+    color: white;
+}
+
+a {
+    color: brown;
+}
+
+a:hover {
+    color: violet;
+    text-decoration: underline;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+footer {
+    text-align: center;
+}
+
+.btn {
+    text-align: center;
+    width: 100%;
+    height: 35px;
+}
+
+.btnSearch {
+    width: 28%;
+    margin: -35px 0 0 65%;
+    float: right;
+}
+
+.btnSave {
+    width: 30%;
+    margin: 15px 0 0 0;
+    float: left;
+}
+
+.btnRemove {
+    width: 30%;
+    margin: 5px 5% 0 5%;
+    float: left;
+}
+
+.btnAdd {
+    width: 30%;
+    margin: 4px 0 0 0;
+}
+
+textarea.formListSearch {
+    max-width: 100%;
+    width: 70%;
+    height: 35px;
+    resize: none;
+    margin: 15px 0 0 0;
+    float: left;
+}
+
+textarea.formList {
+    max-width: 100%;
+    height: 150px;
+    resize: none;
+}
+
+.col-md-4-search, .col-md-4-btnSearch, .col-md-4-adminScreen, .col-md-4-searchResult, .col-md-4-details{
+    width: auto;
+    margin: 0 0 0 0;
+}
+
+@media screen and (min-width: 981px) {
+    
+    .btn {
+        text-align: center;
+        width: 110px;
+        height: 35px;
+    }
+
+    .btnSearch {
+        width: 28%;
+        margin: -45px 0 0 127%;
+    }
+
+    .btnSave {
+        width: 30%;
+        margin: 15px 0 0 5px;
+        float: left;
+    }
+
+    .btnRemove {
+        width: 30%;
+        margin: -35px 0 0 36%;
+        float: left;
+    }
+
+    .btnAdd {
+        width: 30%;
+        margin: -77px 0 0 71%;
+    }
+
+    textarea.formListSearch {
+        max-width: 300%;
+        width: 195%;
+        height: 35px;
+        resize: none;
+        margin: 0 0 10px 0;
+        float: left;
+    }
+
+    textarea.formList {
+        max-width: 100%;
+        height: 235px;
+        resize: none;
+    }
+
+    .col-md-4-search {
+        width: 210px;
+        margin: 0 0 0 0;
+    }
+
+    .col-md-4-adminScreen {
+        width: 110px;
+    }
+
+    .col-md-4-searchResult {
+        width: 525px;
+        margin: 0 0 0 15px;
+    }
+
+    .col-md-4-details {
+        width: 525px;
+        margin: -2px 0 0 -5px;
+    }
 }

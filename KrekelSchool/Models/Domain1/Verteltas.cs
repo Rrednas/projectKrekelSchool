@@ -21,6 +21,7 @@ namespace KrekelSchool
         }
 
         public int ID { get; set; }
+        public string Isbn { get; set; }
         public string Naam { get; set; }
         public string Beschrijving { get; set; }
         public bool Beschikbaar { get; set; }

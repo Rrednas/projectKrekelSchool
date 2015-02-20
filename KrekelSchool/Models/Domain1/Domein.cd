@@ -20,14 +20,6 @@
   </Class>
   <Class Name="KrekelSchool.Verteltas">
     <Position X="2.75" Y="5.5" Width="1.5" />
-    <AssociationLine Name="Items" Type="KrekelSchool.Iitem" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4.25" Y="6.348" />
-        <Point X="5.313" Y="6.348" />
-        <Point X="5.313" Y="4.303" />
-        <Point X="2.5" Y="4.303" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAiAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Verteltas.cs</FileName>
@@ -38,7 +30,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="KrekelSchool.Spel">
-    <Position X="1" Y="7.5" Width="1.5" />
+    <Position X="1" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Spel.cs</FileName>
@@ -93,30 +85,27 @@
       <Property Name="Iitem" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="KrekelSchool.DVD">
-    <Position X="2.75" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAEAAAAEAAAA=</HashCode>
-      <FileName>Models\Domain1\DVD.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="KrekelSchool.Categorie">
-    <Position X="3.5" Y="3" Width="1.5" />
+    <Position X="3.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Categorie.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="KrekelSchool.DVD">
+    <Position X="2.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain1\DVD.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="KrekelSchool.Iitem">
     <Position X="1" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAgAAAABAAAAQBAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Iitem.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Categorie" />
-    </ShowAsAssociation>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

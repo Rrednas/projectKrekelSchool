@@ -23,6 +23,7 @@ namespace KrekelSchool
         {
             get
             {
+                throw new System.NotImplementedException();
 
             }
             set
