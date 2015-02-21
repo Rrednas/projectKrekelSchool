@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
-using KrekelSchool.Models.Domain1;
+﻿using System.Collections.ObjectModel;
 
-namespace KrekelSchool
+namespace KrekelSchool.Models.Domain1
 {
     public class Verteltas : Iitem
     {
@@ -16,8 +10,6 @@ namespace KrekelSchool
         public string Naam { get; set; }
         public string Beschrijving { get; set; }
         public int Beschikbaar { get; set; }
-
-
         public Categorie Categorie { get; set; }
     }
 }

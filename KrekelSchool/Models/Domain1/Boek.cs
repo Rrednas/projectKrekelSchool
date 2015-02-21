@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
-using KrekelSchool.Models.Domain1;
 
-namespace KrekelSchool
+namespace KrekelSchool.Models.Domain1
 {
     public class Boek : Iitem
     {

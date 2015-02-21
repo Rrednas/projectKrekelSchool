@@ -7,16 +7,11 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool.Models.DAL.Mappers
 {
-    public class LeerlingMap : EntityTypeConfiguration<Leerling>
+    public class BoekMap:EntityTypeConfiguration<Boek>
     {
-        public LeerlingMap()
+        public BoekMap()
         {
-            this.ToTable("Leerlingen");
-
-            
-            this.HasKey(l => l.ID);
-            HasMany(u => u.Uitleningen);
-            
+            Property(b => b.Isbn).IsOptional();
         }
     }
 }

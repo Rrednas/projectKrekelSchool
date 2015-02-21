@@ -1,7 +1,12 @@
-﻿namespace KrekelSchool.Models.Domain1
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace KrekelSchool.Models.Domain1
 {
+    
     public interface Iitem
     {
+        
         int ID
         {
             get;

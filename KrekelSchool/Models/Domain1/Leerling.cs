@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace KrekelSchool
+namespace KrekelSchool.Models.Domain1
 {
+    
     public class Leerling
     {
+        public Leerling() { }
         public Leerling(string naam, string voornaam, int id)
         {
             Naam = naam;
