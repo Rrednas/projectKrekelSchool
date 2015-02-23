@@ -4,18 +4,14 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
 using KrekelSchool.Models.Domain1;
-using Microsoft.Owin.Security.DataHandler;
 
 namespace KrekelSchool.Models.DAL.Mappers
 {
-    public class BoekMap:EntityTypeConfiguration<Boek>
+    public class CategorieMap:EntityTypeConfiguration<Categorie>
     {
-        public BoekMap()
+        public CategorieMap()
         {
-
-            HasKey(b => b.Id);
-            
-            Property(b => b.Isbn).IsOptional();
+            HasOptional(i => i.Items).WithMany();
         }
     }
 }

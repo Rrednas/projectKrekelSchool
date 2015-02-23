@@ -166,12 +166,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Models\DAL\Mappers\CategorieMap.cs" />
+    <Compile Include="Models\DAL\Mappers\ItemMapper.cs" />
+    <Compile Include="Models\DAL\Mappers\VerteltasMap.cs" />
+    <Compile Include="Models\Domain1\Item.cs" />
     <Compile Include="Models\DAL\KrekelSchoolInititializer.cs" />
     <Compile Include="Models\DAL\KrekelSchoolContext.cs" />
     <Compile Include="Models\DAL\Mappers\BoekMap.cs" />
     <Compile Include="Models\DAL\Mappers\LeerlingMap.cs" />
     <Compile Include="Models\DAL\Mappers\UitleningMap.cs" />
-    <Compile Include="Models\DAL\Mappers\VerteltasMap.cs" />
     <Compile Include="Models\Domain1\Categorie.cs" />
     <Compile Include="Models\Domain1\Boek.cs" />
     <Compile Include="Models\Domain1\CD.cs" />

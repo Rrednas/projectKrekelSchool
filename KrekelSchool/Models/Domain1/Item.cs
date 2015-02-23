@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+using System.ComponentModel;
 
-namespace KrekelSchool.Models.Domain1
+namespace KrekelSchool
 {
-    public class Uitlening
+    public abstract class Item
     {
 
-        public DateTime beginDatum { get; set; }
-
-        public DateTime eindDatum
+        public int Id
         {
             get
             {
@@ -18,9 +20,7 @@ namespace KrekelSchool.Models.Domain1
             }
         }
 
-        public int ID { get; set; }
-
-        public bool isTerug
+        public int Naam
         {
             get
             {
@@ -31,7 +31,18 @@ namespace KrekelSchool.Models.Domain1
             }
         }
 
-        public KrekelSchool.Item Item
+        public int Beschikbaar
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public int Beschrijving
         {
             get
             {
