@@ -52,7 +52,7 @@ footer {
     text-align: center;
 }
 
-.btn {
+.btnN {
     text-align: center;
     width: 100%;
     height: 35px;
@@ -60,25 +60,25 @@ footer {
 
 .btnSearch {
     width: 28%;
-    margin: -35px 0 0 65%;
+    margin: -35px 0 20px 85%;
     float: right;
 }
 
-.btnSave {
-    width: 30%;
-    margin: 15px 0 0 0;
+.btnMod {
+    width: 100px;
     float: left;
 }
 
 .btnRemove {
-    width: 30%;
-    margin: 5px 5% 0 5%;
+    width: 100px;
+    margin: -11px 10px 0 10px;
     float: left;
 }
 
-.btnAdd {
-    width: 30%;
-    margin: 4px 0 0 0;
+.btnSave {
+    width: 100px;
+    margin: -22px 0 0 0;
+    float: left;
 }
 
 textarea.formListSearch {
@@ -94,16 +94,42 @@ textarea.formList {
     max-width: 100%;
     height: 150px;
     resize: none;
+    margin: 0 0 20px 0;
 }
 
-.col-md-4-search, .col-md-4-btnSearch, .col-md-4-adminScreen, .col-md-4-searchResult, .col-md-4-details{
+.search, .btnSearchCol, .searchResult, .details, .col1{
     width: auto;
     margin: 0 0 0 0;
 }
 
+.btnItem {
+    font-size: 35px;
+    font-family: "Grand Hotel", sans-serif;
+    width: 200px;
+    height: 200px;
+    margin: 0 0 0 23%;
+    border: none;
+    border-radius: 10%;
+    box-shadow: 10px 10px 5px black;
+    background-color: #7aae03;
+}
+
+.btnItem:hover {
+    background-color: #9ec062;
+}
+
+.btnImg {
+    height: 120px;
+    width: 120px;
+}
+
+
+
 @media screen and (min-width: 981px) {
-    
-    .btn {
+    .btnItem {
+        margin: 0 0 0 25%;
+    }
+    .btnN {
         text-align: center;
         width: 110px;
         height: 35px;
@@ -114,21 +140,21 @@ textarea.formList {
         margin: -45px 0 0 127%;
     }
 
-    .btnSave {
+    .btnMod {
         width: 30%;
-        margin: 15px 0 0 5px;
+        margin: -5px 0 0 5px;
         float: left;
     }
 
     .btnRemove {
         width: 30%;
-        margin: -35px 0 0 36%;
+        margin: -32px 0 0 36%;
         float: left;
     }
 
-    .btnAdd {
+    .btnSave {
         width: 30%;
-        margin: -74px 0 0 71%;
+        margin: -40px 0 0 71%;
     }
 
     textarea.formListSearch {
@@ -146,22 +172,22 @@ textarea.formList {
         resize: none;
     }
 
-    .col-md-4-search {
+    .search {
         width: 210px;
         margin: 0 0 0 0;
     }
 
-    .col-md-4-adminScreen {
-        width: 110px;
-    }
-
-    .col-md-4-searchResult {
+    .searchResult {
         width: 525px;
         margin: 0 0 0 15px;
     }
 
-    .col-md-4-details {
+    .details {
         width: 525px;
         margin: -2px 0 0 -5px;
+    }
+
+    .containerItem {
+        margin-left: 90px;
     }
 }

@@ -27,11 +27,6 @@ namespace KrekelSchool.Controllers
             return View();
         }
 
-        public ActionResult AdminScreen()
-        {
-            ViewBag.Message = "Adminiostratie scherm.";
-
-            return View();
-        }
+        
     }
 }

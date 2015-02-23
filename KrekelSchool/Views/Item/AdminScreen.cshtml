@@ -1,0 +1,42 @@
+﻿@using KrekelSchool.Models
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "AdminScreen";
+}
+
+<h2>@ViewBag.Title.</h2>
+@using (Html.BeginForm("AdminScreen", "Item", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>Geef ID, naam of achternaam in als zoekcriteria.</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 searchResult">
+            <div class="row">
+                <div class="col-md-8 search">
+                    <textarea class="form-control formListSearch"></textarea>
+                </div>
+                <div class="col-md-8 btnSearchCol">
+                    <a class="btn btn-default btnSearch" href="">Zoek</a>
+                </div>
+            </div>
+            <label for="">Zoekresultaat:</label>
+            <textarea class="form-control formList"></textarea>
+        </div>
+        
+        <div class="col-md-4 details">
+            <label for="">Details zoekresultaat:</label>
+            <textarea class="form-control formList"></textarea>
+            <div class="row">
+                <div class="col-md-4 details">
+                    <p><a class="btn btn-default btnMod" href="">Bewerk</a></p>
+                </div>
+                <div class="col-md-4 details">
+                    <p><a class="btn btn-default btnRemove" href="">Verwijder</a></p>
+                </div>
+                <div class="col-md-4 details">
+                    <p><a class="btn btn-default btnSave" href="">Opslaan</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

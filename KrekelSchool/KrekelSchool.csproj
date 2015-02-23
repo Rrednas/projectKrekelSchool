@@ -188,6 +188,12 @@
     <Content Include="fonts\GrandHotel-Regular-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\icons\books.png" />
+    <Content Include="images\icons\double.png" />
+    <Content Include="images\icons\group.png" />
+    <Content Include="images\icons\note.png" />
+    <Content Include="images\icons\puzzle.png" />
+    <Content Include="images\icons\work.png" />
     <Content Include="images\krekelBanner.jpg" />
     <Content Include="images\krekelBanner.png" />
     <Content Include="images\krekelBgnd.jpg" />
@@ -239,7 +245,8 @@
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\AdminScreen.cshtml" />
+    <Content Include="Views\Item\AdminScreen.cshtml" />
+    <Content Include="Views\Item\Item.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
