@@ -5,7 +5,7 @@
 }
 
 <h2>@ViewBag.Title.</h2>
-@using (Html.BeginForm("LeerlingScreen", "Leerling", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("ItemScreen", "Item", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <h4>@ViewBag.Message</h4>
     <hr />
@@ -21,9 +21,9 @@
             </div>
             <label for="">Zoekresultaat:</label>
             @*<textarea disabled class="form-control formList"></textarea>*@
-            @model IEnumerable<Leerling>
+            @model IEnumerable<Item>
 
-            <table class="">
+            <table class="table">
                 <tr>
                     <th>ID</th>
                     <th>Naam</th>
@@ -31,15 +31,16 @@
                     <th>Uitleningen</th>
                 </tr>
 
-                @foreach (var l in Model) {
+                @foreach (var l in Model)
+                {
 
                     <tr>
-                        <td class="left"><@l.ID></td>
-                        <td class="left"><@l.Naam></td>
-                        <td class="left"><@l.Voornaam></td>
-                        <td class="left"><@l.Uitleningen></td>
+                        <td class=""><@l.Id></td>
+                        <td class=""><@l.Naam></td>
+                        <td class=""><@l.Beschrijving></td>
+                        <td class=""><@l.Beschikbaar></td>
                     </tr>
-                    };
+                };
             </table>
 
         </div>

@@ -263,9 +263,9 @@
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Item\ItemScreen.cshtml" />
     <Content Include="Views\Item\Item.cshtml" />
     <Content Include="Views\Leerling\LeerlingScreen.cshtml" />
+    <Content Include="Views\Item\ItemScreen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
