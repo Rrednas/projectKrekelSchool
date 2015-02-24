@@ -11,14 +11,14 @@ namespace KrekelSchool
 {
     public class ItemController : Controller
     {
-        public Collection<Iitem> Items = new Collection<Iitem>();
+        public Collection<Item> Items = new Collection<Item>();
 
         public void addItem(string naam, string beschrijving, bool beschikbaar)
         {
             throw new System.NotImplementedException();
         }
 
-        public Collection<Iitem> getItems()
+        public Collection<Item> getItems()
         {
             throw new System.NotImplementedException();
         }
@@ -33,7 +33,7 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public Iitem getItem()
+        public Item getItem()
         {
             throw new System.NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace KrekelSchool
         }
         public ActionResult ItemScreen()
         {
-            ViewBag.Message = "";
+            ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
             var model = Items;
 
             return View(model);
