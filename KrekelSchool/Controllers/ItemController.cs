@@ -53,9 +53,9 @@ namespace KrekelSchool
 
             return View();
         }
-        public ActionResult AdminScreen()
+        public ActionResult ItemScreen()
         {
-            ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
+            ViewBag.Message = "";
 
             return View();
         }

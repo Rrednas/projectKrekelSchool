@@ -7,22 +7,12 @@ using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Web.UI.WebControls;
 using KrekelSchool.Models.Domain1;
-using Microsoft.Ajax.Utilities;
 
 namespace KrekelSchool
 {
-    public class LeerlingController
+    public class LeerlingController : Controller
     {
-        public Collection<Leerling> Leerlingen
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public Collection<Leerling> Leerlingen = new Collection<Leerling>();
 
         public void addLeerling(string naam, string voornaam)
         {
@@ -49,5 +39,13 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
+        public ActionResult LeerlingScreen()
+        {
+            ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
+
+            var model = Leerlingen;
+
+            return View(model);
+        }
     }
 }

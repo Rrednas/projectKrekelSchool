@@ -1,4 +1,4 @@
-﻿@using KrekelSchool.Models
+﻿@using KrekelSchool.Models.Domain1
 @using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "AdminScreen";
@@ -20,9 +20,31 @@
                 </div>
             </div>
             <label for="">Zoekresultaat:</label>
-            <textarea disabled class="form-control formList"></textarea>
+            @*<textarea disabled class="form-control formList"></textarea>*@
+            @model IEnumerable<Leerling>
+
+            <table class="">
+                <tr>
+                    <th>ID</th>
+                    <th>Naam</th>
+                    <th>Voornaam</th>
+                    <th>Uitleningen</th>
+                </tr>
+
+                @foreach (var l in Model) {
+
+                    <tr>
+                        <td class="left"><@l.ID></td>
+                        <td class="left"><@l.Naam></td>
+                        <td class="left"><@l.Voornaam></td>
+                        <td class="left"><@l.Uitleningen></td>
+                    </tr>
+                    @}
+
+            </table>
+
         </div>
-        
+
         <div class="col-md-4 details">
             <label for="">Details zoekresultaat:</label>
             <textarea disabled class="form-control formList"></textarea>
