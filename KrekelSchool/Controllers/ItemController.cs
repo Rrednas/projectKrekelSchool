@@ -33,7 +33,7 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public Iitem getItem()
+        public Item getItem()
         {
             throw new System.NotImplementedException();
         }
@@ -46,11 +46,12 @@ namespace KrekelSchool
         }
         public ActionResult ItemScreen()
         {
-            ViewBag.Message = "";
+            ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
 
             var model = Items;
 
             return View(model);
         }
+
     }
 }

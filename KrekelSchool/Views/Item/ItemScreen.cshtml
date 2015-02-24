@@ -1,0 +1,64 @@
+﻿@using KrekelSchool.Models
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Itemcreen";
+}
+
+<h2>@ViewBag.Title.</h2>
+@using (Html.BeginForm("ItemScreen", "Item", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>@ViewBag.Message</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 searchResult">
+            <div class="row">
+                <div class="col-md-8 search">
+                    <textarea class="form-control formListSearch"></textarea>
+                </div>
+                <div class="col-md-8 btnSearchCol">
+                    <a class="btn btn-default btnSearch" href="">Zoek</a>
+                </div>
+            </div>
+            <label for="">Zoekresultaat:</label>
+            @*<textarea disabled class="form-control formList"></textarea>*@
+            @model IEnumerable<Item>
+
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Naam</th>
+                    <th>Beschrijving</th>
+                    <th>Beschikbaar</th>
+                </tr>
+
+                @foreach (var i in Model)
+                {
+
+                    <tr>
+                        <td class=""><@i.Id></td>
+                        <td class=""><@i.Naam></td>
+                        <td class=""><@i.Beschrijving></td>
+                        <td class=""><@i.Beschikbaar></td>
+                    </tr>
+                };
+
+            </table>
+        </div>
+
+        <div class="col-md-4 details">
+            <label for="">Details zoekresultaat:</label>
+            <textarea disabled class="form-control formList"></textarea>
+            <div class="row">
+                <div class="col-md-4 details">
+                    <p><a class="btn btn-default btnMod" href="">Bewerk</a></p>
+                </div>
+                <div class="col-md-4 details">
+                    <p><a class="btn btn-default btnRemove" href="">Verwijder</a></p>
+                </div>
+                <div class="col-md-4 details">
+                    <p><a class="btn btn-default btnSave" href="">Opslaan</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
