@@ -48,13 +48,13 @@ namespace KrekelSchool
 
         public ActionResult Item()
         {
-            ViewBag.Message = "Item scherm.";
+            ViewBag.Message = "Klik op het gewenste item om deze te bewerken of te verwijderen.";
 
             return View();
         }
         public ActionResult AdminScreen()
         {
-            ViewBag.Message = "Adminiostratie scherm.";
+            ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
 
             return View();
         }

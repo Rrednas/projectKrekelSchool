@@ -15,14 +15,14 @@ namespace KrekelSchool.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Info over de applicatie.";
+            ViewBag.Message = "Hier vind u info over de applicatie.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Contact pagina van de beheerder.";
+            ViewBag.Message = "Contactgegevens van de beheerder vind u hier.";
 
             return View();
         }
