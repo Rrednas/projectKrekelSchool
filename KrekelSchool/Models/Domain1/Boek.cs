@@ -1,30 +1,9 @@
 ﻿using System;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
 
-namespace KrekelSchool
+namespace KrekelSchool.Models.Domain1
 {
-    public class Boek : Iitem
+    public class Boek : KrekelSchool.Item
     {
-        public int ID { get; set; }
-        public string Naam { get; set; }
-        public string Beschrijving { get; set; }
-        public bool Beschikbaar { get; set; }
-
-
-        public Categorie Categorie
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         public string Isbn
         {

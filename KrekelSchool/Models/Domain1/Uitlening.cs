@@ -1,35 +1,11 @@
 ﻿using System;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
 
-namespace KrekelSchool
+namespace KrekelSchool.Models.Domain1
 {
     public class Uitlening
     {
-        public Iitem Iitem
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
 
-        public DateTime beginDatum
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-
-            }
-            set
-            {
-            }
-        }
+        public DateTime beginDatum { get; set; }
 
         public DateTime eindDatum
         {
@@ -42,7 +18,9 @@ namespace KrekelSchool
             }
         }
 
-        public int ID
+        public int ID { get; set; }
+
+        public bool isTerug
         {
             get
             {
@@ -53,7 +31,7 @@ namespace KrekelSchool
             }
         }
 
-        public bool isTerug
+        public KrekelSchool.Item Item
         {
             get
             {

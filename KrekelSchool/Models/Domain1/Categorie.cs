@@ -1,25 +1,13 @@
-﻿using System;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
 
-namespace KrekelSchool
+namespace KrekelSchool.Models.Domain1
 {
     public class Categorie
     {
-        public int ID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public int ID { get; set; }
+        public int Beschrijving { get; set; }
 
-        public int Beschrijving
+        public Collection<Item> Items
         {
             get
             {

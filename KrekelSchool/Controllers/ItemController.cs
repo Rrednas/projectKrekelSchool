@@ -5,12 +5,13 @@ using System.Web.Mvc;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
     public class ItemController : Controller
     {
-        public Collection<Iitem> Items
+        public System.Collections.ObjectModel.Collection<Iitem> Items
         {
             get
             {
