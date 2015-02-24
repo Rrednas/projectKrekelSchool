@@ -1,11 +1,11 @@
 ﻿@using KrekelSchool.Models.Domain1
 @using Microsoft.AspNet.Identity
 @{
-    ViewBag.Title = "AdminScreen";
+    ViewBag.Title = "Leerlingscreen";
 }
 
 <h2>@ViewBag.Title.</h2>
-@using (Html.BeginForm("AdminScreen", "Item", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("LeerlingScreen", "Leerling", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <h4>@ViewBag.Message</h4>
     <hr />
@@ -23,7 +23,7 @@
             @*<textarea disabled class="form-control formList"></textarea>*@
             @model IEnumerable<Leerling>
 
-            <table class="">
+            <table class="table">
                 <tr>
                     <th>ID</th>
                     <th>Naam</th>
@@ -34,10 +34,10 @@
                 @foreach (var l in Model) {
 
                     <tr>
-                        <td class="left"><@l.ID></td>
-                        <td class="left"><@l.Naam></td>
-                        <td class="left"><@l.Voornaam></td>
-                        <td class="left"><@l.Uitleningen></td>
+                        <td class=""><@l.ID></td>
+                        <td class=""><@l.Naam></td>
+                        <td class=""><@l.Voornaam></td>
+                        <td class=""><@l.Uitleningen></td>
                     </tr>
                     };
             </table>
