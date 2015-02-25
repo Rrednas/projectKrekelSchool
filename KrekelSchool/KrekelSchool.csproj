@@ -195,6 +195,7 @@
     <Compile Include="Controllers\LeerlingController.cs" />
     <Compile Include="Models\Domain1\Uitlening.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Domain1\Spel.cs" />
     <Compile Include="Startup.cs" />
