@@ -25,14 +25,14 @@ namespace KrekelSchool
 
         public Collection<Item> getItems()
         {
-            throw new System.NotImplementedException();
+            return Items;
         }
 
         public void removeItem(int ID)
         {
-            throw new System.NotImplementedException();
+            Items.RemoveAt(ID);
         }
-
+       
         public void editItem(int ID)
         {
             throw new System.NotImplementedException();
