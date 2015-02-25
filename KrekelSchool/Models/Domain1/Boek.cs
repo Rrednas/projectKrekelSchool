@@ -11,16 +11,19 @@ namespace KrekelSchool.Models.Domain1
         {
             get; set; }
 
-        public Boek(int id, string naam, int beschikbaar, string beschrijving,string isbn) : base(id, naam, beschikbaar, beschrijving)
+        public Boek(int id, Soort soort, string naam, int beschikbaar, string beschrijving, string isbn)
+            : base(id,soort, naam, beschikbaar, beschrijving)
         {
             Isbn = isbn;
         }
 
-        public Boek(string naam, int beschikbaar, string beschrijving,string isbn)
-            : base(naam, beschikbaar, beschrijving)
+        public Boek(Soort soort, string naam, int beschikbaar, string beschrijving, string isbn)
+            : base(soort,naam, beschikbaar, beschrijving)
         {
             Isbn = isbn;
         }
+
+       
 
     }
 }

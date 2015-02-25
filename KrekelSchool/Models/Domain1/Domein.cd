@@ -13,7 +13,7 @@
   <Class Name="KrekelSchool.Models.Domain1.Boek">
     <Position X="1" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAgAAAAAAAQAA=</HashCode>
       <FileName>Models\Domain1\Boek.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -34,7 +34,7 @@
   <Class Name="KrekelSchool.ItemController">
     <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAQgAACAAEAAAAAAAEgAAAAAAAAAIAAAEAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\ItemController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -78,7 +78,7 @@
   <Class Name="KrekelSchool.Item">
     <Position X="1" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAQAAABAAAAARAAAAAQQAAAAEAAgA=</HashCode>
       <FileName>Models\Domain1\Item.cs</FileName>
     </TypeIdentifier>
   </Class>

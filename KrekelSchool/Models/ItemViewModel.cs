@@ -19,7 +19,7 @@ namespace KrekelSchool.Models
         }
 
 
-        public int Id { get; private set; }
+        public string Id { get; private set; }
 
         [Display(Name = "Naam")]
         [Required(ErrorMessage = "{0} is verplicht")]
@@ -42,7 +42,7 @@ namespace KrekelSchool.Models
             Beschikbaar = item.Beschikbaar;
         }
 
-        public int Id { get; private set; }
+        public string Id { get; private set; }
 
         [Display(Name = "Naam")]
         public string Naam { get; private set; }

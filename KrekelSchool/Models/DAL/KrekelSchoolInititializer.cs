@@ -16,11 +16,11 @@ namespace KrekelSchool.Models.DAL
                 Leerling boy = new Leerling("kleinen", "dude", 1);
                 context.Leerlingen.Add(boy);
                 context.SaveChanges();
-                Item boek = new Boek( "boek1", 1, "boek een","nummer");
-                Item cd = new Cd(2,"trol",1,"dikkentrolcd",200);
-                Item spel = new Spel( 3,"spel1", 2, "deeee");
-                Item vertelt = new Verteltas( 4,"tas1", 3, "beschr");
-                Item dvd = new Dvd( "dvd1", 3, "beesch",500);
+                Item boek = new Boek( Soort.boek, "iets",5,"zeer zotte boek", "89465123dsfs");
+                Item cd = new Cd(2,Soort.cd,"trol",1,"cd",200);
+                Item spel = new Spel( Soort.spel, "spel1", 2, "deeee");
+                Item vertelt = new Verteltas(Soort.verteltas, "tas1", 3, "beschr");
+                Item dvd = new Dvd( Soort.dvd, "dvd1", 3, "beesch",500);
 
                 context.items.Add(boek);
                 context.items.Add(cd);

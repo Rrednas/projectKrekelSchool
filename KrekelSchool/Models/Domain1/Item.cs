@@ -10,6 +10,15 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
+    public enum Soort
+    {
+        cd = 1,
+        dvd = 2,
+        boek = 3,
+        spel = 4,
+        verteltas = 5
+    }
+
     public abstract class Item
     {
         private int id;
@@ -20,23 +29,49 @@ namespace KrekelSchool
 
         private string beschrijving;
 
-        protected Item(int id,string naam,int beschikbaar,string beschrijving)
+        
+
+        private Soort soort;
+
+
+
+        protected Item(int id, Soort soort, string naam, int beschikbaar, string beschrijving)
         {
             this.id = id;
             this.naam = naam;
             this.beschikbaar = beschikbaar;
             this.beschrijving = beschrijving;
+            this.soort = soort;
         }
 
-        protected Item(string naam, int beschikbaar, string beschrijving)
+        protected Item( Soort soort,string naam, int beschikbaar, string beschrijving)
         {
             
             this.naam = naam;
             this.beschikbaar = beschikbaar;
             this.beschrijving = beschrijving;
+            this.soort = soort;
         }
 
-        public int Id { get; set; }
+        public string Id
+        {
+            get
+            {
+                string id2 = "";
+                if (soort == Soort.cd)
+                    id2 = string.Format("CD", id);
+                if (soort == Soort.spel)
+                    id2 = string.Format("SPEL", id);
+                if (soort == Soort.verteltas)
+                    id2 = string.Format("TAS", id);
+                if (soort == Soort.dvd)
+                    id2 = string.Format("DVD", id);
+                if (soort == Soort.boek)
+                    id2 = string.Format("BOEK", id);
+                return id2;
+            }
+            set { }
+        }
 
         public string Naam { get; set; }
 
