@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -9,7 +12,7 @@ namespace KrekelSchool.Models.Domain1
         }
 
         public Verteltas(string naam, int beschikbaar, string beschrijving) : base(naam,beschikbaar,beschrijving){}
-            
-        
+
+       
     }
 }

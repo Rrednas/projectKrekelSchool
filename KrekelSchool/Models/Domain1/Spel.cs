@@ -1,4 +1,8 @@
-﻿namespace KrekelSchool.Models.Domain1
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace KrekelSchool.Models.Domain1
 {
     public class Spel : KrekelSchool.Item
     {
@@ -12,5 +16,7 @@
             
 
         }
+
+        
     }
 }

@@ -1,5 +1,9 @@
 ﻿
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace KrekelSchool.Models.Domain1
 {
     public class Dvd : KrekelSchool.Item
@@ -14,5 +18,7 @@ namespace KrekelSchool.Models.Domain1
         {
             Size = size;
         }
+
+       
     }
 }

@@ -68,19 +68,16 @@ namespace KrekelSchool
 
             return View(isvm);
         }
-        public ActionResult ItemScreen(int id)
-        {
-            ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
+        //public ActionResult ItemScreen(int id)
+        //{
+        //    ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
 
-            var model = Items;
+        //    var model = Items;
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
-        public ActionResult Details(int Id)
-        {
-            return View();
-        }
+        
 
     }
 }

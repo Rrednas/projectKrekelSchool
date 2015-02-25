@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -19,5 +21,6 @@ namespace KrekelSchool.Models.Domain1
         {
             Isbn = isbn;
         }
+
     }
 }

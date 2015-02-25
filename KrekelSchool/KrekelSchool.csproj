@@ -203,6 +203,8 @@
     <Compile Include="Models\Domain1\Verteltas.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\KrekelSchool.dll" />
+    <Content Include="bin\KrekelSchool.pdb" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
