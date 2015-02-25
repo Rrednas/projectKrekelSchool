@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace KrekelSchool
 {
-    public abstract class Item
+    public class Item
     {
 
         public int Id
@@ -20,7 +20,7 @@ namespace KrekelSchool
             }
         }
 
-        public int Naam
+        public string Naam
         {
             get
             {
@@ -31,7 +31,7 @@ namespace KrekelSchool
             }
         }
 
-        public int Beschikbaar
+        public bool Beschikbaar
         {
             get
             {
@@ -42,7 +42,7 @@ namespace KrekelSchool
             }
         }
 
-        public int Beschrijving
+        public string Beschrijving
         {
             get
             {

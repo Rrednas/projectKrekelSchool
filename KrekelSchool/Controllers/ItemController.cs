@@ -15,17 +15,17 @@ namespace KrekelSchool
 
         public void addItem(string naam, string beschrijving, bool beschikbaar)
         {
-            throw new System.NotImplementedException();
+            Items.Add(new Item() { Naam = naam, Beschrijving = beschrijving, Beschikbaar = beschikbaar});
         }
 
         public Collection<Item> getItems()
         {
-            throw new System.NotImplementedException();
+            return Items;
         }
 
         public void removeItem(int ID)
         {
-            throw new System.NotImplementedException();
+            Items.RemoveAt(ID);
         }
 
         public void editItem(int ID)
