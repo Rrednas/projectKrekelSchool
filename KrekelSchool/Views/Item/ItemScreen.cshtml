@@ -27,19 +27,23 @@
             
             <table class="table">
                 <tr>
-                    <th>ID</th>
-                    <th>Naam</th>
-                    <th>Voornaam</th>
-                    <th>Uitleningen</th>
+                    @foreach (var p in @Model.First().GetType().GetProperties())
+                    {
+                        <th>@p.Name</th>
+                    }
+                    
+                    
                 </tr>
 
                 @foreach (var l in Model)
                 {
                     <tr>
-                        <td class=""><@l.Id></td>
-                        <td class=""><@l.Naam></td>
-                        <td class=""><@l.Beschrijving></td>
-                        <td class=""><@l.Beschikbaar></td>
+                        @foreach (var prop in l.GetType().GetProperties())
+                        {
+                            <td class=""><@prop.GetValue(l)></td>
+                            
+                        }
+                        
                     </tr>
                 };
             </table>
