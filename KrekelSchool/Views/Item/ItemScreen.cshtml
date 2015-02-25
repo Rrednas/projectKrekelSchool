@@ -27,23 +27,29 @@
             
             <table class="table">
                 <tr>
+                    <th></th>
                     @foreach (var p in @Model.First().GetType().GetProperties())
                     {
                         <th>@p.Name</th>
                     }
-                    
-                    
+
+
                 </tr>
 
                 @foreach (var l in Model)
                 {
                     <tr>
+                        <td>
+                            @Html.ActionLink("Edit","editItem", new { id=l.Id })  |
+                            
+                            @Html.ActionLink("Details", "getItem", new { id=l.Id })
+                        </td>
                         @foreach (var prop in l.GetType().GetProperties())
                         {
                             <td class=""><@prop.GetValue(l)></td>
-                            
+
                         }
-                        
+
                     </tr>
                 };
             </table>
