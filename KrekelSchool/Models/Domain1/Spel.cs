@@ -6,7 +6,7 @@ namespace KrekelSchool.Models.Domain1
 {
     public class Spel : KrekelSchool.Item
     {
-        public Spel(int id, Soort soort, string naam, int beschikbaar, string beschrijving)
+        public Spel(string id, Soort soort, string naam, int beschikbaar, string beschrijving)
             : base(id, soort, naam, beschikbaar, beschrijving)
         {
         }

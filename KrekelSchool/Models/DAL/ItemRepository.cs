@@ -15,7 +15,7 @@ namespace KrekelSchool.Models.DAL
         public ItemRepository(KrekelSchoolContext context)
         {
             kc = context;
-            items = context.items;
+            items = context.Items;
         }
         public Item FindBy(int itemId)
         {

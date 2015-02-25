@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
@@ -16,18 +17,19 @@ namespace KrekelSchool
 {
     public class ItemController : Controller
     {
-        public Collection<Item> Items = new Collection<Item>();
-        public KrekelSchoolContext Context;
+        public List<Item> Items = new List<Item>();
+        ItemRepository repository=new ItemRepository(Context);
+        public static KrekelSchoolContext Context = new KrekelSchoolContext();
 
         public void AddItem(string naam, string beschrijving, int beschikbaar)
         {
             using (Context = new KrekelSchoolContext())
             {
-                Context.items.Create();
+                Context.Items.Create();
             }
         }
 
-        public Collection<Item> getItems()
+        public List<Item> getItems()
         {
             return Items;
         }
@@ -55,12 +57,12 @@ namespace KrekelSchool
 
             return View();
         }
-
+    
 
         public ActionResult ItemScreen()
         {
-            ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
-
+          //  ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
+         //   Items.AddRange(Context.Cds);
             var model = Items;
 
             return View(model);

@@ -17,7 +17,7 @@ namespace KrekelSchool.Models.DAL
         {
             
         }
-        public virtual DbSet<Item> items { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Boek> Boeken { get; set; }
         public virtual DbSet<Cd> Cds { get; set; }
         public virtual DbSet<Dvd> Dvds { get; set; }

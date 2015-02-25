@@ -7,7 +7,7 @@ namespace KrekelSchool.Models.Domain1
 {
     public class Verteltas : KrekelSchool.Item
     {
-        public Verteltas(int id, Soort soort, string naam, int beschikbaar, string beschrijving)
+        public Verteltas(string id, Soort soort, string naam, int beschikbaar, string beschrijving)
             : base(id,soort, naam, beschikbaar, beschrijving)
         {
         }

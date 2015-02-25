@@ -8,8 +8,11 @@ namespace KrekelSchool.Models.Domain1
     {
         public int Size { get; set; }
 
-
-        public Cd(int id, Soort soort, string naam, int beschikbaar, string beschrijving, int size)
+        public Cd() : base()
+        {
+            
+        }
+        public Cd(string id, Soort soort, string naam, int beschikbaar, string beschrijving, int size)
             : base(id, soort, naam, beschikbaar, beschrijving)
         {
             Size = size;

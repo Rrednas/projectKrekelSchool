@@ -7,6 +7,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using KrekelSchool.Models.Domain1;
+using Microsoft.Ajax.Utilities;
 
 namespace KrekelSchool
 {
@@ -21,7 +22,7 @@ namespace KrekelSchool
 
     public abstract class Item
     {
-        private int id;
+        private string id;
 
         private string naam;
 
@@ -35,7 +36,7 @@ namespace KrekelSchool
 
 
 
-        protected Item(int id, Soort soort, string naam, int beschikbaar, string beschrijving)
+        protected Item(string id, Soort soort, string naam, int beschikbaar, string beschrijving)
         {
             this.id = id;
             this.naam = naam;
@@ -47,10 +48,15 @@ namespace KrekelSchool
         protected Item( Soort soort,string naam, int beschikbaar, string beschrijving)
         {
             
-            this.naam = naam;
-            this.beschikbaar = beschikbaar;
-            this.beschrijving = beschrijving;
+            this.Naam = naam;
+            this.Beschikbaar = beschikbaar;
+            this.Beschrijving = beschrijving;
             this.soort = soort;
+        }
+
+        protected Item()
+        {
+            
         }
 
         public string Id
@@ -59,15 +65,15 @@ namespace KrekelSchool
             {
                 string id2 = "";
                 if (soort == Soort.cd)
-                    id2 = string.Format("CD", id);
+                    id2 = string.Format("CD"+ id);
                 if (soort == Soort.spel)
-                    id2 = string.Format("SPEL", id);
+                    id2 = string.Format("SPEL"+ id);
                 if (soort == Soort.verteltas)
-                    id2 = string.Format("TAS", id);
+                    id2 = string.Format("TAS"+ id);
                 if (soort == Soort.dvd)
-                    id2 = string.Format("DVD", id);
+                    id2 = string.Format("DVD"+ id);
                 if (soort == Soort.boek)
-                    id2 = string.Format("BOEK", id);
+                    id2 = string.Format("BOEK"+ id);
                 return id2;
             }
             set { }
