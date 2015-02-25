@@ -14,10 +14,10 @@ namespace KrekelSchool.Models.DAL
         {
             
         }
-
+        public virtual DbSet<Item> items { get; set; }
         public virtual DbSet<Boek> Boeken { get; set; }
-        public virtual DbSet<CD> Cds { get; set; }
-        public virtual DbSet<DVD> Dvds { get; set; }
+        public virtual DbSet<Cd> Cds { get; set; }
+        public virtual DbSet<Dvd> Dvds { get; set; }
         public virtual DbSet<Spel> Spellen { get; set; }
         public virtual DbSet<Verteltas> Verteltassen { get; set; }
 

@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
@@ -12,10 +13,14 @@ namespace KrekelSchool
     public class ItemController : Controller
     {
         public Collection<Item> Items = new Collection<Item>();
+        public KrekelSchoolContext Context;
 
-        public void addItem(string naam, string beschrijving, bool beschikbaar)
+        public void AddItem(string naam, string beschrijving, int beschikbaar)
         {
-            throw new System.NotImplementedException();
+            using (Context = new KrekelSchoolContext())
+            {
+                Context.items.Create();
+            }
         }
 
         public Collection<Item> getItems()

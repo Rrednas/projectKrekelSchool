@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DAL\Mappers\CategorieMap.cs" />
+    <Compile Include="Models\DAL\Mappers\CdMap.cs" />
     <Compile Include="Models\DAL\Mappers\ItemMapper.cs" />
     <Compile Include="Models\DAL\Mappers\VerteltasMap.cs" />
     <Compile Include="Models\Domain1\Item.cs" />
