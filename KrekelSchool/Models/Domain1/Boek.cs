@@ -7,13 +7,17 @@ namespace KrekelSchool.Models.Domain1
 
         public string Isbn
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get; set; }
+
+        public Boek(int id, string naam, int beschikbaar, string beschrijving,string isbn) : base(id, naam, beschikbaar, beschrijving)
+        {
+            Isbn = isbn;
+        }
+
+        public Boek(string naam, int beschikbaar, string beschrijving,string isbn)
+            : base(naam, beschikbaar, beschrijving)
+        {
+            Isbn = isbn;
         }
     }
 }
