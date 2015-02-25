@@ -40,11 +40,15 @@ namespace KrekelSchool
         public int Beschikbaar { get; set; }
 
         public string Beschrijving { get; set; }
+
+
         public virtual ICollection<Boek> Boeken { get; private set; }
         public virtual ICollection<Cd> Cds { get; private set; }
         public virtual ICollection<Dvd> Dvds { get; private set; }
         public virtual ICollection<Spel> Spellen { get; private set; }
         public virtual ICollection<Verteltas> Verteltassen { get; private set; }
+
+
         //BOEK
         public Boek AddBoek(string isbn, string naam, string beschrijving, int beschikbaar)
         {

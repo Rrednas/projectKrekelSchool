@@ -23,15 +23,11 @@ namespace KrekelSchool.Models.DAL
                 Item dvd = new Dvd( "dvd1", 3, "beesch",500);
 
                 context.items.Add(boek);
-
-               context.items.Add(cd);
-
+                context.items.Add(cd);
                 context.items.Add(spel);
                 context.items.Add(vertelt);
                 context.items.Add(dvd);
                 context.SaveChanges();
-               
-                
             
             }
             catch (Exception e)
