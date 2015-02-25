@@ -16,6 +16,8 @@ namespace KrekelSchool.Models.DAL
                 Leerling boy = new Leerling("kleinen","dude",1);
                 context.Leerlingen.Add(boy);
                 context.SaveChanges();
+                Boek boek = new Boek();
+                context.Boeken.Add(boek);
             }
             catch (Exception e)
             {

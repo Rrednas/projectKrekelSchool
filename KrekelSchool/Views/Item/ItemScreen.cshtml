@@ -1,11 +1,12 @@
-﻿@using KrekelSchool.Models.Domain1
+﻿@using System.Web.Mvc.Html
+@using KrekelSchool.Models.Domain1
 @using Microsoft.AspNet.Identity
 @{
-    ViewBag.Title = "AdminScreen";
+    ViewBag.Title = "ItemScreen";
 }
 
 <h2>@ViewBag.Title.</h2>
-@using (Html.BeginForm("ItemScreen", "Item", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("ItemScreen", "Item" , new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <h4>@ViewBag.Message</h4>
     <hr />
@@ -22,7 +23,7 @@
             <label for="">Zoekresultaat:</label>
             @*<textarea disabled class="form-control formList"></textarea>*@
             
-            @model IEnumerable<Item>
+            @model  IEnumerable<Item>
             
             <table class="table">
                 <tr>

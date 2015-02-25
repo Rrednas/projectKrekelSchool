@@ -5,15 +5,6 @@ namespace KrekelSchool.Models.Domain1
     public class Boek : KrekelSchool.Item
     {
 
-        public string Isbn
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public string Isbn { get; set; }
     }
 }
