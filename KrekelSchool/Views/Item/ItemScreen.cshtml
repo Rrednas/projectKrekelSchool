@@ -22,7 +22,7 @@
             </div>
             <label for="">Zoekresultaat:</label>
             @*<textarea disabled class="form-control formList"></textarea>*@
-            
+        </div>            
             @model  IEnumerable<Item>
             
             <table class="table">
@@ -42,7 +42,9 @@
                         <td>
                             @Html.ActionLink("Edit","editItem", new { id=l.Id })  |
                             
-                            @Html.ActionLink("Details", "getItem", new { id=l.Id })
+                            @Html.ActionLink("Details", "getItem", new { id=l.Id }) |
+
+                            @Html.ActionLink("Delete", "removeItem", new {id =  l.Id})
                         </td>
                         @foreach (var prop in l.GetType().GetProperties())
                         {
@@ -54,22 +56,8 @@
                 };
             </table>
             
-        </div>
+        
 
-        <div class="col-md-4 details">
-            <label for="">Details zoekresultaat:</label>
-            <textarea disabled class="form-control formList"></textarea>
-            <div class="row">
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnMod" href="">Bewerk</a></p>
-                </div>
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnRemove" href="">Verwijder</a></p>
-                </div>
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnSave" href="">Opslaan</a></p>
-                </div>
-            </div>
-        </div>
+        
     </div>
 }

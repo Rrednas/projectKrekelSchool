@@ -8,12 +8,18 @@ namespace KrekelSchool
 {
     public abstract class Item
     {
-
+        public Item( int id , string naam , int beschikbaar , string beschrijving)
+        {
+            Id = id;
+            Naam = naam;
+            Beschikbaar = beschikbaar;
+            Beschrijving = beschrijving;
+        }
         public int Id { get; set; }
 
-        public int Naam { get; set; }
+        public string Naam { get; set; }
 
         public int Beschikbaar { get; set; }
-        public int Beschrijving { get; set; }
+        public string Beschrijving { get; set; }
     }
 }
