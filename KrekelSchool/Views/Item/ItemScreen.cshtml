@@ -40,11 +40,12 @@
                 {
                     <tr>
                         <td>
-                            @Html.ActionLink("Edit","editItem", new { id=l.Id })  |
+                            @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
+                            @Html.ActionLink("Edit", "ItemAanpassen", "Item",null, new { id = l.Id, @class = "modal-link btn btn-success" })  |
                             
-                            @Html.ActionLink("Details", "getItem", new { id=l.Id }) |
+                            @Html.ActionLink("Details", "getItem", new { id = l.Id }) |
 
-                            @Html.ActionLink("Delete", "removeItem", new {id =  l.Id})
+                            @Html.ActionLink("Delete", "removeItem", new {id = l.Id})
                            
                         </td>
                         @foreach (var prop in l.GetType().GetProperties())

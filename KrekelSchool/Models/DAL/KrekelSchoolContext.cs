@@ -31,8 +31,7 @@ namespace KrekelSchool.Models.DAL
             modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.Ignore<Iitem>();
             base.OnModelCreating(modelBuilder);
-
-
         }
+        
     }
 }

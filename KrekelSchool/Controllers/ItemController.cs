@@ -7,6 +7,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using System.Web.UI;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 
@@ -15,7 +16,6 @@ namespace KrekelSchool
     public class ItemController : Controller
     {
         public List<Item> Items = new List<Item>();
-        public List<Boek> Boeken = new List<Boek>();
         private KrekelSchoolContext context = new KrekelSchoolContext();
 
         public void addItem(string naam, string beschrijving, bool beschikbaar)
@@ -33,9 +33,9 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public void editItem(int ID)
+        public void editItem(string id)
         {
-            throw new System.NotImplementedException();
+            Items.Find(i =>i.Id.Equals(id));
         }
 
         public Item getItem()
@@ -75,9 +75,20 @@ namespace KrekelSchool
             }
             
             var model = Items;
-            
-
             return View(model);
+        }
+
+        
+
+        public ActionResult ItemAanpassen()
+        {
+            return PartialView("ItemAanpassen");
+        }
+
+        [HttpPost]
+        public ActionResult ReturnItemScreen()
+        {
+            return RedirectToAction("ItemScreen");
         }
     }
 }
