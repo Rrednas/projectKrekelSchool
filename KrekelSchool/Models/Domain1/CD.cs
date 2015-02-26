@@ -5,5 +5,10 @@
         public CD(int id, string naam, int beschikbaar, string beschrijving) : base(id, naam, beschikbaar, beschrijving)
         {
         }
+
+        public CD()
+        {
+            
+        }
     }
 }
