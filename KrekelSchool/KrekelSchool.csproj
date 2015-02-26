@@ -209,6 +209,7 @@
     <Content Include="images\icons\books.png" />
     <Content Include="images\icons\double.png" />
     <Content Include="images\icons\group.png" />
+    <Content Include="images\icons\music.png" />
     <Content Include="images\icons\note.png" />
     <Content Include="images\icons\puzzle.png" />
     <Content Include="images\icons\work.png" />

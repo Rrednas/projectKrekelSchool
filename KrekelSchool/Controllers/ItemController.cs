@@ -15,6 +15,7 @@ namespace KrekelSchool
     public class ItemController : Controller
     {
         public List<Item> Items = new List<Item>();
+        public List<Boek> Boeken = new List<Boek>();
         private KrekelSchoolContext context = new KrekelSchoolContext();
 
         public void addItem(string naam, string beschrijving, bool beschikbaar)
