@@ -7,10 +7,7 @@ namespace KrekelSchool.Models.Domain1
 
         public string Isbn { get; set; }
 
-        public Boek()
-        {
-            
-        }
+        
 
         public Boek(int id, string naam, int beschikbaar, string beschrijving , string isbn) : base(id, naam, beschikbaar, beschrijving)
         {
