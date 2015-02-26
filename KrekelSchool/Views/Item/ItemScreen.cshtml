@@ -48,16 +48,12 @@
                         </td>
                         @foreach (var prop in l.GetType().GetProperties())
                         {
-                            <td class=""><@prop.GetValue(l)></td>
+                            <td class=""><@prop.GetValue(l).GetType()></td>
 
                         }
 
                     </tr>
                 };
             </table>
-            
-        
-
-        
     </div>
 }

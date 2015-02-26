@@ -15,6 +15,14 @@ namespace KrekelSchool
             Beschikbaar = beschikbaar;
             Beschrijving = beschrijving;
         }
+
+        protected Item()
+        {
+            
+        }
+
+        
+
         public int Id { get; set; }
 
         public string Naam { get; set; }

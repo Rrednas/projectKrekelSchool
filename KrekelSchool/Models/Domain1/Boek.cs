@@ -11,5 +11,10 @@ namespace KrekelSchool.Models.Domain1
         {
             Isbn = isbn;
         }
+
+        public Boek() :base()
+        {
+           
+        }
     }
 }

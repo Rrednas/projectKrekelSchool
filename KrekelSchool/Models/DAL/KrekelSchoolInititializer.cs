@@ -17,7 +17,7 @@ namespace KrekelSchool.Models.DAL
                 context.Leerlingen.Add(boy);
                 context.SaveChanges();
                 
-                    context.Boeken.Add(new Boek(1, "boek" , 2, "Beschrijving" , "12FZEF124TFAAZ" ));
+                    context.Items.Add(new Boek(1, "boek" , 2, "Beschrijving" , "12FZEF124TFAAZ" ));
                     context.SaveChanges();
                 
                 
