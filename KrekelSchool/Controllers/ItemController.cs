@@ -57,13 +57,33 @@ namespace KrekelSchool
 
             return View();
         }
-    
-
-        public ActionResult ItemScreen()
+        public ActionResult ItemScreen( string id)
         {
-          //  ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
-         //   Items.AddRange(Context.Cds);
+            
+            ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
+            switch (id)
+        {
+                case "Boeken": 
+                    Items.AddRange(context.Boeken);
+                    break;
+                case "Cds":
+                    Items.AddRange(context.Cds);
+                    break;
+                case "Dvds":
+                    Items.AddRange(context.Dvds);
+                    break;
+                case "Verteltassen":
+                    Items.AddRange(context.Verteltassen);
+                    break;
+                case "Spellen":
+                    Items.AddRange(context.Spellen);
+                    break;
+                default:
+                    throw new Exception("geen Id meegegeven");
+            }
+            
             var model = Items;
+            
 
             return View(model);
         }

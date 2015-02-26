@@ -1,11 +1,12 @@
-﻿@using KrekelSchool.Models
+﻿@using System.Web.Mvc.Html
+@using KrekelSchool.Models.Domain1
 @using Microsoft.AspNet.Identity
 @{
-    ViewBag.Title = "Itemcreen";
+    ViewBag.Title = "ItemScreen";
 }
 
 <h2>@ViewBag.Title.</h2>
-@using (Html.BeginForm("ItemScreen", "Item", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("ItemScreen", "Item" , new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <h4>@ViewBag.Message</h4>
     <hr />
@@ -21,44 +22,44 @@
             </div>
             <label for="">Zoekresultaat:</label>
             @*<textarea disabled class="form-control formList"></textarea>*@
-            @model IEnumerable<Item>
-
+        </div>            
+            @model  IEnumerable<Item>
+            
             <table class="table">
                 <tr>
-                    <th>ID</th>
-                    <th>Naam</th>
-                    <th>Beschrijving</th>
-                    <th>Beschikbaar</th>
+                    <th></th>
+                    @foreach (var p in @Model.First().GetType().GetProperties())
+                    {
+                        <th>@p.Name</th>
+                    }
+
+
                 </tr>
 
-                @foreach (var i in Model)
+                @foreach (var l in Model)
                 {
-
                     <tr>
-                        <td class=""><@i.Id></td>
-                        <td class=""><@i.Naam></td>
-                        <td class=""><@i.Beschrijving></td>
-                        <td class=""><@i.Beschikbaar></td>
+                        <td>
+                            @Html.ActionLink("Edit","editItem", new { id=l.Id })  |
+                            
+                            @Html.ActionLink("Details", "getItem", new { id=l.Id }) |
+
+                            @Html.ActionLink("Delete", "removeItem", new {id =  l.Id})
+                           
+                        </td>
+                        @foreach (var prop in l.GetType().GetProperties())
+                        {
+                            <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
+                            
+
+                        }
+
                     </tr>
                 };
-
             </table>
-        </div>
-
-        <div class="col-md-4 details">
-            <label for="">Details zoekresultaat:</label>
-            <textarea disabled class="form-control formList"></textarea>
-            <div class="row">
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnMod" href="">Bewerk</a></p>
-                </div>
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnRemove" href="">Verwijder</a></p>
-                </div>
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnSave" href="">Opslaan</a></p>
-                </div>
-            </div>
-        </div>
+            
+        
+        
+        
     </div>
 }
