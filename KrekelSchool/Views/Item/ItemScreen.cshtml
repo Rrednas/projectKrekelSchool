@@ -45,10 +45,12 @@
                             @Html.ActionLink("Details", "getItem", new { id=l.Id }) |
 
                             @Html.ActionLink("Delete", "removeItem", new {id =  l.Id})
+                           
                         </td>
                         @foreach (var prop in l.GetType().GetProperties())
                         {
-                            <td class=""><@prop.GetValue(l)></td>
+                            <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
+                            
 
                         }
 
@@ -57,7 +59,7 @@
             </table>
             
         
-
+        
         
     </div>
 }
