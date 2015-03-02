@@ -10,31 +10,57 @@ namespace KrekelSchool.Models.DAL
     public class ItemRepository : IitemRepository
     {
         private KrekelSchoolContext kc;
-        private DbSet<Item> items;
-
-        public ItemRepository(KrekelSchoolContext context)
+        private DbSet Items;
+        
+        private string Soort;
+        public ItemRepository(KrekelSchoolContext context, string soort)
         {
             kc = context;
-            items = context.Items;
+           // items = context.Items;
+            Soort = soort;
+            switch (Soort)
+            {
+                case "Boeken":
+                    Items = kc.Boeken;
+                    break;
+                case "Cds":
+                    Items = kc.Cds;
+                    break;
+                case "Dvds":
+                    Items = kc.Dvds;
+                    break;
+                case "Verteltassen":
+                    Items = kc.Verteltassen;
+                    break;
+                case "Spellen":
+                    Items = kc.Spellen;
+                    break;
+                default:
+                    throw new Exception("geen Id meegegeven");
+            }
+            
+            
         }
         public Item FindBy(int itemId)
         {
-            return items.Find(itemId);
+            return (Item) Items.Find(itemId);
         }
 
         public IQueryable<Item> FindAll()
         {
-            return items;
+            
+            return  (IQueryable<Item>) Items;
+        
         }
 
         public void Add(Item item)
         {
-            items.Add(item);
+            Items.Add(item);
         }
 
         public void Delete(Item item)
         {
-            items.Remove(item);
+            Items.Remove(item);
         }
 
         public void SaveChanges()

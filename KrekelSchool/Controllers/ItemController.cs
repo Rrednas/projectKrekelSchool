@@ -16,7 +16,7 @@ namespace KrekelSchool
     public class ItemController : Controller
     {
         public List<Item> Items = new List<Item>();
-        ItemRepository repository = new ItemRepository(context);
+        private ItemRepository repository;
         public static KrekelSchoolContext context = new KrekelSchoolContext();
 
         public void addItem(string naam, string beschrijving, bool beschikbaar)
@@ -55,30 +55,10 @@ namespace KrekelSchool
         }
         public ActionResult ItemScreen( string id)
         {
-            
+            repository = new ItemRepository(context,id);
             ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
-            switch (id)
-            {
-                case "Boeken": 
-                    Items.AddRange(context.Boeken);
-                    break;
-                case "Cds":
-                    Items.AddRange(context.Cds);
-                    break;
-                case "Dvds":
-                    Items.AddRange(context.Dvds);
-                    break;
-                case "Verteltassen":
-                    Items.AddRange(context.Verteltassen);
-                    break;
-                case "Spellen":
-                    Items.AddRange(context.Spellen);
-                    break;
-                default:
-                    throw new Exception("geen Id meegegeven");
-            }
             
-            var model = Items;
+            var model = repository.FindAll();
             return View(model);
         }
 
