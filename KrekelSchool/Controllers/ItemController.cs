@@ -16,21 +16,25 @@ namespace KrekelSchool
     public class ItemController : Controller
     {
         public List<Item> Items = new List<Item>();
-        private KrekelSchoolContext context = new KrekelSchoolContext();
+        ItemRepository repository = new ItemRepository(Context);
+        public static KrekelSchoolContext context = new KrekelSchoolContext();
 
         public void addItem(string naam, string beschrijving, bool beschikbaar)
         {
-            throw new System.NotImplementedException();
+            using (context = new KrekelSchoolContext())
+            {
+                context.Items.Create();
+            }
         }
 
-        public Collection<Item> getItems()
+        public List<Item> getItems()
         {
-            throw new System.NotImplementedException();
+            return Items;
         }
 
         public void removeItem(int ID)
         {
-            throw new System.NotImplementedException();
+            Items.RemoveAt(ID);
         }
 
         public void editItem(string id)

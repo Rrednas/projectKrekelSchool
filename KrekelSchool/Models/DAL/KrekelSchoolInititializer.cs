@@ -22,7 +22,7 @@ namespace KrekelSchool.Models.DAL
                 context.SaveChanges();
                 context.Items.Add(new Boek(3, "bla", 2, "lololol", "grat e nummer"));
                 context.SaveChanges();
-                context.Items.Add(new CD(4, "ceidei", 2, "lolol"));
+                context.Items.Add(new Cd(4, "ceidei", 2, "lolol"));
                 context.SaveChanges();
             }
             catch (Exception e)
