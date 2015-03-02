@@ -2,8 +2,16 @@
 {
     public class Dvd : KrekelSchool.Item
     {
-        public Dvd(int id, string naam, int beschikbaar, string beschrijving) : base(id, naam, beschikbaar, beschrijving)
+        public int Size { get; set; }
+
+        public Dvd(string id, string naam, int beschikbaar, string beschrijving, int size) : base(id, naam, beschikbaar, beschrijving)
         {
+            Size = size;
+        }
+
+        public Dvd()
+        {
+            
         }
     }
 }

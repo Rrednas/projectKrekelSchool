@@ -2,8 +2,12 @@
 {
     public class Cd : KrekelSchool.Item
     {
-        public Cd(int id, string naam, int beschikbaar, string beschrijving) : base(id, naam, beschikbaar, beschrijving)
+        public int Size { get; set; }
+
+        public Cd(string id, string naam, int beschikbaar, string beschrijving, int size)
+            : base(id, naam, beschikbaar, beschrijving)
         {
+            Size = size;
         }
 
         public Cd()
