@@ -11,14 +11,17 @@
     <h4>@ViewBag.Message</h4>
     <hr />
     <div class="row">
-        <div class="col-md-4 searchResult">
+        <div class="col-md-12 searchResult">
             <div class="row">
                 <div class="col-md-8 search">
                     <textarea class="form-control formListSearch"></textarea>
+                    @*<div class="col-md-12 btnSearchCol">*@
+                        <a class="btn btn-default btnSearch" href="">Zoek</a>
+                    @*</div>*@
                 </div>
-                <div class="col-md-8 btnSearchCol">
+                @*<div class="col-md-8 btnSearchCol">
                     <a class="btn btn-default btnSearch" href="">Zoek</a>
-                </div>
+                </div>*@
             </div>
             <label for="">Zoekresultaat:</label>
             @*<textarea disabled class="form-control formList"></textarea>*@

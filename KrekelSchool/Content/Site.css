@@ -1,4 +1,7 @@
-﻿body {
+﻿
+
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
     background-image: url("../images/krekelBgnd.jpg");
@@ -60,8 +63,8 @@ footer {
 
 .btnSearch {
     width: 28%;
-    margin: -35px 0 20px 85%;
-    float: right;
+    margin: -36px 0 20px 72%;
+    
 }
 
 .btnMod {
@@ -96,7 +99,6 @@ textarea.formList {
     resize: none;
     margin: 0 0 20px 0;
 }
-
 
 
 .search, .btnSearchCol, .searchResult, .details, .col1{
@@ -138,8 +140,8 @@ textarea.formList {
     }
 
     .btnSearch {
-        width: 28%;
-        margin: -45px 0 0 127%;
+        width: 55%;
+        margin: -78px 0 0 360px;
     }
 
     .btnMod {
@@ -191,5 +193,6 @@ textarea.formList {
 
     .containerItem {
         margin-left: 90px;
+
     }
 }
