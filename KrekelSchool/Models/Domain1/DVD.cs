@@ -1,9 +1,17 @@
 ﻿namespace KrekelSchool.Models.Domain1
 {
-    public class DVD : KrekelSchool.Item
+    public class Dvd : KrekelSchool.Item
     {
-        public DVD(int id, string naam, int beschikbaar, string beschrijving) : base(id, naam, beschikbaar, beschrijving)
+        public int Size { get; set; }
+
+        public Dvd(string id, string naam, int beschikbaar, string beschrijving, int size) : base(id, naam, beschikbaar, beschrijving)
         {
+            Size = size;
+        }
+
+        public Dvd()
+        {
+            
         }
     }
 }

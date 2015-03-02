@@ -12,8 +12,8 @@ namespace KrekelSchool.Models.DAL.Mappers
         public ItemMapper()
         {
             Map<Boek>(m => m.MapInheritedProperties().ToTable("Boeken"));
-            Map<CD>(m => m.MapInheritedProperties().ToTable("Cds"));
-            Map<DVD>(m => m.MapInheritedProperties().ToTable("Dvds"));
+            Map<Cd>(m => m.MapInheritedProperties().ToTable("Cds"));
+            Map<Dvd>(m => m.MapInheritedProperties().ToTable("Dvds"));
             Map<Verteltas>(m => m.MapInheritedProperties().ToTable("verteltassen"));
             Map<Spel>(m => m.MapInheritedProperties().ToTable("Spellen"));
             

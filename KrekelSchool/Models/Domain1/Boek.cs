@@ -9,7 +9,7 @@ namespace KrekelSchool.Models.Domain1
 
         
 
-        public Boek(int id, string naam, int beschikbaar, string beschrijving , string isbn) : base(id, naam, beschikbaar, beschrijving)
+        public Boek(string id, string naam, int beschikbaar, string beschrijving , string isbn) : base(id, naam, beschikbaar, beschrijving)
         {
             Isbn = isbn;
         }

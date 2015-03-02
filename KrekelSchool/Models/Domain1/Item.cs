@@ -8,7 +8,7 @@ namespace KrekelSchool
 {
     public abstract class Item
     {
-        protected Item( int id , string naam , int beschikbaar , string beschrijving)
+        protected Item( string id , string naam , int beschikbaar , string beschrijving)
         {
             Id = id;
             Naam = naam;
@@ -20,7 +20,7 @@ namespace KrekelSchool
         {
             
         }
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Naam { get; set; }
         public int Beschikbaar { get; set; }
         public string Beschrijving { get; set; }
