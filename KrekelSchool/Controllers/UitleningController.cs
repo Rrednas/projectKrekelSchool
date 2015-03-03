@@ -51,13 +51,17 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public void checkOutUitlening(int ID)
+        public void checkOutUitlening(Uitlening uitlening)
         {
+            // uitleningeinddatum < huidigeDatum => Boete 
+            // schade Claim => Boete (laag, hoge claim)
+            // UitleningeindDatum > huidige datum => No problem check that shit out
             throw new System.NotImplementedException();
         }
 
         public void addUitlening(Leerling leerling, DateTime uitlendatum, Collection<Item> items)
         {
+            
             throw new System.NotImplementedException();
         }
     }
