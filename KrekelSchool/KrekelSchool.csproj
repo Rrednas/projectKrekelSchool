@@ -274,6 +274,7 @@
     <Content Include="Views\Leerling\LeerlingScreen.cshtml" />
     <Content Include="Views\Item\ItemScreen.cshtml" />
     <Content Include="Views\Item\ItemAanpassen.cshtml" />
+    <Content Include="Views\Item\ItemToevoegen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

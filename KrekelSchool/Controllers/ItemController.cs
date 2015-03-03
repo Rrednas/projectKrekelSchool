@@ -8,6 +8,7 @@ using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Web.UI;
+using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 
@@ -19,7 +20,7 @@ namespace KrekelSchool
         private ItemRepository repository;
         public static KrekelSchoolContext context = new KrekelSchoolContext();
 
-        public void addItem(string naam, string beschrijving, bool beschikbaar)
+        public void addItem(Item item)
         {
             using (context = new KrekelSchoolContext())
             {
@@ -53,7 +54,8 @@ namespace KrekelSchool
 
             return View();
         }
-        public ActionResult ItemScreen( string id)
+
+        public ActionResult ItemScreen(string id)
         {
             repository = new ItemRepository(context,id);
             ViewBag.Title = id + "-Lijst";
@@ -63,11 +65,37 @@ namespace KrekelSchool
             return View(model);
         }
 
-        
-
         public ActionResult ItemAanpassen()
         {
             return PartialView("ItemAanpassen");
+        }
+
+        public ActionResult ItemToevoegen()
+        {
+            return View(new BoekViewModel(new Boek()));
+        }
+
+        [HttpPost]
+        public ActionResult ItemToevoegen(BoekViewModel bvm)
+        {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Boek boek = new Boek(bvm.Id, bvm.Naam, bvm.Beschikbaar, bvm.Beschrijving, bvm.Leeftijd, bvm.Isbn, bvm.Auteur, bvm.Uitgever);
+                    repository.Add(boek);
+                    repository.SaveChanges();
+                    TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
+                    return RedirectToAction("ItemScreen");
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("", e.Message);
+                }
+                
+            }
+            return View(bvm);
         }
 
         [HttpPost]

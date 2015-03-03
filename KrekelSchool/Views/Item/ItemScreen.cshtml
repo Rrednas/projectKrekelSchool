@@ -8,52 +8,56 @@
 
 
 <h2>@ViewBag.Title.</h2>
-@using (Html.BeginForm("ItemScreen", "Item" , new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("ItemScreen", "Item" , new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = Model.Last().Id + 1, @class = "form-horizontal", role = "form" }))
 {
     <h4>@ViewBag.Message</h4>
     <hr />
     <div class="row">
-            @model  IEnumerable<Item>
+        
+        <div class="col-md-12 search">
+            <textarea class="form-control formListSearch"></textarea>
+            <a class="btn btn-default btnSearch" href="">Zoek</a>
+        </div>
+        
+        
+        
+        @model  IEnumerable<Item>
             
-            <table class="table">
-                <tr>
-                    <th></th>
-                    @foreach (var p in @Model.First().GetType().GetProperties())
-                    {
+        <table class="table">
+            <tr>
+                <th>@Html.ActionLink("Voeg nieuw item toe", "ItemToevoegen", "Item", null, new { @class = "modal-link btn btn-success" })</th>
+                @foreach (var p in @Model.First().GetType().GetProperties())
+                {
                         
-                        <th>
-                            <div class="col-md-12 search">
-                                <textarea class="form-control formListSearch"></textarea>
-                                <a class="btn btn-default btnSearch" href="">Zoek</a>
-                            </div>
-                            @p.Name
-                        </th>
+                    <th>
+                        @p.Name
+                    </th>
+                }
+
+
+            </tr>
+
+            @foreach (var l in Model)
+            {
+                <tr>
+                    <td>
+                        @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
+                        @Html.ActionLink("Edit", "ItemAanpassen", "Item",null, new { id = l.Id, @class = "modal-link btn btn-success" })  |
+                            
+                        @Html.ActionLink("Details", "getItem", new { id = l.Id }) |
+
+                        @Html.ActionLink("Delete", "removeItem", new {id = l.Id})
+                           
+                    </td>
+                    @foreach (var prop in l.GetType().GetProperties())
+                    {
+                        <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
+                            
+
                     }
 
-
                 </tr>
-
-                @foreach (var l in Model)
-                {
-                    <tr>
-                        <td>
-                            @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
-                            @Html.ActionLink("Edit", "ItemAanpassen", "Item",null, new { id = l.Id, @class = "btn btn-success" })  |
-                            
-                            @Html.ActionLink("Details", "getItem", new { id = l.Id }) |
-
-                            @Html.ActionLink("Delete", "removeItem", new {id = l.Id})
-                           
-                        </td>
-                        @foreach (var prop in l.GetType().GetProperties())
-                        {
-                            <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
-                            
-
-                        }
-
-                    </tr>
-                }
-            </table>
+            }
+        </table>
     </div>
 }

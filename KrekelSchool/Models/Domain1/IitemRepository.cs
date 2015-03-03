@@ -8,7 +8,7 @@ namespace KrekelSchool.Models.Domain1
 {
     public interface IitemRepository
     {
-        Item FindBy(int itemId);
+        Item FindBy(string itemId);
         IQueryable<Item> FindAll();
         void Add(Item item);
         void Delete(Item item);

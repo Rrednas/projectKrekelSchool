@@ -17,5 +17,10 @@ namespace KrekelSchool.Models.Domain1
             {
             }
         }
+
+        public Categorie()
+        {
+            
+        }
     }
 }

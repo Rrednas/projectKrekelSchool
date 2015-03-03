@@ -11,14 +11,13 @@ namespace KrekelSchool.Models.DAL
     {
         private KrekelSchoolContext kc;
         private DbSet Items;
-        
+
         private string Soort;
 
 
         public ItemRepository(KrekelSchoolContext context, string soort)
         {
             kc = context;
-           // items = context.Items;
             Soort = soort;
             switch (Soort)
             {
@@ -42,16 +41,16 @@ namespace KrekelSchool.Models.DAL
             }
             
         }
-        public Item FindBy(int itemId)
+
+        
+        public Item FindBy(string itemId)
         {
             return (Item) Items.Find(itemId);
         }
 
         public IQueryable<Item> FindAll()
         {
-            
             return  (IQueryable<Item>) Items;
-        
         }
 
         public void Add(Item item)

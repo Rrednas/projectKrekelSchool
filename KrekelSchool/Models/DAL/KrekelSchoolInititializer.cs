@@ -16,13 +16,13 @@ namespace KrekelSchool.Models.DAL
                 Leerling boy = new Leerling("kleinen","dude",1);
                 context.Leerlingen.Add(boy);
                 context.SaveChanges();
-                
-                context.Boeken.Add(new Boek("1", "boek" , 2, "Beschrijving" , "12FZEF124TFAAZ" ));
-                context.Boeken.Add(new Boek("2", "De Koning", 2, "Boek over koning", "ISbnNummer"));
+
+                context.Boeken.Add(new Boek("1", "boek", 2, "Beschrijving van de koning en zijn paard, daar reed hij op tot hij de princes tegen kwam en haar hoofd eraf nam",12, "9789027439642", "de lul", "vogelmans"));
+                context.Boeken.Add(new Boek("2", "De Koning", 2, "Boek over koning", 5, "9789027439642", "Marc De Bel", "Standaard Uitgeverij"));
                 context.SaveChanges();
-                context.Items.Add(new Boek("3", "bla", 2, "lololol", "grat e nummer"));
+                context.Items.Add(new Boek("9999", "bla", 2, "lololol", 5,  "9789027439642", "Paul Kalf", "Den Beenhouwer"));
                 context.SaveChanges();
-                context.Items.Add(new Cd("4", "ceidei", 2, "lolol", 55));
+                context.Items.Add(new Cd("4", "ceidei", 2, "lolol", 6,  55));
                 context.SaveChanges();
             }
             catch (Exception e)

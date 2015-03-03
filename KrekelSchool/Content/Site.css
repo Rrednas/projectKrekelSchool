@@ -97,10 +97,8 @@ textarea.formList {
     margin: 0 0 20px 0;
 }
 
-.search {
-    margin: 0 0 0 -15px;
-}
-.btnSearchCol, .searchResult, .details, .col1{
+
+.search, .btnSearchCol, .searchResult, .details, .col1{
     width: auto;
     margin: 0 0 0 0;
 }
@@ -126,7 +124,9 @@ textarea.formList {
     width: 120px;
 }
 
-
+.label {
+    color: white;
+}
 
 @media screen and (min-width: 981px) {
     .btnItem {
@@ -140,7 +140,7 @@ textarea.formList {
 
     .btnSearch {
         width: 55%;
-        margin: -78px 0 0 100px;
+        margin: -76px 0 0 240px;
     }
 
     .btnMod {
@@ -176,8 +176,8 @@ textarea.formList {
     }
 
     .search {
-        max-width: 100px;
-        width: 80px;
+        max-width: 200px;
+        width: 150px;
     }
 
     .searchResult {
