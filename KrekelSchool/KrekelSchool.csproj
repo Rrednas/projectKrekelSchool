@@ -176,7 +176,9 @@
     <Compile Include="Models\DAL\Mappers\DvdMap.cs" />
     <Compile Include="Models\DAL\Mappers\ItemMapper.cs" />
     <Compile Include="Models\DAL\Mappers\SpelMap.cs" />
+    <Compile Include="Models\DAL\UitleningRepository.cs" />
     <Compile Include="Models\DAL\Mappers\VerteltasMap.cs" />
+    <Compile Include="Models\Domain1\IUitleningRepository.cs" />
     <Compile Include="Models\Domain1\ILeerlingRepository.cs" />
     <Compile Include="Models\Domain1\IitemRepository.cs" />
     <Compile Include="Models\Domain1\Item.cs" />

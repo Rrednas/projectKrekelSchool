@@ -4,12 +4,20 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Drawing.Design;
+using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
     public class UitleningController
     {
+        private IUitleningenRepository repos;
+
+        public UitleningController(KrekelSchoolContext context)
+        {
+            repos = new UitleningRepository(context);
+        }
         public Collection<Uitlening> Uitleningen
         {
             get
@@ -26,9 +34,9 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public void removeUitlening(int ID)
+        public void removeUitlening(Uitlening uitlening)
         {
-            throw new System.NotImplementedException();
+            repos.Delete(uitlening);
         }
 
         public Uitlening getUitlening()
@@ -46,7 +54,7 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public void addUitlening(Leerling leerling, DateTime uitlendatum, Collection<Iitem> items)
+        public void addUitlening(Leerling leerling, DateTime uitlendatum, Collection<Item> items)
         {
             throw new System.NotImplementedException();
         }
