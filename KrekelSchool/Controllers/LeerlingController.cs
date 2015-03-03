@@ -1,42 +1,52 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Linq;
 using System.Web.UI.WebControls;
+using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
     public class LeerlingController : Controller
     {
-        public Collection<Leerling> Leerlingen = new Collection<Leerling>();
+        public List<Leerling> Leerlingen = new List<Leerling>();
+        private ILeerlingrepository repos;
 
-        public void addLeerling(string naam, string voornaam)
+        public LeerlingController(KrekelSchoolContext context)
         {
-            throw new System.NotImplementedException();
+         repos= new LeerlingRepository(context);   
         }
 
-        public Leerling getLeerling()
+        public void AddLeerling(Leerling leerling)
         {
-            throw new System.NotImplementedException();
+            repos.Add(leerling);
         }
 
-        public Collection<Leerling>  getLeerlingen()
+        //public Leerling getLeerling()
+        //{
+        //    throw new System.NotImplementedException();
+        //}
+
+        public List<Leerling>  GetLeerlingen()
         {
-            throw new System.NotImplementedException();
+            return repos.FindAll().ToList();
         }
 
-        public void editLeerling(int ID)
+        public void EditLeerling(Leerling leerling)
         {
-            throw new System.NotImplementedException();
+            RemoveLeerling(repos.FindBy(leerling.ID));
+            AddLeerling(leerling);
         }
 
-        public void removeLeerling(int ID)
+        public void RemoveLeerling(Leerling leerling)
         {
-            throw new System.NotImplementedException();
+            repos.Delete(leerling);
         }
 
         public ActionResult LeerlingScreen()

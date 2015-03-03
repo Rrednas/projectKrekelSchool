@@ -29,29 +29,29 @@ namespace KrekelSchool
             }
         }
 
-        public void editUitlening(Uitlening uitlening)
+        public void EditUitlening(Uitlening uitlening)
         {
             // Remove add = edit?
             // removeUitlening(uitlening);
            
         }
 
-        public void removeUitlening(Uitlening uitlening)
+        public void RemoveUitlening(Uitlening uitlening)
         {
             repos.Delete(uitlening);
         }
 
-        public Uitlening getUitlening()
+        public Uitlening GetUitlening()
         {
             throw new System.NotImplementedException();
         }
 
-        public Collection<Uitlening> getUitleningen()
+        public Collection<Uitlening> GetUitleningen()
         {
             throw new System.NotImplementedException();
         }
 
-        public void checkOutUitlening(Uitlening uitlening)
+        public void CheckOutUitlening(Uitlening uitlening)
         {
             // uitleningeinddatum < huidigeDatum => Boete 
             // schade Claim => Boete (laag, hoge claim)
@@ -59,7 +59,7 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public void addUitlening(Leerling leerling, DateTime uitlendatum, Collection<Item> items)
+        public void AddUitlening(Leerling leerling, DateTime uitlendatum, Collection<Item> items)
         {
             
             throw new System.NotImplementedException();
