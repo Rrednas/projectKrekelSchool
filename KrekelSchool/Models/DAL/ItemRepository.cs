@@ -13,6 +13,8 @@ namespace KrekelSchool.Models.DAL
         private DbSet Items;
         
         private string Soort;
+
+
         public ItemRepository(KrekelSchoolContext context, string soort)
         {
             kc = context;
@@ -23,10 +25,10 @@ namespace KrekelSchool.Models.DAL
                 case "Boeken":
                     Items = kc.Boeken;
                     break;
-                case "Cds":
+                case "Cd":
                     Items = kc.Cds;
                     break;
-                case "Dvds":
+                case "Dvd":
                     Items = kc.Dvds;
                     break;
                 case "Verteltassen":
@@ -38,7 +40,6 @@ namespace KrekelSchool.Models.DAL
                 default:
                     throw new Exception("geen Id meegegeven");
             }
-            
             
         }
         public Item FindBy(int itemId)
