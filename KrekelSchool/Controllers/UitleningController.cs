@@ -29,9 +29,11 @@ namespace KrekelSchool
             }
         }
 
-        public void editUitlening(int ID)
+        public void editUitlening(Uitlening uitlening)
         {
-            throw new System.NotImplementedException();
+            // Remove add = edit?
+            // removeUitlening(uitlening);
+           
         }
 
         public void removeUitlening(Uitlening uitlening)
