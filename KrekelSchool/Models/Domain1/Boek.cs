@@ -5,15 +5,15 @@ namespace KrekelSchool.Models.Domain1
     public class Boek : KrekelSchool.Item
     {
 
-        public string Isbn
+        public string Isbn { get; set; }
+
+        
+
+        public Boek(string id, string naam, int beschikbaar, string beschrijving , string isbn) : base(id, naam, beschikbaar, beschrijving)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            Isbn = isbn;
         }
+
+        public Boek() { }
     }
 }

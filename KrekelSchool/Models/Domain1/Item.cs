@@ -8,49 +8,21 @@ namespace KrekelSchool
 {
     public abstract class Item
     {
-
-        public int Id
+        protected Item( string id , string naam , int beschikbaar , string beschrijving)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            Id = id;
+            Naam = naam;
+            Beschikbaar = beschikbaar;
+            Beschrijving = beschrijving;
         }
 
-        public int Naam
+        protected Item()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            
         }
-
-        public int Beschikbaar
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public int Beschrijving
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public string Id { get; set; }
+        public string Naam { get; set; }
+        public int Beschikbaar { get; set; }
+        public string Beschrijving { get; set; }
     }
 }

@@ -1,36 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Web.UI;
+using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
     public class ItemController : Controller
     {
-        public Collection<Item> Items = new Collection<Item>();
+        public List<Item> Items = new List<Item>();
+        private ItemRepository repository;
+        public static KrekelSchoolContext context = new KrekelSchoolContext();
 
         public void addItem(string naam, string beschrijving, bool beschikbaar)
         {
-            throw new System.NotImplementedException();
+            using (context = new KrekelSchoolContext())
+            {
+                context.Items.Create();
+            }
         }
 
-        public Collection<Item> getItems()
+        public List<Item> getItems()
         {
-            throw new System.NotImplementedException();
+            return Items;
         }
 
         public void removeItem(int ID)
         {
-            throw new System.NotImplementedException();
+            Items.RemoveAt(ID);
         }
 
-        public void editItem(int ID)
+        public void editItem(string id)
         {
-            throw new System.NotImplementedException();
+            Items.Find(i =>i.Id.Equals(id));
         }
 
         public Item getItem()
@@ -44,13 +53,27 @@ namespace KrekelSchool
 
             return View();
         }
-        public ActionResult ItemScreen()
+        public ActionResult ItemScreen( string id)
         {
+            repository = new ItemRepository(context,id);
+            ViewBag.Title = id + "-Lijst";
             ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
-
-            var model = Items;
-
+            
+            var model = repository.FindAll();
             return View(model);
+        }
+
+        
+
+        public ActionResult ItemAanpassen()
+        {
+            return PartialView("ItemAanpassen");
+        }
+
+        [HttpPost]
+        public ActionResult ReturnItemScreen()
+        {
+            return RedirectToAction("ItemScreen");
         }
 
     }

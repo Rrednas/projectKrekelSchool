@@ -169,9 +169,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DAL\ItemRepository.cs" />
+    <Compile Include="Models\DAL\LeerlingRepository.cs" />
     <Compile Include="Models\DAL\Mappers\CategorieMap.cs" />
+    <Compile Include="Models\DAL\Mappers\CdMap.cs" />
+    <Compile Include="Models\DAL\Mappers\DvdMap.cs" />
     <Compile Include="Models\DAL\Mappers\ItemMapper.cs" />
+    <Compile Include="Models\DAL\Mappers\SpelMap.cs" />
     <Compile Include="Models\DAL\Mappers\VerteltasMap.cs" />
+    <Compile Include="Models\Domain1\ILeerlingRepository.cs" />
+    <Compile Include="Models\Domain1\IitemRepository.cs" />
     <Compile Include="Models\Domain1\Item.cs" />
     <Compile Include="Models\DAL\KrekelSchoolInititializer.cs" />
     <Compile Include="Models\DAL\KrekelSchoolContext.cs" />
@@ -180,9 +187,9 @@
     <Compile Include="Models\DAL\Mappers\UitleningMap.cs" />
     <Compile Include="Models\Domain1\Categorie.cs" />
     <Compile Include="Models\Domain1\Boek.cs" />
-    <Compile Include="Models\Domain1\CD.cs" />
+    <Compile Include="Models\Domain1\Cd.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\Domain1\DVD.cs" />
+    <Compile Include="Models\Domain1\Dvd.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -192,6 +199,7 @@
     <Compile Include="Controllers\LeerlingController.cs" />
     <Compile Include="Models\Domain1\Uitlening.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Domain1\Spel.cs" />
     <Compile Include="Startup.cs" />
@@ -209,6 +217,7 @@
     <Content Include="images\icons\books.png" />
     <Content Include="images\icons\double.png" />
     <Content Include="images\icons\group.png" />
+    <Content Include="images\icons\music.png" />
     <Content Include="images\icons\note.png" />
     <Content Include="images\icons\puzzle.png" />
     <Content Include="images\icons\work.png" />
@@ -268,6 +277,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Item\Item.cshtml" />
     <Content Include="Views\Leerling\LeerlingScreen.cshtml" />
+    <Content Include="Views\Item\ItemScreen.cshtml" />
+    <Content Include="Views\Item\ItemAanpassen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
