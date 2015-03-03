@@ -56,6 +56,7 @@ namespace KrekelSchool
         public ActionResult ItemScreen( string id)
         {
             repository = new ItemRepository(context,id);
+            ViewBag.Title = id + "-Lijst";
             ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
             
             var model = repository.FindAll();
