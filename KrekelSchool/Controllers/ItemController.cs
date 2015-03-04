@@ -20,33 +20,33 @@ namespace KrekelSchool
         private ItemRepository repository;
         public static KrekelSchoolContext context = new KrekelSchoolContext();
 
-        public void addItem(Item item)
-        {
-            using (context = new KrekelSchoolContext())
-            {
-                context.Items.Create();
-            }
-        }
+        //public void addItem(Item item)
+        //{
+        //    using (context = new KrekelSchoolContext())
+        //    {
+        //        context.Items.Create();
+        //    }
+        //}
 
-        public List<Item> getItems()
-        {
-            return Items;
-        }
+        //public List<Item> getItems()
+        //{
+        //    return Items;
+        //}
 
-        public void removeItem(int ID)
-        {
-            Items.RemoveAt(ID);
-        }
+        //public void removeItem(int ID)
+        //{
+        //    Items.RemoveAt(ID);
+        //}
 
-        public void editItem(string id)
-        {
-            Items.Find(i =>i.Id.Equals(id));
-        }
+        //public void editItem(string id)
+        //{
+        //    Items.Find(i =>i.Id.Equals(id));
+        //}
 
-        public Item getItem()
-        {
-            throw new System.NotImplementedException();
-        }
+        //public Item getItem()
+        //{
+        //    throw new System.NotImplementedException();
+        //}
 
         public ActionResult Item()
         {

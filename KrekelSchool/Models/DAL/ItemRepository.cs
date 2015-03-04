@@ -45,22 +45,23 @@ namespace KrekelSchool.Models.DAL
         
         public Item FindBy(string itemId)
         {
-            return (Item) Items.Find(itemId);
+            return kc.Items.Find(itemId);
         }
 
         public IQueryable<Item> FindAll()
         {
-            return  (IQueryable<Item>) Items;
+            return (IQueryable < Item >) Items;
         }
 
         public void Add(Item item)
         {
-            Items.Add(item);
+            kc.Items.Add(item);
+        
         }
 
         public void Delete(Item item)
         {
-            Items.Remove(item);
+            kc.Items.Remove(item);
         }
 
         public void SaveChanges()
