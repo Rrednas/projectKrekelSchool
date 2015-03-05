@@ -1,4 +1,6 @@
-﻿namespace KrekelSchool.Models.Domain1
+﻿using System.Collections.Generic;
+
+namespace KrekelSchool.Models.Domain1
 {
     public class Dvd : KrekelSchool.Item
     {
@@ -13,5 +15,6 @@
         {
             
         }
+        public ICollection<Categorie> Categories { get; set; }
     }
 }

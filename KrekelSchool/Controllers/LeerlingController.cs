@@ -15,33 +15,33 @@ namespace KrekelSchool
 {
     public class LeerlingController : Controller
     {
-        public List<Leerling> Leerlingen = new List<Leerling>();
+        public List<Lener> Leerlingen = new List<Lener>();
         private ILeerlingrepository repos = new LeerlingRepository(new KrekelSchoolContext());
 
        
 
-        public void AddLeerling(Leerling leerling)
+        public void AddLeerling(Lener leerling)
         {
             repos.Add(leerling);
         }
 
-        //public Leerling getLeerling()
+        //public Lener getLeerling()
         //{
         //    throw new System.NotImplementedException();
         //}
 
-        public List<Leerling>  GetLeerlingen()
+        public List<Lener>  GetLeerlingen()
         {
             return repos.FindAll().ToList();
         }
 
-        public void EditLeerling(Leerling leerling)
+        public void EditLeerling(Lener leerling)
         {
             RemoveLeerling(repos.FindBy(leerling.ID));
             AddLeerling(leerling);
         }
 
-        public void RemoveLeerling(Leerling leerling)
+        public void RemoveLeerling(Lener leerling)
         {
             repos.Delete(leerling);
         }

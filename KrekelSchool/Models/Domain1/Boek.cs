@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -15,5 +16,6 @@ namespace KrekelSchool.Models.Domain1
         }
 
         public Boek() { }
+        public ICollection<Categorie> Categories{ get; set; }
     }
 }

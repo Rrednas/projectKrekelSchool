@@ -11,7 +11,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public VerteltasMap()
         {
-            HasMany(i => i.Items).WithRequired();
+       //  HasMany(i => i.Items).WithRequired();
         }
     }
 }

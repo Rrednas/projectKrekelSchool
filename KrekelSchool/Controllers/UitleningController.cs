@@ -62,7 +62,7 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public void AddUitlening(Leerling leerling, DateTime uitlendatum, Collection<Item> items)
+        public void AddUitlening(Lener leerling, DateTime uitlendatum, Collection<Item> items)
         {
             //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd)
             //item beschikbaar false 

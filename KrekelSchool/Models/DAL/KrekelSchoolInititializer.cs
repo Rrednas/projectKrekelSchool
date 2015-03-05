@@ -13,7 +13,7 @@ namespace KrekelSchool.Models.DAL
         {
             try
             {
-                Leerling boy = new Leerling("kleinen","dude",1);
+                Lener boy = new Lener("kleinen","dude",1);
                 context.Leerlingen.Add(boy);
                 context.SaveChanges();
                 

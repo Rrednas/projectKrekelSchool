@@ -1,4 +1,6 @@
-﻿namespace KrekelSchool.Models.Domain1
+﻿using System.Collections.Generic;
+
+namespace KrekelSchool.Models.Domain1
 {
     public class Spel : KrekelSchool.Item
     {
@@ -7,8 +9,8 @@
         }
 
         public Spel():base()
-        {
-            
+        {  
         }
+        public ICollection<Categorie> Categories { get; set; }
     }
 }

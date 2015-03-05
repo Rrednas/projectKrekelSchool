@@ -11,7 +11,7 @@ namespace KrekelSchool.Models.DAL
     public class LeerlingRepository : ILeerlingrepository
     {
         private KrekelSchoolContext Context;
-        private DbSet<Leerling> Leerlingen;
+        private DbSet<Lener> Leerlingen;
 
         public LeerlingRepository(KrekelSchoolContext context)
         {
@@ -19,22 +19,22 @@ namespace KrekelSchool.Models.DAL
             Leerlingen = Context.Leerlingen;
         }
  
-        public Leerling FindBy(int leerlingId)
+        public Lener FindBy(int leerlingId)
         {
             return Leerlingen.Find(leerlingId);
         }
 
-        public IQueryable<Leerling> FindAll()
+        public IQueryable<Lener> FindAll()
         {
             return Leerlingen;
         }
 
-        public void Add(Leerling leerling)
+        public void Add(Lener leerling)
         {
             Leerlingen.Add(leerling);
         }
 
-        public void Delete(Leerling leerling)
+        public void Delete(Lener leerling)
         {
             Leerlingen.Remove(leerling);
         }

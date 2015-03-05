@@ -22,7 +22,7 @@ namespace KrekelSchool.Models.DAL
         public virtual DbSet<Spel> Spellen { get; set; }
         public virtual DbSet<Verteltas> Verteltassen { get; set; }
 
-        public virtual DbSet<Leerling> Leerlingen { get; set; }
+        public virtual DbSet<Lener> Leerlingen { get; set; }
         public virtual DbSet< Uitlening> Uitleningen{ get; set; }
         public virtual DbSet<Categorie> Categories { get; set; }
 

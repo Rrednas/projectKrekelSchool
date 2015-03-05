@@ -1,22 +1,30 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
     public class Gebruiker
     {
-
-        public void addGebruiker()
+        public Gebruiker()
         {
-            throw new System.NotImplementedException();
+            
+        }
+        
+        public ICollection SearchItem(String zoekstring)
+        {
+            return null;
         }
 
-        public void removeGebruiker()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void LogIn() { }
+
+
+
+
     }
 }

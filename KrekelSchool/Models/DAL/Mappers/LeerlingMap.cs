@@ -7,7 +7,7 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool.Models.DAL.Mappers
 {
-    public class LeerlingMap : EntityTypeConfiguration<Leerling>
+    public class LeerlingMap : EntityTypeConfiguration<Lener>
     {
         public LeerlingMap()
         {

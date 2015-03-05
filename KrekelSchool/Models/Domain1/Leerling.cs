@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace KrekelSchool.Models.Domain1
 {
     
-    public class Leerling
+    public class Lener
     {
-        public Leerling() { }
-        public Leerling(string naam, string voornaam, int id)
+        public Lener() { }
+        public Lener(string naam, string voornaam, int id)
         {
             Naam = naam;
             Voornaam = voornaam;
