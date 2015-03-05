@@ -16,12 +16,9 @@ namespace KrekelSchool
     public class LeerlingController : Controller
     {
         public List<Leerling> Leerlingen = new List<Leerling>();
-        private ILeerlingrepository repos;
+        private ILeerlingrepository repos = new LeerlingRepository(new KrekelSchoolContext());
 
-        public LeerlingController(KrekelSchoolContext context)
-        {
-         repos= new LeerlingRepository(context);   
-        }
+       
 
         public void AddLeerling(Leerling leerling)
         {
@@ -53,7 +50,7 @@ namespace KrekelSchool
         {
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
 
-            var model = Leerlingen;
+            var model = GetLeerlingen();
 
             return View(model);
         }

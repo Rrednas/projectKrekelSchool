@@ -55,12 +55,17 @@ namespace KrekelSchool
         {
             // uitleningeinddatum < huidigeDatum => Boete 
             // schade Claim => Boete (laag, hoge claim)
+            // Item schade op geclaimde schade.
             // UitleningeindDatum > huidige datum => No problem check that shit out
+            // beschikbaar van item op true
+            // 
             throw new System.NotImplementedException();
         }
 
         public void AddUitlening(Leerling leerling, DateTime uitlendatum, Collection<Item> items)
         {
+            //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd)
+            //item beschikbaar false 
             
             throw new System.NotImplementedException();
         }

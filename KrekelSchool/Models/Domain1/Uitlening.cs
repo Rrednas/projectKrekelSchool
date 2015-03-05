@@ -5,6 +5,11 @@ namespace KrekelSchool.Models.Domain1
     public class Uitlening
     {
 
+        public Uitlening()
+        {
+            
+        }
+
         public DateTime beginDatum { get; set; }
 
         public DateTime eindDatum
