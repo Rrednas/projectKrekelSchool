@@ -6,7 +6,7 @@ namespace KrekelSchool.Models.Domain1
     {
         public int Size { get; set; }
 
-        public Dvd(string id, string naam, int beschikbaar, string beschrijving, int size) : base(id, naam, beschikbaar, beschrijving)
+        public Dvd(string id, string naam, bool beschikbaar, string beschrijving, int size) : base(id, naam, beschikbaar, beschrijving)
         {
             Size = size;
         }

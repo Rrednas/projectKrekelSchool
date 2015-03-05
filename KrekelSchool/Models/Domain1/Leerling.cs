@@ -12,11 +12,12 @@ namespace KrekelSchool.Models.Domain1
         {
             Naam = naam;
             Voornaam = voornaam;
-            ID = id;
+            Id = id;
         }
         public virtual Collection<Uitlening> Uitleningen { get; set; }
         public string Naam { get; set; }
         public string Voornaam { get; set; }
-        public int ID { get; set; }
+        public int Id { get; set; }
+        
         }
 }
