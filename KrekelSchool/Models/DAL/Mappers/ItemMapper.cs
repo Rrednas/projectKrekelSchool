@@ -15,7 +15,7 @@ namespace KrekelSchool.Models.DAL.Mappers
             //Property(i => i.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             HasKey(c => c.Id);
             Map<Boek>(m => m.MapInheritedProperties().ToTable("Boeken"));
-            Map<Cd>(m => m.MapInheritedProperties().ToTable("Cds"));
+            Map<CD>(m => m.MapInheritedProperties().ToTable("Cds"));
             Map<Dvd>(m => m.MapInheritedProperties().ToTable("Dvds"));
             Map<Verteltas>(m => m.MapInheritedProperties().ToTable("Verteltassen"));
             Map<Spel>(m => m.MapInheritedProperties().ToTable("Spellen"));
