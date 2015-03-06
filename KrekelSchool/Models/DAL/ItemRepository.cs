@@ -9,49 +9,52 @@ namespace KrekelSchool.Models.DAL
 {
     public class ItemRepository : IitemRepository
     {
-        private KrekelSchoolContext kc;
+        private KrekelSchoolContext context;
         private DbSet Items;
-        
-        private string Soort;
+        public DbSet<Boek> Boeken;
+        public DbSet<Cd> Cds;
+        public DbSet<Dvd> Dvds;
+        public DbSet<Spel> Spellen;
+        public DbSet<Verteltas> Verteltassen;
+        private string Soort { get; set; }
+
 
 
         public ItemRepository(KrekelSchoolContext context, string soort)
         {
-            kc = context;
+            this.context = context;
            // items = context.Items;
             Soort = soort;
             switch (Soort)
             {
                 case "Boeken":
-                    Items = kc.Boeken;
+                    Items = context.Boeken;
                     break;
                 case "Cd":
-                    Items = kc.Cds;
+                    Items = context.Cds;
                     break;
                 case "Dvd":
-                    Items = kc.Dvds;
+                    Items = context.Dvds;
                     break;
                 case "Verteltassen":
-                    Items = kc.Verteltassen;
+                    Items = context.Verteltassen;
                     break;
                 case "Spellen":
-                    Items = kc.Spellen;
+                    Items = context.Spellen;
                     break;
                 default:
                     throw new Exception("geen Id meegegeven");
             }
-            
         }
-        public Item FindBy(int itemId)
+
+        public Item FindBy(string itemId)
         {
             return (Item) Items.Find(itemId);
         }
 
         public IQueryable<Item> FindAll()
         {
-            
-            return  (IQueryable<Item>) Items;
-        
+            return (IQueryable < Item >) Items;
         }
 
         public void Add(Item item)
@@ -66,7 +69,7 @@ namespace KrekelSchool.Models.DAL
 
         public void SaveChanges()
         {
-            kc.SaveChanges();
+            context.SaveChanges();
         }
     }
 }

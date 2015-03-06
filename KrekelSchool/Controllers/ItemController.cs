@@ -16,36 +16,9 @@ namespace KrekelSchool
     public class ItemController : Controller
     {
         public List<Item> Items = new List<Item>();
-        private ItemRepository repository;
-        public static KrekelSchoolContext context = new KrekelSchoolContext();
+        public static KrekelSchoolContext Context = new KrekelSchoolContext();
+        private ItemRepository Repository;
 
-        public void addItem(string naam, string beschrijving, bool beschikbaar)
-        {
-            using (context = new KrekelSchoolContext())
-            {
-                context.Items.Create();
-            }
-        }
-
-        public List<Item> getItems()
-        {
-            return Items;
-        }
-
-        public void removeItem(int ID)
-        {
-            Items.RemoveAt(ID);
-        }
-
-        public void editItem(string id)
-        {
-            Items.Find(i =>i.Id.Equals(id));
-        }
-
-        public Item getItem()
-        {
-            throw new System.NotImplementedException();
-        }
 
         public ActionResult Item()
         {
@@ -55,19 +28,34 @@ namespace KrekelSchool
         }
         public ActionResult ItemScreen( string id)
         {
-            repository = new ItemRepository(context,id);
+            Repository = new ItemRepository(Context,id);
             ViewBag.Title = id + "-Lijst";
             ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
             
-            var model = repository.FindAll();
+            var model = Repository.FindAll();
             return View(model);
         }
-
         
 
         public ActionResult ItemAanpassen()
         {
             return PartialView("ItemAanpassen");
+        }
+
+        public ActionResult ItemToevoegen()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult Itemtoevoegen(Boek item, string id)
+        {
+            Repository = new ItemRepository(Context, id);
+           
+            Repository.Add(item);
+            Repository.SaveChanges();
+            TempData["message"] = String.Format("Brouwer {0} werd gecreëerd", item.Naam);
+            return RedirectToAction("ItemScreen");
         }
 
         [HttpPost]

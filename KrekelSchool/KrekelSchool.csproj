@@ -169,7 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Models\Domain1\Gebruiker.cs" />
-    <Compile Include="Medewerker.cs" />
+    <Compile Include="Models\Domain1\Medewerker.cs" />
     <Compile Include="Models\Domain1\Mediatheek.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DAL\ItemRepository.cs" />
@@ -285,6 +285,7 @@
     <Content Include="Views\Leerling\LeerlingScreen.cshtml" />
     <Content Include="Views\Item\ItemScreen.cshtml" />
     <Content Include="Views\Item\ItemAanpassen.cshtml" />
+    <Content Include="Views\Item\ItemToevoegen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,6 +16,7 @@ namespace KrekelSchool.Models
             Naam = item.Naam;
             Beschrijving = item.Beschrijving;
             Beschikbaar = item.Beschikbaar;
+            Leeftijd = item.Leeftijd;
         }
 
 
@@ -29,28 +30,66 @@ namespace KrekelSchool.Models
         public string Beschrijving { get; private set; }
 
         [Display(Name = "Aantal beschikbaar")]
-        public int Beschikbaar { get; private set; }
+        public bool Beschikbaar { get; private set; }
+
+        public int Leeftijd { get; private set; }
     }
-    
-    public class ItemScreenViewModel
+
+    public class BoekViewModel
     {
-        public ItemScreenViewModel(Item item)
+
+        public BoekViewModel(Boek boek)
         {
-            Id = item.Id;
-            Naam = item.Naam;
-            Beschrijving = item.Beschrijving;
-            Beschikbaar = item.Beschikbaar;
+            Id = boek.Id;
+            Naam = boek.Naam;
+            Beschrijving = boek.Beschrijving;
+            Beschikbaar = boek.Beschikbaar;
+            Leeftijd = boek.Leeftijd;
+            Isbn = boek.Isbn;
+            Auteur = boek.Auteur;
+            Uitgever = boek.Uitgever;
+            Categories = boek.Categories;
         }
+
 
         public string Id { get; private set; }
 
         [Display(Name = "Naam")]
+        [Required(ErrorMessage = "{0} is verplicht")]
         public string Naam { get; private set; }
 
         [Display(Name = "Beschrijving")]
         public string Beschrijving { get; private set; }
 
         [Display(Name = "Aantal beschikbaar")]
-        public int Beschikbaar { get; private set; }
+        public bool Beschikbaar { get; private set; }
+
+        public int Leeftijd { get; private set; }
+        public string Isbn { get; set; }
+        public string Auteur { get; set; }
+        public string Uitgever { get; set; }
+        public ICollection<Categorie> Categories { get; set; }
     }
+    
+    //public class ItemScreenViewModel
+    //{
+    //    public ItemScreenViewModel(Item item)
+    //    {
+    //        Id = item.Id;
+    //        Naam = item.Naam;
+    //        Beschrijving = item.Beschrijving;
+    //        Beschikbaar = item.Beschikbaar;
+    //    }
+
+    //    public string Id { get; private set; }
+
+    //    [Display(Name = "Naam")]
+    //    public string Naam { get; private set; }
+
+    //    [Display(Name = "Beschrijving")]
+    //    public string Beschrijving { get; private set; }
+
+    //    [Display(Name = "Aantal beschikbaar")]
+    //    public bool Beschikbaar { get; private set; }
+    //}
 }

@@ -37,7 +37,7 @@ namespace KrekelSchool
 
         public void EditLeerling(Lener leerling)
         {
-            RemoveLeerling(repos.FindBy(leerling.ID));
+            RemoveLeerling(repos.FindBy(leerling.Id));
             AddLeerling(leerling);
         }
 

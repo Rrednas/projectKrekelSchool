@@ -20,13 +20,10 @@ namespace KrekelSchool.Models.DAL
             return Uitleningen.Find(itemId);
         }
 
-       
-
         public IQueryable<Uitlening> FindAll()
         {
             return Uitleningen;
         }
-        
 
         public void Add(Uitlening uitlening)
         {
