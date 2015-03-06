@@ -26,7 +26,7 @@ namespace KrekelSchool
 
             return View();
         }
-        public ActionResult ItemScreen( string id)
+        public ActionResult ItemScreen(string id)
         {
             Repository = new ItemRepository(Context,id);
             ViewBag.Title = id + "-Lijst";
@@ -51,7 +51,7 @@ namespace KrekelSchool
         public ActionResult Itemtoevoegen(Boek item, string id)
         {
             Repository = new ItemRepository(Context, id);
-           
+            
             Repository.Add(item);
             Repository.SaveChanges();
             TempData["message"] = String.Format("Brouwer {0} werd gecreëerd", item.Naam);
