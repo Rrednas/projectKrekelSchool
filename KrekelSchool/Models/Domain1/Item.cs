@@ -7,9 +7,9 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
-    public abstract class Item
+    public class Item
     {
-        protected Item(string id, string naam, bool beschikbaar, string beschrijving, int leeftijd)
+        public Item(string id, string naam, bool beschikbaar, string beschrijving, int leeftijd)
         {
             Id = id;
             Naam = naam;
@@ -18,7 +18,7 @@ namespace KrekelSchool
             Leeftijd = leeftijd;
         }
 
-        protected Item()
+        public Item()
         {
 
         }

@@ -48,37 +48,18 @@ img{
     height: 100%;
 }
 
-footer {
-    text-align: center;
+.banner {
+    display: none;
 }
 
-.btnN {
+footer {
     text-align: center;
-    width: 100%;
-    height: 35px;
 }
 
 .btnSearch {
     width: 28%;
     margin: -36px 0 20px 72%;
     
-}
-
-.btnMod {
-    width: 100px;
-    float: left;
-}
-
-.btnRemove {
-    width: 100px;
-    margin: -11px 10px 0 10px;
-    float: left;
-}
-
-.btnSave {
-    width: 100px;
-    margin: -22px 0 0 0;
-    float: left;
 }
 
 textarea.formListSearch {
@@ -90,17 +71,11 @@ textarea.formListSearch {
     float: left;
 }
 
-textarea.formList {
-    max-width: 100%;
-    height: 150px;
-    resize: none;
-    margin: 0 0 20px 0;
-}
 
 .search {
     margin: 0 0 0 -15px;
 }
-.btnSearchCol, .searchResult, .details, .col1{
+.btnSearchCol, .searchResult, .col1{
     width: auto;
     margin: 0 0 0 0;
 }
@@ -126,38 +101,50 @@ textarea.formList {
     width: 120px;
 }
 
+.label {
+    margin: 0 0 0 10px;
+    font-size: 15px;
+    color: white;
+}
 
+.modal-backdrop.in {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+ .modalForm {
+     width: 300px;
+     margin: 0 0 0 5%;
+}
+
+body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+margin-right: 0;
+}
+
+.checkBeschikbaar {
+    margin: -27px 0 0 0;
+}
+
+.addOk {
+    background-image: url("../images/icons/done.png");
+}
 
 @media screen and (min-width: 981px) {
+    .banner {
+        display: inline-block;
+        width: 75%;
+        height: 75%;
+        margin: 0 0 0 130px;
+    }
     .btnItem {
         margin: 0 0 0 25%;
-    }
-    .btnN {
-        text-align: center;
-        width: 110px;
-        height: 35px;
     }
 
     .btnSearch {
         width: 55%;
         margin: -78px 0 0 100px;
-    }
-
-    .btnMod {
-        width: 30%;
-        margin: -5px 0 0 5px;
-        float: left;
-    }
-
-    .btnRemove {
-        width: 30%;
-        margin: -32px 0 0 36%;
-        float: left;
-    }
-
-    .btnSave {
-        width: 30%;
-        margin: -40px 0 0 71%;
     }
 
     textarea.formListSearch {
@@ -167,12 +154,6 @@ textarea.formList {
         resize: none;
         margin: 0 0 10px 0;
         float: left;
-    }
-
-    textarea.formList {
-        max-width: 100%;
-        height: 235px;
-        resize: none;
     }
 
     .search {
@@ -185,13 +166,11 @@ textarea.formList {
         margin: 0 0 0 15px;
     }
 
-    .details {
-        width: 525px;
-        margin: -2px 0 0 -5px;
-    }
-
     .containerItem {
         margin-left: 90px;
 
     }
+    .modalForm {
+     margin: 0 0 0 5%;
+}
 }

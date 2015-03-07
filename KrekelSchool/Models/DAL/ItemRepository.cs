@@ -18,22 +18,20 @@ namespace KrekelSchool.Models.DAL
         public DbSet<Verteltas> Verteltassen;
         private string Soort { get; set; }
 
-
-
         public ItemRepository(KrekelSchoolContext context, string soort)
         {
             this.context = context;
-           // items = context.Items;
+          // items = context.Items;
             Soort = soort;
             switch (Soort)
             {
                 case "Boeken":
                     Items = context.Boeken;
                     break;
-                case "Cd":
+                case "Cds":
                     Items = context.Cds;
                     break;
-                case "Dvd":
+                case "Dvds":
                     Items = context.Dvds;
                     break;
                 case "Verteltassen":
@@ -59,7 +57,7 @@ namespace KrekelSchool.Models.DAL
 
         public void Add(Item item)
         {
-            Items.Add(item);
+            context.Items.Add(item);
         }
 
         public void Delete(Item item)

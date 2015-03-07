@@ -173,7 +173,7 @@
     <Compile Include="Models\Domain1\Mediatheek.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DAL\ItemRepository.cs" />
-    <Compile Include="Models\DAL\LeerlingRepository.cs" />
+    <Compile Include="Models\DAL\LenerRepository.cs" />
     <Compile Include="Models\DAL\Mappers\CategorieMap.cs" />
     <Compile Include="Models\DAL\Mappers\CdMap.cs" />
     <Compile Include="Models\DAL\Mappers\DvdMap.cs" />
@@ -182,7 +182,7 @@
     <Compile Include="Models\DAL\UitleningRepository.cs" />
     <Compile Include="Models\DAL\Mappers\VerteltasMap.cs" />
     <Compile Include="Models\Domain1\IUitleningRepository.cs" />
-    <Compile Include="Models\Domain1\ILeerlingRepository.cs" />
+    <Compile Include="Models\Domain1\ILenerRepository.cs" />
     <Compile Include="Models\Domain1\IitemRepository.cs" />
     <Compile Include="Models\Domain1\Item.cs" />
     <Compile Include="Models\DAL\KrekelSchoolInititializer.cs" />
@@ -200,7 +200,7 @@
     </Compile>
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Models\Domain1\Iitem.cs" />
-    <Compile Include="Models\Domain1\Leerling.cs" />
+    <Compile Include="Models\Domain1\Lener.cs" />
     <Compile Include="Controllers\LeerlingController.cs" />
     <Compile Include="Models\Domain1\Uitlening.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -221,11 +221,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\icons\books.png" />
+    <Content Include="images\icons\done.png" />
     <Content Include="images\icons\double.png" />
     <Content Include="images\icons\group.png" />
     <Content Include="images\icons\music.png" />
     <Content Include="images\icons\note.png" />
     <Content Include="images\icons\puzzle.png" />
+    <Content Include="images\icons\search.png" />
     <Content Include="images\icons\work.png" />
     <Content Include="images\krekelBanner.jpg" />
     <Content Include="images\krekelBanner.png" />
@@ -248,9 +250,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Item\ItemScreen.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -282,10 +281,10 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Item\Item.cshtml" />
-    <Content Include="Views\Leerling\LeerlingScreen.cshtml" />
     <Content Include="Views\Item\ItemScreen.cshtml" />
     <Content Include="Views\Item\ItemAanpassen.cshtml" />
     <Content Include="Views\Item\ItemToevoegen.cshtml" />
+    <Content Include="Views\Lener\LenerScreen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

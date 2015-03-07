@@ -13,16 +13,17 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
-    public class LeerlingController : Controller
+    public class LenerController : Controller
     {
-        public List<Lener> Leerlingen = new List<Lener>();
-        private ILeerlingrepository repos = new LeerlingRepository(new KrekelSchoolContext());
+        public List<Lener> Lener = new List<Lener>();
+        public static KrekelSchoolContext Context = new KrekelSchoolContext();
+        private LenerRepository repos = new LenerRepository(Context);
 
        
 
-        public void AddLeerling(Lener leerling)
+        public void AddLener(Lener lener)
         {
-            repos.Add(leerling);
+            repos.Add(lener);
         }
 
         //public Lener getLeerling()
@@ -30,27 +31,27 @@ namespace KrekelSchool
         //    throw new System.NotImplementedException();
         //}
 
-        public List<Lener>  GetLeerlingen()
+        public List<Lener> GetLeners()
         {
             return repos.FindAll().ToList();
         }
 
-        public void EditLeerling(Lener leerling)
+        public void EditLener(Lener lener)
         {
-            RemoveLeerling(repos.FindBy(leerling.Id));
-            AddLeerling(leerling);
+            RemoveLener(repos.FindBy(lener.Id));
+            AddLener(lener);
         }
 
-        public void RemoveLeerling(Lener leerling)
+        public void RemoveLener(Lener lener)
         {
-            repos.Delete(leerling);
+            repos.Delete(lener);
         }
 
-        public ActionResult LeerlingScreen()
+        public ActionResult LenerScreen()
         {
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
 
-            var model = GetLeerlingen();
+            var model = GetLeners();
 
             return View(model);
         }
