@@ -282,7 +282,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Item\Item.cshtml" />
     <Content Include="Views\Item\ItemScreen.cshtml" />
-    <Content Include="Views\Item\ItemAanpassen.cshtml" />
     <Content Include="Views\Item\ItemToevoegen.cshtml" />
     <Content Include="Views\Lener\LenerScreen.cshtml" />
   </ItemGroup>

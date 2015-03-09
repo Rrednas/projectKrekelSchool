@@ -70,6 +70,16 @@ namespace KrekelSchool.Models
             Leeftijd = spel.Leeftijd;
         }
 
+        //Spel
+        public ItemViewModel(Verteltas verteltas)
+        {
+            Id = verteltas.Id;
+            Naam = verteltas.Naam;
+            Beschrijving = verteltas.Beschrijving;
+            Beschikbaar = verteltas.Beschikbaar;
+            Leeftijd = verteltas.Leeftijd;
+        }
+
 
 
         public string Id { get; private set; }

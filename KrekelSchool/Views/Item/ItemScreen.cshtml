@@ -49,7 +49,6 @@
                     @foreach (var prop in l.GetType().GetProperties())
                     {
                         <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
-                            
 
                     }
 

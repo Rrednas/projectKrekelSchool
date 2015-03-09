@@ -31,7 +31,7 @@ namespace KrekelSchool
         {
             Repository = new ItemRepository(Context,id);
             ViewBag.Title = id + "-Lijst";
-            ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
+            ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
             ViewBag.id = id;
             var model = Repository.FindAll();
             return View(model);
@@ -42,6 +42,7 @@ namespace KrekelSchool
         {
             Repository = new ItemRepository(Context,id);
             ViewBag.Title = id + " Toevoegen";
+            ViewBag.Message = "Geef de gegevens in.";
             ViewBag.id = id;
             switch (id)
             {
@@ -51,15 +52,19 @@ namespace KrekelSchool
                     break;
                 case "Cds":
                     Cd cd = new Cd();
+                    vm = new ItemViewModel(cd);
                     break;
                 case "Dvds":
-                    Dvd dvd = new Dvd(); 
+                    Dvd dvd = new Dvd();
+                    vm = new ItemViewModel(dvd);
                     break;
                 case "Verteltassen":
                     Verteltas vt = new Verteltas();
+                    vm = new ItemViewModel(vt);
                     break;
                 case "Spellen":
                     Spel spel = new Spel();
+                    vm = new ItemViewModel(spel);
                     break;
                 default:
                     throw new Exception("geen Id meegegeven");
@@ -71,6 +76,7 @@ namespace KrekelSchool
         [ActionName("Itemtoevoegen")]
         public ActionResult ItemToevoegen_post(string id)
         {
+            ViewBag.id = id;
             if (ModelState.IsValid)
             {
                 Repository = new ItemRepository(Context, id);
@@ -84,17 +90,6 @@ namespace KrekelSchool
             return PartialView("ItemToevoegen");
         }
 
-        public ActionResult ItemAanpassen()
-        {
-            return PartialView("ItemAanpassen");
-        }
-
-        
-        [HttpPost]
-        public ActionResult ReturnItemScreen()
-        {
-            return RedirectToAction("ItemScreen");
-        }
 
     }
 }
