@@ -19,6 +19,19 @@ namespace KrekelSchool
         private ItemRepository repository;
         public static KrekelSchoolContext context = new KrekelSchoolContext();
 
+        public ItemController()
+        {
+            
+        }
+        #region methods
+
+        public Item WordUitgeleend(Item item)
+        {
+            repository.FindBy(item.Id).WordUitgeleend();
+            repository.SaveChanges();
+            return repository.FindBy(item.Id);
+        }
+        #endregion
         public void addItem(string naam, string beschrijving, bool beschikbaar)
         {
             using (context = new KrekelSchoolContext())
@@ -37,9 +50,9 @@ namespace KrekelSchool
             Items.RemoveAt(ID);
         }
 
-        public void editItem(string id)
+        public void EditItem(Item item)
         {
-            Items.Find(i =>i.Id.Equals(id));
+            Items.Find(i =>i.Id.Equals(item.Id));
         }
 
         public Item getItem()

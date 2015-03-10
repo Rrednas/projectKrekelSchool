@@ -5,6 +5,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Linq;
+using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 using Microsoft.Ajax.Utilities;
@@ -15,7 +16,7 @@ namespace KrekelSchool
     {
         private UitleningRepository UitleningRepository { get; set; }
 #region Collections
-        public ICollection<Item> Items { get; set; }
+        public static ICollection<Item> Items { get; set; }
         public static ICollection<Uitlening> Uitleningen { get; set; }
         public ICollection<Categorie> Categories { get; set; }
         public ICollection<Lener> Leners { get; set; }
@@ -24,7 +25,7 @@ namespace KrekelSchool
 
         public Mediatheek()
         {
-            //UitleningRepository=new UitleningRepository(new KrekelSchoolContext());
+            
             Uitleningen = new List<Uitlening>();
             Items = new List<Item>();
             Categories = new List<Categorie>();
@@ -46,9 +47,12 @@ namespace KrekelSchool
                 throw new ApplicationException("Uitlening bestaat al");
                     
                     Uitleningen.Add(nieuweUitlening);
-                    l.Uitleningen.Add(nieuweUitlening);
-                    i.Beschikbaar = false;
-           
+                    //niet hier
+                    //l.Uitleningen.Add(nieuweUitlening);
+                    //niet hier
+                    //i.Beschikbaar = false;
+
+
         }   
         public void VoegLenerToe() { }
         public void VoegGebruikerToe() { }

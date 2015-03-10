@@ -8,7 +8,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAgAAAAAAAAAAAABAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>ABACAAAgAAAAAAAAAAAABAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Models\Domain1\Leerling.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -176,7 +176,7 @@
   <Class Name="KrekelSchool.Item" Collapsed="true">
     <Position X="1.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAACAAgAAAAAAAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -273,18 +273,18 @@
       <FileName>Models\Domain1\Gebruiker.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.Medewerker" Collapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAAAAAEAAAAAAAYAAAAAAIAAAAAAAgAAAAgABggIDAA=</HashCode>
-      <FileName>Medewerker.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="KrekelSchool.Vrijwilliger">
+  <Class Name="KrekelSchool.Vrijwilliger" Collapsed="true">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAgIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\Vrijwilliger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KrekelSchool.Models.Domain1.Medewerker" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain1\Medewerker.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

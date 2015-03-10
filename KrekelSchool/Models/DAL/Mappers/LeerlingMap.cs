@@ -14,7 +14,7 @@ namespace KrekelSchool.Models.DAL.Mappers
             this.ToTable("Leerlingen");
 
             
-            this.HasKey(l => l.ID);
+            this.HasKey(l => l.Id);
             HasMany(u => u.Uitleningen);
             
         }

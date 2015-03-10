@@ -29,7 +29,7 @@ namespace KrekelSchool.Models
         public string Beschrijving { get; private set; }
 
         [Display(Name = "Aantal beschikbaar")]
-        public int Beschikbaar { get; private set; }
+        public bool Beschikbaar { get; private set; }
     }
     
     public class ItemScreenViewModel
@@ -51,6 +51,6 @@ namespace KrekelSchool.Models
         public string Beschrijving { get; private set; }
 
         [Display(Name = "Aantal beschikbaar")]
-        public int Beschikbaar { get; private set; }
+        public bool Beschikbaar { get; private set; }
     }
 }
