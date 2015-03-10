@@ -13,17 +13,25 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
-    public class LenerController : Controller
+    public class LeerlingController : Controller
     {
-        public List<Lener> Lener = new List<Lener>();
-        public static KrekelSchoolContext Context = new KrekelSchoolContext();
-        private LenerRepository repos = new LenerRepository(Context);
+        public List<Lener> Leerlingen = new List<Lener>();
+        private ILeerlingrepository repos = new LeerlingRepository(new KrekelSchoolContext());
 
-       
+        #region methods
 
-        public void AddLener(Lener lener)
+        public Lener KenLeningToeAan(Lener lener,Uitlening uitlening)
+        {   
+            repos.FindBy(lener.Id).KrijgLening(uitlening);
+            repos.SaveChanges();
+            
+        }
+        #endregion
+
+        public void AddLeerling(Lener leerling)
         {
-            repos.Add(lener);
+            repos.Add(leerling);
+            repos.SaveChanges();
         }
 
         //public Lener getLeerling()
@@ -31,27 +39,27 @@ namespace KrekelSchool
         //    throw new System.NotImplementedException();
         //}
 
-        public List<Lener> GetLeners()
+        public List<Lener>  GetLeerlingen()
         {
             return repos.FindAll().ToList();
         }
 
-        public void EditLener(Lener lener)
+        public void EditLeerling(Lener leerling)
         {
-            RemoveLener(repos.FindBy(lener.Id));
-            AddLener(lener);
+            RemoveLeerling(repos.FindBy(leerling.Id));
+            AddLeerling(leerling);
         }
 
-        public void RemoveLener(Lener lener)
+        public void RemoveLeerling(Lener leerling)
         {
-            repos.Delete(lener);
+            repos.Delete(leerling);
         }
 
-        public ActionResult LenerScreen()
+        public ActionResult LeerlingScreen()
         {
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
 
-            var model = GetLeners();
+            var model = GetLeerlingen();
 
             return View(model);
         }

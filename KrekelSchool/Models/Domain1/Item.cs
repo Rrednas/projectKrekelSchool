@@ -7,27 +7,39 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
-    public class Item
+    public abstract class Item
     {
-        public Item(string id, string naam, bool beschikbaar, string beschrijving, int leeftijd)
+        protected Item(int id, string naam, bool beschikbaar, string beschrijving)
         {
             Id = id;
             Naam = naam;
             Beschikbaar = beschikbaar;
             Beschrijving = beschrijving;
-            Leeftijd = leeftijd;
         }
 
-        public Item()
+        protected Item()
         {
 
         }
 
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Naam { get; set; }
         public bool Beschikbaar { get; set; }
         public string Beschrijving { get; set; }
-        public int Leeftijd { get; set; }
+        #region methods
 
+       
+        public void WordUitgeleend()
+        {
+            if (!Beschikbaar)
+            {
+                throw new ApplicationException("Item is al uitgeleend");
+            }
+            else
+            {
+                Beschikbaar = false;
+            }
+        }
+#endregion
     }
 }

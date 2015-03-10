@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,6 +19,18 @@ namespace KrekelSchool.Models.Domain1
         public string Naam { get; set; }
         public string Voornaam { get; set; }
         public int Id { get; set; }
-        
+        #region methods
+
+        public void KrijgLening(Uitlening uitl)
+        {
+            if (Uitleningen.Count >= 3)
+            {
+                throw new ApplicationException("Lener mag niet meer dan 3 uitleningen hebben.");
+            }
+            
+            Uitleningen.Add(uitl);
+            
         }
+        #endregion
+    }
 }
