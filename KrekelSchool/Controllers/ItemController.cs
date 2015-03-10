@@ -84,7 +84,8 @@ namespace KrekelSchool
                 {
                     Boek boek = new Boek();
                     Repository.Add(boek);
-                    return RedirectToAction("ItemScreen");
+                    Repository.SaveChanges();
+                    return RedirectToRoute("Item/ItemScreen/" + id);
                 }
             }
             return PartialView("ItemToevoegen");
