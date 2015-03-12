@@ -11,7 +11,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public CategorieMap()
         {
-            HasOptional(i => i.Items).WithMany();
+          //  HasOptional(i => i.Items).WithMany();
         }
     }
 }

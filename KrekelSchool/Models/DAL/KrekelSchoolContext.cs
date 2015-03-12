@@ -14,14 +14,15 @@ namespace KrekelSchool.Models.DAL
         {
             
         }
-        public virtual DbSet<Item> items { get; set; }
+
+        public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Boek> Boeken { get; set; }
         public virtual DbSet<Cd> Cds { get; set; }
         public virtual DbSet<Dvd> Dvds { get; set; }
         public virtual DbSet<Spel> Spellen { get; set; }
         public virtual DbSet<Verteltas> Verteltassen { get; set; }
 
-        public virtual DbSet<Leerling> Leerlingen { get; set; }
+        public virtual DbSet<Lener> Leerlingen { get; set; }
         public virtual DbSet< Uitlening> Uitleningen{ get; set; }
         public virtual DbSet<Categorie> Categories { get; set; }
 
@@ -30,8 +31,7 @@ namespace KrekelSchool.Models.DAL
             modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.Ignore<Iitem>();
             base.OnModelCreating(modelBuilder);
-
-
         }
+        
     }
 }

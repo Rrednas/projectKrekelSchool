@@ -11,7 +11,8 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public CdMap()
         {
-           // HasKey(c => c.Id);
+
+            HasKey(c => c.Id);
             Property(c => c.Size).IsOptional();
         }
     }

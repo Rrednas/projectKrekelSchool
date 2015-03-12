@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.Entity;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Web.UI;
 using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
@@ -16,71 +16,81 @@ namespace KrekelSchool
 {
     public class ItemController : Controller
     {
-        //public Collection<Item> Items = new Collection<Item>();
-        //public KrekelSchoolContext Context;
-
-        //public void AddItem(string naam, string beschrijving, int beschikbaar)
-        //{
-        //    using (Context = new KrekelSchoolContext())
-        //    {
-        //        Context.items.Create();
-        //    }
-        //}
-
-        //public Collection<Item> getItems()
-        //{
-        //    return Items;
-        //}
-
-        //public void removeItem(int ID)
-        //{
-        //    Items.RemoveAt(ID);
-        //}
-       
-        //public void editItem(int ID)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
-
-        //public Item getItem()
-        //{
-        //    throw new System.NotImplementedException();
-        //}
-
-        private IitemRepository itemRepository;
-
-        public ItemController(IitemRepository ir)
-        {
-            itemRepository = ir;
-        }
+        public List<Item> Items = new List<Item>();
+        public static KrekelSchoolContext Context = new KrekelSchoolContext();
+        private ItemRepository Repository;
+        private ItemViewModel vm;
 
         public ActionResult Item()
         {
             ViewBag.Message = "Klik op het gewenste item om deze te bewerken of te verwijderen.";
-            IEnumerable<Item> items =
-                itemRepository.FindAll()
-                    .Include(i => i.Id)
-                    .Include(i => i.Naam)
-                    .Include(i => i.Beschikbaar)
-                    .Include(i => i.Beschrijving);
-            IEnumerable<ItemScreenViewModel> isvm =
-                items.Select(i => new ItemScreenViewModel(i)).OrderBy(i => i.Naam).ToList();
 
-            return View(isvm);
+            return View();
         }
-        public ActionResult ItemScreen(int id)
+        public ActionResult ItemScreen(string id)
         {
-            ViewBag.Message = "Geef ID, naam in als zoekcriteria.";
-
-            var model = Items;
-
+            Repository = new ItemRepository(Context,id);
+            ViewBag.Title = id + "-Lijst";
+            ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
+            ViewBag.id = id;
+            var model = Repository.FindAll();
             return View(model);
         }
 
-        public ActionResult Details(int Id)
+        
+        public ActionResult ItemToevoegen(string id)
         {
-            return View();
+            Repository = new ItemRepository(Context,id);
+            ViewBag.Title = id + " Toevoegen";
+            ViewBag.Message = "Geef de gegevens in.";
+            ViewBag.id = id;
+            switch (id)
+            {
+                case "Boeken":
+                    Boek boek = new Boek();
+                    vm = new ItemViewModel(boek);
+                    break;
+                case "Cds":
+                    Cd cd = new Cd();
+                    vm = new ItemViewModel(cd);
+                    break;
+                case "Dvds":
+                    Dvd dvd = new Dvd();
+                    vm = new ItemViewModel(dvd);
+                    break;
+                case "Verteltassen":
+                    Verteltas vt = new Verteltas();
+                    vm = new ItemViewModel(vt);
+                    break;
+                case "Spellen":
+                    Spel spel = new Spel();
+                    vm = new ItemViewModel(spel);
+                    break;
+                default:
+                    throw new Exception("geen Id meegegeven");
+            }
+            return PartialView(vm);
         }
+
+        [HttpPost]
+        [ActionName("Itemtoevoegen")]
+        public ActionResult ItemToevoegen_post(string id)
+        {
+            ViewBag.id = id;
+            if (ModelState.IsValid)
+            {
+                Repository = new ItemRepository(Context, id);
+                if (id == "Boeken")
+                {
+                    Boek boek = new Boek();
+                    Repository.Add(boek);
+                    Repository.SaveChanges();
+                    return RedirectToRoute("Item/ItemScreen/" + id);
+                }
+            }
+            return PartialView("ItemToevoegen");
+        }
+
 
     }
 }

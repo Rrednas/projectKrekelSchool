@@ -1,64 +1,59 @@
-﻿@using KrekelSchool.Models
+﻿@using System.Security.Cryptography.X509Certificates
+@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
+@using KrekelSchool.Models.DAL
+@using KrekelSchool.Models.Domain1
+@using KrekelSchool.Controllers
+@using Microsoft.Ajax.Utilities
 @using Microsoft.AspNet.Identity
-@{
-    ViewBag.Title = "Itemcreen";
-}
+
 
 <h2>@ViewBag.Title.</h2>
-@using (Html.BeginForm("ItemScreen", "Item", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("ItemScreen", "Item" , new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <h4>@ViewBag.Message</h4>
     <hr />
     <div class="row">
-        <div class="col-md-4 searchResult">
-            <div class="row">
-                <div class="col-md-8 search">
-                    <textarea class="form-control formListSearch"></textarea>
-                </div>
-                <div class="col-md-8 btnSearchCol">
-                    <a class="btn btn-default btnSearch" href="">Zoek</a>
-                </div>
-            </div>
-            <label for="">Zoekresultaat:</label>
-            @*<textarea disabled class="form-control formList"></textarea>*@
-            @model IEnumerable<Item>
+        <div class="col-md-12 search">
+            <textarea class="form-control formListSearch"></textarea>
+            <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
+        </div>
 
-            <table class="table">
-                <tr>
-                    <th>ID</th>
-                    <th>Naam</th>
-                    <th>Beschrijving</th>
-                    <th>Beschikbaar</th>
-                </tr>
-
-                @foreach (var i in Model)
+        @model  IEnumerable<Item>
+            
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink("Voeg Toe", "ItemToevoegen" ,"Item",  new {id = ViewBag.id}, new { @class = "modal-link btn btn-success" })
+                </th>
+                @foreach (var p in @Model.First().GetType().GetProperties())
                 {
+                    <th>
+                        @p.Name
+                    </th>
+                }
 
-                    <tr>
-                        <td class=""><@i.Id></td>
-                        <td class=""><@i.Naam></td>
-                        <td class=""><@i.Beschrijving></td>
-                        <td class=""><@i.Beschikbaar></td>
-                    </tr>
-                };
+            </tr>
+            @foreach (var l in Model)
+            {
+                <tr>
+                    <td>
+                        @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
+                        @Html.ActionLink("Edit", "ItemAanpassen", "Item",null, new { id = l.Id, @class = "modal-link btn btn-success " })  |
+                            
+                        @Html.ActionLink("Details", "getItem", new { id = l.Id }) |
 
-            </table>
-        </div>
+                        @Html.ActionLink("Delete", "removeItem", new {id = l.Id})
+                           
+                    </td>
+                    @foreach (var prop in l.GetType().GetProperties())
+                    {
+                        <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
 
-        <div class="col-md-4 details">
-            <label for="">Details zoekresultaat:</label>
-            <textarea disabled class="form-control formList"></textarea>
-            <div class="row">
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnMod" href="">Bewerk</a></p>
-                </div>
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnRemove" href="">Verwijder</a></p>
-                </div>
-                <div class="col-md-4 details">
-                    <p><a class="btn btn-default btnSave" href="">Opslaan</a></p>
-                </div>
-            </div>
-        </div>
+                    }
+
+                </tr>
+            }
+        </table>
     </div>
 }

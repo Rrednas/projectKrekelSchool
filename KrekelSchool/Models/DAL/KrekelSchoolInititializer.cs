@@ -13,22 +13,17 @@ namespace KrekelSchool.Models.DAL
         {
             try
             {
-                Leerling boy = new Leerling("kleinen", "dude", 1);
+                Lener boy = new Lener("kleinen","dude",1);
                 context.Leerlingen.Add(boy);
                 context.SaveChanges();
-                Item boek = new Boek( "boek1", 1, "boek een","nummer");
-                Item cd = new Cd(2,"trol",1,"dikkentrolcd",200);
-                Item spel = new Spel( 3,"spel1", 2, "deeee");
-                Item vertelt = new Verteltas( 4,"tas1", 3, "beschr");
-                Item dvd = new Dvd( "dvd1", 3, "beesch",500);
-
-                context.items.Add(boek);
-                context.items.Add(cd);
-                context.items.Add(spel);
-                context.items.Add(vertelt);
-                context.items.Add(dvd);
+                
+                context.Boeken.Add(new Boek("1", "boek" , true, "Beschrijving", 5, "12FZEF124TFAAZ", "Corneel", "kanaar" ));
+                context.Boeken.Add(new Boek("2", "De Koning", false, "Boek over koning", 7,"ISbnNummer", "Corneel", "kanaar"));
                 context.SaveChanges();
-            
+                context.Items.Add(new Boek("3", "bla", true, "lololol", 666,"grat e nummer", "Corneel", "kanaar"));
+                context.SaveChanges();
+                context.Items.Add(new Cd("4", "ceidei", false, "lolol", 55, 667));
+                context.SaveChanges();
             }
             catch (Exception e)
             {

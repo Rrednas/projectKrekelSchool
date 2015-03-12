@@ -1,49 +1,65 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Linq;
 using System.Web.UI.WebControls;
+using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
     public class LeerlingController : Controller
     {
-        public Collection<Leerling> Leerlingen = new Collection<Leerling>();
+        public List<Lener> Leerlingen = new List<Lener>();
+        private ILeerlingrepository repos = new LeerlingRepository(new KrekelSchoolContext());
 
-        public void addLeerling(string naam, string voornaam)
+        #region methods
+
+        public Lener KenLeningToeAan(Lener lener,Uitlening uitlening)
+        {   
+            repos.FindBy(lener.Id).KrijgLening(uitlening);
+            repos.SaveChanges();
+            
+        }
+        #endregion
+
+        public void AddLeerling(Lener leerling)
         {
-            throw new System.NotImplementedException();
+            repos.Add(leerling);
+            repos.SaveChanges();
         }
 
-        public Leerling getLeerling()
+        //public Lener getLeerling()
+        //{
+        //    throw new System.NotImplementedException();
+        //}
+
+        public List<Lener>  GetLeerlingen()
         {
-            throw new System.NotImplementedException();
+            return repos.FindAll().ToList();
         }
 
-        public Collection<Leerling>  getLeerlingen()
+        public void EditLeerling(Lener leerling)
         {
-            throw new System.NotImplementedException();
+            RemoveLeerling(repos.FindBy(leerling.Id));
+            AddLeerling(leerling);
         }
 
-        public void editLeerling(int ID)
+        public void RemoveLeerling(Lener leerling)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void removeLeerling(int ID)
-        {
-            throw new System.NotImplementedException();
+            repos.Delete(leerling);
         }
 
         public ActionResult LeerlingScreen()
         {
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
 
-            var model = Leerlingen;
+            var model = GetLeerlingen();
 
             return View(model);
         }

@@ -9,37 +9,65 @@ namespace KrekelSchool.Models.DAL
 {
     public class ItemRepository : IitemRepository
     {
-        private KrekelSchoolContext kc;
-        private DbSet<Item> items;
+        private KrekelSchoolContext context;
+        private DbSet Items;
+        public DbSet<Boek> Boeken;
+        public DbSet<Cd> Cds;
+        public DbSet<Dvd> Dvds;
+        public DbSet<Spel> Spellen;
+        public DbSet<Verteltas> Verteltassen;
+        private string Soort { get; set; }
 
-        public ItemRepository(KrekelSchoolContext context)
+        public ItemRepository(KrekelSchoolContext context, string soort)
         {
-            kc = context;
-            items = context.items;
+            this.context = context;
+          // items = context.Items;
+            Soort = soort;
+            switch (Soort)
+            {
+                case "Boeken":
+                    Items = context.Boeken;
+                    break;
+                case "Cds":
+                    Items = context.Cds;
+                    break;
+                case "Dvds":
+                    Items = context.Dvds;
+                    break;
+                case "Verteltassen":
+                    Items = context.Verteltassen;
+                    break;
+                case "Spellen":
+                    Items = context.Spellen;
+                    break;
+                default:
+                    throw new Exception("geen Id meegegeven");
+            }
         }
-        public Item FindBy(int itemId)
+
+        public Item FindBy(string itemId)
         {
-            return items.Find(itemId);
+            return (Item) Items.Find(itemId);
         }
 
         public IQueryable<Item> FindAll()
         {
-            return items;
+            return (IQueryable < Item >) Items;
         }
 
         public void Add(Item item)
         {
-            items.Add(item);
+            context.Items.Add(item);
         }
 
         public void Delete(Item item)
         {
-            items.Remove(item);
+            Items.Remove(item);
         }
 
         public void SaveChanges()
         {
-            kc.SaveChanges();
+            context.SaveChanges();
         }
     }
 }
