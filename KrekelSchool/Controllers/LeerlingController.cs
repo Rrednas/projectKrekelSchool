@@ -24,7 +24,7 @@ namespace KrekelSchool
         {   
             repos.FindBy(lener.Id).KrijgLening(uitlening);
             repos.SaveChanges();
-            
+            return repos.FindBy(lener.Id);
         }
         #endregion
 

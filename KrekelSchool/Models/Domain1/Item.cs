@@ -40,6 +40,16 @@ namespace KrekelSchool
                 Beschikbaar = false;
             }
         }
+
+        public void WordTerugGebracht()
+        {
+            if (Beschikbaar)
+            {
+                throw new ApplicationException("Dit item was al teruggebracht");
+            }
+            Beschikbaar = true;
+           
+        }
 #endregion
     }
 }

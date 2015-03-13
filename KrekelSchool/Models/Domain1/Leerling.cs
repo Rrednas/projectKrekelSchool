@@ -29,7 +29,12 @@ namespace KrekelSchool.Models.Domain1
             }
             
             Uitleningen.Add(uitl);
-            
+       
+        }
+
+        public void CheckLeningUit(Uitlening uitl)
+        {
+            Uitleningen.Remove(uitl);
         }
         #endregion
     }

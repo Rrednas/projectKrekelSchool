@@ -5,6 +5,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Linq;
+using KrekelSchool.Controllers;
 using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
@@ -14,7 +15,8 @@ namespace KrekelSchool
 {
     public class Mediatheek
     {
-        private UitleningRepository UitleningRepository { get; set; }
+        
+        
 #region Collections
         public static ICollection<Item> Items { get; set; }
         public static ICollection<Uitlening> Uitleningen { get; set; }
@@ -31,14 +33,15 @@ namespace KrekelSchool
             Categories = new List<Categorie>();
             Leners= new List<Lener>();
             Gebruikers = new List<Gebruiker>();
-            ;
+
+            
         }
         
 #region methods
-        #region Toevoegen
-        public void VoegItemToe() { }
+        #region Uitlening
+       
 
-        public static void VoegUitleningToe(Lener l , DateTime eindTijd,Item i)
+        public Uitlening VoegUitleningToe(Lener l , DateTime eindTijd,Item i)
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
@@ -47,30 +50,63 @@ namespace KrekelSchool
                 throw new ApplicationException("Uitlening bestaat al");
                     
                     Uitleningen.Add(nieuweUitlening);
-                    //niet hier
-                    //l.Uitleningen.Add(nieuweUitlening);
-                    //niet hier
-                    //i.Beschikbaar = false;
+            return nieuweUitlening;
+            //l.Uitleningen.Add(nieuweUitlening);
+            //niet hier
+            //i.Beschikbaar = false;
 
 
         }   
-        public void VoegLenerToe() { }
-        public void VoegGebruikerToe() { }
+        public void VerwijderUitlening() { }
+        
+
+        public void AanpassenUitlening() { }
+        #endregion
+        #region Item
+        public void AanpassenItem() { }
+         public void VoegItemToe() { }
+
+         public void VerwijderItem() { }
+
+        public Item LeenItemUit(Item item)
+        {
+            Item uitgeleendItem = Items.First(i => i.Id == item.Id);
+                uitgeleendItem.WordUitgeleend();
+            return uitgeleendItem;
+            
+
+        }
+        
+
+        #endregion
+        #region categories
+        public void AanpassenCategorie() { }
+        public void VerwijderCategorie() { }
         public void VoegCategorieToe() { }
         #endregion
-        #region Aanpassen
-        public void AanpassenItem() { }
-        public void AanpassenUitlening() { }
+
+        #region Lener
+        public void VoegLenerToe() { }
+        
         public void AanpassenLener() { }
-        public void AanpassenGebruiker() { }
-        public void AanpassenCategorie() { }
-        #endregion
-        #region Verwijderen
-        public void VerwijderItem() { }
-        public void VerwijderUitlening() { }
         public void VerwijderLener() { }
+        public static bool MagUitlenen(Lener l)
+        {
+            if(!(l.Uitleningen.Count < 3 )) throw new ApplicationException("Lener heeft maximum uitleningen  bereikt");
+            return true;
+        }
+
+        public Lener LeenUitAan(Lener lener,Uitlening uitlening)
+        {
+            var aangepastelener = Leners.First(l => l.Id == lener.Id);
+            aangepastelener.KrijgLening(uitlening);
+            return aangepastelener;
+        }
+        #endregion
+        #region gebruiker
         public void VerwijderGebruiker() { }
-        public void VerwijderCategorie() { }
+        public void VoegGebruikerToe() { }
+        public void AanpassenGebruiker() { }
         #endregion
         #region SpecialFinds
         public ICollection<Item> FindAllItemsOf(String type)
@@ -94,11 +130,7 @@ namespace KrekelSchool
         }
         #endregion
 
-        public static bool MagUitlenen(Lener l)
-        {
-            if(!(l.Uitleningen.Count < 3 )) throw new ApplicationException("Lener heeft maximum uitleningen  bereikt");
-            return true;
-        }
+        
 
         #endregion
 

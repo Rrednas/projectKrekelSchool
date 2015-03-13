@@ -31,6 +31,13 @@ namespace KrekelSchool
             repository.SaveChanges();
             return repository.FindBy(item.Id);
         }
+
+        public void WordTerugGebracht(Item item)
+        {
+            repository.FindBy(item.Id).WordTerugGebracht();
+            repository.SaveChanges();
+            
+        }
         #endregion
         public void addItem(string naam, string beschrijving, bool beschikbaar)
         {

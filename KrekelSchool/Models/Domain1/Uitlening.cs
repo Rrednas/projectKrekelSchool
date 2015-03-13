@@ -4,6 +4,10 @@ namespace KrekelSchool.Models.Domain1
 {
     public class Uitlening
     {
+        #region fields
+        public DateTime eindDatum;
+        public Item item;
+        #endregion
 
         public Uitlening()
         {
@@ -30,12 +34,12 @@ namespace KrekelSchool.Models.Domain1
 
         public DateTime EindDatum
         {
-            get { return EindDatum; }
+            get { return eindDatum; }
             set
             {
                 if(value <= DateTime.Today)
                     throw new ArgumentException("Eind datum vroeger dan begin datum");
-                EindDatum = value;
+                eindDatum = value;
             }
         }
 
@@ -47,15 +51,26 @@ namespace KrekelSchool.Models.Domain1
 
         public KrekelSchool.Item Item
         {
-            get { return Item; }
+            get { return item; }
             set
             {
                 if(value==null)
                     throw new ArgumentException("Ongeldig Item");
                 if(!Item.Beschikbaar)
                     throw new ArgumentException("Item niet beschikbaar");
-                Item = value;
+                item = value;
             }
         }
+        #region methods 
+
+        public void WordTerugGebracht()
+        {
+            if (IsTerug)
+            {
+                throw new ApplicationException("Deze uitlening was al teruggebracht");
+            }
+            IsTerug = true;
+        }
+        #endregion
     }
 }

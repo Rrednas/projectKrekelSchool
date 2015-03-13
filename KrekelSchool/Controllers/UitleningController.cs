@@ -16,10 +16,14 @@ namespace KrekelSchool
     public class UitleningController: Controller
     {
         private IUitleningenRepository repos;
+        private IitemRepository itemrepos;
+        private ILeerlingrepository lenerrepos;
 
-        public UitleningController(KrekelSchoolContext context)
+        public UitleningController(IUitleningenRepository uitleningRepository,IitemRepository items , ILeerlingrepository leners)
         {
-            repos = new UitleningRepository(context);
+            this.repos = uitleningRepository;
+            this.itemrepos = items;
+            this.lenerrepos = leners;
         }
 
         //public View Index()
@@ -89,27 +93,31 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public void AddUitlening(Lener leerling, DateTime tot, Item item)
+        public void AddUitlening(Mediatheek mediatheek,Lener leerling, DateTime tot, Item item)
         {
 
             //item word op onbeschikbaar gezet
-            var itemController = new ItemController();
-            var nieuwItem = itemController.WordUitgeleend(item);
+
+            var nieuwItem = mediatheek.LeenItemUit(itemrepos.FindBy(item.Id));
+            var lener = lenerrepos.FindBy(leerling.Id);
             //uitelning word aangemaakt met nieuw Uitgeleend item
-            var uitlening = new Uitlening(nieuwItem, tot);
+            var uitlening = mediatheek.VoegUitleningToe(lener, tot,nieuwItem);
             //uitlening word toegevoegd
             repos.Add(uitlening);
             repos.SaveChanges();
-            //uitlening word gekoppeld aan lener
-            var leerlingController = new LeerlingController();
-            leerlingController.KenLeningToeAan(leerling,uitlening);
-            
-            
+            itemrepos.SaveChanges();
+            //uitlening word gekoppeld aan lener    
+            mediatheek.LeenUitAan(lener, uitlening);
+            lenerrepos.SaveChanges();
+
+
+
+
             //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd) navragen
             //item beschikbaar false done
             //uitlening toevoegen aan leerling done
 
-            
+
         }
 
         
