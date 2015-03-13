@@ -239,18 +239,18 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="KrekelSchool.Mediatheek" Collapsed="true">
-    <Position X="4.25" Y="1.5" Width="1.5" />
+    <Position X="4.5" Y="1.5" Width="1.5" />
     <AssociationLine Name="Leners" Type="KrekelSchool.Models.Domain1.Lener" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.75" Y="1.743" />
+        <Point X="6" Y="1.743" />
         <Point X="9" Y="1.743" />
         <Point X="9" Y="4.75" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Gebruikers" Type="KrekelSchool.Models.Domain1.Gebruiker" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.938" Y="1.5" />
-        <Point X="4.938" Y="0.714" />
+        <Point X="5.188" Y="1.5" />
+        <Point X="5.188" Y="0.714" />
         <Point X="7.5" Y="0.714" />
       </Path>
     </AssociationLine>
