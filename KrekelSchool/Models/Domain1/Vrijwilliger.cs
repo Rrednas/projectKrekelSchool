@@ -11,7 +11,7 @@ namespace KrekelSchool
     {
         public void CheckIn(Item i , Lener l , DateTime tot)
         {
-            Mediatheek.VoegUitleningToe(l,tot,i);
+          //  Mediatheek.VoegUitleningToe(l,tot,i);
         }
 
         public void CheckOut()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Web;
 using KrekelSchool.Models.Domain1;
 
@@ -19,7 +20,7 @@ namespace KrekelSchool.Models
         }
 
 
-        public string Id { get; private set; }
+        public int Id { get; private set; }
 
         [Display(Name = "Naam")]
         [Required(ErrorMessage = "{0} is verplicht")]
@@ -42,7 +43,7 @@ namespace KrekelSchool.Models
             Beschikbaar = item.Beschikbaar;
         }
 
-        public string Id { get; private set; }
+        public int Id { get; private set; }
 
         [Display(Name = "Naam")]
         public string Naam { get; private set; }
