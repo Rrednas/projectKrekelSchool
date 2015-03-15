@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using KrekelSchool.Models.DAL;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -14,6 +15,8 @@ using KrekelSchool.Models;
 
 namespace KrekelSchool.Controllers
 {
+    
+
     [Authorize]
     public class AccountController : Controller
     {

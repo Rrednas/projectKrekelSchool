@@ -42,8 +42,8 @@ namespace KrekelSchool.Models.DAL
                     new Boek("De Koning", false,88, "Boek over koning", 7,"ISbnNummer", "Corneel", "kanaar"),
                     new Boek("bla", true,1, "lololol", 666,"grat e nummer", "Corneel", "kanaar"),
                     new Cd("Hail Jebus!", false, 9, "How religion destroyed us!", 12, 55), 
-                    new Cd( "ceidei", false,2, "lolol", 55, 667),
-                    new Dvd( "ceidei", false,2, "lolol", 55, 667),
+                    new Cd("ceidei", false,2, "lolol", 55, 667),
+                    new Dvd("ceidei", false,2, "lolol", 55, 667),
                     new Spel("een spel", true, 5, "een beschrijving", 6), 
 
                 };
@@ -63,7 +63,6 @@ namespace KrekelSchool.Models.DAL
             {
                 
                 throw(e);
-                //Waarschijnlijk het id dat automatisch moet worden aangemaakt
             }
             context.SaveChanges();
             base.Seed(context); 
