@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -12,7 +14,7 @@ namespace KrekelSchool.Models.Domain1
         //public ICollection<Cd> Cds { get; set; }
         //public ICollection<Dvd> Dvds { get; set; }
         //public ICollection<Spel> Spellen { get; set; }
-        public Verteltas(string id, string naam, bool beschikbaar, string beschrijving, int leeftijd) : base(id, naam, beschikbaar, beschrijving, leeftijd)
+        public Verteltas(string naam, bool beschikbaar, int aantalBeschikbaar, string beschrijving, int leeftijd) : base(naam, beschikbaar, aantalBeschikbaar, beschrijving, leeftijd)
         {
         }
 

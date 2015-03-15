@@ -57,24 +57,19 @@ footer {
 }
 
 .btnSearch {
-    width: 28%;
-    margin: -36px 0 20px 72%;
-    
+    width: 25%;
+    margin: -40px 0 20px 72%;
 }
 
 textarea.formListSearch {
     max-width: 100%;
     width: 70%;
-    height: 35px;
+    height: 37px;
     resize: none;
     margin: 15px 0 0 0;
     float: left;
 }
 
-
-.search {
-    margin: 0 0 0 -15px;
-}
 .btnSearchCol, .searchResult, .col1{
     width: auto;
     margin: 0 0 0 0;
@@ -101,6 +96,12 @@ textarea.formListSearch {
     width: 120px;
 }
 
+.btnImgLeU {
+    margin-top: 10px;
+    height: 90px;
+    width: 80px;
+}
+
 .label {
     margin: 0 0 0 10px;
     font-size: 15px;
@@ -112,9 +113,9 @@ textarea.formListSearch {
   filter: alpha(opacity=80);
 }
 
- .modalForm {
+.modalForm, .modalFormTitle {
      width: 300px;
-     margin: 0 0 0 5%;
+     margin: 0 0 0 10%;
 }
 
 body.modal-open,
@@ -124,13 +125,107 @@ margin-right: 0;
 }
 
 .checkBeschikbaar {
-    margin: -27px 0 0 0;
+    margin: -27px 0 0 30px;
 }
 
+.itemImg {
+    height: 100px;
+    width: 100px;
+}
+
+.pName {
+    font-size: 20px;
+    font-weight: bold;
+}
+/*Buttons*/
 .addOk {
     background-image: url("../images/icons/done.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    background-color: darkgoldenrod;
+    border-color: chocolate;
+    border-width: 5px;
+}
+.addOk:hover {
+    background-color: darkgreen;
+    border-color: chartreuse;
+}
+.imgSearch {
+    width: 25px;
+    height: 25px;
+}
+.btn-success {
+    background-color: darkgoldenrod;
+    border-color: chocolate;
 }
 
+.btn-success:hover {
+    background-color: darkgreen;
+    border-color: chartreuse;
+}
+
+.btnAddLln {
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/addLln.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnEdit {
+    margin: 0 5px 5px 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/edit.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnRmv {
+    margin: 0 0 5px 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/deleteTrash.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnAdd {
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/add.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnDet {
+    margin: 0 5px 5px 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/details.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*tablet screen*/
+@media screen and (min-width: 391px) {
+    .modal {
+         background-color: peru;
+         width: 350px;
+         height: 700px;
+         left: 25%;
+         overflow: hidden;
+    }
+    
+}
+/*Normal pc screen*/
 @media screen and (min-width: 981px) {
     .banner {
         display: inline-block;
@@ -142,24 +237,24 @@ margin-right: 0;
         margin: 0 0 0 25%;
     }
 
-    .btnSearch {
+    /*.btnSearch {
         width: 55%;
         margin: -78px 0 0 100px;
-    }
+    }*/
 
-    textarea.formListSearch {
+    /*textarea.formListSearch {
         max-width: 300%;
         width: 195%;
         height: 35px;
         resize: none;
         margin: 0 0 10px 0;
         float: left;
-    }
+    }*/
 
-    .search {
+    /*.search {
         max-width: 100px;
         width: 80px;
-    }
+    }*/
 
     .searchResult {
         width: 525px;
@@ -171,6 +266,11 @@ margin-right: 0;
 
     }
     .modalForm {
-     margin: 0 0 0 5%;
+        padding-left: 25px;
+    }
+
+     .modal {
+         left: 40%;
+    }
 }
-}
+

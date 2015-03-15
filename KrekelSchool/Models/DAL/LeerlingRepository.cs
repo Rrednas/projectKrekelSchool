@@ -8,12 +8,12 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool.Models.DAL
 {
-    public class LenerRepository : ILenerRepository
+    public class LeerlingRepository : ILeerlingRepository
     {
         private KrekelSchoolContext Context;
         private DbSet<Lener> Leners;
 
-        public LenerRepository(KrekelSchoolContext context)
+        public LeerlingRepository(KrekelSchoolContext context)
         {
             Context = context;
             Leners = Context.Leerlingen;

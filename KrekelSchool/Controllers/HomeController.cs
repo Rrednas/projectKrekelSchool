@@ -12,7 +12,7 @@ namespace KrekelSchool.Controllers
         private KrekelSchoolContext context = new KrekelSchoolContext();
         public ActionResult Index()
         {
-            return View(context.Leerlingen.ToList());
+            return View(context.Items.ToList());
         }
 
         public ActionResult About()
@@ -28,7 +28,5 @@ namespace KrekelSchool.Controllers
 
             return View();
         }
-
-        
     }
 }

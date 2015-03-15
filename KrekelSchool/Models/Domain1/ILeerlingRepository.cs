@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KrekelSchool.Models.Domain1
 {
-    public interface ILenerRepository
+    public interface ILeerlingRepository
     {
         Lener FindBy(int itemId);
         IQueryable<Lener> FindAll();

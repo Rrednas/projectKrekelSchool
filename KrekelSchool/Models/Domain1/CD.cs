@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -6,8 +8,8 @@ namespace KrekelSchool.Models.Domain1
     {
         public int Size { get; set; }
 
-        public Cd(string id, string naam, bool beschikbaar, string beschrijving, int leeftijd, int size)
-            : base(id, naam, beschikbaar, beschrijving, leeftijd)
+        public Cd(string naam, bool beschikbaar, int aantalBeschikbaar, string beschrijving, int leeftijd, int size)
+            : base(naam, beschikbaar,aantalBeschikbaar, beschrijving, leeftijd)
         {
             Size = size;
         }

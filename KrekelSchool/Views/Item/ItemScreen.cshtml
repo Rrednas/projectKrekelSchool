@@ -2,6 +2,7 @@
 @using System.Web.Mvc.Html
 @using System.Web.UI.WebControls
 @using KrekelSchool.Models.DAL
+@using KrekelSchool.Models.DAL.Mappers
 @using KrekelSchool.Models.Domain1
 @using KrekelSchool.Controllers
 @using Microsoft.Ajax.Utilities
@@ -14,46 +15,36 @@
     <h4>@ViewBag.Message</h4>
     <hr />
     <div class="row">
-        <div class="col-md-12 search">
+        <div class="col-md-8 ">
             <textarea class="form-control formListSearch"></textarea>
-            <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
-        </div>
+            </div>
+            <div class="col-md-8">
+                <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
+            </div>
+
 
         @model  IEnumerable<Item>
-            
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.ActionLink("Voeg Toe", "ItemToevoegen" ,"Item",  new {id = ViewBag.id}, new { @class = "modal-link btn btn-success" })
-                </th>
-                @foreach (var p in @Model.First().GetType().GetProperties())
+
+                    @Html.ActionLink(" ", "ItemToevoegen" ,"Item",  new {id = ViewBag.id}, new { @class = "modal-link btn btn-success btnAdd" })
+                @foreach (var p in Model)
                 {
-                    <th>
-                        @p.Name
-                    </th>
+                    <div class="col-md-8">
+                        <table>
+                            <h2>@p.Naam</h2>
+                            <img src="~/images/items/no image.jpg" alt="@p.Naam" class="itemImg" />
+                            @foreach (var prop in p.GetType().GetProperties())
+                            {
+
+                                <tr>
+                                    <td class="pName">@prop.Name : </td>
+                                    <td>@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
+                                </tr>
+                            }
+                            @Html.ActionLink(" ", "ItemAanpassen", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnEdit" })
+                            @Html.ActionLink(" ", "ItemDetails", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnDet" })
+                            @Html.ActionLink(" ", "ItemVerwijderen", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnRmv" })
+                        </table>
+                    </div>
                 }
-
-            </tr>
-            @foreach (var l in Model)
-            {
-                <tr>
-                    <td>
-                        @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
-                        @Html.ActionLink("Edit", "ItemAanpassen", "Item",null, new { id = l.Id, @class = "modal-link btn btn-success " })  |
-                            
-                        @Html.ActionLink("Details", "getItem", new { id = l.Id }) |
-
-                        @Html.ActionLink("Delete", "removeItem", new {id = l.Id})
-                           
-                    </td>
-                    @foreach (var prop in l.GetType().GetProperties())
-                    {
-                        <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
-
-                    }
-
-                </tr>
-            }
-        </table>
     </div>
 }

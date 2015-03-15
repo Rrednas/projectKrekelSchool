@@ -8,17 +8,22 @@ namespace KrekelSchool.Models.Domain1
     
     public class Lener
     {
-        public Lener() { }
-        public Lener(string naam, string voornaam, int id)
-        {
-            Naam = naam;
-            Voornaam = voornaam;
-            Id = id;
-        }
         public virtual Collection<Uitlening> Uitleningen { get; set; }
         public string Naam { get; set; }
         public string Voornaam { get; set; }
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        public Lener() { }
+
+        public Lener(string naam, string voornaam)
+        {
+            Naam = naam;
+            Voornaam = voornaam;
+        }
+        
         #region methods
 
         public void KrijgLening(Uitlening uitl)
@@ -27,9 +32,7 @@ namespace KrekelSchool.Models.Domain1
             {
                 throw new ApplicationException("Lener mag niet meer dan 3 uitleningen hebben.");
             }
-            
-            Uitleningen.Add(uitl);
-            
+                Uitleningen.Add(uitl);
         }
         #endregion
     }

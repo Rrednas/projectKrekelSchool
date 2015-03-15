@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
     public class Spel : KrekelSchool.Item
     {
-        public Spel(string id, string naam, bool beschikbaar, string beschrijving, int leeftijd) : base(id, naam, beschikbaar, beschrijving, leeftijd)
+        public Spel( string naam, bool beschikbaar, int aantalBeschikbaar, string beschrijving, int leeftijd) : base( naam, beschikbaar, aantalBeschikbaar, beschrijving, leeftijd)
         {
         }
 
