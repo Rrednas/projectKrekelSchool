@@ -12,8 +12,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public BoekMap()
         {
-
-            HasKey(b => b.Id);
+            HasKey(b => b.Boek_Id);
             Property(b => b.Naam).IsRequired();
             Property(b => b.Leeftijd).IsRequired();
             Property(b => b.Isbn).IsOptional();

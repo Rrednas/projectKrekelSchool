@@ -36,21 +36,39 @@ namespace KrekelSchool.Models.DAL
                 //context.Uitleningen.AddRange(leningen);
                 //context.SaveChanges();
 
-                Item[] items =
+                Boek[] boeken =
                 {
                     new Boek("boek" , true,3, "Beschrijving", 5, "12FZEF124TFAAZ", "Corneel", "kanaar" ),
                     new Boek("De Koning", false,88, "Boek over koning", 7,"ISbnNummer", "Corneel", "kanaar"),
-                    new Boek("bla", true,1, "lololol", 666,"grat e nummer", "Corneel", "kanaar"),
-                    new Cd("Hail Jebus!", false, 9, "How religion destroyed us!", 12, 55), 
-                    new Cd("ceidei", false,2, "lolol", 55, 667),
-                    new Dvd("ceidei", false,2, "lolol", 55, 667),
-                    new Spel("een spel", true, 5, "een beschrijving", 6), 
-
+                    new Boek("bla", true,1, "lololol", 666,"grat e nummer", "Corneel", "kanaar")
                 };
 
-                context.Items.AddRange(items);
+                context.Boeken.AddRange(boeken);
                 context.SaveChanges();
 
+                Cd[] cds =
+                {
+                    new Cd("Hail Jebus!", false, 9, "How religion destroyed us!", 12, 55),
+                    new Cd("ceidei", false, 2, "lolol", 55, 667),
+                };
+                context.Cds.AddRange(cds);
+                context.SaveChanges();
+
+                //Dvd[] dvds =
+                //{
+
+                //    new Dvd("ceidei", false, 2, "lolol", 55, 667)
+                //};
+
+                //context.Dvds.AddRange(dvds);
+                //context.SaveChanges();
+                //Spel[] spel =
+                //{
+                //    new Spel("een spel", true, 5, "een beschrijving", 6),
+                //};
+
+                //context.Spellen.AddRange(spel);
+                //context.SaveChanges();
                 //context.Boeken.Add(new Boek("boek" , true,3, "Beschrijving", 5, "12FZEF124TFAAZ", "Corneel", "kanaar" ));
                 //context.Boeken.Add(new Boek("De Koning", false,88, "Boek over koning", 7,"ISbnNummer", "Corneel", "kanaar"));
                 //context.SaveChanges();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -25,8 +26,9 @@ namespace KrekelSchool
 
         }
 
-        [Key]
+        //[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Naam { get; set; }
         public bool Beschikbaar { get; set; }

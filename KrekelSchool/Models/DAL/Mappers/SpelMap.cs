@@ -11,7 +11,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public SpelMap()
         {
-            HasKey(s => s.Id);
+            HasKey(s => s.Spel_Id);
         }
     }
 }

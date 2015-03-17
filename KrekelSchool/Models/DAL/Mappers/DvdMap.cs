@@ -11,7 +11,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public DvdMap()
         {
-            HasKey(d => d.Id);
+            HasKey(d => d.Dvd_Id);
             Property(d => d.Size).IsOptional();
         }
     }

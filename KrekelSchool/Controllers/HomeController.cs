@@ -9,10 +9,10 @@ namespace KrekelSchool.Controllers
 {
     public class HomeController : Controller
     {
-        private KrekelSchoolContext context = new KrekelSchoolContext();
+        //public KrekelSchoolContext context = new KrekelSchoolContext();
         public ActionResult Index()
         {
-            return View(context.Items.ToList());
+            return View();
         }
 
         public ActionResult About()

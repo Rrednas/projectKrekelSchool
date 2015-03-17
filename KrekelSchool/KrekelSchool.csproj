@@ -216,6 +216,7 @@
     <Compile Include="Models\Domain1\Vrijwilliger.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\KrekelSchool.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -250,6 +251,7 @@
     <Content Include="fonts\GrandHotel-Regular-webfont.eot" />
     <Content Include="fonts\GrandHotel-Regular-webfont.ttf" />
     <Content Include="fonts\GrandHotel-Regular-webfont.woff" />
+    <Content Include="bin\KrekelSchool.dll.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -303,7 +305,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -11,7 +11,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public UitleningMap()
         {
-           // HasRequired(u => u.Iitem);
+            ToTable("Uitleningen");
             HasKey(u => u.Id);
 
         }
