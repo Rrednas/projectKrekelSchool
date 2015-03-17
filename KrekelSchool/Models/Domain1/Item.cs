@@ -26,7 +26,7 @@ namespace KrekelSchool
 
         }
 
-        //[Key]
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

@@ -102,6 +102,8 @@ namespace KrekelSchool
                 if (id == "Cds")
                 {
                     Cd cd = new Cd();
+                    ivm = new ItemViewModel(cd);
+                    cd = new Cd(cd.Naam, cd.Beschikbaar, cd.AantalBeschikbaar, cd.Beschrijving, cd.Leeftijd, cd.Size);
                     Repository.Add(cd);
                     Repository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", cd.Naam);

@@ -11,9 +11,6 @@ namespace KrekelSchool.Models.Domain1
         public string Auteur { get; set; }
         public string Uitgever { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Boek_Id { get; set; }
-
         public ICollection<Categorie> Categories { get; set; }
         
 

@@ -6,8 +6,7 @@ namespace KrekelSchool.Models.Domain1
 {
     public class Spel : KrekelSchool.Item
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Spel_Id { get; set; }
+
         public Spel( string naam, bool beschikbaar, int aantalBeschikbaar, string beschrijving, int leeftijd) : base( naam, beschikbaar, aantalBeschikbaar, beschrijving, leeftijd)
         {
         }
