@@ -14,8 +14,8 @@ namespace KrekelSchool.Models.Domain1
         public ICollection<Categorie> Categories { get; set; }
         
 
-        public Boek( string naam, bool beschikbaar, int aantalBeschikbaar, string beschrijving , int leeftijd, string isbn, string auteur, string uitgever) 
-            : base( naam, beschikbaar, aantalBeschikbaar, beschrijving, leeftijd)
+        public Boek( string naam, bool beschikbaar,  int totaalAantal, string beschrijving , int leeftijd, string isbn, string auteur, string uitgever) 
+            : base( naam, beschikbaar,  totaalAantal, beschrijving, leeftijd)
         {
             Isbn = isbn;
             Auteur = auteur;

@@ -94,7 +94,7 @@ namespace KrekelSchool
                 {
                     Boek boek = new Boek();
                     ivm = new ItemViewModel(boek);
-                    boek = new Boek(ivm.Naam, ivm.Beschikbaar, ivm.AantalBeschikbaar, ivm.Beschrijving, ivm.Leeftijd, ivm.Isbn, ivm.Auteur, ivm.Uitgever);
+                    boek = new Boek(ivm.Naam, ivm.Beschikbaar, ivm.TotaalBeschikbaar, ivm.Beschrijving, ivm.Leeftijd, ivm.Isbn, ivm.Auteur, ivm.Uitgever);
                     Repository.Add(boek);
                     Repository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
@@ -103,7 +103,7 @@ namespace KrekelSchool
                 {
                     Cd cd = new Cd();
                     ivm = new ItemViewModel(cd);
-                    cd = new Cd(cd.Naam, cd.Beschikbaar, cd.AantalBeschikbaar, cd.Beschrijving, cd.Leeftijd, cd.Size);
+                    cd = new Cd(ivm.Naam, ivm.Beschikbaar, ivm.TotaalBeschikbaar, ivm.Beschrijving, ivm.Leeftijd, ivm.Size);
                     Repository.Add(cd);
                     Repository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", cd.Naam);

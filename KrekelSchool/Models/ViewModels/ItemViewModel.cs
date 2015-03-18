@@ -16,7 +16,7 @@ namespace KrekelSchool.Models
         public int Id { get; private set; }
 
         [Display(Name = "Naam")]
-        [Required(ErrorMessage = "{0} is verplicht")]
+        [Required(ErrorMessage = "{0} is verplicht!!")]
         public string Naam { get; private set; }
 
         [Display(Name = "Beschrijving")]
@@ -25,10 +25,13 @@ namespace KrekelSchool.Models
         [Display(Name = "Beschikbaar")]
         public bool Beschikbaar { get; private set; }
 
-        [Display(Name = "Aantal beschikbaar")]
-        public int AantalBeschikbaar { get; private set; }
+        [Display(Name = "Totaal aantal beschikbaar")]
+        [Range(1, Int32.MaxValue, ErrorMessage = "{0} mag niet 0 of negatief zijn!!")]
+        [Required(ErrorMessage = "Geef het aantal beschikbare items!!")]
+        public int TotaalBeschikbaar { get; private set; }
 
-        [Required(ErrorMessage = "{0} is verplicht")]
+        [Range(1, Int32.MaxValue, ErrorMessage = "{0} mag niet 0 of negatief zijn!!")]
+        [Required(ErrorMessage = "{0} is verplicht!!")]
         public int Leeftijd { get; private set; }
 
         [Display(Name = "ISBN-nummer")]
@@ -54,7 +57,7 @@ namespace KrekelSchool.Models
             Naam = item.Naam;
             Beschrijving = item.Beschrijving;
             Beschikbaar = item.Beschikbaar;
-            AantalBeschikbaar = item.AantalBeschikbaar;
+            TotaalBeschikbaar = item.TotaalAantal;
             Leeftijd = item.Leeftijd;
 
         }
@@ -66,7 +69,7 @@ namespace KrekelSchool.Models
             Naam = boek.Naam;
             Beschrijving = boek.Beschrijving;
             Beschikbaar = boek.Beschikbaar;
-            AantalBeschikbaar = boek.AantalBeschikbaar;
+            TotaalBeschikbaar = boek.TotaalAantal;
             Leeftijd = boek.Leeftijd;
             Isbn = boek.Isbn;
             Auteur = boek.Auteur;
@@ -80,7 +83,7 @@ namespace KrekelSchool.Models
             Naam = cd.Naam;
             Beschrijving = cd.Beschrijving;
             Beschikbaar = cd.Beschikbaar;
-            AantalBeschikbaar = cd.AantalBeschikbaar;
+            TotaalBeschikbaar = cd.TotaalAantal;
             Leeftijd = cd.Leeftijd;
             Size = cd.Size;
         }
@@ -92,7 +95,7 @@ namespace KrekelSchool.Models
             Naam = dvd.Naam;
             Beschrijving = dvd.Beschrijving;
             Beschikbaar = dvd.Beschikbaar;
-            AantalBeschikbaar = dvd.AantalBeschikbaar;
+            TotaalBeschikbaar = dvd.TotaalAantal;
             Leeftijd = dvd.Leeftijd;
             Size = dvd.Size;
         }
@@ -104,7 +107,7 @@ namespace KrekelSchool.Models
             Naam = spel.Naam;
             Beschrijving = spel.Beschrijving;
             Beschikbaar = spel.Beschikbaar;
-            AantalBeschikbaar = spel.AantalBeschikbaar;
+            TotaalBeschikbaar = spel.TotaalAantal;
             Leeftijd = spel.Leeftijd;
         }
 
@@ -115,7 +118,7 @@ namespace KrekelSchool.Models
             Naam = verteltas.Naam;
             Beschrijving = verteltas.Beschrijving;
             Beschikbaar = verteltas.Beschikbaar;
-            AantalBeschikbaar = verteltas.AantalBeschikbaar;
+            TotaalBeschikbaar = verteltas.TotaalAantal;
             Leeftijd = verteltas.Leeftijd;
         }
 

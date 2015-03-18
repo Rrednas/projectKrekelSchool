@@ -28,18 +28,37 @@
                     @Html.ActionLink(" ", "ItemToevoegen" ,"Item",  new {id = ViewBag.id}, new { @class = "modal-link btn btn-success btnAdd" })
                 @foreach (var p in Model)
                 {
-                    <div class="col-md-8">
+                    <div class="col-md-8 itemObj">
+                        <h2>@p.Naam</h2>
+                        <img src="~/images/items/no image.jpg" alt="@p.Naam" class="itemImg" />
                         <table>
-                            <h2>@p.Naam</h2>
-                            <img src="~/images/items/no image.jpg" alt="@p.Naam" class="itemImg" />
-                            @foreach (var prop in p.GetType().GetProperties())
+                            <tr>
+                                <td class="pName">Leeftijd : </td>
+                                <td>+ @p.Leeftijd</td>
+                            </tr>
+                            <tr>
+                                <td class="pName">Nog Beschikbaar : </td>
+                                @if (p.Beschikbaar.Equals(true))
+                                {
+                                    <td>Ja, nog @p.AantalBeschikbaar </td>;
+                                }
+                                else
+                                {
+                                    <td>Geen Meer</td>;
+                                }
+                                        
+                            </tr>
+                            <tr>
+                                <td class="pName">Aantal Beschikbaar : </td>
+                                <td>@p.TotaalAantal</td>
+                            </tr>
+                            @*@foreach (var prop in p.GetType().GetProperties())
                             {
-
                                 <tr>
                                     <td class="pName">@prop.Name : </td>
                                     <td>@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
                                 </tr>
-                            }
+                            }*@
                             @Html.ActionLink(" ", "ItemAanpassen", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnEdit" })
                             @Html.ActionLink(" ", "ItemDetails", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnDet" })
                             @Html.ActionLink(" ", "ItemVerwijderen", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnRmv" })

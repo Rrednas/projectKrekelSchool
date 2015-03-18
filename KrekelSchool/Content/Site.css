@@ -129,13 +129,18 @@ margin-right: 0;
 }
 
 .itemImg {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
+    margin: 0 25px 0 0;
+    float: left;
 }
 
 .pName {
     font-size: 20px;
     font-weight: bold;
+}
+.itemObj {
+    padding: 25px 0 25px 20px;
 }
 /*Buttons*/
 .addOk {
@@ -177,7 +182,7 @@ margin-right: 0;
 }
 
 .btnEdit {
-    margin: 0 5px 5px 0;
+    margin: 0 25px 5px 0;
     height: 50px;
     width: 50px;
     background-image: url("../images/icons/edit.png");
@@ -199,6 +204,7 @@ margin-right: 0;
 .btnAdd {
     height: 50px;
     width: 50px;
+    margin: 15px;
     background-image: url("../images/icons/add.png");
     background-size: 45px 45px;
     background-repeat: no-repeat;
@@ -206,7 +212,7 @@ margin-right: 0;
 }
 
 .btnDet {
-    margin: 0 5px 5px 0;
+    margin: 0 25px 5px 0;
     height: 50px;
     width: 50px;
     background-image: url("../images/icons/details.png");
@@ -219,7 +225,7 @@ margin-right: 0;
     .modal {
          background-color: peru;
          width: 350px;
-         height: 700px;
+         height: 800px;
          left: 25%;
          overflow: hidden;
     }
