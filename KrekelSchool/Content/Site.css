@@ -48,59 +48,29 @@ img{
     height: 100%;
 }
 
+.banner {
+    display: none;
+}
+
 footer {
     text-align: center;
 }
 
-.btnN {
-    text-align: center;
-    width: 100%;
-    height: 35px;
-}
-
 .btnSearch {
-    width: 28%;
-    margin: -36px 0 20px 72%;
-    
-}
-
-.btnMod {
-    width: 100px;
-    float: left;
-}
-
-.btnRemove {
-    width: 100px;
-    margin: -11px 10px 0 10px;
-    float: left;
-}
-
-.btnSave {
-    width: 100px;
-    margin: -22px 0 0 0;
-    float: left;
+    width: 25%;
+    margin: -40px 0 20px 72%;
 }
 
 textarea.formListSearch {
     max-width: 100%;
     width: 70%;
-    height: 35px;
+    height: 37px;
     resize: none;
     margin: 15px 0 0 0;
     float: left;
 }
 
-textarea.formList {
-    max-width: 100%;
-    height: 150px;
-    resize: none;
-    margin: 0 0 20px 0;
-}
-
-.search {
-    margin: 0 0 0 -15px;
-}
-.btnSearchCol, .searchResult, .details, .col1{
+.btnSearchCol, .searchResult, .col1{
     width: auto;
     margin: 0 0 0 0;
 }
@@ -126,72 +96,187 @@ textarea.formList {
     width: 120px;
 }
 
+.btnImgLeU {
+    margin-top: 10px;
+    height: 90px;
+    width: 80px;
+}
 
+.label {
+    margin: 0 0 0 10px;
+    font-size: 15px;
+    color: white;
+}
 
+.modal-backdrop.in {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.modalForm, .modalFormTitle {
+     width: 300px;
+     margin: 0 0 0 10%;
+}
+
+body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+margin-right: 0;
+}
+
+.checkBeschikbaar {
+    margin: -27px 0 0 30px;
+}
+
+.itemImg {
+    height: 200px;
+    width: 200px;
+    margin: 0 25px 0 0;
+    float: left;
+}
+
+.pName {
+    font-size: 20px;
+    font-weight: bold;
+}
+.itemObj {
+    padding: 25px 0 25px 20px;
+}
+/*Buttons*/
+.addOk {
+    background-image: url("../images/icons/done.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    background-color: darkgoldenrod;
+    border-color: chocolate;
+    border-width: 5px;
+}
+.addOk:hover {
+    background-color: darkgreen;
+    border-color: chartreuse;
+}
+.imgSearch {
+    width: 25px;
+    height: 25px;
+}
+.btn-success {
+    background-color: darkgoldenrod;
+    border-color: chocolate;
+}
+
+.btn-success:hover {
+    background-color: darkgreen;
+    border-color: chartreuse;
+}
+
+.btnAddLln {
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/addLln.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnEdit {
+    margin: 0 25px 5px 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/edit.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnRmv {
+    margin: 0 0 5px 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/deleteTrash.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnAdd {
+    height: 50px;
+    width: 50px;
+    margin: 15px;
+    background-image: url("../images/icons/add.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnDet {
+    margin: 0 25px 5px 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/details.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*tablet screen*/
+@media screen and (min-width: 391px) {
+    .modal {
+         background-color: peru;
+         width: 350px;
+         height: 800px;
+         left: 25%;
+         overflow: hidden;
+    }
+    
+}
+/*Normal pc screen*/
 @media screen and (min-width: 981px) {
+    .banner {
+        display: inline-block;
+        width: 75%;
+        height: 75%;
+        margin: 0 0 0 130px;
+    }
     .btnItem {
         margin: 0 0 0 25%;
     }
-    .btnN {
-        text-align: center;
-        width: 110px;
-        height: 35px;
-    }
 
-    .btnSearch {
+    /*.btnSearch {
         width: 55%;
         margin: -78px 0 0 100px;
-    }
+    }*/
 
-    .btnMod {
-        width: 30%;
-        margin: -5px 0 0 5px;
-        float: left;
-    }
-
-    .btnRemove {
-        width: 30%;
-        margin: -32px 0 0 36%;
-        float: left;
-    }
-
-    .btnSave {
-        width: 30%;
-        margin: -40px 0 0 71%;
-    }
-
-    textarea.formListSearch {
+    /*textarea.formListSearch {
         max-width: 300%;
         width: 195%;
         height: 35px;
         resize: none;
         margin: 0 0 10px 0;
         float: left;
-    }
+    }*/
 
-    textarea.formList {
-        max-width: 100%;
-        height: 235px;
-        resize: none;
-    }
-
-    .search {
+    /*.search {
         max-width: 100px;
         width: 80px;
-    }
+    }*/
 
     .searchResult {
         width: 525px;
         margin: 0 0 0 15px;
     }
 
-    .details {
-        width: 525px;
-        margin: -2px 0 0 -5px;
-    }
-
     .containerItem {
         margin-left: 90px;
 
     }
+    .modalForm {
+        padding-left: 25px;
+    }
+
+     .modal {
+         left: 40%;
+    }
 }
+

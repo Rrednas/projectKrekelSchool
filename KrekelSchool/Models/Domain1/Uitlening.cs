@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -43,13 +45,15 @@ namespace KrekelSchool.Models.Domain1
             }
         }
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public bool IsTerug
         {
             get; set; }
 
-        public KrekelSchool.Item Item
+        public Item Item
         {
             get { return item; }
             set

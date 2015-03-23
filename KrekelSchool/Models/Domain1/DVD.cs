@@ -1,17 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
-    public class Dvd : KrekelSchool.Item
+    public class DVD : KrekelSchool.Item
     {
         public int Size { get; set; }
 
-        public Dvd(int id, string naam, bool beschikbaar, string beschrijving, int size) : base(id, naam, beschikbaar, beschrijving)
+
+        public DVD( string naam, bool beschikbaar, int totaalAantal, string beschrijving,int leeftijd, int size) : base(naam, beschikbaar, totaalAantal, beschrijving, leeftijd)
         {
             Size = size;
         }
 
-        public Dvd()
+        public DVD()
         {
             
         }

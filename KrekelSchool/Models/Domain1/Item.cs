@@ -1,4 +1,8 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Globalization;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
@@ -9,12 +13,13 @@ namespace KrekelSchool
 {
     public abstract class Item
     {
-        protected Item(int id, string naam, bool beschikbaar, string beschrijving)
+        protected Item(string naam, bool beschikbaar, int totaalAantal,string beschrijving, int leeftijd)
         {
-            Id = id;
             Naam = naam;
             Beschikbaar = beschikbaar;
+            TotaalAantal = totaalAantal;
             Beschrijving = beschrijving;
+            Leeftijd = leeftijd;
         }
 
         protected Item()
@@ -22,10 +27,17 @@ namespace KrekelSchool
 
         }
 
+        [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Naam { get; set; }
-        public bool Beschikbaar { get; set; }
+
+        public bool Beschikbaar{ get; set; }
+        public int AantalBeschikbaar { get; set; }
+        public int TotaalAantal { get; set; }
         public string Beschrijving { get; set; }
+        public int Leeftijd { get; set; }
         #region methods
 
        

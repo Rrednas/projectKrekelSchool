@@ -16,15 +16,14 @@ namespace KrekelSchool
     public class LeerlingController : Controller
     {
         public List<Lener> Leerlingen = new List<Lener>();
-        private ILeerlingrepository repos = new LeerlingRepository(new KrekelSchoolContext());
+        private ILeerlingRepository repos = new LeerlingRepository(new KrekelSchoolContext());
 
         #region methods
 
-        public Lener KenLeningToeAan(Lener lener,Uitlening uitlening)
+        public void KenLeningToeAan(Lener lener,Uitlening uitlening)
         {   
             repos.FindBy(lener.Id).KrijgLening(uitlening);
             repos.SaveChanges();
-            return repos.FindBy(lener.Id);
         }
         #endregion
 
@@ -53,6 +52,13 @@ namespace KrekelSchool
         public void RemoveLeerling(Lener leerling)
         {
             repos.Delete(leerling);
+        }
+
+        public ActionResult LenerEnUitlening()
+        {
+            ViewBag.Message = "Selecteer Lener of Uitlening";
+
+            return View();
         }
 
         public ActionResult LeerlingScreen()

@@ -9,39 +9,42 @@ namespace KrekelSchool.Models.DAL
 {
     public class ItemRepository : IitemRepository
     {
-        private KrekelSchoolContext kc;
+        private KrekelSchoolContext context;
         private DbSet Items;
-        
-        private string Soort;
-
+        public DbSet<Boek> Boeken;
+        public DbSet<CD> Cds;
+        public DbSet<DVD> Dvds;
+        public DbSet<Spel> Spellen;
+        public DbSet<Verteltas> Verteltassen;
+        private string Soort { get; set; }
 
         public ItemRepository(KrekelSchoolContext context, string soort)
         {
-            kc = context;
-           // items = context.Items;
+            this.context = context;
+            // items = context.Items;
             Soort = soort;
             switch (Soort)
             {
                 case "Boeken":
-                    Items = kc.Boeken;
+                    Items = context.Boeken;
                     break;
-                case "Cd":
-                    Items = kc.Cds;
+                case "Cds":
+                    Items = context.Cds;
                     break;
-                case "Dvd":
-                    Items = kc.Dvds;
+                case "Dvds":
+                    Items = context.Dvds;
                     break;
                 case "Verteltassen":
-                    Items = kc.Verteltassen;
+                    Items = context.Verteltassen;
                     break;
                 case "Spellen":
-                    Items = kc.Spellen;
+                    Items = context.Spellen;
                     break;
                 default:
                     throw new Exception("geen Id meegegeven");
             }
-            
         }
+
         public Item FindBy(int itemId)
         {
             return (Item) Items.Find(itemId);
@@ -49,14 +52,12 @@ namespace KrekelSchool.Models.DAL
 
         public IQueryable<Item> FindAll()
         {
-            
-            return  (IQueryable<Item>) Items;
-        
+            return (IQueryable<Item>) Items;
         }
 
         public void Add(Item item)
         {
-            Items.Add(item);
+            context.Items.Add(item);
         }
 
         public void Delete(Item item)
@@ -66,7 +67,7 @@ namespace KrekelSchool.Models.DAL
 
         public void SaveChanges()
         {
-            kc.SaveChanges();
+            context.SaveChanges();
         }
     }
 }

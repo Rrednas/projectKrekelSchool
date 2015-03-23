@@ -8,35 +8,35 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool.Models.DAL
 {
-    public class LeerlingRepository : ILeerlingrepository
+    public class LeerlingRepository : ILeerlingRepository
     {
         private KrekelSchoolContext Context;
-        private DbSet<Lener> Leerlingen;
+        private DbSet<Lener> Leners;
 
         public LeerlingRepository(KrekelSchoolContext context)
         {
             Context = context;
-            Leerlingen = Context.Leerlingen;
+            Leners = Context.Leerlingen;
         }
  
         public Lener FindBy(int leerlingId)
         {
-            return Leerlingen.Find(leerlingId);
+            return Leners.Find(leerlingId);
         }
 
         public IQueryable<Lener> FindAll()
         {
-            return Leerlingen;
+            return Leners;
         }
 
         public void Add(Lener leerling)
         {
-            Leerlingen.Add(leerling);
+            Leners.Add(leerling);
         }
 
         public void Delete(Lener leerling)
         {
-            Leerlingen.Remove(leerling);
+            Leners.Remove(leerling);
         }
 
         public void SaveChanges()

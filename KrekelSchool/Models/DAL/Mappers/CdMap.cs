@@ -7,7 +7,7 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool.Models.DAL.Mappers
 {
-    public class CdMap:EntityTypeConfiguration<Cd>
+    public class CdMap:EntityTypeConfiguration<CD>
     {
         public CdMap()
         {

@@ -12,6 +12,7 @@ namespace KrekelSchool.Models.DAL.Mappers
         public CategorieMap()
         {
           //  HasOptional(i => i.Items).WithMany();
+            ToTable("Thema");
         }
     }
 }

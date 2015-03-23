@@ -2,8 +2,10 @@
 @using System.Web.Mvc.Html
 @using System.Web.UI.WebControls
 @using KrekelSchool.Models.DAL
+@using KrekelSchool.Models.DAL.Mappers
 @using KrekelSchool.Models.Domain1
 @using KrekelSchool.Controllers
+@using Microsoft.Ajax.Utilities
 @using Microsoft.AspNet.Identity
 
 
@@ -13,47 +15,55 @@
     <h4>@ViewBag.Message</h4>
     <hr />
     <div class="row">
-            @model  IEnumerable<Item>
-            
-            <table class="table">
-                <tr>
-                    <th></th>
-                    @foreach (var p in @Model.First().GetType().GetProperties())
-                    {
-                        
-                        <th>
-                            <div class="col-md-12 search">
-                                <textarea class="form-control formListSearch"></textarea>
-                                <a class="btn btn-default btnSearch" href="">Zoek</a>
-                            </div>
-                            @p.Name
-                        </th>
-                    }
+        <div class="col-md-8 ">
+            <textarea class="form-control formListSearch"></textarea>
+            </div>
+            <div class="col-md-8">
+                <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
+            </div>
 
 
-                </tr>
+        @model  IEnumerable<Item>
 
-                @foreach (var l in Model)
+                    @Html.ActionLink(" ", "ItemToevoegen" ,"Item",  new {id = ViewBag.id}, new { @class = "modal-link btn btn-success btnAdd" })
+                @foreach (var p in Model)
                 {
-                    <tr>
-                        <td>
-                            @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
-                            @Html.ActionLink("Edit", "ItemAanpassen", "Item",null, new { id = l.Id, @class = "btn btn-success" })  |
-                            
-                            @Html.ActionLink("Details", "getItem", new { id = l.Id }) |
-
-                            @Html.ActionLink("Delete", "removeItem", new {id = l.Id})
-                           
-                        </td>
-                        @foreach (var prop in l.GetType().GetProperties())
-                        {
-                            <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
-                            
-
-                        }
-
-                    </tr>
+                    <div class="col-md-8 itemObj">
+                        <h2>@p.Naam</h2>
+                        <img src="~/images/items/no image.jpg" alt="@p.Naam" class="itemImg" />
+                        <table>
+                            <tr>
+                                <td class="pName">Leeftijd : </td>
+                                <td>+ @p.Leeftijd</td>
+                            </tr>
+                            <tr>
+                                <td class="pName">Nog Beschikbaar : </td>
+                                @if (p.Beschikbaar.Equals(true))
+                                {
+                                    <td>Ja, nog @p.AantalBeschikbaar </td>;
+                                }
+                                else
+                                {
+                                    <td>Geen Meer</td>;
+                                }
+                                        
+                            </tr>
+                            <tr>
+                                <td class="pName">Aantal Beschikbaar : </td>
+                                <td>@p.TotaalAantal</td>
+                            </tr>
+                            @*@foreach (var prop in p.GetType().GetProperties())
+                            {
+                                <tr>
+                                    <td class="pName">@prop.Name : </td>
+                                    <td>@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
+                                </tr>
+                            }*@
+                            @Html.ActionLink(" ", "ItemAanpassen", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnEdit" })
+                            @Html.ActionLink(" ", "ItemDetails", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnDet" })
+                            @Html.ActionLink(" ", "ItemVerwijderen", "Item", null, new { id = p.Id, @class = "modal-link btn btn-success btnRmv" })
+                        </table>
+                    </div>
                 }
-            </table>
     </div>
 }

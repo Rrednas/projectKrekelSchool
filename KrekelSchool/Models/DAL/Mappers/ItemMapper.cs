@@ -13,10 +13,10 @@ namespace KrekelSchool.Models.DAL.Mappers
         public ItemMapper()
         {
             //Property(i => i.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            HasKey(c => c.Id);
+            //HasKey(i => i.Id);
             Map<Boek>(m => m.MapInheritedProperties().ToTable("Boeken"));
-            Map<Cd>(m => m.MapInheritedProperties().ToTable("Cds"));
-            Map<Dvd>(m => m.MapInheritedProperties().ToTable("Dvds"));
+            Map<CD>(m => m.MapInheritedProperties().ToTable("Cds"));
+            Map<DVD>(m => m.MapInheritedProperties().ToTable("Dvds"));
             Map<Verteltas>(m => m.MapInheritedProperties().ToTable("Verteltassen"));
             Map<Spel>(m => m.MapInheritedProperties().ToTable("Spellen"));
             
