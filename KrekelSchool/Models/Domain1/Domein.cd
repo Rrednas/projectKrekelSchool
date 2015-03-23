@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="KrekelSchool.Models.Domain1.Lener" Collapsed="true">
-    <Position X="8.25" Y="4.75" Width="1.5" />
+    <Position X="8.5" Y="4.75" Width="1.5" />
     <AssociationLine Name="Uitleningen" Type="KrekelSchool.Models.Domain1.Uitlening">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.037" Y="-0.409" />
@@ -243,8 +243,8 @@
     <AssociationLine Name="Leners" Type="KrekelSchool.Models.Domain1.Lener" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6" Y="1.743" />
-        <Point X="9" Y="1.743" />
-        <Point X="9" Y="4.75" />
+        <Point X="9.25" Y="1.743" />
+        <Point X="9.25" Y="4.75" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Gebruikers" Type="KrekelSchool.Models.Domain1.Gebruiker" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -255,7 +255,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAECAAAAAIQGCSAAAAAYBQAAABAEAAAAgBAIwABQQA=</HashCode>
+      <HashCode>AAAECAAAAIIQGCSAAAAAYBQAAABAEAAAAgBAIwABQQg=</HashCode>
       <FileName>Models\Domain1\Mediatheek.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
