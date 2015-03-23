@@ -77,7 +77,7 @@ namespace KrekelSchool.Models
         }
 
         //Cd
-        public ItemViewModel(Cd cd)
+        public ItemViewModel(CD cd)
         {
             Id = cd.Id;
             Naam = cd.Naam;

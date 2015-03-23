@@ -201,7 +201,7 @@
     <Compile Include="Models\DAL\Mappers\UitleningMap.cs" />
     <Compile Include="Models\Domain1\Categorie.cs" />
     <Compile Include="Models\Domain1\Boek.cs" />
-    <Compile Include="Models\Domain1\Cd.cs" />
+    <Compile Include="Models\Domain1\CD.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

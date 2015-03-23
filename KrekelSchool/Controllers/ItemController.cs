@@ -61,7 +61,7 @@ namespace KrekelSchool
                     vm = new ItemViewModel(boek);
                     break;
                 case "Cds":
-                    Cd cd = new Cd();
+                    CD cd = new CD();
                     vm = new ItemViewModel(cd);
                     break;
                 case "Dvds":
@@ -104,7 +104,7 @@ namespace KrekelSchool
                     }
                     if (id == "Cds")
                     {
-                        Cd cd = new Cd(vm.Naam, vm.Beschikbaar, vm.TotaalBeschikbaar, vm.Beschrijving, vm.Leeftijd, vm.Size);
+                        CD cd = new CD(vm.Naam, vm.Beschikbaar, vm.TotaalBeschikbaar, vm.Beschrijving, vm.Leeftijd, vm.Size);
                         Repository.Add(cd);
                         Repository.SaveChanges();
                         TempData["Message"] = String.Format("{0} werd gecreëerd.", cd.Naam);

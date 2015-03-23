@@ -12,7 +12,7 @@ namespace KrekelSchool.Models.DAL
         private KrekelSchoolContext context;
         private DbSet Items;
         public DbSet<Boek> Boeken;
-        public DbSet<Cd> Cds;
+        public DbSet<CD> Cds;
         public DbSet<Dvd> Dvds;
         public DbSet<Spel> Spellen;
         public DbSet<Verteltas> Verteltassen;
