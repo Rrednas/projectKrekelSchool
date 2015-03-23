@@ -7,7 +7,7 @@ using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool.Models.DAL.Mappers
 {
-    public class DvdMap : EntityTypeConfiguration<DVD>
+    public class DvdMap : EntityTypeConfiguration<Dvd>
     {
         public DvdMap()
         {

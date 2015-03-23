@@ -16,12 +16,39 @@ namespace KrekelSchool
     public class UitleningController: Controller
     {
         private IUitleningenRepository repos;
+        private IitemRepository itemrepos;
+        private ILeerlingRepository lenerrepos;
 
-        public UitleningController(KrekelSchoolContext context)
+        public UitleningController(IUitleningenRepository uitleningRepository,IitemRepository items , ILeerlingRepository leners)
         {
-            repos = new UitleningRepository(context);
+            this.repos = uitleningRepository;
+            this.itemrepos = items;
+            this.lenerrepos = leners;
         }
 
+        //public View Index()
+        //{
+        //    return View;
+        //}
+        //public ActionResult Create()
+        //{
+        //    return PartialView(new UitleningViewModel(new Uitlening()));
+        //}
+
+
+
+        //[HttpPost]
+        //public ActionResult Create(UitleningViewModel uitleningVM)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        //try
+        //        //{
+        //        //    Uitlening uitlening = new Uitlening();
+
+        //        //}
+        //    }
+        //}
         public Collection<Uitlening> Uitleningen
         {
             get
@@ -42,7 +69,7 @@ namespace KrekelSchool
 
         public void RemoveUitlening(Uitlening uitlening)
         {
-            uitleningRepository.Delete(uitlening);
+            repos.Delete(uitlening);
         }
 
         public Uitlening GetUitlening()
@@ -78,24 +105,19 @@ namespace KrekelSchool
             //uitlening word toegevoegd
             repos.Add(uitlening);
             repos.SaveChanges();
-            //uitlening word gekoppeld aan lener
+            itemrepos.SaveChanges();
+            //uitlening word gekoppeld aan lener    
             mediatheek.LeenUitAan(lener, uitlening);
             lenerrepos.SaveChanges();
 
 
-            
-            
+
+
             //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd) navragen
             //item beschikbaar false done
             //uitlening toevoegen aan leerling done
 
-        }
 
-        public ActionResult UitleningScreen()
-        {
-            ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
-            
-            return View();
         }
 
         
