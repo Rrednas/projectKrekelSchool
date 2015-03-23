@@ -89,7 +89,7 @@ namespace KrekelSchool.Models
         }
 
         //Dvd
-        public ItemViewModel(DVD dvd)
+        public ItemViewModel(Dvd dvd)
         {
             Id = dvd.Id;
             Naam = dvd.Naam;

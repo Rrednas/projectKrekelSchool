@@ -17,9 +17,9 @@ namespace KrekelSchool
     {
         private IUitleningenRepository repos;
         private IitemRepository itemrepos;
-        private ILeerlingrepository lenerrepos;
+        private ILeerlingRepository lenerrepos;
 
-        public UitleningController(IUitleningenRepository uitleningRepository,IitemRepository items , ILeerlingrepository leners)
+        public UitleningController(IUitleningenRepository uitleningRepository,IitemRepository items , ILeerlingRepository leners)
         {
             this.repos = uitleningRepository;
             this.itemrepos = items;
