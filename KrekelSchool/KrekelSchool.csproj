@@ -175,7 +175,6 @@
     <Compile Include="Models\DAL\Mappers\MedewerkerMap.cs" />
     <Compile Include="Models\Domain1\DVD.cs" />
     <Compile Include="Models\Domain1\Gebruiker.cs" />
-    <Compile Include="Models\Domain1\Leerling.cs" />
     <Compile Include="Models\Domain1\Medewerker.cs" />
     <Compile Include="Models\Domain1\Mediatheek.cs" />
     <Compile Include="Models\ViewModels\ItemViewModel.cs" />
