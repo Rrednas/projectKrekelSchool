@@ -65,7 +65,7 @@ namespace KrekelSchool
                     vm = new ItemViewModel(cd);
                     break;
                 case "Dvds":
-                    Dvd dvd = new Dvd();
+                    DVD dvd = new DVD();
                     vm = new ItemViewModel(dvd);
                     break;
                 case "Verteltassen":
@@ -111,7 +111,7 @@ namespace KrekelSchool
                     }
                     if (id == "Dvds")
                     {
-                        Dvd dvd = new Dvd();
+                        DVD dvd = new DVD();
                         Repository.Add(dvd);
                         Repository.SaveChanges();
                         TempData["Message"] = String.Format("{0} werd gecreëerd.", dvd.Naam);

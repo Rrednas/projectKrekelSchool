@@ -13,7 +13,7 @@ namespace KrekelSchool.Models.DAL
         private DbSet Items;
         public DbSet<Boek> Boeken;
         public DbSet<CD> Cds;
-        public DbSet<Dvd> Dvds;
+        public DbSet<DVD> Dvds;
         public DbSet<Spel> Spellen;
         public DbSet<Verteltas> Verteltassen;
         private string Soort { get; set; }
