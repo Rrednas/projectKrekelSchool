@@ -5,19 +5,50 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Drawing.Design;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
+using KrekelSchool.Models.ViewModels;
 
 namespace KrekelSchool
 {
-    public class UitleningController
+    public class UitleningController: Controller
     {
         private IUitleningenRepository repos;
+        private IitemRepository itemrepos;
+        private ILeerlingrepository lenerrepos;
 
-        public UitleningController(KrekelSchoolContext context)
+        public UitleningController(IUitleningenRepository uitleningRepository,IitemRepository items , ILeerlingrepository leners)
         {
-            repos = new UitleningRepository(context);
+            this.repos = uitleningRepository;
+            this.itemrepos = items;
+            this.lenerrepos = leners;
         }
+
+        //public View Index()
+        //{
+        //    return View;
+        //}
+        //public ActionResult Create()
+        //{
+        //    return PartialView(new UitleningViewModel(new Uitlening()));
+        //}
+
+
+
+        //[HttpPost]
+        //public ActionResult Create(UitleningViewModel uitleningVM)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        //try
+        //        //{
+        //        //    Uitlening uitlening = new Uitlening();
+
+        //        //}
+        //    }
+        //}
         public Collection<Uitlening> Uitleningen
         {
             get
@@ -62,12 +93,33 @@ namespace KrekelSchool
             throw new System.NotImplementedException();
         }
 
-        public void AddUitlening(Lener leerling, DateTime uitlendatum, Collection<Item> items)
+        public void AddUitlening(Mediatheek mediatheek,Lener leerling, DateTime tot, Item item)
         {
-            //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd)
-            //item beschikbaar false 
-            
-            throw new System.NotImplementedException();
+
+            //item word op onbeschikbaar gezet
+
+            var nieuwItem = mediatheek.LeenItemUit(itemrepos.FindBy(item.Id));
+            var lener = lenerrepos.FindBy(leerling.Id);
+            //uitelning word aangemaakt met nieuw Uitgeleend item
+            var uitlening = mediatheek.VoegUitleningToe(lener, tot,nieuwItem);
+            //uitlening word toegevoegd
+            repos.Add(uitlening);
+            repos.SaveChanges();
+            itemrepos.SaveChanges();
+            //uitlening word gekoppeld aan lener    
+            mediatheek.LeenUitAan(lener, uitlening);
+            lenerrepos.SaveChanges();
+
+
+
+
+            //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd) navragen
+            //item beschikbaar false done
+            //uitlening toevoegen aan leerling done
+
+
         }
+
+        
     }
 }

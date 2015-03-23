@@ -9,7 +9,7 @@ namespace KrekelSchool
 {
     public abstract class Item
     {
-        protected Item(string id, string naam, int beschikbaar, string beschrijving)
+        protected Item(int id, string naam, bool beschikbaar, string beschrijving)
         {
             Id = id;
             Naam = naam;
@@ -22,10 +22,34 @@ namespace KrekelSchool
 
         }
 
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Naam { get; set; }
-        public int Beschikbaar { get; set; }
+        public bool Beschikbaar { get; set; }
         public string Beschrijving { get; set; }
-        
+        #region methods
+
+       
+        public void WordUitgeleend()
+        {
+            if (!Beschikbaar)
+            {
+                throw new ApplicationException("Item is al uitgeleend");
+            }
+            else
+            {
+                Beschikbaar = false;
+            }
+        }
+
+        public void WordTerugGebracht()
+        {
+            if (Beschikbaar)
+            {
+                throw new ApplicationException("Dit item was al teruggebracht");
+            }
+            Beschikbaar = true;
+           
+        }
+#endregion
     }
 }

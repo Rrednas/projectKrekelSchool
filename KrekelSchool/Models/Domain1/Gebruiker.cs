@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
-using KrekelSchool.Models.Domain1;
 
-namespace KrekelSchool
+namespace KrekelSchool.Models.Domain1
 {
     public class Gebruiker
     {
+        private Mediatheek Mediatheek;
         public Gebruiker()
         {
-            
+            Mediatheek=new Mediatheek();
         }
         
         public ICollection SearchItem(String zoekstring)

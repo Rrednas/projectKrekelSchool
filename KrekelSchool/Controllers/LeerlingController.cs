@@ -18,11 +18,20 @@ namespace KrekelSchool
         public List<Lener> Leerlingen = new List<Lener>();
         private ILeerlingrepository repos = new LeerlingRepository(new KrekelSchoolContext());
 
-       
+        #region methods
+
+        public Lener KenLeningToeAan(Lener lener,Uitlening uitlening)
+        {   
+            repos.FindBy(lener.Id).KrijgLening(uitlening);
+            repos.SaveChanges();
+            return repos.FindBy(lener.Id);
+        }
+        #endregion
 
         public void AddLeerling(Lener leerling)
         {
             repos.Add(leerling);
+            repos.SaveChanges();
         }
 
         //public Lener getLeerling()
@@ -37,7 +46,7 @@ namespace KrekelSchool
 
         public void EditLeerling(Lener leerling)
         {
-            RemoveLeerling(repos.FindBy(leerling.ID));
+            RemoveLeerling(repos.FindBy(leerling.Id));
             AddLeerling(leerling);
         }
 
