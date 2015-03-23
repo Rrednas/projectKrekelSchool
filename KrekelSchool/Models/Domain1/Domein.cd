@@ -8,8 +8,8 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ABACAAAgAAAAAAQAAAAABAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
-      <FileName>Models\Domain1\Leerling.cs</FileName>
+      <HashCode>ABACAAAgAAAAAAAAAAAABAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Domain1\Lener.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Uitleningen" />
@@ -29,8 +29,6 @@
         <Point X="2" Y="11.072" />
         <Point X="2.417" Y="11.072" Type="JumpStart" />
         <Point X="2.583" Y="11.072" Type="JumpEnd" />
-        <Point X="3.113" Y="11.072" Type="JumpStart" />
-        <Point X="3.279" Y="11.072" Type="JumpEnd" />
         <Point X="4.374" Y="11.072" />
         <Point X="4.374" Y="7.813" />
         <Point X="6" Y="7.813" />
@@ -40,7 +38,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAABAAAAAAAAAACAAAAAAAAAQAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\Boek.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -56,65 +54,10 @@
         <Point X="5.75" Y="13.936" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="Categorie" Type="KrekelSchool.Models.Domain1.Categorie" FixedToPoint="true">
-      <Path>
-        <Point X="6.938" Y="13.25" />
-        <Point X="6.938" Y="8.296" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Boeken" Type="KrekelSchool.Models.Domain1.Boek" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.75" Y="13.562" />
-        <Point X="3.196" Y="13.562" />
-        <Point X="3.196" Y="10.168" />
-        <Point X="2.583" Y="10.168" Type="JumpStart" />
-        <Point X="2.417" Y="10.168" Type="JumpEnd" />
-        <Point X="2" Y="10.168" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Cds" Type="KrekelSchool.Models.Domain1.Cd" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.75" Y="13.562" />
-        <Point X="3.196" Y="13.562" />
-        <Point X="3.196" Y="12.682" />
-        <Point X="2.583" Y="12.682" Type="JumpStart" />
-        <Point X="2.417" Y="12.682" Type="JumpEnd" />
-        <Point X="2" Y="12.682" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Dvds" Type="KrekelSchool.Models.Domain1.Dvd" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.75" Y="13.562" />
-        <Point X="3.196" Y="13.562" />
-        <Point X="3.196" Y="9.034" />
-        <Point X="2.583" Y="9.034" Type="JumpStart" />
-        <Point X="2.417" Y="9.034" Type="JumpEnd" />
-        <Point X="2" Y="9.034" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Spellen" Type="KrekelSchool.Models.Domain1.Spel" ManuallyRouted="true">
-      <Path>
-        <Point X="5.75" Y="13.562" />
-        <Point X="3.196" Y="13.562" />
-        <Point X="3.196" Y="7.008" />
-        <Point X="2.583" Y="7.008" Type="JumpStart" />
-        <Point X="2.417" Y="7.008" Type="JumpEnd" />
-        <Point X="2" Y="7.008" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAgAIgAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\Verteltas.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Categorie" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="Boeken" />
-      <Property Name="Cds" />
-      <Property Name="Dvds" />
-      <Property Name="Spellen" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="KrekelSchool.Models.Domain1.Spel">
     <Position X="0.5" Y="6.5" Width="1.5" />
@@ -130,8 +73,6 @@
         <Point X="2" Y="7.402" />
         <Point X="2.417" Y="7.402" Type="JumpStart" />
         <Point X="2.583" Y="7.402" Type="JumpEnd" />
-        <Point X="3.113" Y="7.402" Type="JumpStart" />
-        <Point X="3.279" Y="7.402" Type="JumpEnd" />
         <Point X="4.374" Y="7.402" />
         <Point X="4.374" Y="7.813" />
         <Point X="6" Y="7.813" />
@@ -169,47 +110,18 @@
   <Class Name="KrekelSchool.Models.Domain1.Categorie">
     <Position X="6" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Categorie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KrekelSchool.Item" Collapsed="true">
     <Position X="1.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAkAAAAAAAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>EAACAAkgAAAACAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.Models.Domain1.Dvd">
-    <Position X="0.5" Y="8" Width="1.5" />
-    <InheritanceLine Type="KrekelSchool.Item" ManuallyRouted="true" FixedToPoint="true">
-      <Path>
-        <Point X="2.5" Y="5.312" />
-        <Point X="2.5" Y="8.505" />
-        <Point X="2" Y="8.505" />
-      </Path>
-    </InheritanceLine>
-    <AssociationLine Name="Categories" Type="KrekelSchool.Models.Domain1.Categorie" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="2" Y="9.5" />
-        <Point X="2.417" Y="9.5" Type="JumpStart" />
-        <Point X="2.583" Y="9.5" Type="JumpEnd" />
-        <Point X="3.113" Y="9.5" Type="JumpStart" />
-        <Point X="3.279" Y="9.5" Type="JumpEnd" />
-        <Point X="4.358" Y="9.5" />
-        <Point X="4.358" Y="7.813" />
-        <Point X="6" Y="7.813" />
-      </Path>
-    </AssociationLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Domain1\Dvd.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Categories" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="KrekelSchool.Models.Domain1.Cd">
+  <Class Name="KrekelSchool.Models.Domain1.CD">
     <Position X="0.5" Y="11.5" Width="1.5" />
     <InheritanceLine Type="KrekelSchool.Item" ManuallyRouted="true" FixedToPoint="true">
       <Path>
@@ -223,8 +135,6 @@
         <Point X="2" Y="11.777" />
         <Point X="2.417" Y="11.777" Type="JumpStart" />
         <Point X="2.583" Y="11.777" Type="JumpEnd" />
-        <Point X="3.113" Y="11.777" Type="JumpStart" />
-        <Point X="3.279" Y="11.777" Type="JumpEnd" />
         <Point X="4.359" Y="11.777" />
         <Point X="4.359" Y="7.813" />
         <Point X="6" Y="7.813" />
@@ -232,7 +142,7 @@
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Domain1\Cd.cs</FileName>
+      <FileName>Models\Domain1\CD.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Categories" />
@@ -269,7 +179,7 @@
   <Class Name="KrekelSchool.Models.Domain1.Gebruiker" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAQAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAACAAABAAAAAACABgAAAQAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\Gebruiker.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -280,12 +190,39 @@
       <FileName>Models\Domain1\Vrijwilliger.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.Models.Domain1.Medewerker" Collapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+  <Class Name="KrekelSchool.Medewerker" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BAAAAAEAAAAAAAYAAAAAAIAAAAAAAgAAAAgABggIDAA=</HashCode>
       <FileName>Models\Domain1\Medewerker.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="KrekelSchool.Models.Domain1.Dvd">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <InheritanceLine Type="KrekelSchool.Item" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="5.312" />
+        <Point X="2.5" Y="8.505" />
+        <Point X="2" Y="8.505" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Categories" Type="KrekelSchool.Models.Domain1.Categorie" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="9.5" />
+        <Point X="2.417" Y="9.5" Type="JumpStart" />
+        <Point X="2.583" Y="9.5" Type="JumpEnd" />
+        <Point X="4.358" Y="9.5" />
+        <Point X="4.358" Y="7.813" />
+        <Point X="6" Y="7.813" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain1\DVD.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Categories" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
