@@ -47,11 +47,12 @@ namespace KrekelSchool
         }
 
         
+        [HttpGet]
         public ActionResult ItemToevoegen(string id)
         {
             Repository = new ItemRepository(Context,id);
             ViewBag.Title = id + " Toevoegen";
-            ViewBag.Message = "Geef de gegevens in.";
+            ViewBag.Message = "Geef de gevraagde gegevens in.";
             ViewBag.id = id;
             switch (id)
             {
@@ -83,55 +84,72 @@ namespace KrekelSchool
 
         [HttpPost]
         [ActionName("Itemtoevoegen")]
-        public ActionResult ItemToevoegen_post(string id, ItemViewModel ivm)
+        public ActionResult ItemToevoegen_post(string id)
         {
-            
-            if (ModelState.IsValid)
+            ViewBag.id = id;
+            Repository = new ItemRepository(Context, id);
+            vm = new ItemViewModel();
+            try
             {
-                ViewBag.id = id;
-                Repository = new ItemRepository(Context, id);
-                if (id == "Boeken")
+                if (ModelState.IsValid)
                 {
-                    Boek boek = new Boek();
-                    ivm = new ItemViewModel(boek);
-                    boek = new Boek(ivm.Naam, ivm.Beschikbaar, ivm.TotaalBeschikbaar, ivm.Beschrijving, ivm.Leeftijd, ivm.Isbn, ivm.Auteur, ivm.Uitgever);
-                    Repository.Add(boek);
-                    Repository.SaveChanges();
-                    TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
+
+                    if (id == "Boeken")
+                    {
+                        Boek boek = new Boek(vm.Naam, vm.Beschikbaar, vm.TotaalBeschikbaar, vm.Beschrijving, vm.Leeftijd,
+                            vm.Isbn, vm.Auteur, vm.Uitgever);
+                        Repository.Add(boek);
+                        Repository.SaveChanges();
+                        TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
+                    }
+                    if (id == "Cds")
+                    {
+                        Cd cd = new Cd(vm.Naam, vm.Beschikbaar, vm.TotaalBeschikbaar, vm.Beschrijving, vm.Leeftijd, vm.Size);
+                        Repository.Add(cd);
+                        Repository.SaveChanges();
+                        TempData["Message"] = String.Format("{0} werd gecreëerd.", cd.Naam);
+                    }
+                    if (id == "Dvds")
+                    {
+                        Dvd dvd = new Dvd();
+                        Repository.Add(dvd);
+                        Repository.SaveChanges();
+                        TempData["Message"] = String.Format("{0} werd gecreëerd.", dvd.Naam);
+                    }
+                    if (id == "Verteltassen")
+                    {
+                        Verteltas vt = new Verteltas();
+                        Repository.Add(vt);
+                        Repository.SaveChanges();
+                        TempData["Message"] = String.Format("{0} werd gecreëerd.", vt.Naam);
+                    }
+                    if (id == "Spellen")
+                    {
+                        Spel spel = new Spel();
+                        Repository.Add(spel);
+                        Repository.SaveChanges();
+                        TempData["Message"] = String.Format("{0} werd gecreëerd.", spel.Naam);
+                    }
+                    return RedirectToRoute("Item/ItemScreen/" + id);
                 }
-                if (id == "Cds")
-                {
-                    Cd cd = new Cd();
-                    ivm = new ItemViewModel(cd);
-                    cd = new Cd(ivm.Naam, ivm.Beschikbaar, ivm.TotaalBeschikbaar, ivm.Beschrijving, ivm.Leeftijd, ivm.Size);
-                    Repository.Add(cd);
-                    Repository.SaveChanges();
-                    TempData["Message"] = String.Format("{0} werd gecreëerd.", cd.Naam);
-                }
-                if (id == "Dvds")
-                {
-                    Dvd dvd = new Dvd();
-                    Repository.Add(dvd);
-                    Repository.SaveChanges();
-                    TempData["Message"] = String.Format("{0} werd gecreëerd.", dvd.Naam);
-                }
-                if (id == "Verteltassen")
-                {
-                    Verteltas vt = new Verteltas();
-                    Repository.Add(vt);
-                    Repository.SaveChanges();
-                    TempData["Message"] = String.Format("{0} werd gecreëerd.", vt.Naam);
-                }
-                if (id == "Spellen")
-                {
-                    Spel spel = new Spel();
-                    Repository.Add(spel);
-                    Repository.SaveChanges();
-                    TempData["Message"] = String.Format("{0} werd gecreëerd.", spel.Naam);
-                }
-                return RedirectToRoute("Item/ItemScreen/" + id);
             }
-            return PartialView(ivm); 
+
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}: {1}", validationErrors.Entry.Entity.ToString(), validationError.ErrorMessage);
+                        
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
+            return PartialView(vm); 
         }
 
 
