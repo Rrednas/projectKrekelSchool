@@ -11,7 +11,7 @@ namespace KrekelSchool.Controllers
 {
     public class BoekController : Controller
     {
-        public IboekRepository BoekRepository;
+        private IboekRepository BoekRepository;
 
         public BoekController(IboekRepository boekRepository)
         {
@@ -20,7 +20,7 @@ namespace KrekelSchool.Controllers
 
         public IEnumerable<Boek> GetBoeken()
         {
-            return BoekRepository.FindAll().OrderBy(b =>b.Naam).ToList();
+            return BoekRepository.FindAll().OrderBy(b =>b.Naam);
         }
 
         public ActionResult Boek()
@@ -103,7 +103,7 @@ namespace KrekelSchool.Controllers
                 if (ModelState.IsValid)
                 {
                     Boek boek = BoekRepository.FindBy(id);
-                    BoekRepository.Add(boek);
+                    MapToBoek(bvm, boek);
                     BoekRepository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd aangepast.", boek.Naam);
                     return RedirectToAction("Boek");

@@ -1,0 +1,66 @@
+﻿@using System.Security.Cryptography.X509Certificates
+@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
+@using KrekelSchool.Models.DAL
+@using KrekelSchool.Models.Domain1
+@using KrekelSchool.Controllers
+@using Microsoft.Ajax.Utilities
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Lener scherm";
+}
+
+<h2>@ViewBag.Title.</h2>
+<h4>@ViewBag.Message</h4>
+<hr />
+@using (Html.BeginForm())
+{
+    
+    <div class="row">
+        <div class="col-md-8 ">
+            <textarea class="form-control formListSearch"></textarea>
+        </div>
+        <div class="col-md-8">
+            <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
+        </div>
+}
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink(" ", "LeerlingToevoegen", "Leerling", new { id = ViewBag.id }, new { @class = "modal-link btn btn-success btnAddLln" })
+                </th>
+                @foreach (var p in @Model.First().GetType().GetProperties())
+                {
+                    <th>
+                        @p.Name
+                    </th>
+                }
+
+            </tr>
+            @foreach (var l in Model)
+            {
+                <tr>
+                    <td>
+                        @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
+                        @Html.ActionLink(" ", "LeerlingAanpassen", "Leerling", null, new { id = l.Id, @class = "modal-link btn btn-success btnEdit " })
+
+                        @*@Html.ActionLink("Details", "getItem", new { id = l.Id })*@
+                        @Html.ActionLink(" ", "LeerlingDetails", "Item", null, new { id = l.Id, @class = "modal-link btn btn-success btnDet" })
+
+                        @*@Html.ActionLink("Delete", "removeItem", new { id = l.Id })*@
+                        @Html.ActionLink(" ", "LeerlingVerwijderen", "Item", null, new { id = l.Id, @class = "modal-link btn btn-success btnRmv" })
+
+                    </td>
+                    @foreach (var prop in l.GetType().GetProperties())
+                    {
+                        <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
+
+                    }
+
+                </tr>
+            }
+        </table>
+    </div>
+
