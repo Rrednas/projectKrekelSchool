@@ -21,30 +21,6 @@
       <FileName>Models\Domain1\Spel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.ItemController">
-    <Position X="1" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAoAAgAgCQIAAAAAAAAEAAAAAAAAAAAAAAEACAA=</HashCode>
-      <FileName>Controllers\ItemController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="KrekelSchool.UitleningController">
-    <Position X="5.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAAAAAAAACAIAAAAABAAAAAgAAAAAAAJAAAAIAAAABA=</HashCode>
-      <FileName>Controllers\UitleningController.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Uitleningen" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="KrekelSchool.LeerlingController">
-    <Position X="8.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAEJAAEAAAAAAAAKIAAAAAAABAAAAAAAAAAACAAA=</HashCode>
-      <FileName>Controllers\LeerlingController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="KrekelSchool.Models.Domain1.Uitlening">
     <Position X="6.25" Y="4" Width="1.5" />
     <TypeIdentifier>
@@ -56,31 +32,31 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="KrekelSchool.Models.Domain1.Categorie">
-    <Position X="3.5" Y="3" Width="1.5" />
+    <Position X="3.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Categorie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KrekelSchool.Item">
-    <Position X="1" Y="3.25" Width="1.5" />
+    <Position X="1" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAggAAAACAAAAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAACAAgAAAAACAAgAAAABAAAAABAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain1\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.Models.Domain1.Dvd" Collapsed="true">
+  <Class Name="KrekelSchool.Models.Domain1.DVD" Collapsed="true">
     <Position X="3.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Domain1\Dvd.cs</FileName>
+      <FileName>Models\Domain1\DVD.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.Models.Domain1.Cd" Collapsed="true">
+  <Class Name="KrekelSchool.Models.Domain1.CD" Collapsed="true">
     <Position X="5.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Domain1\Cd.cs</FileName>
+      <FileName>Models\Domain1\CD.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KrekelSchool.Models.Domain1.Lener">

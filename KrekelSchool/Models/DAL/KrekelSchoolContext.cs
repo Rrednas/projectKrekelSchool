@@ -21,9 +21,8 @@ namespace KrekelSchool.Models.DAL
         public virtual DbSet<DVD> Dvds { get; set; }
         public virtual DbSet<Spel> Spellen { get; set; }
         public virtual DbSet<Verteltas> Verteltassen { get; set; }
-
         public virtual DbSet<Lener> Leerlingen { get; set; }
-        public virtual DbSet< Uitlening> Uitleningen{ get; set; }
+        public virtual DbSet<Uitlening> Uitleningen { get; set; }
         public virtual DbSet<Categorie> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

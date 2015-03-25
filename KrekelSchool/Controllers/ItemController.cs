@@ -19,15 +19,14 @@ namespace KrekelSchool
     {
         public List<Item> Items = new List<Item>();
         public static KrekelSchoolContext Context = new KrekelSchoolContext();
-        private ItemRepository Repository;
         private ItemViewModel vm;
 
-        public Item WordUitgeleend(Item item)
-        {
-            Repository.FindBy(item.Id).WordUitgeleend();
-            Repository.SaveChanges();
-            return Repository.FindBy(item.Id);
-        }
+        //public Item WordUitgeleend(Item item)
+        //{
+        //    Repository.FindBy(item.Id).WordUitgeleend();
+        //    Repository.SaveChanges();
+        //    return Repository.FindBy(item.Id);
+        //}
 
         public ActionResult Item()
         {
@@ -36,126 +35,126 @@ namespace KrekelSchool
             return View();
         }
 
-        public ActionResult ItemScreen(string id)
-        {
-            Repository = new ItemRepository(Context,id);
-            ViewBag.Title = id + "-Lijst";
-            ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
-            ViewBag.id = id;
-            var model = Repository.FindAll();
-            return View(model);
-        }
+    //    public ActionResult ItemScreen(string id)
+    //    {
+    //        Repository = new ItemRepository(Context,id);
+    //        ViewBag.Title = id + "-Lijst";
+    //        ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
+    //        ViewBag.id = id;
+    //        var model = Repository.FindAll();
+    //        return View(model);
+    //    }
 
         
-        [HttpGet]
-        public ActionResult ItemToevoegen(string id)
-        {
-            Repository = new ItemRepository(Context,id);
-            ViewBag.Title = id + " Toevoegen";
-            ViewBag.Message = "Geef de gevraagde gegevens in.";
-            ViewBag.id = id;
-            switch (id)
-            {
-                case "Boeken":
-                    Boek boek = new Boek();
-                    vm = new ItemViewModel(boek);
-                    break;
-                case "Cds":
-                    CD cd = new CD();
-                    vm = new ItemViewModel(cd);
-                    break;
-                case "Dvds":
-                    DVD dvd = new DVD();
-                    vm = new ItemViewModel(dvd);
-                    break;
-                case "Verteltassen":
-                    Verteltas vt = new Verteltas();
-                    vm = new ItemViewModel(vt);
-                    break;
-                case "Spellen":
-                    Spel spel = new Spel();
-                    vm = new ItemViewModel(spel);
-                    break;
-                default:
-                    throw new Exception("geen Id meegegeven");
-            }
-            return PartialView(vm);
-        }
+    //    [HttpGet]
+    //    public ActionResult ItemToevoegen(string id)
+    //    {
+    //        Repository = new ItemRepository(Context,id);
+    //        ViewBag.Title = id + " Toevoegen";
+    //        ViewBag.Message = "Geef de gevraagde gegevens in.";
+    //        ViewBag.id = id;
+    //        switch (id)
+    //        {
+    //            case "Boeken":
+    //                Boek boek = new Boek();
+    //                vm = new ItemViewModel(boek);
+    //                break;
+    //            case "Cds":
+    //                CD cd = new CD();
+    //                vm = new ItemViewModel(cd);
+    //                break;
+    //            case "Dvds":
+    //                DVD dvd = new DVD();
+    //                vm = new ItemViewModel(dvd);
+    //                break;
+    //            case "Verteltassen":
+    //                Verteltas vt = new Verteltas();
+    //                vm = new ItemViewModel(vt);
+    //                break;
+    //            case "Spellen":
+    //                Spel spel = new Spel();
+    //                vm = new ItemViewModel(spel);
+    //                break;
+    //            default:
+    //                throw new Exception("geen Id meegegeven");
+    //        }
+    //        return PartialView(vm);
+    //    }
 
-        [HttpPost]
-        [ActionName("Itemtoevoegen")]
-        public ActionResult ItemToevoegen_post(string id)
-        {
-            ViewBag.id = id;
-            Repository = new ItemRepository(Context, id);
-            vm = new ItemViewModel();
-            try
-            {
-                if (ModelState.IsValid)
-                {
+    //    [HttpPost]
+    //    [ActionName("Itemtoevoegen")]
+    //    public ActionResult ItemToevoegen_post(string id)
+    //    {
+    //        ViewBag.id = id;
+    //        Repository = new ItemRepository(Context, id);
+    //        vm = new ItemViewModel();
+    //        try
+    //        {
+    //            if (ModelState.IsValid)
+    //            {
 
-                    if (id == "Boeken")
-                    {
-                        Boek boek = new Boek(vm.Naam, vm.Beschikbaar, vm.TotaalBeschikbaar, vm.Beschrijving, vm.Leeftijd,
-                            vm.Isbn, vm.Auteur, vm.Uitgever);
-                        Repository.Add(boek);
-                        Repository.SaveChanges();
-                        TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
-                    }
-                    if (id == "Cds")
-                    {
-                        CD cd = new CD(vm.Naam, vm.Beschikbaar, vm.TotaalBeschikbaar, vm.Beschrijving, vm.Leeftijd, vm.Size);
-                        Repository.Add(cd);
-                        Repository.SaveChanges();
-                        TempData["Message"] = String.Format("{0} werd gecreëerd.", cd.Naam);
-                    }
-                    if (id == "Dvds")
-                    {
-                        DVD dvd = new DVD();
-                        Repository.Add(dvd);
-                        Repository.SaveChanges();
-                        TempData["Message"] = String.Format("{0} werd gecreëerd.", dvd.Naam);
-                    }
-                    if (id == "Verteltassen")
-                    {
-                        Verteltas vt = new Verteltas();
-                        Repository.Add(vt);
-                        Repository.SaveChanges();
-                        TempData["Message"] = String.Format("{0} werd gecreëerd.", vt.Naam);
-                    }
-                    if (id == "Spellen")
-                    {
-                        Spel spel = new Spel();
-                        Repository.Add(spel);
-                        Repository.SaveChanges();
-                        TempData["Message"] = String.Format("{0} werd gecreëerd.", spel.Naam);
-                    }
-                    return RedirectToRoute("Item/ItemScreen/" + id);
-                }
-            }
+    //                if (id == "Boeken")
+    //                {
+    //                    Boek boek = new Boek(vm.Naam, vm.Beschikbaar, vm.TotaalBeschikbaar, vm.Beschrijving, vm.Leeftijd,
+    //                        vm.Isbn, vm.Auteur, vm.Uitgever);
+    //                    Repository.Add(boek);
+    //                    Repository.SaveChanges();
+    //                    TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
+    //                }
+    //                if (id == "Cds")
+    //                {
+    //                    CD cd = new CD(vm.Naam, vm.Beschikbaar, vm.TotaalBeschikbaar, vm.Beschrijving, vm.Leeftijd, vm.Size);
+    //                    Repository.Add(cd);
+    //                    Repository.SaveChanges();
+    //                    TempData["Message"] = String.Format("{0} werd gecreëerd.", cd.Naam);
+    //                }
+    //                if (id == "Dvds")
+    //                {
+    //                    DVD dvd = new DVD();
+    //                    Repository.Add(dvd);
+    //                    Repository.SaveChanges();
+    //                    TempData["Message"] = String.Format("{0} werd gecreëerd.", dvd.Naam);
+    //                }
+    //                if (id == "Verteltassen")
+    //                {
+    //                    Verteltas vt = new Verteltas();
+    //                    Repository.Add(vt);
+    //                    Repository.SaveChanges();
+    //                    TempData["Message"] = String.Format("{0} werd gecreëerd.", vt.Naam);
+    //                }
+    //                if (id == "Spellen")
+    //                {
+    //                    Spel spel = new Spel();
+    //                    Repository.Add(spel);
+    //                    Repository.SaveChanges();
+    //                    TempData["Message"] = String.Format("{0} werd gecreëerd.", spel.Naam);
+    //                }
+    //                return RedirectToRoute("Item/ItemScreen/" + id);
+    //            }
+    //        }
 
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
+    //        catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+    //        {
                 
-                Exception raise = dbEx;
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format("{0}: {1}", validationErrors.Entry.Entity.ToString(), validationError.ErrorMessage);
+    //            Exception raise = dbEx;
+    //            foreach (var validationErrors in dbEx.EntityValidationErrors)
+    //            {
+    //                foreach (var validationError in validationErrors.ValidationErrors)
+    //                {
+    //                    string message = string.Format("{0}: {1}", validationErrors.Entry.Entity.ToString(), validationError.ErrorMessage);
                         
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-                throw raise;
-            }
-            return PartialView(vm); 
-        }
+    //                    raise = new InvalidOperationException(message, raise);
+    //                }
+    //            }
+    //            throw raise;
+    //        }
+    //        return PartialView(vm); 
+    //    }
 
 
-        public ActionResult ItemAanpassen(string itemId)
-        {
-            throw new NotImplementedException();
-        }
+    //    public ActionResult ItemAanpassen(string itemId)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
     }
 }

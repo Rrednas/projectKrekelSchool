@@ -1,0 +1,65 @@
+﻿@model KrekelSchool.Models.BoekViewModel
+
+<div>
+    <h2 class="modalFormTitle">@ViewBag.Title</h2>
+    <h4>@ViewBag.Message</h4>
+    <hr />
+
+    <dl class="dl-horizontal modalForm">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beschrijving)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beschikbaar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beschikbaar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leeftijd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leeftijd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Isbn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isbn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Auteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Auteur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uitgever)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uitgever)
+        </dd
+    </dl>
+</div>

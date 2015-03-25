@@ -73,17 +73,17 @@ namespace KrekelSchool
         public void AddUitlening(Lener leerling, DateTime tot, Item item)
         {
 
-            //item word op onbeschikbaar gezet
-            var itemController = new ItemController();
-            var nieuwItem = itemController.WordUitgeleend(item);
-            //uitelning word aangemaakt met nieuw Uitgeleend item
-            var uitlening = new Uitlening(nieuwItem, tot);
-            //uitlening word toegevoegd
-            uitleningRepository.Add(uitlening);
-            uitleningRepository.SaveChanges();
-            //uitlening word gekoppeld aan lener
-            var leerlingController = new LeerlingController();
-            leerlingController.KenLeningToeAan(leerling,uitlening);
+            ////item word op onbeschikbaar gezet
+            //var itemController = new ItemController();
+            //var nieuwItem = itemController.WordUitgeleend(item);
+            ////uitelning word aangemaakt met nieuw Uitgeleend item
+            //var uitlening = new Uitlening(nieuwItem, tot);
+            ////uitlening word toegevoegd
+            //uitleningRepository.Add(uitlening);
+            //uitleningRepository.SaveChanges();
+            ////uitlening word gekoppeld aan lener
+            //var leerlingController = new LeerlingController();
+            //leerlingController.KenLeningToeAan(leerling,uitlening);
             
             
             //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd) navragen

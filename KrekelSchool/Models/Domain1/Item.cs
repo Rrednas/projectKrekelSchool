@@ -7,17 +7,17 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
     public abstract class Item
     {
-        protected Item(string naam, bool beschikbaar, int totaalAantal,string beschrijving, int leeftijd)
+        protected Item(string naam, bool beschikbaar, string beschrijving, int leeftijd)
         {
             Naam = naam;
             Beschikbaar = beschikbaar;
-            TotaalAantal = totaalAantal;
             Beschrijving = beschrijving;
             Leeftijd = leeftijd;
         }
@@ -34,10 +34,10 @@ namespace KrekelSchool
         public string Naam { get; set; }
 
         public bool Beschikbaar{ get; set; }
-        public int AantalBeschikbaar { get; set; }
-        public int TotaalAantal { get; set; }
         public string Beschrijving { get; set; }
         public int Leeftijd { get; set; }
+
+        public KrekelSchoolContext Context;
         #region methods
 
        

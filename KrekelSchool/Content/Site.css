@@ -56,10 +56,7 @@ footer {
     text-align: center;
 }
 
-.btnSearch {
-    width: 25%;
-    margin: -40px 0 20px 72%;
-}
+
 
 textarea.formListSearch {
     max-width: 100%;
@@ -70,37 +67,7 @@ textarea.formListSearch {
     float: left;
 }
 
-.btnSearchCol, .searchResult, .col1{
-    width: auto;
-    margin: 0 0 0 0;
-}
 
-.btnItem {
-    font-size: 35px;
-    font-family: "Grand Hotel", sans-serif;
-    width: 200px;
-    height: 200px;
-    margin: 0 0 0 23%;
-    border: none;
-    border-radius: 10%;
-    box-shadow: 10px 10px 5px black;
-    background-color: #7aae03;
-}
-
-.btnItem:hover {
-    background-color: #9ec062;
-}
-
-.btnImg {
-    height: 120px;
-    width: 120px;
-}
-
-.btnImgLeU {
-    margin-top: 10px;
-    height: 90px;
-    width: 80px;
-}
 
 .label {
     margin: 0 0 0 10px;
@@ -140,9 +107,44 @@ margin-right: 0;
     font-weight: bold;
 }
 .itemObj {
-    padding: 25px 0 25px 20px;
+    padding: 25px 0 60px 20px;
 }
 /*Buttons*/
+.btnSearchCol, .searchResult, .col1{
+    width: auto;
+    margin: 0 0 0 0;
+}
+
+.btnItem {
+    font-size: 35px;
+    font-family: "Grand Hotel", sans-serif;
+    width: 200px;
+    height: 200px;
+    margin: 0 0 0 23%;
+    border: none;
+    border-radius: 10%;
+    box-shadow: 10px 10px 5px black;
+    background-color: #7aae03;
+}
+
+.btnItem:hover {
+    background-color: #9ec062;
+}
+
+.btnImg {
+    height: 120px;
+    width: 120px;
+}
+
+.btnImgLeU {
+    margin-top: 10px;
+    height: 90px;
+    width: 80px;
+}
+.btnSearch {
+    width: 25%;
+    margin: -40px 0 20px 72%;
+}
 .addOk {
     background-image: url("../images/icons/done.png");
     background-size: 45px 45px;

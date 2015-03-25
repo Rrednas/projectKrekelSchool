@@ -1,21 +1,20 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
     public class Categorie
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int Beschrijving { get; set; }
+        public string Beschrijving { get; set; }
 
-        //public Collection<Item> Items
-        //{
-        //    get
-        //    {
-        //        throw new System.NotImplementedException();
-        //    }
-        //    set
-        //    {
-        //    }
+        public Categorie(string beschrijving)
+        {
+            Beschrijving = beschrijving;
         }
     }
+}
 
