@@ -110,6 +110,22 @@ margin-right: 0;
     padding: 25px 0 60px 20px;
 }
 /*Buttons*/
+.btnClose {
+    background-image: url("../images/icons/exit.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    background-color: darkgoldenrod;
+    border-color: chocolate;
+    border-width: 5px;
+}
+.addClose:hover {
+    background-color: darkgreen;
+    border-color: chartreuse;
+}
+  
 .btnSearchCol, .searchResult, .col1{
     width: auto;
     margin: 0 0 0 0;

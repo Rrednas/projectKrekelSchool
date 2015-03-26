@@ -261,6 +261,7 @@
     <Content Include="images\icons\done.png" />
     <Content Include="images\icons\double.png" />
     <Content Include="images\icons\edit.png" />
+    <Content Include="images\icons\exit.png" />
     <Content Include="images\icons\group.png" />
     <Content Include="images\icons\list.png" />
     <Content Include="images\icons\music.png" />

@@ -134,7 +134,7 @@ namespace KrekelSchool
             Lener leerling = LeerlingRepository.FindBy(id);
             if (leerling == null)
                 return HttpNotFound();
-            ViewBag.Title = "Boek: " + leerling.Naam + " aanpassen";
+            ViewBag.Title = "Leerling aanpassen";
             return PartialView("LeerlingToevoegen", new LeerlingViewModel(leerling));
         }
 
@@ -176,12 +176,12 @@ namespace KrekelSchool
             Lener leerling = LeerlingRepository.FindBy(id);
             if (leerling == null)
                 return HttpNotFound();
-            ViewBag.Title = "Boek: " + leerling.Naam + " verwijderen";
+            ViewBag.Title = "Leerling verwijderen";
             return PartialView(new LeerlingViewModel(leerling));
         }
 
-        [HttpPost, ActionName("BoekVerwijderen")]
-        public ActionResult BoekVerwijderenBevestig(int id)
+        [HttpPost, ActionName("LeerlingVerwijderen")]
+        public ActionResult LeerlingVerwijderenBevestig(int id)
         {
             try
             {
@@ -190,7 +190,7 @@ namespace KrekelSchool
                     return HttpNotFound();
                 LeerlingRepository.Delete(leerling);
                 LeerlingRepository.SaveChanges();
-                TempData["Message"] = String.Format("{0} werd verwijderd!", leerling.Naam);
+                TempData["Message"] = String.Format("{0} {1} werd verwijderd!", leerling.Naam, leerling.Voornaam);
             }
             catch (Exception ex)
             {

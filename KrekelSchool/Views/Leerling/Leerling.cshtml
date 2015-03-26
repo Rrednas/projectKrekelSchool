@@ -32,11 +32,10 @@
                 <th>
                     @Html.ActionLink(" ", "LeerlingToevoegen", "Leerling", new {id = ViewBag.id}, new {@class = "modal-link btn btn-success btnAddLln"})
                 </th>
-                @foreach (var p in @Model.GetType().GetProperties())
+                @foreach (var p in Model.GetType().GetProperties())
                 {
                     <th>
                         @p.Name
-                        @Model.GetType().GetProperty(p.Name)
                     </th>
                 }
 
@@ -45,14 +44,11 @@
             {
                 <tr>
                     <td>
-                        @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
-                        @Html.ActionLink(" ", "LeerlingAanpassen", "Leerling", null, new {id = l.Id, @class = "modal-link btn btn-success btnEdit "})
+                        @Html.ActionLink(" ", "LeerlingAanpassen", new {id = l.Id}, new{@class = "modal-link btn btn-success btnEdit "})
 
-                        @*@Html.ActionLink("Details", "getItem", new { id = l.Id })*@
-                        @Html.ActionLink(" ", "LeerlingDetail", "Leerling", null, new {id = l.Id, @class = "modal-link btn btn-success btnDet"})
+                        @Html.ActionLink(" ", "LeerlingDetail", new {id = l.Id}, new {@class = "modal-link btn btn-success btnDet"})
 
-                        @*@Html.ActionLink("Delete", "removeItem", new { id = l.Id })*@
-                        @Html.ActionLink(" ", "LeerlingVerwijderen", "Leerling", null, new {id = l.Id, @class = "modal-link btn btn-success btnRmv"})
+                        @Html.ActionLink(" ", "LeerlingVerwijderen", new {id = l.Id}, new{@class = "modal-link btn btn-success btnRmv" })
 
                     </td>
                     @foreach (var prop in l.GetType().GetProperties())
