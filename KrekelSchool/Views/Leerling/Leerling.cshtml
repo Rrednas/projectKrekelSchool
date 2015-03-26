@@ -8,6 +8,8 @@
 @using Microsoft.Ajax.Utilities
 @using Microsoft.AspNet.Identity
 
+
+
 @{
     ViewBag.Title = "Lener scherm";
 }
@@ -32,11 +34,15 @@
                 <th>
                     @Html.ActionLink(" ", "LeerlingToevoegen", "Leerling", new {id = ViewBag.id}, new {@class = "modal-link btn btn-success btnAddLln"})
                 </th>
-                @foreach (var p in Model.GetType().GetProperties())
+                
+                @foreach (var p in typeof(Lener).GetProperties())
+                {
+                    if (!p.Name.Equals("Uitleningen"))
                 {
                     <th>
                         @p.Name
                     </th>
+                }
                 }
 
             </tr>
@@ -53,7 +59,10 @@
                     </td>
                     @foreach (var prop in l.GetType().GetProperties())
                     {
+                        if (!prop.Name.Equals("Uitleningen"))
+                        {
                         <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
+                        }   
 
                     }
 
