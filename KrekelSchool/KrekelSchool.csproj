@@ -336,6 +336,9 @@
     <Content Include="Views\Boek\BoekDetail.cshtml" />
     <Content Include="Views\Boek\BoekVerwijderen.cshtml" />
     <Content Include="Views\Leerling\Leerling.cshtml" />
+    <Content Include="Views\Leerling\LeerlingDetail.cshtml" />
+    <Content Include="Views\Leerling\LeerlingToevoegen.cshtml" />
+    <Content Include="Views\Leerling\LeerlingVerwijderen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

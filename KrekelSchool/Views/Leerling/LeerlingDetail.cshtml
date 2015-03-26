@@ -1,0 +1,28 @@
+﻿@model KrekelSchool.Models.ViewModels.LeerlingViewModel
+
+<div>
+    <h4>LeerlingViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voornaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voornaam)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -19,7 +19,7 @@ namespace KrekelSchool
     {
         private ILeerlingRepository LeerlingRepository;
 
-        private LeerlingController(ILeerlingRepository leerlinRepositry)
+        public LeerlingController(ILeerlingRepository leerlinRepositry)
         {
             LeerlingRepository = leerlinRepositry;
         }
@@ -173,11 +173,11 @@ namespace KrekelSchool
         [HttpGet]
         public ActionResult LeerlingVerwijderen(int id)
         {
-            Boek boek = BoekRepository.FindBy(id);
-            if (boek == null)
+            Lener leerling = LeerlingRepository.FindBy(id);
+            if (leerling == null)
                 return HttpNotFound();
-            ViewBag.Title = "Boek: " + boek.Naam + " verwijderen";
-            return PartialView(new BoekViewModel(boek));
+            ViewBag.Title = "Boek: " + leerling.Naam + " verwijderen";
+            return PartialView(new LeerlingViewModel(leerling));
         }
 
         [HttpPost, ActionName("BoekVerwijderen")]
