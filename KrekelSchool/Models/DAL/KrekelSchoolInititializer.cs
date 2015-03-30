@@ -17,11 +17,13 @@ namespace KrekelSchool.Models.DAL
             {
                 Lener[] leerlingen =
                 {
-                    new Lener("kleinen", "dude"),
-                    new Lener("Maken", "Mieken"),
-                    new Lener("Den Trekaak", "Jaak"),
-                    new Lener("GaatBerg", "Woopie"),
-                    new Lener("Palladino", "Pino")
+
+                    new Lener("Bateev",	"Muhammed","A. Vanderstegenlaan", 129, null ,null,null, "2KB"),
+                    new Lener("Dalgic",	"Iclal", "Klinkkouterstraat", 33, null, null, "aranhida-izzy@hotmail.com","1KB"),
+                    new Lener("Er","Yigit", "Nieuwhof", 50, null, null,null, "2KA"),
+                    new Lener("Kadirova", "Zilyan",	"Jean Bethunestraat", 52, null, null,"asi.kemal@live.nl","2KC"),
+                    new Lener("Mertens","Maifano","Pretstraat", 8, null,null,"sven_laura@telenet.be","2KB"),
+                    new Lener("Vandaele","Douwe","H. Hartstraat", 54, null, null,"joycegrieve@hotmail.com","2KA"), 
                 };
 
                 context.Leerlingen.AddRange(leerlingen);

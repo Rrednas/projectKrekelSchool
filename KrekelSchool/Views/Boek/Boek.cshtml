@@ -45,9 +45,9 @@
                             <td>@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
                         </tr>
                     }*@
-                @Html.ActionLink(" ", "BoekAanpassen", "Boek", null, new { id = p.Id, @class = "modal-link btn btn-success btnEdit" })
-                @Html.ActionLink(" ", "BoekDetail", "Boek", null, new { id = p.Id, @class = "modal-link btn btn-success btnDet" })
-                @Html.ActionLink(" ", "BoekVerwijderen", "Boek", null, new { id = p.Id, @class = "modal-link btn btn-success btnRmv" })
+                @Html.ActionLink(" ", "BoekAanpassen", new { id = p.Id} ,new {@class = "modal-link btn btn-success btnEdit" })
+                @Html.ActionLink(" ", "BoekDetail", new { id = p.Id}, new {@class = "modal-link btn btn-success btnDet" })
+                @Html.ActionLink(" ", "BoekVerwijderen", new { id = p.Id}, new {@class = "modal-link btn btn-success btnRmv" })
             </table>
         </div>
     }

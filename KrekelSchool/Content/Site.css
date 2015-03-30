@@ -34,6 +34,9 @@ h2 {
     color: white;
 }
 
+h4 {
+    margin: 0 15px 0 15px;
+}
 a {
     color: brown;
 }
@@ -243,9 +246,10 @@ margin-right: 0;
     .modal {
          background-color: peru;
          width: 350px;
-         height: 800px;
+         height: auto;
          left: 25%;
          overflow: hidden;
+
     }
     
 }

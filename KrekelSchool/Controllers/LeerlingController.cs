@@ -18,6 +18,7 @@ namespace KrekelSchool
     public class LeerlingController : Controller
     {
         private ILeerlingRepository LeerlingRepository;
+        private KrekelSchoolContext Context;
 
         public LeerlingController(ILeerlingRepository leerlinRepositry)
         {
@@ -60,6 +61,15 @@ namespace KrekelSchool
         //    repos.Delete(leerling);
         //}
 
+        //public ActionResult LenerEnUitlening(string search)
+        //{
+        //    ViewBag.Message = "Selecteer Lener of Uitlening";
+        //    Context = new KrekelSchoolContext();
+        //    return View(Context.Leerlingen.Where(n => n.Naam == search || search == null).ToList());
+            
+        //    //return View();
+        //}
+
         public ActionResult LenerEnUitlening()
         {
             ViewBag.Message = "Selecteer Lener of Uitlening";
@@ -67,11 +77,24 @@ namespace KrekelSchool
             return View();
         }
 
-        public ActionResult Leerling()
+        public ActionResult Leerling(string zoek)
         {
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
             IEnumerable<Lener> leerlingen = LeerlingRepository.FindAll().OrderBy(l => l.Naam);
             IEnumerable<LeerlingViewModel> lvm = leerlingen.Select(l => new LeerlingViewModel(l)).ToList();
+            if (!String.IsNullOrEmpty(zoek))
+            {
+                lvm = lvm.Where(s => s.Naam.ToLower().Contains(zoek.ToLower()) ||
+                    s.Voornaam.ToLower().Contains(zoek.ToLower()) ||
+                    s.Klas.ToLower().Contains(zoek.ToLower()) ||
+                    //s.Email.ToLower().Contains(zoek.ToLower()) ||
+                    //s.Gemeente.ToLower().Contains(zoek.ToLower()) ||
+                    //s.Straat.ToLower().Contains(zoek.ToLower()) ||
+                    //s.HuisNr.ToString().Contains(zoek.ToLower()) ||
+                    s.Id.ToString().Contains(zoek.ToLower()) //||
+                    //s.Postcode.ToLower().Contains(zoek.ToLower())
+                    );
+            }
             return View(lvm);
         }
 
@@ -80,7 +103,8 @@ namespace KrekelSchool
             Lener leerling = LeerlingRepository.FindBy(id);
             if (leerling == null)
                 return HttpNotFound();
-            ViewBag.Title = "Details van " + leerling.Naam;
+            ViewBag.Title = "Details van: ";
+            ViewBag.Message =  leerling.Naam + ", " + leerling.Voornaam;
             return PartialView(new LeerlingViewModel(leerling));
         }
 
@@ -190,6 +214,7 @@ namespace KrekelSchool
                     return HttpNotFound();
                 LeerlingRepository.Delete(leerling);
                 LeerlingRepository.SaveChanges();
+                ViewBag.Title = "Leerling verwijderen";
                 TempData["Message"] = String.Format("{0} {1} werd verwijderd!", leerling.Naam, leerling.Voornaam);
             }
             catch (Exception ex)
@@ -204,6 +229,12 @@ namespace KrekelSchool
         {
             leerling.Naam = lvm.Naam;
             leerling.Voornaam = lvm.Voornaam;
+            leerling.Straat = lvm.Straat;
+            leerling.HuisNr = lvm.HuisNr;
+            leerling.Postcode = lvm.Postcode;
+            leerling.Gemeente = lvm.Gemeente;
+            leerling.Email = lvm.Email;
+            leerling.Klas = lvm.Klas;
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿@model KrekelSchool.Models.ViewModels.LeerlingViewModel
 
 <div>
-    <h4>LeerlingViewModel</h4>
+    <h2 class="modalFormTitle">@ViewBag.Title</h2>
+    <h4>@ViewBag.Message</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,12 +20,64 @@
         <dd>
             @Html.DisplayFor(model => model.Voornaam)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Straat)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Straat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HuisNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HuisNr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Klas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uitleningen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uitleningen)
+        </dd>
     </dl>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <button type="button" class="btn btn-default btnClose" data-dismiss="modal"></button>
+            <button type="button" class="btn btn-default btnClose" id="refreshDet" data-dismiss="modal"></button>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('#refreshDet').click(function () {
+            $('#modal-container').modal('hide');
+            location.reload();
+        });
+    });
+</script>

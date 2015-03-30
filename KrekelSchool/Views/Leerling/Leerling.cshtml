@@ -17,57 +17,58 @@
 <h2>@ViewBag.Title.</h2>
 <h4>@ViewBag.Message</h4>
 <hr />
-@using (Html.BeginForm())
-{
 
+    
     <div class="row">
-        <div class="col-md-8 ">
+    @using (Html.BeginForm())
+    {
+        @*<div class="col-md-8 ">
             <textarea class="form-control formListSearch"></textarea>
         </div>
         <div class="col-md-8">
             <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
-        </div>
-
-
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.ActionLink(" ", "LeerlingToevoegen", "Leerling", new {id = ViewBag.id}, new {@class = "modal-link btn btn-success btnAddLln"})
-                </th>
+        </div>*@
+    @Html.TextBox("zoek") <input type="submit" value="Filter" />
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink(" ", "LeerlingToevoegen", null, new {@class = "modal-link btn btn-success btnAddLln"})
+            </th>
                 
-                @foreach (var p in typeof(Lener).GetProperties())
-                {
-                    if (!p.Name.Equals("Uitleningen"))
+            @foreach (var p in typeof (Lener).GetProperties())
+            {
+                if (!p.Name.Equals("Uitleningen") && !p.Name.Equals("Straat") && !p.Name.Equals("HuisNr") && !p.Name.Equals("Postcode") && !p.Name.Equals("Gemeente") && !p.Name.Equals("Email"))
                 {
                     <th>
                         @p.Name
                     </th>
                 }
+            }
+
+        </tr>
+        @foreach (var l in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(" ", "LeerlingAanpassen", new {id = l.Id}, new {@class = "modal-link btn btn-success btnEdit "})
+
+                    @Html.ActionLink(" ", "LeerlingDetail", new {id = l.Id}, new {@class = "modal-link btn btn-success btnDet"})
+
+                    @Html.ActionLink(" ", "LeerlingVerwijderen", new {id = l.Id}, new {@class = "modal-link btn btn-success btnRmv"})
+
+                </td>
+                @foreach (var p in l.GetType().GetProperties())
+                {
+                    if (!p.Name.Equals("Uitleningen") && !p.Name.Equals("Straat") && !p.Name.Equals("HuisNr") && !p.Name.Equals("Postcode") && !p.Name.Equals("Gemeente") && !p.Name.Equals("Email"))
+                    {
+                        <td class="">@l.GetType().GetProperty(p.Name).GetValue(l)</td>
+                    }
+
                 }
 
             </tr>
-            @foreach (var l in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.ActionLink(" ", "LeerlingAanpassen", new {id = l.Id}, new{@class = "modal-link btn btn-success btnEdit "})
+        }
+    </table>
+</div>
 
-                        @Html.ActionLink(" ", "LeerlingDetail", new {id = l.Id}, new {@class = "modal-link btn btn-success btnDet"})
-
-                        @Html.ActionLink(" ", "LeerlingVerwijderen", new {id = l.Id}, new{@class = "modal-link btn btn-success btnRmv" })
-
-                    </td>
-                    @foreach (var prop in l.GetType().GetProperties())
-                    {
-                        if (!prop.Name.Equals("Uitleningen"))
-                        {
-                        <td class="">@l.GetType().GetProperty(prop.Name).GetValue(l)</td>
-                        }   
-
-                    }
-
-                </tr>
-            }
-        </table>
-    </div>
-}
