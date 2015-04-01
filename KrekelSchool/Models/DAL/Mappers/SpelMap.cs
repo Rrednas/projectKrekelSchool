@@ -11,6 +11,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public SpelMap()
         {
+            ToTable("spellen");
             HasKey(s => s.Id);
         }
     }

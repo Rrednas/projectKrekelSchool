@@ -12,6 +12,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public BoekMap()
         {
+            ToTable("boeken");
             HasKey(b => b.Id);
             Property(b => b.Naam).IsRequired();
             Property(b => b.Leeftijd).IsRequired();
