@@ -11,6 +11,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public VerteltasMap()
         {
+            ToTable("verteltassen");
        //  HasMany(i => i.Items).WithRequired();
             HasKey(v => v.Id);
         }
