@@ -1,0 +1,92 @@
+﻿@model KrekelSchool.Models.BoekViewModel
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@{
+    ViewBag.Title = Model.Id == 0 ? "Boek Toevoegen" : "Boek Wijzigen";
+}
+
+<h2 class="modalFormTitle">@ViewBag.Title</h2>
+<h4>@ViewBag.Message</h4>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal modalForm">
+        @Html.ValidationSummary(true, "Pas de fouten aan!", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Naam, htmlAttributes: new { @class = "control-label col-md-2 label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Naam, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Naam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Leeftijd, htmlAttributes: new { @class = "control-label col-md-2 label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Leeftijd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Leeftijd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Beschikbaar, htmlAttributes: new { @class = "control-label col-md-2 label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Beschikbaar, new { htmlAttributes = new { @class = "form-control checkBeschikbaar" } })
+                @Html.ValidationMessageFor(model => model.Beschikbaar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Beschrijving, htmlAttributes: new { @class = "control-label col-md-2 label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Beschrijving, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Beschrijving, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Isbn, htmlAttributes: new { @class = "control-label col-md-2 label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Isbn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Isbn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Auteur, htmlAttributes: new { @class = "control-label col-md-2 label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Auteur, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Auteur, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Uitgever, htmlAttributes: new { @class = "control-label col-md-2 label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Uitgever, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Uitgever, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value=" " class="btn btn-default addOk" />
+                <button type="button" class="btn btn-default btnClose" data-dismiss="modal"></button>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(function () {
+        $('addOk').click(function () {
+            $(this).removeData('bs.modal');
+            location.reload();
+        });
+        $('.btnClose').click(function () {
+            location.reload();
+        });
+    });
+</script>
+

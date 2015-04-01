@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 using KrekelSchool.Models.Domain1;
 
@@ -24,11 +26,6 @@ namespace KrekelSchool.Models
 
         [Display(Name = "Beschikbaar")]
         public bool Beschikbaar { get; private set; }
-
-        [Display(Name = "Totaal aantal beschikbaar")]
-        [Range(1, Int32.MaxValue, ErrorMessage = "{0} mag niet 0 of negatief zijn!!")]
-        [Required(ErrorMessage = "Geef het aantal beschikbare items!!")]
-        public int TotaalBeschikbaar { get; private set; }
 
         [Range(1, Int32.MaxValue, ErrorMessage = "{0} mag niet 0 of negatief zijn!!")]
         [Required(ErrorMessage = "{0} is verplicht!!")]
@@ -57,7 +54,6 @@ namespace KrekelSchool.Models
             Naam = item.Naam;
             Beschrijving = item.Beschrijving;
             Beschikbaar = item.Beschikbaar;
-            TotaalBeschikbaar = item.TotaalAantal;
             Leeftijd = item.Leeftijd;
 
         }
@@ -69,7 +65,6 @@ namespace KrekelSchool.Models
             Naam = boek.Naam;
             Beschrijving = boek.Beschrijving;
             Beschikbaar = boek.Beschikbaar;
-            TotaalBeschikbaar = boek.TotaalAantal;
             Leeftijd = boek.Leeftijd;
             Isbn = boek.Isbn;
             Auteur = boek.Auteur;
@@ -83,7 +78,6 @@ namespace KrekelSchool.Models
             Naam = cd.Naam;
             Beschrijving = cd.Beschrijving;
             Beschikbaar = cd.Beschikbaar;
-            TotaalBeschikbaar = cd.TotaalAantal;
             Leeftijd = cd.Leeftijd;
             Size = cd.Size;
         }
@@ -95,7 +89,6 @@ namespace KrekelSchool.Models
             Naam = dvd.Naam;
             Beschrijving = dvd.Beschrijving;
             Beschikbaar = dvd.Beschikbaar;
-            TotaalBeschikbaar = dvd.TotaalAantal;
             Leeftijd = dvd.Leeftijd;
             Size = dvd.Size;
         }
@@ -107,7 +100,6 @@ namespace KrekelSchool.Models
             Naam = spel.Naam;
             Beschrijving = spel.Beschrijving;
             Beschikbaar = spel.Beschikbaar;
-            TotaalBeschikbaar = spel.TotaalAantal;
             Leeftijd = spel.Leeftijd;
         }
 
@@ -118,50 +110,65 @@ namespace KrekelSchool.Models
             Naam = verteltas.Naam;
             Beschrijving = verteltas.Beschrijving;
             Beschikbaar = verteltas.Beschikbaar;
-            TotaalBeschikbaar = verteltas.TotaalAantal;
             Leeftijd = verteltas.Leeftijd;
         }
-
-
-
       
     }
 
 
-    //public class BoekViewModel
-    //{
-    //    public BoekViewModel(Boek boek)
-    //    {
-    //        Id = boek.Id;
-    //        Naam = boek.Naam;
-    //        Beschrijving = boek.Beschrijving;
-    //        Beschikbaar = boek.Beschikbaar;
-    //        Leeftijd = boek.Leeftijd;
-    //        Isbn = boek.Isbn;
-    //        Auteur = boek.Auteur;
-    //        Uitgever = boek.Uitgever;
-    //        Categories = boek.Categories;
-    //    }
+    public class BoekViewModel
+    {
 
+        public BoekViewModel(Boek boek)
+        {
+            Id = boek.Id;
+            Naam = boek.Naam;
+            Beschrijving = boek.Beschrijving;
+            Beschikbaar = boek.Beschikbaar;
+            Leeftijd = boek.Leeftijd;
+            ImgUrl = boek.ImgUrl;
+            Isbn = boek.Isbn;
+            Auteur = boek.Auteur;
+            Uitgever = boek.Uitgever;
+            Categories = boek.Categories;
+        }
 
-    //    public string Id { get; private set; }
+        public BoekViewModel()
+        {
+        }
+        
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public int Id { get; private set; }
 
-    //    [Display(Name = "Naam")]
-    //    [Required(ErrorMessage = "{0} is verplicht")]
-    //    public string Naam { get; private set; }
+        [Display(Name = "Naam")]
+        [Required(ErrorMessage = "{0} is verplicht!!")]
+        public string Naam { get; private set; }
 
-    //    [Display(Name = "Beschrijving")]
-    //    public string Beschrijving { get; private set; }
+        [Display(Name = "Beschrijving")]
+        public string Beschrijving { get; private set; }
 
-    //    [Display(Name = "Aantal beschikbaar")]
-    //    public bool Beschikbaar { get; private set; }
+        [Display(Name = "Beschikbaar")]
+        public bool Beschikbaar { get; private set; }
 
-    //    public int Leeftijd { get; private set; }
-    //    public string Isbn { get; set; }
-    //    public string Auteur { get; set; }
-    //    public string Uitgever { get; set; }
-    //    public ICollection<Categorie> Categories { get; set; }
-    //}
+        [Range(1, Int32.MaxValue, ErrorMessage = "{0} mag niet 0 of negatief zijn!!")]
+        [Required(ErrorMessage = "{0} is verplicht!!")]
+        public int Leeftijd { get; private set; }
+
+        [Url]
+        [Display(Name = "Afbeelding URL")]
+
+        public string ImgUrl { get; private set; }
+
+        [Display(Name = "ISBN-nummer")]
+        public string Isbn { get; set; }
+
+        public string Auteur { get; set; }
+        public string Uitgever { get; set; }
+       
+        [Display(Name = "Thema's")]
+        public ICollection<Categorie> Categories { get; set; }
+    }
     
     //public class ItemScreenViewModel
     //{

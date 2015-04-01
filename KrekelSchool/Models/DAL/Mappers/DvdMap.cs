@@ -11,6 +11,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public DvdMap()
         {
+            ToTable("dvds");
             HasKey(d => d.Id);
             Property(d => d.Size).IsOptional();
         }

@@ -1,0 +1,62 @@
+﻿
+
+<h2>@ViewBag.Title.</h2>
+<h4>@ViewBag.Message</h4>
+<hr />
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-8 ">
+            <textarea class="form-control formListSearch"></textarea>
+        </div>
+        <div class="col-md-8">
+            <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
+        </div>
+    }
+    @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new { @class = "modal-link btn btn-success btnAdd" })
+
+    
+    @foreach (var p in Model)
+    {
+        <div class="col-md-8 itemObj">
+            <h2>@p.Naam</h2>
+            @if (p.ImgUrl == " " || p.ImgUrl == null)
+            {
+                <img src="" alt=" " class="itemImgEmpty" />
+            }
+            else
+            {
+                <img src="@p.ImgUrl" alt="@p.Naam" class="itemImg" />
+            }
+            <table>
+                <tr>
+                    <td class="pName">Leeftijd : </td>
+                    <td>+ @p.Leeftijd</td>
+                </tr>
+                <tr>
+                    <td class="pName">Nog Beschikbaar : </td>
+                    @if (p.Beschikbaar.Equals(true))
+                    {
+                        <td>Ja</td>;
+                    }
+                    else
+                    {
+                        <td>Geen Meer</td>;
+                    }
+
+                </tr>
+                @*@foreach (var prop in p.GetType().GetProperties())
+                    {
+                        <tr>
+                            <td class="pName">@prop.Name : </td>
+                            <td>@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
+                        </tr>
+                    }*@
+                @Html.ActionLink(" ", "BoekAanpassen", new { id = p.Id} ,new {@class = "modal-link btn btn-success btnEdit" })
+                @Html.ActionLink(" ", "BoekDetail", new { id = p.Id}, new {@class = "modal-link btn btn-success btnDet" })
+                @Html.ActionLink(" ", "BoekVerwijderen", new { id = p.Id}, new {@class = "modal-link btn btn-success btnRmv" })
+            </table>
+        </div>
+    }
+</div>
+

@@ -11,11 +11,12 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public LeerlingMap()
         {
-            this.ToTable("Leerlingen");
+            ToTable("Leerlingen");
             
-            this.HasKey(l => l.Id);
+            HasKey(l => l.Id);
             HasMany(u => u.Uitleningen);
-            
+            Property(l => l.Postcode).HasMaxLength(4).IsFixedLength();
+
         }
     }
 }

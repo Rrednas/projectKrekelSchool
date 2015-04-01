@@ -111,12 +111,12 @@ namespace KrekelSchool
             lenerrepos.SaveChanges();
 
 
-
-
+            
+            
             //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd) navragen
             //item beschikbaar false done
             //uitlening toevoegen aan leerling done
-
+            
 
         }
 

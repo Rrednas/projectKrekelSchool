@@ -9,19 +9,32 @@ namespace KrekelSchool.Models.Domain1
     public class Lener
     {
         public virtual Collection<Uitlening> Uitleningen { get; set; }
-        public string Naam { get; set; }
-        public string Voornaam { get; set; }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public string Naam { get; set; }
+        public string Voornaam { get; set; }
+        public string Straat { get; set; }
+        public int HuisNr { get; set; }
+        public string Postcode { get; set; }
+        public string Gemeente { get; set; }
+        public string Email { get; set; }
+        public string Klas { get; set; }
+
+        
 
         public Lener() { }
 
-        public Lener(string naam, string voornaam)
+        public Lener(string naam, string voornaam, string straat, int huisNr, string postcode, string gemeente, string email, string klas)
         {
             Naam = naam;
             Voornaam = voornaam;
+            Straat = straat;
+            HuisNr = huisNr;
+            Postcode = postcode;
+            Gemeente = gemeente;
+            Email = email;
+            Klas = klas;
         }
         
         #region methods

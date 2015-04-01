@@ -1,0 +1,78 @@
+﻿@model KrekelSchool.Models.BoekViewModel
+
+<div>
+    <h2 class="modalFormTitle">@ViewBag.Title</h2>
+    <h4>@ViewBag.Message</h4>
+    <hr />
+
+    <dl class="dl-horizontal modalForm">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beschrijving)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beschikbaar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beschikbaar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leeftijd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leeftijd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Isbn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isbn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Auteur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Auteur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uitgever)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uitgever)
+        </dd>
+    </dl>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-default btnClose" data-dismiss="modal"></button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('btnClose').click(function () {
+            $('#modal-container').modal('hide');
+            location.reload();
+        });
+    });
+</script>

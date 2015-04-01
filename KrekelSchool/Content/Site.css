@@ -34,6 +34,9 @@ h2 {
     color: white;
 }
 
+h4 {
+    margin: 0 15px 0 15px;
+}
 a {
     color: brown;
 }
@@ -56,12 +59,13 @@ footer {
     text-align: center;
 }
 
-.btnSearch {
-    width: 25%;
-    margin: -40px 0 20px 72%;
-}
+
 
 textarea.formListSearch {
+    background-image: url("../images/icons/search.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
     max-width: 100%;
     width: 70%;
     height: 37px;
@@ -70,6 +74,72 @@ textarea.formListSearch {
     float: left;
 }
 
+.label {
+    margin: 0 0 0 10px;
+    font-size: 15px;
+    color: white;
+}
+
+.modal-backdrop.in {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.modalForm, .modalFormTitle {
+     width: 300px;
+     margin: 0 0 0 10%;
+}
+
+body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+margin-right: 0;
+}
+
+.checkBeschikbaar {
+    margin: -27px 0 0 30px;
+}
+
+.itemImg {
+    height: 260px;
+    width: 160px;
+    margin: 0 25px 0 0;
+    float: left;
+    border: 3px solid chocolate;
+}
+
+.itemImgEmpty {
+    height: 260px;
+    width: 160px;
+    margin: 0 25px 0 0;
+    float: left;
+    background-color: darkgreen;
+    border:3px solid chartreuse;
+}
+
+.pName {
+    font-size: 20px;
+    font-weight: bold;
+}
+.itemObj {
+    padding: 25px 0 140px 20px;
+}
+/*Buttons*/
+.btnClose {
+    background-image: url("../images/icons/exit.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    background-color: darkgoldenrod;
+    border: 5px solid chocolate;
+}
+.addClose:hover {
+    background-color: darkgreen;
+    border-color: chartreuse;
+}
+  
 .btnSearchCol, .searchResult, .col1{
     width: auto;
     margin: 0 0 0 0;
@@ -101,48 +171,10 @@ textarea.formListSearch {
     height: 90px;
     width: 80px;
 }
-
-.label {
-    margin: 0 0 0 10px;
-    font-size: 15px;
-    color: white;
+.btnSearch {
+    width: 25%;
+    margin: -40px 0 20px 72%;
 }
-
-.modal-backdrop.in {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
-}
-
-.modalForm, .modalFormTitle {
-     width: 300px;
-     margin: 0 0 0 10%;
-}
-
-body.modal-open,
-.modal-open .navbar-fixed-top,
-.modal-open .navbar-fixed-bottom {
-margin-right: 0;
-}
-
-.checkBeschikbaar {
-    margin: -27px 0 0 30px;
-}
-
-.itemImg {
-    height: 200px;
-    width: 200px;
-    margin: 0 25px 0 0;
-    float: left;
-}
-
-.pName {
-    font-size: 20px;
-    font-weight: bold;
-}
-.itemObj {
-    padding: 25px 0 25px 20px;
-}
-/*Buttons*/
 .addOk {
     background-image: url("../images/icons/done.png");
     background-size: 45px 45px;
@@ -225,9 +257,10 @@ margin-right: 0;
     .modal {
          background-color: peru;
          width: 350px;
-         height: 800px;
+         height: auto;
          left: 25%;
          overflow: hidden;
+
     }
     
 }
@@ -277,6 +310,9 @@ margin-right: 0;
 
      .modal {
          left: 40%;
+    }
+     .itemObj {
+        padding: 25px 0 60px 20px;
     }
 }
 
