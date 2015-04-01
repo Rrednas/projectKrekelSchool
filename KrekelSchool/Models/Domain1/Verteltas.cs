@@ -15,7 +15,7 @@ namespace KrekelSchool.Models.Domain1
         //public ICollection<Dvd> Dvds { get; set; }
         //public ICollection<Spel> Spellen { get; set; }
 
-        public Verteltas(string naam, bool beschikbaar, string beschrijving, int leeftijd) : base(naam, beschikbaar, beschrijving, leeftijd)
+        public Verteltas(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl) : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl)
         {
         }
 

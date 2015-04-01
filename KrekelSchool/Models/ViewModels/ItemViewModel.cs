@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 using KrekelSchool.Models.Domain1;
 
@@ -124,6 +126,7 @@ namespace KrekelSchool.Models
             Beschrijving = boek.Beschrijving;
             Beschikbaar = boek.Beschikbaar;
             Leeftijd = boek.Leeftijd;
+            ImgUrl = boek.ImgUrl;
             Isbn = boek.Isbn;
             Auteur = boek.Auteur;
             Uitgever = boek.Uitgever;
@@ -152,12 +155,17 @@ namespace KrekelSchool.Models
         [Required(ErrorMessage = "{0} is verplicht!!")]
         public int Leeftijd { get; private set; }
 
+        [Url]
+        [Display(Name = "Afbeelding URL")]
+
+        public string ImgUrl { get; private set; }
+
         [Display(Name = "ISBN-nummer")]
         public string Isbn { get; set; }
 
         public string Auteur { get; set; }
         public string Uitgever { get; set; }
-
+       
         [Display(Name = "Thema's")]
         public ICollection<Categorie> Categories { get; set; }
     }

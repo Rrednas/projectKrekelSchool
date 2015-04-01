@@ -2,7 +2,9 @@
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
-
+@{
+    ViewBag.Title = Model.Id == 0 ? "Boek Toevoegen" : "Boek Wijzigen";
+}
 
 <h2 class="modalFormTitle">@ViewBag.Title</h2>
 <h4>@ViewBag.Message</h4>
@@ -76,4 +78,15 @@
         </div>
     </div>
 }
+<script type="text/javascript">
+    $(function () {
+        $('addOk').click(function () {
+            $(this).removeData('bs.modal');
+            location.reload();
+        });
+        $('.btnClose').click(function () {
+            location.reload();
+        });
+    });
+</script>
 

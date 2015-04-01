@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using KrekelSchool.Models.Domain1;
 
@@ -49,9 +50,9 @@ namespace KrekelSchool.Models.DAL
 
                 Boek[] boeken =
                 {
-                    new Boek("boek" , true, "Beschrijving", 5, themas[0],"12FZEF124TFAAZ", "Corneel", "kanaar" ),
-                    new Boek("De Koning", false, "Boek over koning", 7,themas[0],"ISbnNummer", "Corneel", "kanaar"),
-                    new Boek("bla", true,"lololol", 666,themas[0],"grat e nummer", "Corneel", "kanaar")
+                    new Boek("boek" , true, "Beschrijving", 5, null ,themas[0],"12FZEF124TFAAZ", "Corneel", "kanaar" ),
+                    new Boek("De Koning", false, "Boek over koning", 7 , "http://iedereenleest.be/images/boeken/De%20bh-boomhut.jpg" , themas[0],"ISbnNummer", "Corneel", "kanaar"),
+                    new Boek("bla", true,"lololol", 666, "http://www.boek.be/sites/www.boek.be/files/styles/large/public/assets/5245171f5fea05.65705194.jpg?itok=4LfTSZal", themas[0],"grat e nummer", "Corneel", "kanaar")
                 };
 
                 context.Boeken.AddRange(boeken);

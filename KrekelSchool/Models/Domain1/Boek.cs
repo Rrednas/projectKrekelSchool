@@ -16,8 +16,8 @@ namespace KrekelSchool.Models.Domain1
         public ICollection<Categorie> Categories { get; set; }
         
 
-        public Boek( string naam, bool beschikbaar, string beschrijving , int leeftijd, Categorie categorie, string isbn, string auteur, string uitgever) 
-            : base( naam, beschikbaar, beschrijving, leeftijd)
+        public Boek( string naam, bool beschikbaar, string beschrijving , int leeftijd, string imgUrl, Categorie categorie, string isbn, string auteur, string uitgever) 
+            : base( naam, beschikbaar, beschrijving, leeftijd, imgUrl)
         {
             Categories = new Collection<Categorie>();
             Context = new KrekelSchoolContext();

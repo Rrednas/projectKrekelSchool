@@ -1,9 +1,9 @@
 ﻿@model KrekelSchool.Models.BoekViewModel
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BoekViewModel</h4>
-    <hr />
+<h2>@ViewBag.Title</h2>
+<h4>Bent u zeker dat u @Model.Naam wil verwijderen?</h4>
+<hr />
+<div class="modalForm">
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Naam)
@@ -63,12 +63,24 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value=" " class="btn btn-default addOk" />
+            <button type="button" class="btn btn-default btnClose" data-dismiss="modal"></button>
         </div>
     }
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('addOk').click(function () {
+            $('#modal-container').modal('hide');
+            location.reload();
+        });
+        $('.btnClose').click(function () {
+            location.reload();
+        });
+    });
+</script>

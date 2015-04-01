@@ -77,7 +77,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value=" " id="refreshAdd" class="btn btn-default addOk" />
+                <input type="submit" value=" " class="btn btn-default addOk" />
                 <button type="button" class="btn btn-default btnClose" data-dismiss="modal"></button>
             </div>
         </div>
@@ -85,13 +85,12 @@
 }
 <script type="text/javascript">
     $(function () {
-        $('#refreshAdd').click(function () {
+        $('addOk').click(function () {
             $(this).removeData('bs.modal');
             location.reload();
         });
         $('.btnClose').click(function () {
             location.reload();
         });
-
     });
 </script>

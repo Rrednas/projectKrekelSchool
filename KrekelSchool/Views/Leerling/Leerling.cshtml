@@ -22,13 +22,12 @@
     <div class="row">
     @using (Html.BeginForm())
     {
-        @*<div class="col-md-8 ">
-            <textarea class="form-control formListSearch"></textarea>
+        <div class="col-md-8 ">
+            <span>@Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })</span>
         </div>
-        <div class="col-md-8">
-            <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
+        @*<div class="col-md-8">
+            <input type="submit" value=" " class="btn btn-default btnSearch" href=""/><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" />
         </div>*@
-    @Html.TextBox("zoek") <input type="submit" value="Filter" />
     }
     <table class="table">
         <tr>

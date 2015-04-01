@@ -37,7 +37,8 @@ namespace KrekelSchool.Controllers
             Boek boek = BoekRepository.FindBy(id);
             if (boek == null)
                 return HttpNotFound();
-            ViewBag.Title = "Details van " + boek.Naam;
+            ViewBag.Title = "Details van: ";
+            ViewBag.Message = boek.Naam;
             return PartialView(new BoekViewModel(boek));
         }
 

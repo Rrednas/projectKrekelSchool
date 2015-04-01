@@ -13,14 +13,21 @@
             <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
         </div>
     }
-    @Html.ActionLink(" ", "BoekToevoegen", "Boek", new { id = ViewBag.id }, new { @class = "modal-link btn btn-success btnAdd" })
+    @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new { @class = "modal-link btn btn-success btnAdd" })
 
     
     @foreach (var p in Model)
     {
         <div class="col-md-8 itemObj">
             <h2>@p.Naam</h2>
-            <img src="~/images/items/no image.jpg" alt="@p.Naam" class="itemImg" />
+            @if (p.ImgUrl == " " || p.ImgUrl == null)
+            {
+                <img src="" alt=" " class="itemImgEmpty" />
+            }
+            else
+            {
+                <img src="@p.ImgUrl" alt="@p.Naam" class="itemImg" />
+            }
             <table>
                 <tr>
                     <td class="pName">Leeftijd : </td>

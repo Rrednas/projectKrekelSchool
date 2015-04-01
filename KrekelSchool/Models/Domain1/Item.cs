@@ -14,12 +14,13 @@ namespace KrekelSchool
 {
     public abstract class Item
     {
-        protected Item(string naam, bool beschikbaar, string beschrijving, int leeftijd)
+        protected Item(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl)
         {
             Naam = naam;
             Beschikbaar = beschikbaar;
             Beschrijving = beschrijving;
             Leeftijd = leeftijd;
+            ImgUrl = imgUrl;
         }
 
         protected Item()
@@ -36,6 +37,8 @@ namespace KrekelSchool
         public bool Beschikbaar{ get; set; }
         public string Beschrijving { get; set; }
         public int Leeftijd { get; set; }
+        public string ImgUrl { get; set; }
+
 
         public KrekelSchoolContext Context;
         #region methods
