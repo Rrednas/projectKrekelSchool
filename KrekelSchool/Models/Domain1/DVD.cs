@@ -17,8 +17,7 @@ namespace KrekelSchool.Models.Domain1
 
         public DVD()
         {
-            
+
         }
-        public ICollection<Categorie> Categories { get; set; }
     }
 }

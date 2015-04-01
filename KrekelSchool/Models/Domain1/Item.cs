@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -38,6 +40,10 @@ namespace KrekelSchool
         public string Beschrijving { get; set; }
         public int Leeftijd { get; set; }
         public string ImgUrl { get; set; }
+
+        public ICollection<Categorie> Categories
+        {
+            get; set; }
 
 
         public KrekelSchoolContext Context;

@@ -15,8 +15,7 @@ namespace KrekelSchool.Models.Domain1
         }
 
         public CD()
-        { 
+        {
         }
-        public ICollection<Categorie> Categories { get; set; }
     }
 }

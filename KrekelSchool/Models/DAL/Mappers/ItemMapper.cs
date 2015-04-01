@@ -12,7 +12,7 @@ namespace KrekelSchool.Models.DAL.Mappers
     {
         public ItemMapper()
         {
-            //Property(i => i.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            //Categories(i => i.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             //HasKey(i => i.Id);
             //Map<Boek>(m => m.MapInheritedProperties().ToTable("Boeken"));
             //Map<CD>(m => m.MapInheritedProperties().ToTable("Cds"));

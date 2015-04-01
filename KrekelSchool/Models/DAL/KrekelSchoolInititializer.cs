@@ -99,7 +99,7 @@ namespace KrekelSchool.Models.DAL
                          eve.Entry.Entity.GetType().Name, eve.Entry.GetValidationResult());
                     foreach (var ve in eve.ValidationErrors)
                     {
-                        s += String.Format("- Property: \"{0}\", Error: \"{1}\"",
+                        s += String.Format("- Categories: \"{0}\", Error: \"{1}\"",
                             ve.PropertyName, ve.ErrorMessage);
                     }
                 }

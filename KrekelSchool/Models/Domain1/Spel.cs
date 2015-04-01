@@ -12,8 +12,7 @@ namespace KrekelSchool.Models.Domain1
         }
 
         public Spel():base()
-        {  
+        {
         }
-        public ICollection<Categorie> Categories { get; set; }
     }
 }

@@ -20,6 +20,10 @@ namespace KrekelSchool.Models.Domain1
         }
 
         public Verteltas() { }
+
+        public ICollection<Item> Items { get;
+            set;
+        }
        
     }
 }
