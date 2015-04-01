@@ -14,11 +14,11 @@ namespace KrekelSchool.Models.DAL.Mappers
         {
             //Property(i => i.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             //HasKey(i => i.Id);
-            Map<Boek>(m => m.MapInheritedProperties().ToTable("Boeken"));
-            Map<CD>(m => m.MapInheritedProperties().ToTable("Cds"));
-            Map<Dvd>(m => m.MapInheritedProperties().ToTable("Dvds"));
-            Map<Verteltas>(m => m.MapInheritedProperties().ToTable("Verteltassen"));
-            Map<Spel>(m => m.MapInheritedProperties().ToTable("Spellen"));
+            //Map<Boek>(m => m.MapInheritedProperties().ToTable("Boeken"));
+            //Map<CD>(m => m.MapInheritedProperties().ToTable("Cds"));
+            //Map<Dvd>(m => m.MapInheritedProperties().ToTable("Dvds"));
+            //Map<Verteltas>(m => m.MapInheritedProperties().ToTable("Verteltassen"));
+            //Map<Spel>(m => m.MapInheritedProperties().ToTable("Spellen"));
             
         }
     }

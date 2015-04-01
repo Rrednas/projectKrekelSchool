@@ -16,13 +16,13 @@ namespace KrekelSchool
     public class UitleningController: Controller
     {
         private IUitleningenRepository repos;
-        private IitemRepository itemrepos;
+       
         private ILeerlingRepository lenerrepos;
 
-        public UitleningController(IUitleningenRepository uitleningRepository,IitemRepository items , ILeerlingRepository leners)
+        public UitleningController(IUitleningenRepository uitleningRepository, ILeerlingRepository leners)
         {
             this.repos = uitleningRepository;
-            this.itemrepos = items;
+           
             this.lenerrepos = leners;
         }
 
@@ -98,16 +98,16 @@ namespace KrekelSchool
 
             //item word op onbeschikbaar gezet
 
-            var nieuwItem = mediatheek.LeenItemUit(itemrepos.FindBy(item.Id));
+            
             var lener = lenerrepos.FindBy(leerling.Id);
             //uitelning word aangemaakt met nieuw Uitgeleend item
-            var uitlening = mediatheek.VoegUitleningToe(lener, tot,nieuwItem);
+           // var uitlening = mediatheek.VoegUitleningToe(lener, tot,nieuwItem);
             //uitlening word toegevoegd
-            repos.Add(uitlening);
+          //  repos.Add(uitlening);
             repos.SaveChanges();
-            itemrepos.SaveChanges();
+           
             //uitlening word gekoppeld aan lener    
-            mediatheek.LeenUitAan(lener, uitlening);
+           // mediatheek.LeenUitAan(lener, uitlening);
             lenerrepos.SaveChanges();
 
 

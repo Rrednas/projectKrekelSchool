@@ -60,8 +60,9 @@ namespace KrekelSchool.Models.DAL
 
                 CD[] cds =
                 {
-                    new CD("Hail Jebus!", false, 9, "How religion destroyed us!", 12, 55),
-                    new CD("ceidei", false, 2, "lolol", 55, 667),
+                    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5),
+                    new CD("ceidei", false, "lolol", 55, "",667)
+                     
                 };
                 context.Cds.AddRange(cds);
                 context.SaveChanges();
