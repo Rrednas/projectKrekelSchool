@@ -42,8 +42,7 @@ namespace KrekelSchool
         public string ImgUrl { get; set; }
 
         public ICollection<Categorie> Categories
-        {
-            get; set; }
+        {get; set; }
 
 
         public KrekelSchoolContext Context;

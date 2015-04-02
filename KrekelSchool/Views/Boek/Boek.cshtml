@@ -1,18 +1,23 @@
-﻿
+﻿@using KrekelSchool.Models
+
 
 <h2>@ViewBag.Title.</h2>
 <h4>@ViewBag.Message</h4>
 <hr />
 <div class="row">
+   
     @using (Html.BeginForm())
     {
         <div class="col-md-8 ">
-            <textarea class="form-control formListSearch"></textarea>
+            <span>
+                @Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })
+            </span>
         </div>
-        <div class="col-md-8">
-            <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
-        </div>
+        @*<div class="col-md-8">
+                <input type="submit" value=" " class="btn btn-default btnSearch" href=""/><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" />
+            </div>*@
     }
+    
     @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new { @class = "modal-link btn btn-success btnAdd" })
 
     
@@ -31,17 +36,29 @@
             <table>
                 <tr>
                     <td class="pName">Leeftijd : </td>
-                    <td>+ @p.Leeftijd</td>
+                    <td class="pNameValue">+ @p.Leeftijd</td>
+                </tr>
+                <tr>
+                    <td class="pName">Auteur : </td>
+                    <td class="pNameValue">@p.Auteur</td>
+                </tr>
+                <tr>
+                    <td class="pName">Uitgever : </td>
+                    <td class="pNameValue">@p.Uitgever</td>
+                </tr>
+                <tr>
+                    <td class="pName">Thema : </td>
+                    <td class="pNameValue">@p.Categories</td>
                 </tr>
                 <tr>
                     <td class="pName">Nog Beschikbaar : </td>
                     @if (p.Beschikbaar.Equals(true))
                     {
-                        <td>Ja</td>;
+                        <td class="pNameValue"> Ja</td>;
                     }
                     else
                     {
-                        <td>Geen Meer</td>;
+                        <td class="pNameValue"> Geen Meer</td>;
                     }
 
                 </tr>

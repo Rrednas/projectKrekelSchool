@@ -61,17 +61,18 @@ footer {
 
 
 
-textarea.formListSearch {
+.formListSearch {
     background-image: url("../images/icons/search.png");
-    background-size: 45px 45px;
+    background-size: 25px 25px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: right;
     max-width: 100%;
     width: 70%;
     height: 37px;
     resize: none;
     margin: 15px 0 0 0;
     float: left;
+    margin: 0 0 20px 0;
 }
 
 .label {
@@ -100,30 +101,48 @@ margin-right: 0;
     margin: -27px 0 0 30px;
 }
 
-.itemImg {
+.itemImg, .itemImgEmpty {
     height: 260px;
-    width: 160px;
+    width: 200px;
     margin: 0 25px 0 0;
     float: left;
     border: 3px solid chocolate;
+    -moz-box-shadow: 0 0 20px chartreuse; 
+    -webkit-box-shadow: 0 0 20px chartreuse; 
+    box-shadow: 0 0 20px chartreuse; 
 }
 
 .itemImgEmpty {
-    height: 260px;
-    width: 160px;
-    margin: 0 25px 0 0;
-    float: left;
     background-color: darkgreen;
     border:3px solid chartreuse;
+    -moz-box-shadow: 0 0 0; 
+    -webkit-box-shadow: 0 0 0; 
+    box-shadow: 0 0 0; 
 }
 
 .pName {
     font-size: 20px;
+    font-weight: bolder;
+    text-align: right;
+}
+
+.pNameValue, .dl-horizontal dd {
+    font-size: 17px;
     font-weight: bold;
 }
 .itemObj {
     padding: 25px 0 140px 20px;
 }
+
+.dl-horizontal dt {
+    font-size: 20px;
+    font-weight: bolder;
+}
+.dl-horizontal {
+    padding: 0 2px 0 2px;
+}
+
+
 /*Buttons*/
 .btnClose {
     background-image: url("../images/icons/exit.png");
@@ -135,7 +154,7 @@ margin-right: 0;
     background-color: darkgoldenrod;
     border: 5px solid chocolate;
 }
-.addClose:hover {
+.btnClose:hover {
     background-color: darkgreen;
     border-color: chartreuse;
 }
@@ -185,6 +204,7 @@ margin-right: 0;
     background-color: darkgoldenrod;
     border-color: chocolate;
     border-width: 5px;
+    margin-left: 20px;
 }
 .addOk:hover {
     background-color: darkgreen;
@@ -236,7 +256,7 @@ margin-right: 0;
 .btnAdd {
     height: 50px;
     width: 50px;
-    margin: 15px;
+    margin:  -5px 0 0 15px;
     background-image: url("../images/icons/add.png");
     background-size: 45px 45px;
     background-repeat: no-repeat;
@@ -260,7 +280,6 @@ margin-right: 0;
          height: auto;
          left: 25%;
          overflow: hidden;
-
     }
     
 }
@@ -274,6 +293,10 @@ margin-right: 0;
     }
     .btnItem {
         margin: 0 0 0 25%;
+    }
+
+    .btnAdd {
+        margin-left: -50px;  
     }
 
     /*.btnSearch {
@@ -314,5 +337,12 @@ margin-right: 0;
      .itemObj {
         padding: 25px 0 60px 20px;
     }
+     .itemImg:hover {
+        height: 420px;
+        width: 320px;
+        margin: 0 25px 0 0;
+        float: left;
+        border: 3px solid chocolate;
+     }
 }
 

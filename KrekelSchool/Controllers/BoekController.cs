@@ -18,17 +18,17 @@ namespace KrekelSchool.Controllers
             BoekRepository = boekRepository;
         }
 
-        public IEnumerable<Boek> GetBoeken()
-        {
-            return BoekRepository.FindAll().OrderBy(b =>b.Naam);
-        }
-
-        public ActionResult Boek()
+        public ActionResult Boek(string zoek)
         {
             ViewBag.Title = "Boeken-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
-            IEnumerable<Boek> boeken = GetBoeken();
+            IEnumerable<Boek> boeken = BoekRepository.FindAll().OrderBy(b => b.Naam);
             IEnumerable<BoekViewModel> bvm = boeken.Select(b => new BoekViewModel(b)).ToList();
+            if (!String.IsNullOrEmpty(zoek))
+            {
+                bvm = bvm.Where(b => b.Naam.ToLower().Contains(zoek.ToLower()) ||
+                    b.Leeftijd.ToString().Contains(zoek.ToLower()));
+            }
             return View(bvm);
         }
 

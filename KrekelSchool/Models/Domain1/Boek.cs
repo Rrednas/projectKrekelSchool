@@ -18,9 +18,7 @@ namespace KrekelSchool.Models.Domain1
             : base( naam, beschikbaar, beschrijving, leeftijd, imgUrl)
         {
             Categories = new Collection<Categorie>();
-            Context = new KrekelSchoolContext();
             Categories.Add(categorie);
-            Context.SaveChanges();
             Isbn = isbn;
             Auteur = auteur;
             Uitgever = uitgever;

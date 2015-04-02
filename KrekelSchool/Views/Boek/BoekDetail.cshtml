@@ -5,9 +5,9 @@
     <h4>@ViewBag.Message</h4>
     <hr />
 
-    <dl class="dl-horizontal modalForm">
+    <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Naam)
+            @Html.DisplayNameFor(model => model.Naam) :
         </dt>
 
         <dd>
@@ -15,15 +15,21 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Beschrijving)
+            @Html.DisplayNameFor(model => model.Beschrijving) :
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Beschrijving)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Beschikbaar)
+            @Html.DisplayNameFor(model => model.Categories) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categories)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Beschikbaar) :
         </dt>
 
         <dd>
@@ -31,7 +37,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Leeftijd)
+            @Html.DisplayNameFor(model => model.Leeftijd) :
         </dt>
 
         <dd>
@@ -39,7 +45,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Isbn)
+            @Html.DisplayNameFor(model => model.Isbn) :
         </dt>
 
         <dd>
@@ -47,7 +53,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Auteur)
+            @Html.DisplayNameFor(model => model.Auteur) :
         </dt>
 
         <dd>
@@ -55,7 +61,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Uitgever)
+            @Html.DisplayNameFor(model => model.Uitgever) :
         </dt>
 
         <dd>
@@ -70,7 +76,7 @@
 </div>
 <script type="text/javascript">
     $(function () {
-        $('btnClose').click(function () {
+        $('.btnClose').click(function () {
             $('#modal-container').modal('hide');
             location.reload();
         });

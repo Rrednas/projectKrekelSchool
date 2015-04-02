@@ -30,7 +30,7 @@ namespace KrekelSchool.Models.DAL
 
         public void Add(Boek boek)
         {
-            Context.Boeken.Add(boek);
+            Boeken.Add(boek);
         }
 
         public void Delete(Boek boek)

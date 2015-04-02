@@ -42,7 +42,9 @@ namespace KrekelSchool.Models.DAL
 
                 Categorie[] themas =
                 {
-                    new Categorie("Aapjes"),
+                    new Categorie("ziekenhuis: onderzoeken en operatie"),   
+                    new Categorie("Durven en niet durven"),  
+                    new Categorie("Verliefdheid"), 
                 };
 
                 context.Categories.AddRange(themas);
@@ -50,9 +52,10 @@ namespace KrekelSchool.Models.DAL
 
                 Boek[] boeken =
                 {
-                    new Boek("boek" , true, "Beschrijving", 5, null ,themas[0],"12FZEF124TFAAZ", "Corneel", "kanaar" ),
-                    new Boek("De Koning", false, "Boek over koning", 7 , "http://iedereenleest.be/images/boeken/De%20bh-boomhut.jpg" , themas[0],"ISbnNummer", "Corneel", "kanaar"),
-                    new Boek("bla", true,"lololol", 666, "http://www.boek.be/sites/www.boek.be/files/styles/large/public/assets/5245171f5fea05.65705194.jpg?itok=4LfTSZal", themas[0],"grat e nummer", "Corneel", "kanaar")
+                    new Boek("Tuur is ziek" , true, null, 5, "http://www.boekhandelpardoes.be/images/lightbox/9789059241084.jpg" ,themas[0]," 9789059241084", "Pascale De Snijder", "Bakermat" ),
+                    new Boek("Clown durft", false, "Boek over een clown die durft", 5, "http://s.s-bol.com/imgbase0/imagebase/large/FC/2/4/1/5/666855142.jpg" , themas[1],"9789052471389", "Luk Depondt en Guido van Genechten", "Bakermat"),
+                    new Boek("Tok de kip", true, null, 0, null, null,"9789058386946", "Inge Bergh", "De Eenhoorn"),
+                    new Boek("Beer is op vlinder", true,"Een verliefde beer", 0, "http://s.s-bol.com/imgbase0/imagebase/large/FC/4/0/9/0/1001004002060904.jpg", themas[2],"9789025842550 ", "Annemarie van Haeringen", "Van In")
                 };
 
                 context.Boeken.AddRange(boeken);

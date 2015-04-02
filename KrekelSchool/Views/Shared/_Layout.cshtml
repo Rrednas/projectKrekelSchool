@@ -23,7 +23,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Item", "Item")</li>
                     <li>@Html.ActionLink("Log in", "Login", "Account")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("App Info", "About", "Home") </li>
@@ -58,14 +58,18 @@
             });
             $('body').on('click', '.modal-close-btn', function () {
                 $('#modal-container').modal('hide');
+                
             });
             $('#modal-container').on('hidden.bs.modal', function () {
                 $(this).removeData('bs.modal');
+                location.reload();
             });
             $('#CancelModal').on('click', function () {
                 return false;
             });
         });
+
+       
     </script>
     
 </body>
