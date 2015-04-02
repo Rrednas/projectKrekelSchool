@@ -70,6 +70,7 @@ namespace KrekelSchool.App_Start
             kernel.Bind<IspelRepository>().To<SpelRepository>().InRequestScope();
             kernel.Bind<IverteltasRepository>().To<VerteltasRepository>().InRequestScope();
             kernel.Bind<ILeerlingRepository>().To<LeerlingRepository>().InRequestScope();
+            kernel.Bind<IMediatheekRepository>().To<MediatheekRepository>().InRequestScope();
             kernel.Bind<KrekelSchoolContext>().ToSelf().InRequestScope();
         }        
     }

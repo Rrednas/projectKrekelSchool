@@ -16,6 +16,7 @@ namespace KrekelSchool.Models.DAL
         {
             try
             {
+               
                 Lener[] leerlingen =
                 {
 
@@ -29,7 +30,7 @@ namespace KrekelSchool.Models.DAL
 
                 context.Leerlingen.AddRange(leerlingen);
                 context.SaveChanges();
-
+                
                 //Uitlening[] leningen =
                 //{
                 //    new Uitlening(1, false, new DateTime(2015, 03, 02), new DateTime(2015, 05, 08),
@@ -57,7 +58,7 @@ namespace KrekelSchool.Models.DAL
 
                 context.Boeken.AddRange(boeken);
                 context.SaveChanges();
-
+                
                 CD[] cds =
                 {
                     new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5),
@@ -89,6 +90,8 @@ namespace KrekelSchool.Models.DAL
                 //context.SaveChanges();
                 //context.Items.Add(new Cd( "ceidei", false,2, "lolol", 55, 667));
                 //context.SaveChanges();
+                
+
             }
             catch (DbEntityValidationException e)
             {
