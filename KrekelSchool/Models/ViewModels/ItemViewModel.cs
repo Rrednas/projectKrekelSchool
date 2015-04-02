@@ -16,21 +16,21 @@ namespace KrekelSchool.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         [Display(Name = "Naam")]
         [Required(ErrorMessage = "{0} is verplicht!!")]
-        public string Naam { get; private set; }
+        public string Naam { get; set; }
 
         [Display(Name = "Beschrijving")]
-        public string Beschrijving { get; private set; }
+        public string Beschrijving { get; set; }
 
         [Display(Name = "Beschikbaar")]
-        public bool Beschikbaar { get; private set; }
+        public bool Beschikbaar { get; set; }
 
         [Range(1, Int32.MaxValue, ErrorMessage = "{0} mag niet 0 of negatief zijn!!")]
         [Required(ErrorMessage = "{0} is verplicht!!")]
-        public int Leeftijd { get; private set; }
+        public int Leeftijd { get; set; }
 
         [Display(Name = "ISBN-nummer")]
         public string Isbn { get; set; }
