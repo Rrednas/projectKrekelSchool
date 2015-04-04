@@ -15,6 +15,7 @@ namespace KrekelSchool.Models.DAL
             
         }
 
+        public virtual DbSet<Mediatheek> Mediatheeks { get; set; } 
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Boek> Boeken { get; set; }
         public virtual DbSet<CD> Cds { get; set; }

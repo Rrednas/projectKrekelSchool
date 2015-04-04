@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Net.Mime;
 using System.Security.Policy;
 using System.Web;
 using System.Web.ModelBinding;
@@ -140,25 +139,26 @@ namespace KrekelSchool.Models
         
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public int Id { get; set; }
+        public int Id { get;  set; }
 
         [Display(Name = "Naam")]
         [Required(ErrorMessage = "{0} is verplicht!!")]
-        public string Naam { get; set; }
+        public string Naam { get;  set; }
 
         [Display(Name = "Beschrijving")]
-        public string Beschrijving { get; set; }
+        public string Beschrijving { get;  set; }
 
         [Display(Name = "Beschikbaar")]
-        public bool Beschikbaar { get; set; }
+        public bool Beschikbaar { get;  set; }
 
         [Range(1, Int32.MaxValue, ErrorMessage = "{0} mag niet 0 of negatief zijn!!")]
         [Required(ErrorMessage = "{0} is verplicht!!")]
-        public int Leeftijd { get; set; }
+        public int Leeftijd { get;  set; }
 
         [Url]
         [Display(Name = "Afbeelding URL")]
-        public string ImgUrl { get; set; }
+
+        public string ImgUrl { get;  set; }
 
         [Display(Name = "ISBN-nummer")]
         public string Isbn { get; set; }
