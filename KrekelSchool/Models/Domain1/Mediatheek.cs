@@ -15,23 +15,32 @@ namespace KrekelSchool
 {
     public class Mediatheek
     {
-        
+        public int Id { get; set; }
         
 #region Collections
-        public static ICollection<Item> Items { get; set; }
-        public static ICollection<Uitlening> Uitleningen { get; set; }
-        public ICollection<Categorie> Categories { get; set; }
-        public ICollection<Lener> Leners { get; set; }
-        public ICollection<Gebruiker> Gebruikers { get; set; }
+     //   public virtual ICollection<Item> Items { get; set; }
+        public virtual ICollection<Boek> Boeks { get; set; }
+        public virtual ICollection<CD> Cds { get; set; }
+        public virtual ICollection<DVD> Dvds { get; set; }
+        public virtual ICollection<Verteltas> Verteltass { get; set; }
+        public virtual ICollection<Spel> Spels{ get; set; } 
+        public virtual ICollection<Uitlening> Uitleningen { get; set; }
+        public virtual ICollection<Categorie> Categories { get; set; }
+        public virtual ICollection<Lener> Leners { get; set; }
+        public virtual ICollection<Gebruiker> Gebruikers { get; set; }
 #endregion
 
         public Mediatheek()
         {
-            
+            Cds = new List<CD>();
+            Dvds = new List<DVD>();
+            Spels = new List<Spel>();
+            Verteltass = new List<Verteltas>();
+            Boeks = new List<Boek>();
             Uitleningen = new List<Uitlening>();
-            Items = new List<Item>();
+            //Items = new List<Item>();
             Categories = new List<Categorie>();
-            Leners= new List<Lener>();
+            Leners = new List<Lener>();
             Gebruikers = new List<Gebruiker>();
 
             
@@ -64,13 +73,27 @@ namespace KrekelSchool
         #endregion
         #region Item
         public void AanpassenItem() { }
-         public void VoegItemToe() { }
+
+        public ICollection<Boek> FindListFor(Item item)
+        {  
+            //var meh=GetType().GetField(typeof (Item)+"s");
+            //return (ICollection<Item>) Boeks;
+            return Boeks;
+
+        } 
+        public void VoegItemToe(Item item)
+        {
+            
+                Boeks.Add((Boek)item);
+                
+            
+        }
 
          public void VerwijderItem() { }
 
         public Item LeenItemUit(Item item)
         {
-            Item uitgeleendItem = Items.First(i => i.Id == item.Id);
+            Item uitgeleendItem = FindListFor(item).First(i => i.Id == item.Id);
                 uitgeleendItem.WordUitgeleend();
             return uitgeleendItem;
             
