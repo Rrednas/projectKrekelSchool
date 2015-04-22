@@ -18,19 +18,19 @@ namespace KrekelSchool.Models.DAL
             {
                 context.Mediatheeks.Add(new Mediatheek());
                 context.SaveChanges();
-                Lener[] leerlingen =
-                {
+                //Lener[] leerlingen =
+                //{
 
-                    new Lener("Bateev",	"Muhammed","A. Vanderstegenlaan", 129, null ,null,null, "2KB"),
-                    new Lener("Dalgic",	"Iclal", "Klinkkouterstraat", 33, null, null, "aranhida-izzy@hotmail.com","1KB"),
-                    new Lener("Er","Yigit", "Nieuwhof", 50, null, null,null, "2KA"),
-                    new Lener("Kadirova", "Zilyan",	"Jean Bethunestraat", 52, null, null,"asi.kemal@live.nl","2KC"),
-                    new Lener("Mertens","Maifano","Pretstraat", 8, null,null,"sven_laura@telenet.be","2KB"),
-                    new Lener("Vandaele","Douwe","H. Hartstraat", 54, null, null,"joycegrieve@hotmail.com","2KA"), 
-                };
+                //    new Lener("Bateev",	"Muhammed","A. Vanderstegenlaan", "129", null ,null,null, "2KB"),
+                //    new Lener("Dalgic",	"Iclal", "Klinkkouterstraat","33", null, null, "aranhida-izzy@hotmail.com","1KB"),
+                //    new Lener("Er","Yigit", "Nieuwhof", "50", null, null,null, "2KA"),
+                //    new Lener("Kadirova", "Zilyan",	"Jean Bethunestraat", "52", null, null,"asi.kemal@live.nl","2KC"),
+                //    new Lener("Mertens","Maifano","Pretstraat", "8", null,null,"sven_laura@telenet.be","2KB"),
+                //    new Lener("Vandaele","Douwe","H. Hartstraat", "54", null, null,"joycegrieve@hotmail.com","2KA"), 
+                //};
 
-                context.Leerlingen.AddRange(leerlingen);
-                context.SaveChanges();
+                //context.Leerlingen.AddRange(leerlingen);
+                //context.SaveChanges();
                 
                 //Uitlening[] leningen =
                 //{

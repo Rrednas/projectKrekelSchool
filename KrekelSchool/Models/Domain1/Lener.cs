@@ -15,7 +15,7 @@ namespace KrekelSchool.Models.Domain1
         public string Naam { get; set; }
         public string Voornaam { get; set; }
         public string Straat { get; set; }
-        public int HuisNr { get; set; }
+        public string HuisNr { get; set; }
         public string Postcode { get; set; }
         public string Gemeente { get; set; }
         public string Email { get; set; }
@@ -25,7 +25,7 @@ namespace KrekelSchool.Models.Domain1
 
         public Lener() { }
 
-        public Lener(string naam, string voornaam, string straat, int huisNr, string postcode, string gemeente, string email, string klas)
+        public Lener(string naam, string voornaam, string straat, string huisNr, string postcode, string gemeente, string email, string klas)
         {
             Naam = naam;
             Voornaam = voornaam;
