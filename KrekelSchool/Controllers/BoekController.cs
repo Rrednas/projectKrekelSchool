@@ -12,11 +12,13 @@ namespace KrekelSchool.Controllers
     public class BoekController : Controller
     {
         private IboekRepository BoekRepository;
+        private MediatheekRepository mediatheekRepository;
         private Mediatheek mediatheek;
 
         public BoekController(IboekRepository boekRepository,MediatheekRepository repos)
         {
             BoekRepository = boekRepository;
+            mediatheekRepository = repos;
             mediatheek = repos.GetMediatheek();
         }
 
@@ -64,7 +66,8 @@ namespace KrekelSchool.Controllers
                     Boek boek = new Boek();
                     MapToBoek(bvm,boek);
                     mediatheek.VoegBoekToe(boek);
-                    //BoekRepository.SaveChanges();
+                    mediatheekRepository.SaveChanges();
+                  //  BoekRepository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
                     return RedirectToAction("Boek");
                 }
