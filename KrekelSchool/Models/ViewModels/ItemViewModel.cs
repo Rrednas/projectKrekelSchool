@@ -154,10 +154,9 @@ namespace KrekelSchool.Models
         [Range(1, Int32.MaxValue, ErrorMessage = "{0} mag niet 0 of negatief zijn!!")]
         [Required(ErrorMessage = "{0} is verplicht!!")]
         public int Leeftijd { get;  set; }
-
-        [Url]
+        
         [Display(Name = "Afbeelding URL")]
-
+        [Url(ErrorMessage = "{0} bevat geen geldige URL!!")]
         public string ImgUrl { get;  set; }
 
         [Display(Name = "ISBN-nummer")]

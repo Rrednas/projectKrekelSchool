@@ -25,7 +25,7 @@
     {
         <div class="col-md-8 itemObj">
             <h2>@p.Naam</h2>
-            @if (p.ImgUrl == " " || p.ImgUrl == null)
+            @if (p.ImgUrl == " " || p.ImgUrl == null || p.ImgUrl == "")
             {
                 <img src="" alt=" " class="itemImgEmpty" />
             }
@@ -51,7 +51,7 @@
                     <td class="pNameValue">@p.Categories</td>
                 </tr>
                 <tr>
-                    <td class="pName">Nog Beschikbaar : </td>
+                    <td class="pName">Beschikbaar : </td>
                     @if (p.Beschikbaar.Equals(true))
                     {
                         <td class="pNameValue"> Ja</td>;
