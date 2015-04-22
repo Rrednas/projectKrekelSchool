@@ -191,6 +191,7 @@
     <Compile Include="Controllers\ItemController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="InfraStruct\MediatheekModelBinder.cs" />
     <Compile Include="Models\DAL\BoekRepository.cs" />
     <Compile Include="Models\DAL\CdRepository.cs" />
     <Compile Include="Models\DAL\DvdRepository.cs" />

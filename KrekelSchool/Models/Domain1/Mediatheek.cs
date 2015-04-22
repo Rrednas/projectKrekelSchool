@@ -76,16 +76,17 @@ namespace KrekelSchool
 
         public ICollection<Boek> FindListFor(Item item)
         {  
+         
             //var meh=GetType().GetField(typeof (Item)+"s");
             //return (ICollection<Item>) Boeks;
             return Boeks;
 
         } 
-        public void VoegItemToe(Item item)
+        public void VoegBoekToe(Boek boek)
         {
             
-                Boeks.Add((Boek)item);
-                
+                Boeks.Add(boek);
+                SaveChanges();
             
         }
 
@@ -103,13 +104,29 @@ namespace KrekelSchool
 
         #endregion
         #region categories
-        public void AanpassenCategorie() { }
-        public void VerwijderCategorie() { }
-        public void VoegCategorieToe() { }
+
+        public void AanpassenCategorie(Categorie categorie)
+        {
+          
+        }
+
+        public void VerwijderCategorie(Categorie categorie)
+        {
+            Categories.Remove(categorie);
+        }
+
+        public void VoegCategorieToe(Categorie categorie)
+        {
+            Categories.Add(categorie);
+        }
         #endregion
 
         #region Lener
-        public void VoegLenerToe() { }
+
+        public void VoegLenerToe(Lener lener    )
+        {
+            Leners.Add(lener);
+        }
         
         public void AanpassenLener() { }
         public void VerwijderLener() { }
@@ -156,6 +173,14 @@ namespace KrekelSchool
         
 
         #endregion
+
+        public void SaveChanges()
+        {
+            using (KrekelSchoolContext ctx = new KrekelSchoolContext())
+            {
+                ctx.SaveChanges();
+            }
+        }
 
 
     }

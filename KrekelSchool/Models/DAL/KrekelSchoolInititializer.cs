@@ -16,7 +16,8 @@ namespace KrekelSchool.Models.DAL
         {
             try
             {
-               
+                context.Mediatheeks.Add(new Mediatheek());
+                context.SaveChanges();
                 Lener[] leerlingen =
                 {
 
@@ -59,6 +60,7 @@ namespace KrekelSchool.Models.DAL
                     new Boek("Beer is op vlinder", true,"Een verliefde beer", 0, "http://s.s-bol.com/imgbase0/imagebase/large/FC/4/0/9/0/1001004002060904.jpg", themas[2],"9789025842550 ", "Annemarie van Haeringen", "Van In")
                 };
 
+                context.Mediatheeks.First().VoegBoekToe(new Boek("Tuur is ziek", true, null, 5, "http://www.boekhandelpardoes.be/images/lightbox/9789059241084.jpg", themas[0], " 9789059241084", "Pascale De Snijder", "Bakermat"));
                 context.Boeken.AddRange(boeken);
                 context.SaveChanges();
                 
@@ -111,8 +113,8 @@ namespace KrekelSchool.Models.DAL
                 }
                 throw new Exception(s);
             }
-            //context.SaveChanges();
-            //base.Seed(context);
+           
+            base.Seed(context);
         }
     }
 }
