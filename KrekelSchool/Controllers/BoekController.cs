@@ -12,17 +12,20 @@ namespace KrekelSchool.Controllers
     public class BoekController : Controller
     {
         private IboekRepository BoekRepository;
+        private Mediatheek mediatheek;
 
-        public BoekController(IboekRepository boekRepository)
+        public BoekController(IboekRepository boekRepository,MediatheekRepository repos)
         {
             BoekRepository = boekRepository;
+            mediatheek = repos.GetMediatheek();
         }
 
         public ActionResult Boek(string zoek)
         {
             ViewBag.Title = "Boeken-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
-            IEnumerable<Boek> boeken = BoekRepository.FindAll().OrderBy(b => b.Naam);
+            IEnumerable<Boek> boeken = mediatheek.Boeks.AsEnumerable();
+                //BoekRepository.FindAll().OrderBy(b => b.Naam);
             IEnumerable<BoekViewModel> bvm = boeken.Select(b => new BoekViewModel(b)).ToList();
             if (!String.IsNullOrEmpty(zoek))
             {
@@ -60,8 +63,8 @@ namespace KrekelSchool.Controllers
                 {
                     Boek boek = new Boek();
                     MapToBoek(bvm,boek);
-                    BoekRepository.Add(boek);
-                    BoekRepository.SaveChanges();
+                    mediatheek.VoegBoekToe(boek);
+                    //BoekRepository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
                     return RedirectToAction("Boek");
                 }

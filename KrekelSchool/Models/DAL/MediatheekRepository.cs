@@ -10,19 +10,17 @@ namespace KrekelSchool.Models.DAL
     public class MediatheekRepository:IMediatheekRepository
     {
         private KrekelSchoolContext Context;
+        
         private DbSet<Mediatheek> Mediatheeks;
         public MediatheekRepository(KrekelSchoolContext context)
         {
-           
             Context = context;
             Mediatheeks = context.Mediatheeks;
-            
-            Mediatheeks.Add(new Mediatheek());
-            SaveChanges();
+
         }
         public Mediatheek GetMediatheek()
         {
-            return Mediatheeks.First();
+            return Mediatheeks.Include(m => m.Boeks).First();
         }
 
         public void SaveChanges()

@@ -17,6 +17,7 @@ namespace KrekelSchool.Models.DAL.Mappers
             Property(b => b.Naam).IsRequired();
             Property(b => b.Leeftijd).IsRequired();
             Property(b => b.Isbn).IsOptional();
+            
         }
     }
 }
