@@ -173,6 +173,7 @@ namespace KrekelSchool.Controllers
             boek.Auteur = bvm.Auteur;
             boek.Beschikbaar = bvm.Beschikbaar;
             boek.Beschrijving = bvm.Beschrijving;
+            boek.ImgUrl = bvm.ImgUrl;
         }
 
     }
