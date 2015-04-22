@@ -179,7 +179,7 @@ namespace KrekelSchool
         }
         #endregion
 
-        public bool LenerBestaat(string vnaam, string naam)
+        public bool LenerBestaat(string naam, string vnaam)
         {
             bool bestaat=false;
             foreach(Lener lener in Leners)

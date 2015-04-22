@@ -187,10 +187,13 @@ namespace KrekelSchool
                     xmlReader.Close();
                 }
 
-                
+
                     for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                     {
-                        
+
+                        if (Mediatheek.LenerBestaat(dataSet.Tables[0].Rows[i][0].ToString(),
+                            dataSet.Tables[0].Rows[i][1].ToString()) == false)
+                        {
                             Mediatheek.VoegLenerToe(new Lener(dataSet.Tables[0].Rows[i][0].ToString(),
                              dataSet.Tables[0].Rows[i][1].ToString(),
                              dataSet.Tables[0].Rows[i][2].ToString(),
@@ -199,8 +202,8 @@ namespace KrekelSchool
                              dataSet.Tables[0].Rows[i][5].ToString(),
                              dataSet.Tables[0].Rows[i][6].ToString(),
                              dataSet.Tables[0].Rows[i][7].ToString()));
-                            MediatheekRepository.SaveChanges(); 
-                       
+                            MediatheekRepository.SaveChanges();
+                        }
                         
                         //string connection = ConfigurationManager.ConnectionStrings["projecten2"].ConnectionString;
                         //MySqlConnection connect = new MySqlConnection(connection);
