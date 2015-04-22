@@ -28,7 +28,7 @@ namespace KrekelSchool.Models.ViewModels
         public string Straat { get; set; }
 
         [Display(Name = "Huis nr.")]
-        public int HuisNr { get; set; }
+        public string HuisNr { get; set; }
 
         [StringLength(4, ErrorMessage = "Postcode heeft maximaal 4 characters!!")]
         public string Postcode { get; set; }
