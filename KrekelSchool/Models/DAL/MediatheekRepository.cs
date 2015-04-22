@@ -16,16 +16,19 @@ namespace KrekelSchool.Models.DAL
         {
             Context = context;
             Mediatheeks = context.Mediatheeks;
+            
 
         }
         public Mediatheek GetMediatheek()
         {
             return Mediatheeks.Include(m => m.Boeks).First();
         }
-
+        
         public void SaveChanges()
         {
             Context.SaveChanges();
+            
         }
+        
     }
 }

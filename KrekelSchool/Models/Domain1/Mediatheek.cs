@@ -4,12 +4,14 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using KrekelSchool.Controllers;
 using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 using Microsoft.Ajax.Utilities;
+using WebGrease.Css.Extensions;
 
 namespace KrekelSchool
 {
@@ -65,8 +67,12 @@ namespace KrekelSchool
             //i.Beschikbaar = false;
 
 
-        }   
-        public void VerwijderUitlening() { }
+        }
+
+        public void VerwijderUitlening(Uitlening uitlening)
+        {
+            Uitleningen.Remove(uitlening);
+        }
         
 
         public void AanpassenUitlening() { }
@@ -84,10 +90,9 @@ namespace KrekelSchool
         } 
         public void VoegBoekToe(Boek boek)
         {
-            
-                Boeks.Add(boek);
-                SaveChanges();
-            
+
+            Boeks.Add(boek);
+
         }
 
          public void VerwijderItem() { }
@@ -129,7 +134,11 @@ namespace KrekelSchool
         }
         
         public void AanpassenLener() { }
-        public void VerwijderLener() { }
+
+        public void VerwijderLener(Lener lener)
+        {
+            Leners.Remove(lener);
+        }
         public static bool MagUitlenen(Lener l)
         {
             if(!(l.Uitleningen.Count < 3 )) throw new ApplicationException("Lener heeft maximum uitleningen  bereikt");
@@ -170,17 +179,23 @@ namespace KrekelSchool
         }
         #endregion
 
-        
-
+        public bool LenerBestaat(string vnaam, string naam)
+        {
+            bool bestaat=false;
+            foreach(Lener lener in Leners)
+            {
+                if (lener.Voornaam == vnaam && lener.Naam == naam)
+                {
+                    bestaat = true;
+                }
+                
+            }
+            
+            return bestaat;
+        }
         #endregion
 
-        public void SaveChanges()
-        {
-            using (KrekelSchoolContext ctx = new KrekelSchoolContext())
-            {
-                ctx.SaveChanges();
-            }
-        }
+        
 
 
     }
