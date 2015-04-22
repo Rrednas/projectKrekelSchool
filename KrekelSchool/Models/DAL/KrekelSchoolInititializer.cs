@@ -50,7 +50,8 @@ namespace KrekelSchool.Models.DAL
                     new Categorie("Verliefdheid"), 
                 };
 
-                context.Categories.AddRange(themas);
+                context.Mediatheeks.First().VoegCategoriesToe(themas);
+                context.Mediatheeks.First().VoegCategorieToe(new Categorie("Verliefdheid"));
                 context.SaveChanges();
 
                 Boek[] boeken =

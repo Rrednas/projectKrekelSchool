@@ -185,6 +185,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BoekController.cs" />
+    <Compile Include="Controllers\CategorieController.cs" />
     <Compile Include="Controllers\HomeController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -344,6 +345,7 @@
     <Content Include="Views\Leerling\LeerlingDetail.cshtml" />
     <Content Include="Views\Leerling\LeerlingToevoegen.cshtml" />
     <Content Include="Views\Leerling\LeerlingVerwijderen.cshtml" />
+    <Content Include="Views\Categorie\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

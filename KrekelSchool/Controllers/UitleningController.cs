@@ -15,15 +15,14 @@ namespace KrekelSchool
 {
     public class UitleningController: Controller
     {
-        private IUitleningenRepository repos;
-       
-        private ILeerlingRepository lenerrepos;
+        private MediatheekRepository MediatheekRepository;
+        private Mediatheek mediatheek;
 
-        public UitleningController(IUitleningenRepository uitleningRepository, ILeerlingRepository leners)
+        public UitleningController(MediatheekRepository repos)
         {
-            this.repos = uitleningRepository;
-           
-            this.lenerrepos = leners;
+            MediatheekRepository = repos;
+
+            mediatheek = repos.GetMediatheek();
         }
 
         //public View Index()
@@ -49,66 +48,34 @@ namespace KrekelSchool
         //        //}
         //    }
         //}
-        public Collection<Uitlening> Uitleningen
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        
 
-        public void EditUitlening(Uitlening uitlening)
-        {
-            // Remove add = edit?
-            // removeUitlening(uitlening);
-           
-        }
+      
 
-        public void RemoveUitlening(Uitlening uitlening)
-        {
-            repos.Delete(uitlening);
-        }
-
-        public Uitlening GetUitlening()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Collection<Uitlening> GetUitleningen()
-        {
-            throw new System.NotImplementedException();
-        }
-
+       
         public void CheckOutUitlening(Uitlening uitlening)
         {
-            // uitleningeinddatum < huidigeDatum => Boete 
-            // schade Claim => Boete (laag, hoge claim)
-            // Item schade op geclaimde schade.
-            // UitleningeindDatum > huidige datum => No problem check that shit out
-            // beschikbaar van item op true
+            
             // 
             throw new System.NotImplementedException();
         }
 
-        public void AddUitlening(Mediatheek mediatheek,Lener leerling, DateTime tot, Item item)
+        public void AddUitlening(Lener leerling, DateTime tot, Item item)
         {
 
             //item word op onbeschikbaar gezet
 
             
-            var lener = lenerrepos.FindBy(leerling.Id);
+           // var lener = lenerrepos.FindBy(leerling.Id);
             //uitelning word aangemaakt met nieuw Uitgeleend item
            // var uitlening = mediatheek.VoegUitleningToe(lener, tot,nieuwItem);
             //uitlening word toegevoegd
           //  repos.Add(uitlening);
-            repos.SaveChanges();
+          //  repos.SaveChanges();
            
             //uitlening word gekoppeld aan lener    
            // mediatheek.LeenUitAan(lener, uitlening);
-            lenerrepos.SaveChanges();
+            //lenerrepos.SaveChanges();
 
 
             

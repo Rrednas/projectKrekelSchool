@@ -57,20 +57,25 @@ namespace KrekelSchool
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
             Uitlening nieuweUitlening = new Uitlening(i, eindTijd);
-            if(Uitleningen.Contains(nieuweUitlening))
+            if(l.Uitleningen.Contains(nieuweUitlening))
                 throw new ApplicationException("Uitlening bestaat al");
-                    
-                    Uitleningen.Add(nieuweUitlening);
+            if(Uitleningen.Contains(nieuweUitlening))
+                throw new ApplicationException("Leering heeft deze uitlening al");
+                i.Beschikbaar = false;
+                l.Uitleningen.Add(nieuweUitlening);
+            
             return nieuweUitlening;
-            //l.Uitleningen.Add(nieuweUitlening);
-            //niet hier
-            //i.Beschikbaar = false;
-
+            
 
         }
 
         public void VerwijderUitlening(Uitlening uitlening)
         {
+            // uitleningeinddatum < huidigeDatum => Boete 
+            // schade Claim => Boete (laag, hoge claim)
+            // Item schade op geclaimde schade.
+            // UitleningeindDatum > huidige datum => No problem check that shit out
+            // beschikbaar van item op true
             Uitleningen.Remove(uitlening);
         }
         
@@ -120,6 +125,13 @@ namespace KrekelSchool
             Categories.Remove(categorie);
         }
 
+        public void VoegCategoriesToe(ICollection<Categorie> list)
+        {
+            foreach (Categorie categorie in list)
+            {
+                Categories.Add(categorie);
+            }
+        }
         public void VoegCategorieToe(Categorie categorie)
         {
             Categories.Add(categorie);
