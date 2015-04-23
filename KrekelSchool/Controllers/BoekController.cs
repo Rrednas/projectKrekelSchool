@@ -15,9 +15,9 @@ namespace KrekelSchool.Controllers
         private MediatheekRepository mediatheekRepository;
         private Mediatheek mediatheek;
 
-        public BoekController(IboekRepository boekRepository,MediatheekRepository repos)
+        public BoekController(MediatheekRepository repos)
         {
-            BoekRepository = boekRepository;
+            
             mediatheekRepository = repos;
             mediatheek = repos.GetMediatheek();
         }

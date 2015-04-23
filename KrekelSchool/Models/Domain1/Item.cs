@@ -41,7 +41,7 @@ namespace KrekelSchool
         public int Leeftijd { get; set; }
         public string ImgUrl { get; set; }
 
-        public ICollection<Categorie> Categories
+        public virtual ICollection<Categorie> Categories
         {get; set; }
 
 

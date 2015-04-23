@@ -15,6 +15,11 @@ namespace KrekelSchool.Models.Domain1
         {
             Beschrijving = beschrijving;
         }
+
+        public Categorie()
+        {
+            
+        }
     }
 }
 
