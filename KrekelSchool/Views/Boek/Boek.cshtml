@@ -1,4 +1,6 @@
 ﻿@using KrekelSchool.Models
+@using Microsoft.Ajax.Utilities
+@model  KrekelSchool.Models.ViewModels.ItemScreenViewModel
 
 <h2>@ViewBag.Title.</h2>
 <h4>@ViewBag.Message</h4>
@@ -18,10 +20,12 @@
     }
     
     @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new { @class = "modal-link btn btn-success btnAdd" })
-
     
-    @foreach (var p in Model)
+    
+    @foreach (var p in Model.Boeken)
     {
+      
+
         <div class="col-md-8 itemObj">
             <h2>@p.Naam</h2>
             @if (p.ImgUrl == " " || p.ImgUrl == null || p.ImgUrl == "")
@@ -71,7 +75,33 @@
                 @Html.ActionLink(" ", "BoekAanpassen", new { id = p.Id} ,new {@class = "modal-link btn btn-success btnEdit" })
                 @Html.ActionLink(" ", "BoekDetail", new { id = p.Id}, new {@class = "modal-link btn btn-success btnDet" })
                 @Html.ActionLink(" ", "BoekVerwijderen", new { id = p.Id}, new {@class = "modal-link btn btn-success btnRmv" })
+                @Html.ActionLink("leen uit", "Boekje", new { id = p.Id })
+                
             </table>
+        </div>
+    }
+    @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
+    {
+
+
+        <div>
+            @if (Model.Voorlopige.Item != null)
+            {
+                <div>
+
+                    <h2>Gewenste boek</h2>
+                    <img src="@Model.Voorlopige.Item.ImgUrl" />
+                    @Model.Voorlopige.Item.Naam
+                </div>
+            }
+            @if (Model.Voorlopige.Lener != null)
+            {
+                <div>
+                    <h2>Aan</h2>
+                    @(Model.Voorlopige.Lener.Naam + " " + Model.Voorlopige.Lener.Voornaam)
+                </div>
+
+            }
         </div>
     }
 </div>

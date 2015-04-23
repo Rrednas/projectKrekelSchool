@@ -24,11 +24,12 @@ namespace KrekelSchool.Models.Domain1
             EindDatum = tot;
             Item = item;
         }
-        public Uitlening(Item item , DateTime eind  )
+        public Uitlening(Item item  )
         {
             Item = item;
             BeginDatum = DateTime.Today;
-            EindDatum = eind;
+            EindDatum = BeginDatum.AddDays(7);
+            //if (Item.Leeftijd >= 12) EindDatum = EindDatum.AddDays(7);
             IsTerug = false;
         }
 
@@ -67,6 +68,7 @@ namespace KrekelSchool.Models.Domain1
         }
         #region methods 
 
+        
         public void WordTerugGebracht()
         {
             if (IsTerug)

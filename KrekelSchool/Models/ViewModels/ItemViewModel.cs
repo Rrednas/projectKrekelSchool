@@ -1,15 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Security.Policy;
-using System.Web;
-using System.Web.ModelBinding;
-using System.Web.Mvc;
 using KrekelSchool.Models.Domain1;
 
-namespace KrekelSchool.Models
+namespace KrekelSchool.Models.ViewModels
 {
     public class ItemViewModel
     {
@@ -42,6 +38,7 @@ namespace KrekelSchool.Models
 
         [Display(Name = "Thema's")]
         public ICollection<Categorie> Categories { get; set; }
+        
 
         public ItemViewModel()
         {
@@ -69,6 +66,7 @@ namespace KrekelSchool.Models
             Isbn = boek.Isbn;
             Auteur = boek.Auteur;
             Uitgever = boek.Uitgever;
+            
         }
 
         //Cd
@@ -112,11 +110,12 @@ namespace KrekelSchool.Models
             Beschikbaar = verteltas.Beschikbaar;
             Leeftijd = verteltas.Leeftijd;
         }
-      
+
+       
     }
 
 
-    public class BoekViewModel
+    public class BoekViewModel 
     {
 
         public BoekViewModel(Boek boek)
@@ -132,6 +131,7 @@ namespace KrekelSchool.Models
             Uitgever = boek.Uitgever;
             Categories = boek.Categories;
         }
+        
 
         public BoekViewModel()
         {
@@ -167,6 +167,8 @@ namespace KrekelSchool.Models
        
         [Display(Name = "Thema's")]
         public ICollection<Categorie> Categories { get; set; }
+        public VoorlopigeUitleningViewModel UitleningViewModel { get; set; }
+        
     }
     
     //public class ItemScreenViewModel
