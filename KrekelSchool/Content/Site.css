@@ -141,9 +141,38 @@ margin-right: 0;
 .dl-horizontal {
     padding: 0 2px 0 2px;
 }
+.excelAdd {
+    float: right;
+    margin: -50px 0 0 0;
+}
 
+.excelAdd .addOk {
+    background-size: 25px 25px;
+    width: 40px;
+    height: 40px;
+    border-width: 1px;
+}
 
 /*Buttons*/
+.excelAdd .addOk {
+    background-size: 25px 25px;
+    width: 40px;
+    height: 40px;
+    border-width: 1px;
+}
+.excelAdd .addFile {
+    background-image: url("../images/icons/verified.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    background-color: darkgoldenrod;
+    border-color: chocolate;
+    border-width: 5px;
+    margin-left: 20px;
+}
+
 .btnClose {
     background-image: url("../images/icons/exit.png");
     background-size: 45px 45px;

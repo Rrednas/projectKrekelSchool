@@ -27,18 +27,19 @@
         </div>
     }
         <br/>
-    @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <div>
-            <input type="file" name="file" />
-            <input type="submit" value="OK" />
-        </div>
-        
-    }  
+     
     <table class="table">
         <tr>
             <th>
                 @Html.ActionLink(" ", "LeerlingToevoegen", null, new {@class = "modal-link btn btn-success btnAddLln"})
+                @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="excelAdd">
+                        <input type="file" name="file" value="" class="btn btn-default addFile" />
+                        <input type="submit" value="" class="btn btn-default addOk" />
+                    </div>
+                    
+                } 
             </th>
                 
             @foreach (var p in typeof (Lener).GetProperties())
