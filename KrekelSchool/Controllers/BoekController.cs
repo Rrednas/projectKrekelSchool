@@ -176,10 +176,10 @@ namespace KrekelSchool.Controllers
             boek.Beschrijving = bvm.Beschrijving;
             boek.ImgUrl = bvm.ImgUrl;
         }
-        public void Boekje(VoorlopigeUitlening voorlopige, int id)
+        public ActionResult Boekje(VoorlopigeUitlening voorlopige, int id)
         {
             voorlopige.KiesItem(mediatheek.Boeks.First(b => b.Id == id));
-            
+           return RedirectToAction("Boek");
         }
 
     }
