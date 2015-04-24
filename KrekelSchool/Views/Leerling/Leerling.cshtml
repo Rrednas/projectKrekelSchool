@@ -7,7 +7,7 @@
 @using KrekelSchool.Models.ViewModels
 @using Microsoft.Ajax.Utilities
 @using Microsoft.AspNet.Identity
-
+@model KrekelSchool.Models.ViewModels.LeerlingScreenViewModel
 
 
 @{
@@ -53,7 +53,7 @@
             }
 
         </tr>
-        @foreach (var l in Model)
+        @foreach (var l in Model.Leners)
         {
             <tr>
                 <td>
