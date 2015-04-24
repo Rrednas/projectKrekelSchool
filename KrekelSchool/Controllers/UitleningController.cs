@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
-using System.Drawing.Design;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
-using KrekelSchool.Models.ViewModels;
 
-namespace KrekelSchool
+namespace KrekelSchool.Controllers
 {
     public class UitleningController: Controller
     {
@@ -25,16 +19,31 @@ namespace KrekelSchool
             mediatheek = repos.GetMediatheek();
         }
 
-        //public View Index()
-        //{
-        //    return View;
-        //}
+        public ActionResult UitleningScreen()
+        {
+            IEnumerable<Uitlening> uitleningen = mediatheek.Uitleningen.OrderBy(u => u.BeginDatum);
+            return View(uitleningen);
+        }
         //public ActionResult Create()
         //{
         //    return PartialView(new UitleningViewModel(new Uitlening()));
         //}
+        public ActionResult UitleningPartial(VoorlopigeUitlening voorlopigeUitlening)
+        {
 
+            return PartialView(voorlopigeUitlening);
+        }
 
+        public Action KiesLener(VoorlopigeUitlening voorlopigeUitlening,int id)
+        {
+
+            voorlopigeUitlening.KiesLener(mediatheek.Leners.First(l => l.Id == id));
+            return null;
+
+        }
+
+        
+        
 
         //[HttpPost]
         //public ActionResult Create(UitleningViewModel uitleningVM)

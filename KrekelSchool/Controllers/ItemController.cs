@@ -11,6 +11,7 @@ using System.Web.UI;
 using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
+using KrekelSchool.Models.ViewModels;
 using Microsoft.Ajax.Utilities;
 
 namespace KrekelSchool

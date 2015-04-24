@@ -1,0 +1,18 @@
+﻿@model KrekelSchool.Models.Domain1.VoorlopigeUitlening
+
+@{
+    ViewBag.Title = "UitleningPartial";
+}
+
+<h2>UitleningPartial</h2>
+<div>
+    <div>
+        <h4>Gewenste Boek</h4>
+        @Model.VoorlopigItem.ImgUrl
+        @Model.VoorlopigItem.Naam
+    </div>
+    <div>
+        <h4>Voor</h4>
+        @(Model.VoorlopigeLener.Naam +" "+ Model.VoorlopigeLener.Voornaam )
+    </div>
+</div>

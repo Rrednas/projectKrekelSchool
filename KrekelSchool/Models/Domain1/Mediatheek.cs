@@ -1,19 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
-using KrekelSchool.Controllers;
-using KrekelSchool.Models;
-using KrekelSchool.Models.DAL;
-using KrekelSchool.Models.Domain1;
-using Microsoft.Ajax.Utilities;
-using WebGrease.Css.Extensions;
 
-namespace KrekelSchool
+namespace KrekelSchool.Models.Domain1
 {
     public class Mediatheek
     {
@@ -52,11 +41,11 @@ namespace KrekelSchool
         #region Uitlening
        
 
-        public Uitlening VoegUitleningToe(Lener l , DateTime eindTijd,Item i)
+        public Uitlening VoegUitleningToe(Lener l ,Item i)
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            Uitlening nieuweUitlening = new Uitlening(i, eindTijd);
+            Uitlening nieuweUitlening = new Uitlening(i);
             if(l.Uitleningen.Contains(nieuweUitlening))
                 throw new ApplicationException("Uitlening bestaat al");
             if(Uitleningen.Contains(nieuweUitlening))

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
+using KrekelSchool.Models.ViewModels;
 
 namespace KrekelSchool.Controllers
 {
@@ -22,8 +23,8 @@ namespace KrekelSchool.Controllers
             Mediatheek = repos.GetMediatheek();
         }
 
-        public ActionResult Boek(string zoek)
-        {
+        public ActionResult Boek(string zoek,VoorlopigeUitlening voorlopige)
+       {
             ViewBag.Title = "Boeken-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
             IEnumerable<Boek> boeken = Mediatheek.Boeks.AsEnumerable();
@@ -34,7 +35,7 @@ namespace KrekelSchool.Controllers
                 bvm = bvm.Where(b => b.Naam.ToLower().Contains(zoek.ToLower()) ||
                     b.Leeftijd.ToString().Contains(zoek.ToLower()));
             }
-            return View(bvm);
+            return View(new ItemScreenViewModel(voorlopige,bvm));
         }
 
         public ActionResult BoekDetail(int id)
@@ -175,6 +176,11 @@ namespace KrekelSchool.Controllers
             boek.Beschrijving = bvm.Beschrijving;
             boek.ImgUrl = bvm.ImgUrl;
             boek.Categorie = bvm.Categorie;
+        }
+        public ActionResult Boekje(VoorlopigeUitlening voorlopige, int id)
+        {
+            voorlopige.KiesItem(mediatheek.Boeks.First(b => b.Id == id));
+           return RedirectToAction("Boek");
         }
 
     }
