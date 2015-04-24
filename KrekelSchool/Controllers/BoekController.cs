@@ -11,22 +11,22 @@ namespace KrekelSchool.Controllers
 {
     public class BoekController : Controller
     {
-        private IboekRepository BoekRepository;
-        private MediatheekRepository mediatheekRepository;
-        private Mediatheek mediatheek;
+        //private IboekRepository BoekRepository;
+        private MediatheekRepository MediatheekRepository;
+        private Mediatheek Mediatheek;
 
         public BoekController(MediatheekRepository repos)
         {
             
-            mediatheekRepository = repos;
-            mediatheek = repos.GetMediatheek();
+            MediatheekRepository = repos;
+            Mediatheek = repos.GetMediatheek();
         }
 
         public ActionResult Boek(string zoek)
         {
             ViewBag.Title = "Boeken-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
-            IEnumerable<Boek> boeken = mediatheek.Boeks.AsEnumerable();
+            IEnumerable<Boek> boeken = Mediatheek.Boeks.AsEnumerable();
                 //BoekRepository.FindAll().OrderBy(b => b.Naam);
             IEnumerable<BoekViewModel> bvm = boeken.Select(b => new BoekViewModel(b)).ToList();
             if (!String.IsNullOrEmpty(zoek))
@@ -39,7 +39,7 @@ namespace KrekelSchool.Controllers
 
         public ActionResult BoekDetail(int id)
         {
-            Boek boek = BoekRepository.FindBy(id);
+            Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
             if (boek == null)
                 return HttpNotFound();
             ViewBag.Title = "Details van: ";
@@ -65,8 +65,8 @@ namespace KrekelSchool.Controllers
                 {
                     Boek boek = new Boek();
                     MapToBoek(bvm,boek);
-                    mediatheek.VoegBoekToe(boek);
-                    mediatheekRepository.SaveChanges();
+                    Mediatheek.VoegBoekToe(boek);
+                    MediatheekRepository.SaveChanges();
                   //  BoekRepository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
                     return RedirectToAction("Boek");
@@ -95,7 +95,7 @@ namespace KrekelSchool.Controllers
         [HttpGet]
         public ActionResult BoekAanpassen(int id)
         {
-            Boek boek = BoekRepository.FindBy(id);
+            Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
             if (boek == null)
                 return HttpNotFound();
             ViewBag.Title = "Boek: " + boek.Naam + " aanpassen";
@@ -109,9 +109,9 @@ namespace KrekelSchool.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Boek boek = BoekRepository.FindBy(id);
+                    Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
                     MapToBoek(bvm, boek);
-                    BoekRepository.SaveChanges();
+                    MediatheekRepository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd aangepast.", boek.Naam);
                     return RedirectToAction("Boek");
                 }
@@ -137,7 +137,7 @@ namespace KrekelSchool.Controllers
         [HttpGet]
         public ActionResult BoekVerwijderen(int id)
         {
-            Boek boek = BoekRepository.FindBy(id);
+            Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
             if (boek == null)
                 return HttpNotFound();
             ViewBag.Title = "Boek: " + boek.Naam + " verwijderen";
@@ -149,11 +149,11 @@ namespace KrekelSchool.Controllers
         {
             try
             {
-                Boek boek = BoekRepository.FindBy(id);
+                Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
                 if (boek == null)
                     return HttpNotFound();
-                BoekRepository.Delete(boek);
-                BoekRepository.SaveChanges();
+                Mediatheek.VerwijderBoek(boek);
+                MediatheekRepository.SaveChanges();
                 TempData["Message"] = String.Format("{0} werd verwijderd!", boek.Naam);
             }
             catch (Exception ex)
@@ -174,6 +174,7 @@ namespace KrekelSchool.Controllers
             boek.Beschikbaar = bvm.Beschikbaar;
             boek.Beschrijving = bvm.Beschrijving;
             boek.ImgUrl = bvm.ImgUrl;
+            boek.Categorie = bvm.Categorie;
         }
 
     }

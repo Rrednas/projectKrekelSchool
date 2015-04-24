@@ -348,6 +348,8 @@
     <Content Include="Views\Leerling\LeerlingToevoegen.cshtml" />
     <Content Include="Views\Leerling\LeerlingVerwijderen.cshtml" />
     <Content Include="Views\Categorie\Index.cshtml" />
+    <Content Include="Views\Categorie\CategorieVerwijderen.cshtml" />
+    <Content Include="Views\Categorie\CategorieToevoegen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

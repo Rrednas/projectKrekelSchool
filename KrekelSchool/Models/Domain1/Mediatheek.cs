@@ -85,7 +85,7 @@ namespace KrekelSchool
         #region Item
         public void AanpassenItem() { }
 
-        public ICollection<Boek> FindListFor(Item item)
+        public ICollection<Boek> FindListFor(Boek boek)
         {  
          
             //var meh=GetType().GetField(typeof (Item)+"s");
@@ -100,13 +100,16 @@ namespace KrekelSchool
 
         }
 
-         public void VerwijderItem() { }
-
-        public Item LeenItemUit(Item item)
+        public void VerwijderBoek(Boek boek)
         {
-            Item uitgeleendItem = FindListFor(item).First(i => i.Id == item.Id);
-                uitgeleendItem.WordUitgeleend();
-            return uitgeleendItem;
+            Boeks.Remove(boek);
+        }
+
+        public Boek LeenBoekUit(Boek boek)
+        {
+            Boek uitgeleendBoek = FindListFor(boek).First(i => i.Id == boek.Id);
+                uitgeleendBoek.WordUitgeleend();
+            return uitgeleendBoek;
             
 
         }

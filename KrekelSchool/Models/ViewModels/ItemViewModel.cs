@@ -130,7 +130,7 @@ namespace KrekelSchool.Models
             Isbn = boek.Isbn;
             Auteur = boek.Auteur;
             Uitgever = boek.Uitgever;
-            Categories = boek.Categories;
+            Categorie = boek.Categorie;
         }
 
         public BoekViewModel()
@@ -166,28 +166,7 @@ namespace KrekelSchool.Models
         public string Uitgever { get; set; }
        
         [Display(Name = "Thema's")]
+        public Categorie Categorie { get; set; }
         public ICollection<Categorie> Categories { get; set; }
     }
-    
-    //public class ItemScreenViewModel
-    //{
-    //    public ItemScreenViewModel(Item item)
-    //    {
-    //        Id = item.Id;
-    //        Naam = item.Naam;
-    //        Beschrijving = item.Beschrijving;
-    //        Beschikbaar = item.Beschikbaar;
-    //    }
-
-    //    public string Id { get; private set; }
-
-    //    [Display(Name = "Naam")]
-    //    public string Naam { get; private set; }
-
-    //    [Display(Name = "Beschrijving")]
-    //    public string Beschrijving { get; private set; }
-
-    //    [Display(Name = "Aantal beschikbaar")]
-    //    public bool Beschikbaar { get; private set; }
-    //}
 }

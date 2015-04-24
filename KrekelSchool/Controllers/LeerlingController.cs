@@ -350,7 +350,7 @@ namespace KrekelSchool
             }
             catch (Exception ex)
             {
-                TempData["error"] = ViewBag.ErrorMessage = "Verwijderen van boek mislukt. Probeer opnieuw. " +
+                TempData["error"] = ViewBag.ErrorMessage = "Verwijderen van leerling mislukt. Probeer opnieuw. " +
                            "Als de problemen zich blijven voordoen, contacteer de  administrator.";
             }
             return RedirectToAction("Leerling");

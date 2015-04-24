@@ -1,4 +1,5 @@
 ﻿@using KrekelSchool.Models
+@using KrekelSchool.Models.Domain1
 
 <h2>@ViewBag.Title.</h2>
 <h4>@ViewBag.Message</h4>
@@ -19,7 +20,6 @@
     
     @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new { @class = "modal-link btn btn-success btnAdd" })
 
-    
     @foreach (var p in Model)
     {
         <div class="col-md-8 itemObj">
@@ -47,7 +47,7 @@
                 </tr>
                 <tr>
                     <td class="pName">Thema : </td>
-                    <td class="pNameValue">@p.Categories</td>
+                    <td class="pNameValue"> @p.Categorie </td>
                 </tr>
                 <tr>
                     <td class="pName">Beschikbaar : </td>
