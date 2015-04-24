@@ -1,32 +1,17 @@
-﻿@model KrekelSchool.Models.ViewModels.LeerlingViewModel
+﻿@model KrekelSchool.Models.ViewModels.CategorieViewModel
 
 
 <div class="">
     <h2 class="modalFormTitle">@ViewBag.Title</h2>
-    <h4>Bent u zeker dat u @Model.Naam, @Model.Voornaam wil verwijderen?</h4>
+    <h4>Bent u zeker dat u @Model.Beschrijving wil verwijderen?</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Naam) :
+            @Html.DisplayNameFor(model => model.Beschrijving)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Naam)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Voornaam) :
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Voornaam)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Klas) :
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Klas)
+            @Html.DisplayFor(model => model.Beschrijving)
         </dd>
 
     </dl>
@@ -40,7 +25,6 @@
             <button type="button" class="btn btn-default btnClose" data-dismiss="modal"></button>
         </div>
     }
-
 </div>
 <script type="text/javascript">
     $(function () {

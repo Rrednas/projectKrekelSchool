@@ -37,6 +37,13 @@ h2 {
 h4 {
     margin: 0 15px 0 15px;
 }
+p, td {
+    font-size: 18px;
+}
+
+th {
+    font-size: 20px;
+}
 a {
     color: brown;
 }

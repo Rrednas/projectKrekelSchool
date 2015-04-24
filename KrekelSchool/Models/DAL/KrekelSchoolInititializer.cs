@@ -66,14 +66,14 @@ namespace KrekelSchool.Models.DAL
                 context.Boeken.AddRange(boeken);
                 context.SaveChanges();
                 
-                CD[] cds =
-                {
-                    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5),
-                    new CD("ceidei", false, "lolol", 55, "",667)
+                //CD[] cds =
+                //{
+                //    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5),
+                //    new CD("ceidei", false, "lolol", 55, "",667)
                      
-                };
-                context.Cds.AddRange(cds);
-                context.SaveChanges();
+                //};
+                //context.Cds.AddRange(cds);
+                //context.SaveChanges();
 
                 //Dvd[] dvds =
                 //{

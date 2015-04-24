@@ -19,6 +19,10 @@ namespace KrekelSchool.Models.DAL
             
 
         }
+        public IQueryable<Categorie> FindAll()
+        {
+            return Context.Categories;
+        }
         public Mediatheek GetMediatheek()
         {
             return Mediatheeks.Include(m => m.Boeks).First();

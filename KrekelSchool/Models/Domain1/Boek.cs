@@ -13,11 +13,13 @@ namespace KrekelSchool.Models.Domain1
         public string Isbn { get; set; }
         public string Auteur { get; set; }
         public string Uitgever { get; set; }
+        public Categorie Categorie { get; set; }
     
 
         public Boek( string naam, bool beschikbaar, string beschrijving , int leeftijd, string imgUrl, Categorie categorie, string isbn, string auteur, string uitgever) 
             : base( naam, beschikbaar, beschrijving, leeftijd, imgUrl)
         {
+            Categorie = categorie;
             Categories = new Collection<Categorie>();
             Categories.Add(categorie);
             Isbn = isbn;
