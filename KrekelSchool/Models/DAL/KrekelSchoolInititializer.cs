@@ -63,6 +63,10 @@ namespace KrekelSchool.Models.DAL
                 };
 
                 context.Mediatheeks.First().VoegBoekToe(new Boek("Tuur is ziek", true, null, 5, "http://www.boekhandelpardoes.be/images/lightbox/9789059241084.jpg", themas[0], " 9789059241084", "Pascale De Snijder", "Bakermat"));
+                context.Mediatheeks.First().VoegBoekToe(new Boek("Clown durft", false, "Boek over een clown die durft", 5, "http://s.s-bol.com/imgbase0/imagebase/large/FC/2/4/1/5/666855142.jpg" , themas[1],"9789052471389", "Luk Depondt en Guido van Genechten", "Bakermat"));
+                context.Mediatheeks.First().VoegBoekToe(new Boek("Tok de kip", true, null, 0, "", null,"9789058386946", "Inge Bergh", "De Eenhoorn"));
+                context.Mediatheeks.First().VoegBoekToe(new Boek("Beer is op vlinder", true,"Een verliefde beer", 0, "http://s.s-bol.com/imgbase0/imagebase/large/FC/4/0/9/0/1001004002060904.jpg", themas[2],"9789025842550 ", "Annemarie van Haeringen", "Van In"));
+             
                 context.Boeken.AddRange(boeken);
                 context.SaveChanges();
                 

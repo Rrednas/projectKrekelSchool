@@ -66,8 +66,6 @@ footer {
     text-align: center;
 }
 
-
-
 .formListSearch {
     background-image: url("../images/icons/search.png");
     background-size: 25px 25px;
@@ -117,6 +115,24 @@ margin-right: 0;
     -moz-box-shadow: 0 0 20px chartreuse; 
     -webkit-box-shadow: 0 0 20px chartreuse; 
     box-shadow: 0 0 20px chartreuse; 
+}
+.gewenstItemImg {
+    height: 140px;
+    width: 140px;
+}
+.gewenstItem {
+    top: 280px;
+    left: 70%;
+    position: fixed;
+    background: chocolate;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 195px;
+    height: 400px;
+     z-index: 10;
+}
+.gewenstItem h2:nth-child(3) {
+    margin: 175px 0 0 0 ;
 }
 
 .itemImgEmpty {
@@ -304,6 +320,16 @@ margin-right: 0;
     height: 50px;
     width: 50px;
     background-image: url("../images/icons/details.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btnLeen {
+    margin: 0 0 5px 25px;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/verified.png");
     background-size: 45px 45px;
     background-repeat: no-repeat;
     background-position: center;

@@ -18,9 +18,9 @@ namespace KrekelSchool
 {
     public class ItemController : Controller
     {
-        public List<Item> Items = new List<Item>();
-        public static KrekelSchoolContext Context = new KrekelSchoolContext();
-        private ItemViewModel vm;
+        //public List<Item> Items = new List<Item>();
+        //public static KrekelSchoolContext Context = new KrekelSchoolContext();
+        //private ItemViewModel vm;
 
         //public Item WordUitgeleend(Item item)
         //{

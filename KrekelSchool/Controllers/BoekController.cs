@@ -179,8 +179,8 @@ namespace KrekelSchool.Controllers
         }
         public ActionResult Boekje(VoorlopigeUitlening voorlopige, int id)
         {
-            voorlopige.KiesItem(mediatheek.Boeks.First(b => b.Id == id));
-           return RedirectToAction("Boek");
+            voorlopige.KiesItem(Mediatheek.Boeks.First(b => b.Id == id));
+            return RedirectToAction("Boek");
         }
 
     }
