@@ -119,6 +119,7 @@ margin-right: 0;
 .gewenstItemImg {
     height: 140px;
     width: 140px;
+    margin: 0 0 15px 0;
 }
 .gewenstItem {
     top: 280px;
@@ -128,11 +129,11 @@ margin-right: 0;
     text-align: center;
     padding-bottom: 20px;
     width: 195px;
-    height: 400px;
-     z-index: 10;
+    height: 550px;
+    z-index: 10;
 }
 .gewenstItem h2:nth-child(3) {
-    margin: 175px 0 0 0 ;
+    margin: 266px 0 0 0;
 }
 
 .itemImgEmpty {

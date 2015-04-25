@@ -71,14 +71,14 @@ namespace KrekelSchool.Models.DAL
                 
                 context.SaveChanges();
 
-                CD[] cds =
-                {
-                    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5, themas[0]),
-                    new CD("ceidei", false, "lolol", 55, "",667,themas[0])
+                //CD[] cds =
+                //{
+                //    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5, themas[0]),
+                //    new CD("ceidei", false, "lolol", 55, "",667,themas[0])
 
-                };
-                context.Mediatheeks.First().VoegCdRangeToe(cds);
-                context.SaveChanges();
+                //};
+                //context.Mediatheeks.First().VoegCdRangeToe(cds);
+                //context.SaveChanges();
 
                 //Dvd[] dvds =
                 //{

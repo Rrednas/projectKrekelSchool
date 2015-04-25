@@ -23,18 +23,20 @@
     <div class="col-md-4 gewenstItem">
         <h2>Gewenst boek</h2>
         <table>
-            @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
-            {
-                if (Model.Voorlopige.Item != null)
+                @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
                 {
-                    <tr class="trvuItem">
-                        <p>@Model.Voorlopige.Item.Naam</p>
-                        <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
-                    </tr>
+                    if (Model.Voorlopige.Item != null)
+                    {
+                        <tr class="trvuItem">
+                            <p>@Model.Voorlopige.Item.Naam</p>
+                            <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
+                            <br/>
+                            @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
+                        </tr>
+                    }
                 }
-            }
         </table>
-
+        
         <h2>Aan</h2>
         <table>
             @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
@@ -102,10 +104,10 @@
                 @Html.ActionLink(" ", "BoekAanpassen", new { id = p.Id} ,new {@class = "modal-link btn btn-success btnEdit" })
                 @Html.ActionLink(" ", "BoekDetail", new { id = p.Id}, new {@class = "modal-link btn btn-success btnDet" })
                 @Html.ActionLink(" ", "BoekVerwijderen", new { id = p.Id}, new {@class = "modal-link btn btn-success btnRmv" })
-                @Html.ActionLink(" ", "KiesVoorlopigItem", new { id = p.Id }, new { @class = "btn btn-success btnLeen" })
+                @Html.ActionLink(" ", "KiesVoorlopigItem", new { id = p.Id }, new { @class = "btn btn-success btnLeen"})
 
             </table>
         </div>
     }
     
-    </div>
+</div>

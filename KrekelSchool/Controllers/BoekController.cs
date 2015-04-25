@@ -180,9 +180,14 @@ namespace KrekelSchool.Controllers
         public ActionResult KiesVoorlopigItem(VoorlopigeUitlening voorlopige, int id)
         {
             voorlopige.KiesItem(Mediatheek.Boeks.First(b => b.Id == id));
-           return RedirectToAction("Boek");
+            return RedirectToAction("Boek");
         }
 
+        public ActionResult VerwijderVoorlopigItem(VoorlopigeUitlening voorlopige, int id)
+        {
+            voorlopige.KiesItem(null);
+            return RedirectToAction("Boek");
+        }
         //public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
         //{
         //    Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
