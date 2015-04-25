@@ -1,4 +1,4 @@
-﻿lick@using KrekelSchool.Models
+﻿@using KrekelSchool.Models
 @using Microsoft.Ajax.Utilities
 @model  KrekelSchool.Models.ViewModels.ItemScreenViewModel
 
@@ -102,7 +102,7 @@
                 @Html.ActionLink(" ", "BoekAanpassen", new { id = p.Id} ,new {@class = "modal-link btn btn-success btnEdit" })
                 @Html.ActionLink(" ", "BoekDetail", new { id = p.Id}, new {@class = "modal-link btn btn-success btnDet" })
                 @Html.ActionLink(" ", "BoekVerwijderen", new { id = p.Id}, new {@class = "modal-link btn btn-success btnRmv" })
-                @Html.ActionLink(" ", "Boekje", new { id = p.Id }, new { @class = "btn btn-success btnLeen" })
+                @Html.ActionLink(" ", "KiesVoorlopigItem", new { id = p.Id }, new { @class = "btn btn-success btnLeen" })
 
             </table>
         </div>

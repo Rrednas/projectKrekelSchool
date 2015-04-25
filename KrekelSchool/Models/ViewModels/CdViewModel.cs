@@ -25,8 +25,18 @@ namespace KrekelSchool.Models.ViewModels
         public bool Beschikbaar { get; set; }
         public int Leeftijd { get; set; }
 
+        [Display(Name = "Afbeelding URL")]
+        [Url(ErrorMessage = "{0} bevat geen geldige URL!!")]
+        public string ImgUrl { get; set; }
+
+        [Display(Name = "Speelduur")]
         public int Size { get; set; }
+
+        [Display(Name = "Thema's")]
+        public Categorie Categorie { get; set; }
         public ICollection<Categorie> Categories { get; set; }
+        public VoorlopigeUitleningViewModel UitleningViewModel { get; set; }
+
         public CdViewModel(CD cd)
         {
             Id = cd.Id;
@@ -36,6 +46,8 @@ namespace KrekelSchool.Models.ViewModels
             Size = cd.Size;
             Categories = cd.Categories;
             Leeftijd = cd.Leeftijd;
+            ImgUrl = cd.ImgUrl;
+            Categorie = cd.Categorie;
         }
 
         public CdViewModel()
