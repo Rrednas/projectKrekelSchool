@@ -68,16 +68,17 @@ namespace KrekelSchool.Models.DAL
                 context.Mediatheeks.First().VoegBoekToe(new Boek("Beer is op vlinder", true,"Een verliefde beer", 0, "http://s.s-bol.com/imgbase0/imagebase/large/FC/4/0/9/0/1001004002060904.jpg", themas[2],"9789025842550 ", "Annemarie van Haeringen", "Van In"));
              
                 context.Boeken.AddRange(boeken);
-                context.SaveChanges();
                 
-                //CD[] cds =
-                //{
-                //    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5),
-                //    new CD("ceidei", false, "lolol", 55, "",667)
-                     
-                //};
-                //context.Cds.AddRange(cds);
-                //context.SaveChanges();
+                context.SaveChanges();
+
+                CD[] cds =
+                {
+                    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5),
+                    new CD("ceidei", false, "lolol", 55, "",667)
+
+                };
+                context.Mediatheeks.First().VoegCdRangeToe(cds);
+                context.SaveChanges();
 
                 //Dvd[] dvds =
                 //{

@@ -88,7 +88,7 @@ namespace KrekelSchool
             return View();
         }
 
-        public ActionResult Leerling(string zoek)
+        public ActionResult Leerling(string zoek,VoorlopigeUitlening uitlening)
         {
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
             IEnumerable<Lener> leerlingen = Mediatheek.Leners.OrderBy(l => l.Naam);
@@ -106,7 +106,7 @@ namespace KrekelSchool
                     //s.Postcode.ToLower().Contains(zoek.ToLower())
                     );
             }
-            return View(lvm);
+            return View(new LeerlingScreenViewModel(uitlening,lvm));
         }
 
         [HttpPost]
@@ -367,5 +367,17 @@ namespace KrekelSchool
             leerling.Email = lvm.Email;
             leerling.Klas = lvm.Klas;
         }
+
+        public ActionResult KiesVoorlopigeLener(VoorlopigeUitlening voorlopige, int id)
+        {
+            voorlopige.KiesLener(Mediatheek.Leners.First(b => b.Id == id));
+            return RedirectToAction("Leerling");
+        }
+        //public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
+        //{
+        //    Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
+
+        //}
+
     }
 }
