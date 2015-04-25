@@ -64,16 +64,17 @@ namespace KrekelSchool.Models.DAL
 
                 context.Mediatheeks.First().VoegBoekToe(new Boek("Tuur is ziek", true, null, 5, "http://www.boekhandelpardoes.be/images/lightbox/9789059241084.jpg", themas[0], " 9789059241084", "Pascale De Snijder", "Bakermat"));
                 context.Boeken.AddRange(boeken);
-                context.SaveChanges();
                 
-                //CD[] cds =
-                //{
-                //    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5),
-                //    new CD("ceidei", false, "lolol", 55, "",667)
-                     
-                //};
-                //context.Cds.AddRange(cds);
-                //context.SaveChanges();
+                context.SaveChanges();
+
+                CD[] cds =
+                {
+                    new CD("Hail Jebus!", false, "How religion destroyed us!", 12, "",5),
+                    new CD("ceidei", false, "lolol", 55, "",667)
+
+                };
+                context.Mediatheeks.First().VoegCdRangeToe(cds);
+                context.SaveChanges();
 
                 //Dvd[] dvds =
                 //{

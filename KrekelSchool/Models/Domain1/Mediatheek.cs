@@ -9,7 +9,7 @@ namespace KrekelSchool.Models.Domain1
         public int Id { get; set; }
         
 #region Collections
-     //   public virtual ICollection<Item> Items { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
         public virtual ICollection<Boek> Boeks { get; set; }
         public virtual ICollection<CD> Cds { get; set; }
         public virtual ICollection<DVD> Dvds { get; set; }
@@ -29,7 +29,7 @@ namespace KrekelSchool.Models.Domain1
             Verteltass = new List<Verteltas>();
             Boeks = new List<Boek>();
             Uitleningen = new List<Uitlening>();
-            //Items = new List<Item>();
+            Items = new List<Item>();
             Categories = new List<Categorie>();
             Leners = new List<Lener>();
             Gebruikers = new List<Gebruiker>();
@@ -72,7 +72,8 @@ namespace KrekelSchool.Models.Domain1
         public void AanpassenUitlening() { }
         #endregion
         #region Item
-        public void AanpassenItem() { }
+
+        
 
         public ICollection<Boek> FindListFor(Boek boek)
         {  
@@ -198,9 +199,29 @@ namespace KrekelSchool.Models.Domain1
             return bestaat;
         }
         #endregion
-
         
+        public void VoegCdToe(CD item)
+        {
+            Cds.Add(item);
+        }
 
-
+        public void VoegCdRangeToe(ICollection<CD> cds)
+        {
+            foreach (CD cd in cds)
+            {
+                Cds.Add(cd);
+            }
+        }
+        public void VoegBoekRangeToe(ICollection<Boek> items)
+        {
+            foreach (var item in items)
+            {
+                Boeks.Add(item);
+            }
+        }
+        public void VerwijderCd(CD item)
+        {
+            Cds.Remove(item);
+        }
     }
 }

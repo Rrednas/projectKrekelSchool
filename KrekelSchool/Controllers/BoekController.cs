@@ -177,11 +177,17 @@ namespace KrekelSchool.Controllers
             boek.ImgUrl = bvm.ImgUrl;
             boek.Categorie = bvm.Categorie;
         }
-        public ActionResult Boekje(VoorlopigeUitlening voorlopige, int id)
+        public ActionResult KiesVoorlopigItem(VoorlopigeUitlening voorlopige, int id)
         {
-            voorlopige.KiesItem(mediatheek.Boeks.First(b => b.Id == id));
+            voorlopige.KiesItem(Mediatheek.Boeks.First(b => b.Id == id));
            return RedirectToAction("Boek");
         }
+
+        //public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
+        //{
+        //    Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
+            
+        //}
 
     }
 }

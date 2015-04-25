@@ -373,5 +373,11 @@ namespace KrekelSchool
             voorlopige.KiesLener(Mediatheek.Leners.First(b => b.Id == id));
             return RedirectToAction("Leerling");
         }
+        //public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
+        //{
+        //    Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
+
+        //}
+
     }
 }
