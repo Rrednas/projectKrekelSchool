@@ -45,13 +45,18 @@ namespace KrekelSchool.Models.Domain1
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            Uitlening nieuweUitlening = new Uitlening(i);
+            var nieuweUitlening = new Uitlening(Boeks.First(b => b.Id == i.Id));
+            
+            //if (Uitleningen.Contains(nieuweUitlening))
+            //    throw new ApplicationException("Leering heeft deze uitlening al");
+            Uitleningen.Add(nieuweUitlening);
+           
             if(l.Uitleningen.Contains(nieuweUitlening))
                 throw new ApplicationException("Uitlening bestaat al");
-            if(Uitleningen.Contains(nieuweUitlening))
-                throw new ApplicationException("Leering heeft deze uitlening al");
-                i.Beschikbaar = false;
-                l.Uitleningen.Add(nieuweUitlening);
+            
+             Boeks.First(b=> b.Id == nieuweUitlening.item.Id).Beschikbaar = false;
+             Leners.First(le=> le.Id==l.Id).KrijgLening(nieuweUitlening);
+            
             
             return nieuweUitlening;
             

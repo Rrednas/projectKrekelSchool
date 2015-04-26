@@ -61,8 +61,6 @@ namespace KrekelSchool.Models.Domain1
             {
                 if(value==null)
                     throw new ArgumentException("Ongeldig Item");
-                if(!Item.Beschikbaar)
-                    throw new ArgumentException("Item niet beschikbaar");
                 item = value;
             }
         }
