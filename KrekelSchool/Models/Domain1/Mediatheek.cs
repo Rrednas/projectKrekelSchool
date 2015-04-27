@@ -179,7 +179,8 @@ namespace KrekelSchool.Models.Domain1
         }
         public static bool MagUitlenen(Lener l)
         {
-            if(!(l.Uitleningen.Count < 3 )) throw new ApplicationException("Lener heeft maximum uitleningen  bereikt");
+            if(!(l.Uitleningen.Count < 3 ))
+            {throw new ApplicationException("Lener heeft maximum uitleningen  bereikt");}
             return true;
         }
 

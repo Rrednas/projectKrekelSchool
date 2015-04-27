@@ -285,6 +285,7 @@
     <Content Include="images\icons\music.png" />
     <Content Include="images\icons\note.png" />
     <Content Include="images\icons\puzzle.png" />
+    <Content Include="images\icons\save.png" />
     <Content Include="images\icons\search.png" />
     <Content Include="images\icons\student.png" />
     <Content Include="images\icons\verified.png" />
