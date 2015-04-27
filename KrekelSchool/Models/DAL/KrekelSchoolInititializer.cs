@@ -47,7 +47,7 @@ namespace KrekelSchool.Models.DAL
                 {
                     new Categorie("ziekenhuis: onderzoeken en operatie"),   
                     new Categorie("Durven en niet durven"),  
-                    new Categorie("Verliefdheid"), 
+                    new Categorie("Verliefdheid"),  
                 };
 
                 context.Mediatheeks.First().VoegCategoriesToe(themas);
