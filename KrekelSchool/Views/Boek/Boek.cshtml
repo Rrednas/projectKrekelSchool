@@ -30,7 +30,6 @@
                     {
                         if (Model.Voorlopige.Item.ImgUrl == " " || Model.Voorlopige.Item.ImgUrl == null || Model.Voorlopige.Item.ImgUrl == "")
                         {
-                            <img src="" alt=" " class="itemImgEmpty" />
                             <tr class="trvuItem">
                                 <p>@Model.Voorlopige.Item.Naam</p>
                                 <img src=" " alt=" " class="gewenstItemImg itemImgEmpty" />
@@ -48,7 +47,6 @@
                                 @Html.ActionLink(" ", "VerwijderVoorlopigeLener", new { id = @Model.Voorlopige.Lener.Id }, new { @class = "btn btn-success btnRmv" })
                             </tr>
                         }
-
                     }
                 }
         </table>
@@ -60,11 +58,14 @@
                 if (Model.Voorlopige.Lener != null)
                 {
                     <p>@(Model.Voorlopige.Lener.Naam + " " + Model.Voorlopige.Lener.Voornaam)</p>
+                    <br />
+                    @Html.ActionLink(" ", "VerwijderVoorlopigeLener", "Leerling", new { id = @Model.Voorlopige.Lener.Id }, new { @class = "btn btn-success btnRmv" })
+                    
                 }
             }
         </table>
-           @Html.ActionLink(" ", "BevestigVoolopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success addOk" })
-    </div>
+        @Html.ActionLink(" toevoegen", "AanvaardUitlening", "Leerling")
+      </div>
 
 
     @foreach (var p in Model.Boeken)

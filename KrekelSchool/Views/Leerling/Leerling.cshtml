@@ -27,54 +27,70 @@
     {
         <div class="col-md-8 ">
             <span>@Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })</span>
+            <br/>
+            @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="excelAdd">
+                    <input type="file" name="file" value="" class="btn btn-default" />
+                    <input type="submit" value="" class="btn btn-default addOk" />
+                </div>
+
+            }
+            
         </div>
     }
         <br/>
-       @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
-       {
-           <div class="col-md-4 gewenstItem">
-               <h2>Gewenst boek</h2>
+      <div class="col-md-4 gewensteLener">
+               <h2>Gewenst item</h2>
                <table>
+                @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
+                {
+                    if (Model.Voorlopige.Item != null)
+                    {
+                        if (Model.Voorlopige.Item.ImgUrl == " " || Model.Voorlopige.Item.ImgUrl == null || Model.Voorlopige.Item.ImgUrl == "")
+                        {
+                            <tr class="trvuItem">
+                                <p>@Model.Voorlopige.Item.Naam</p>
+                                <img src=" " alt=" " class="gewenstItemImg itemImgEmpty" />
+                                <br />
 
-                   @if (Model.Voorlopige.Item != null)
-                   {
-                   <tr class="trvuItem">
-                       <p>@Model.Voorlopige.Item.Naam</p>
-                       <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg"/>
-                       <br/>
-                       @Html.ActionLink(" ", "VerwijderVoorlopigItem", new {id = @Model.Voorlopige.Item.Id}, new {@class = "btn btn-success btnRmv"})
-                   </tr>
-                   }
-
+                                @Html.ActionLink(" ", "VerwijderVoorlopigItem", new {id = @Model.Voorlopige.Item.Id}, new {@class = "btn btn-success btnRmv"})
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr class="trvuItem">
+                                <p>@Model.Voorlopige.Item.Naam</p>
+                                <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
+                                <br />
+                                @Html.ActionLink(" ", "VerwijderVoorlopigItem", new {id = @Model.Voorlopige.Item.Id}, new {@class = "btn btn-success btnRmv"})
+                            </tr>
+                        }
+                    }
+                }
                </table>
 
                <h2>Aan</h2>
                <table>
-
-                   @if (Model.Voorlopige.Lener != null)
-                   {
-                   <p>@(Model.Voorlopige.Lener.Naam + " " + Model.Voorlopige.Lener.Voornaam)</p>
-                   <br/>
-                   @Html.ActionLink(" ", "VerwijderVoorlopigeLener", new {id = @Model.Voorlopige.Lener.Id}, new {@class = "btn btn-success btnRmv"})
-                   @Html.ActionLink(" toevoegen", "AanvaardUitlening")
-                   }
-                   
+                @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
+                {
+                    if (Model.Voorlopige.Lener != null)
+                        {
+                            <p>@(Model.Voorlopige.Lener.Naam + " " + Model.Voorlopige.Lener.Voornaam)</p>
+                            <br/>
+                            @Html.ActionLink(" ", "VerwijderVoorlopigeLener", new {id = @Model.Voorlopige.Lener.Id}, new {@class = "btn btn-success btnRmv"})
+                    <br/>        
+                    
+                        }
+                }
                </table>
-               
+               @Html.ActionLink(" ", "AanvaardUitlening", null, new { @class = "btn btn-success addOk" })
            </div>
-       }
     <table class="table">
         <tr>
             <th>
                 @Html.ActionLink(" ", "LeerlingToevoegen", null, new {@class = "modal-link btn btn-success btnAddLln"})
-                @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <div class="excelAdd">
-                        <input type="file" name="file" value="" class="btn btn-default addFile" />
-                        <input type="submit" value="" class="btn btn-default addOk" />
-                    </div>
-                    
-                } 
+                
             </th>
                 
             @foreach (var p in typeof (Lener).GetProperties())
@@ -98,7 +114,7 @@
 
                     @Html.ActionLink(" ", "LeerlingVerwijderen", new {id = l.Id}, new {@class = "modal-link btn btn-success btnRmv"})
 
-                    @Html.ActionLink(" ", "KiesVoorlopigeLener", new { id = l.Id }, new { @class = "btn btn-success btnRmv" })
+                    @Html.ActionLink(" ", "KiesVoorlopigeLener", new { id = l.Id }, new { @class = "btn btn-success btnLeen" })
 
                 </td>
                 @foreach (var p in l.GetType().GetProperties())

@@ -129,12 +129,25 @@ margin-right: 0;
     text-align: center;
     padding-bottom: 20px;
     width: 195px;
-    height: 550px;
+    height: 600px;
     z-index: 10;
 }
-.gewenstItem h2:nth-child(3) {
+.gewenstItem h2:nth-child(3), .gewensteLener h2:nth-child(3) {
     margin: 266px 0 0 0;
 }
+
+.gewensteLener {
+    top: 180px;
+    left: 70%;
+    position: fixed;
+    background: chocolate;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 195px;
+    height: 600px;
+    z-index: 10;
+}
+ 
 
 .itemImgEmpty {
     background-color: darkgreen;
@@ -166,8 +179,8 @@ margin-right: 0;
     padding: 0 2px 0 2px;
 }
 .excelAdd {
-    float: right;
-    margin: -50px 0 0 0;
+    float: left;
+    margin: 0 0 10px 0;
 }
 
 .excelAdd .addOk {
@@ -176,7 +189,6 @@ margin-right: 0;
     height: 40px;
     border-width: 1px;
 }
-
 /*Buttons*/
 .excelAdd .addOk {
     background-size: 25px 25px;
@@ -184,18 +196,20 @@ margin-right: 0;
     height: 40px;
     border-width: 1px;
 }
-.excelAdd .addFile {
-    background-image: url("../images/icons/verified.png");
+/*.excelAdd .addFile {
+    background-image: url("../images/icons/save.png");
     background-size: 45px 45px;
     background-repeat: no-repeat;
     background-position: center;
     width: 60px;
     height: 60px;
     background-color: darkgoldenrod;
-    border-color: chocolate;
+    color: chocolate;
     border-width: 5px;
     margin-left: 20px;
-}
+    text-decoration: none;
+    overflow: hidden;
+}*/
 
 .btnClose {
     background-image: url("../images/icons/exit.png");
@@ -287,7 +301,7 @@ margin-right: 0;
 }
 
 .btnEdit {
-    margin: 0 25px 5px 0;
+    margin: 0 10px 5px 0;
     height: 50px;
     width: 50px;
     background-image: url("../images/icons/edit.png");
@@ -317,7 +331,7 @@ margin-right: 0;
 }
 
 .btnDet {
-    margin: 0 25px 5px 0;
+    margin: 0 10px 5px 0;
     height: 50px;
     width: 50px;
     background-image: url("../images/icons/details.png");
@@ -327,7 +341,7 @@ margin-right: 0;
 }
 
 .btnLeen {
-    margin: 0 0 5px 25px;
+    margin: 0 0 5px 10px;
     height: 50px;
     width: 50px;
     background-image: url("../images/icons/verified.png");
@@ -335,6 +349,9 @@ margin-right: 0;
     background-repeat: no-repeat;
     background-position: center;
 }
+.gewenstItem .addOk {
+     margin-left: 0;
+ }
 /*tablet screen*/
 @media screen and (min-width: 391px) {
     .modal {
