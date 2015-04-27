@@ -24,5 +24,11 @@ namespace KrekelSchool.Models.Domain1
         {
             VoorlopigeLener = lener;
         }
+
+        public void Clear()
+        {
+            VoorlopigeLener = null;
+            VoorlopigItem = null;
+        }
     }
 }

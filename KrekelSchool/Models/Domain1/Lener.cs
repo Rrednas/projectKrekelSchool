@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Cryptography.X509Certificates;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -35,6 +36,7 @@ namespace KrekelSchool.Models.Domain1
             Gemeente = gemeente;
             Email = email;
             Klas = klas;
+            Uitleningen = new Collection<Uitlening>();
         }
         
         #region methods
