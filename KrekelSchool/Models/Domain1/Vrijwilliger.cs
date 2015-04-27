@@ -17,6 +17,11 @@ namespace KrekelSchool
           //  Mediatheek.VoegUitleningToe(l,tot,i);
         }
 
+        public Vrijwilliger()
+        {
+            
+        }
+
         public void CheckOut()
         {
             throw new System.NotImplementedException();

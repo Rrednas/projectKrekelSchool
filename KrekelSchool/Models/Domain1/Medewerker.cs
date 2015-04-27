@@ -11,6 +11,11 @@ namespace KrekelSchool
         public Medewerker(string uname, string pswd, string naam, int id) : base(uname, pswd, naam, id)
         {
         }
+
+        public Medewerker()
+        {
+            
+        }
         #region Item
         public void ItemToevoegen() { }
         public void ItemAanpassen() { }
