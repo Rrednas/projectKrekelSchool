@@ -27,12 +27,27 @@
                 {
                     if (Model.Voorlopige.Item != null)
                     {
-                        <tr class="trvuItem">
-                            <p>@Model.Voorlopige.Item.Naam</p>
-                            <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
-                            <br/>
-                            @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
-                        </tr>
+                        if (Model.Voorlopige.Item.ImgUrl == " " || Model.Voorlopige.Item.ImgUrl == null || Model.Voorlopige.Item.ImgUrl == "")
+                        {
+                            <tr class="trvuItem">
+                                <p>@Model.Voorlopige.Item.Naam</p>
+                                <img src=" " alt=" " class="itemImgEmpty gewenstItemImg" />
+                                <br />
+                                @Html.ActionLink(" ", "BevestigVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success addOk" })
+                                @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr class="trvuItem">
+                                <p>@Model.Voorlopige.Item.Naam</p>
+                                <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
+                                <br />
+                                @Html.ActionLink(" ", "BevestigVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success addOk" })
+                                @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
+                            </tr>
+                        }
+
                     }
                 }
         </table>
