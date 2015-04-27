@@ -44,7 +44,7 @@
                                 <p>@Model.Voorlopige.Item.Naam</p>
                                 <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
                                 <br />
-                                @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
+                                @Html.ActionLink(" ", "VerwijderVoorlopigeLener", new { id = @Model.Voorlopige.Lener.Id }, new { @class = "btn btn-success btnRmv" })
                             </tr>
                         }
 
