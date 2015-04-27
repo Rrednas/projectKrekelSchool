@@ -25,15 +25,24 @@ namespace KrekelSchool.Models.ViewModels
         public bool Beschikbaar { get; set; }
         public int Leeftijd { get; set; }
 
-        public ICollection<Categorie> Categories { get; set; }
+        [Display(Name = "Afbeelding URL")]
+        [Url(ErrorMessage = "{0} bevat geen geldige URL!!")]
+        public string ImgUrl { get; set; }
 
-        public SpelViewModel(Spel item)
+        [Display(Name = "Thema's")]
+        public Categorie Categorie { get; set; }
+        public ICollection<Categorie> Categories { get; set; }
+        public VoorlopigeUitleningViewModel UitleningViewModel { get; set; }
+
+        public SpelViewModel(Spel spel)
         {
-            Id = item.Id;
-            Naam = item.Naam;
-            Beschrijving = item.Beschrijving;
-            Beschikbaar = item.Beschikbaar;
-            Leeftijd = item.Leeftijd;
+            Id = spel.Id;
+            Naam = spel.Naam;
+            Beschrijving = spel.Beschrijving;
+            Beschikbaar = spel.Beschikbaar;
+            Leeftijd = spel.Leeftijd;
+            ImgUrl = spel.ImgUrl;
+            Categorie = spel.Categorie;
         }
 
         public SpelViewModel()

@@ -57,10 +57,7 @@ namespace KrekelSchool.Models.Domain1
              Boeks.First(b=> b.Id == nieuweUitlening.item.Id).Beschikbaar = false;
              Leners.First(le=> le.Id==l.Id).KrijgLening(nieuweUitlening);
             
-            
             return nieuweUitlening;
-            
-
         }
 
         public void VerwijderUitlening(Uitlening uitlening)
@@ -77,9 +74,6 @@ namespace KrekelSchool.Models.Domain1
         public void AanpassenUitlening() { }
         #endregion
         #region Item
-
-        
-
         public ICollection<Boek> FindListFor(Boek boek)
         {  
          
@@ -87,25 +81,59 @@ namespace KrekelSchool.Models.Domain1
             //return (ICollection<Item>) Boeks;
             return Boeks;
 
-        } 
+        }
+        
+        public void VoegBoekRangeToe(ICollection<Boek> items)
+        {
+            foreach (var item in items)
+            {
+                Boeks.Add(item);
+            }
+        }
+        public void VoegCdRangeToe(ICollection<CD> cds)
+        {
+            foreach (CD cd in cds)
+            {
+                Cds.Add(cd);
+            }
+        }
+        public void VoegSpelRangeToe(ICollection<Spel> spels)
+        {
+            foreach (Spel spel in spels)
+            {
+                Spels.Add(spel);
+            }
+        }
         public void VoegBoekToe(Boek boek)
         {
-
             Boeks.Add(boek);
-
+        }
+        public void VoegCdToe(CD item)
+        {
+            Cds.Add(item);
+        }
+        public void VoegSpelToe(Spel item)
+        {
+            Spels.Add(item);
         }
 
         public void VerwijderBoek(Boek boek)
         {
             Boeks.Remove(boek);
         }
-
+        public void VerwijderCd(CD item)
+        {
+            Cds.Remove(item);
+        }
+        public void VerwijderSpel(Spel item)
+        {
+            Spels.Remove(item);
+        }
         public Boek LeenBoekUit(Boek boek)
         {
             Boek uitgeleendBoek = FindListFor(boek).First(i => i.Id == boek.Id);
                 uitgeleendBoek.WordUitgeleend();
             return uitgeleendBoek;
-            
 
         }
         
@@ -205,28 +233,6 @@ namespace KrekelSchool.Models.Domain1
         }
         #endregion
         
-        public void VoegCdToe(CD item)
-        {
-            Cds.Add(item);
-        }
-
-        public void VoegCdRangeToe(ICollection<CD> cds)
-        {
-            foreach (CD cd in cds)
-            {
-                Cds.Add(cd);
-            }
-        }
-        public void VoegBoekRangeToe(ICollection<Boek> items)
-        {
-            foreach (var item in items)
-            {
-                Boeks.Add(item);
-            }
-        }
-        public void VerwijderCd(CD item)
-        {
-            Cds.Remove(item);
-        }
+        
     }
 }

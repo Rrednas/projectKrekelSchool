@@ -194,6 +194,7 @@
     <Compile Include="Controllers\ItemController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\SpelController.cs" />
     <Compile Include="InfraStruct\MediatheekModelBinder.cs" />
     <Compile Include="InfraStruct\UitleningModelBinder.cs" />
     <Compile Include="Models\DAL\BoekRepository.cs" />
@@ -220,7 +221,7 @@
     <Compile Include="Models\ViewModels\CdViewModel.cs" />
     <Compile Include="Models\ViewModels\DvdViewModel.cs" />
     <Compile Include="Models\ViewModels\ItemScreenViewModel.cs" />
-    <Compile Include="Models\ViewModels\ItemViewModel.cs" />
+    <Compile Include="Models\ViewModels\BoekViewModel.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\DAL\LeerlingRepository.cs" />
     <Compile Include="Models\DAL\Mappers\CategorieMap.cs" />
@@ -345,8 +346,6 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Item\Item.cshtml" />
-    <Content Include="Views\Item\ItemScreen.cshtml" />
-    <Content Include="Views\Item\ItemToevoegen.cshtml" />
     <Content Include="Views\Leerling\LenerEnUitlening.cshtml" />
     <Content Include="Views\Leerling\LeerlingScreen.cshtml" />
     <Content Include="Views\Uitlening\UitleningScreen.cshtml" />
@@ -364,6 +363,10 @@
     <Content Include="Views\Cd\CdDetail.cshtml" />
     <Content Include="Views\Cd\CdToevoegen.cshtml" />
     <Content Include="Views\Cd\CdVerwijderen.cshtml" />
+    <Content Include="Views\Spel\Spel.cshtml" />
+    <Content Include="Views\Spel\SpelDetail.cshtml" />
+    <Content Include="Views\Spel\SpelToevoegen.cshtml" />
+    <Content Include="Views\Spel\SpelVerwijderen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

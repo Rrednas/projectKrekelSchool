@@ -3,74 +3,72 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using KrekelSchool.Models;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 using KrekelSchool.Models.ViewModels;
 
 namespace KrekelSchool.Controllers
 {
-    public class BoekController : Controller
+    public class SpelController : Controller
     {
-        //private IboekRepository BoekRepository;
         private MediatheekRepository MediatheekRepository;
         private Mediatheek Mediatheek;
 
-        public BoekController(MediatheekRepository repos)
+        public SpelController(MediatheekRepository repos)
         {
             
             MediatheekRepository = repos;
             Mediatheek = repos.GetMediatheek();
         }
 
-        public ActionResult Boek(string zoek,VoorlopigeUitlening voorlopige)
+        public ActionResult Spel(string zoek,VoorlopigeUitlening voorlopige)
        {
-            ViewBag.Title = "Boeken-Lijst";
+            ViewBag.Title = "Spellen-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
-            IEnumerable<Boek> boeken = Mediatheek.Boeks.AsEnumerable();
+            IEnumerable<Spel> spellen = Mediatheek.Spels.AsEnumerable();
                 //BoekRepository.FindAll().OrderBy(b => b.Naam);
-            IEnumerable<BoekViewModel> bvm = boeken.Select(b => new BoekViewModel(b)).ToList();
+            IEnumerable<SpelViewModel> svm = spellen.Select(s => new SpelViewModel(s)).ToList();
             if (!String.IsNullOrEmpty(zoek))
             {
-                bvm = bvm.Where(b => b.Naam.ToLower().Contains(zoek.ToLower()) ||
+                svm = svm.Where(b => b.Naam.ToLower().Contains(zoek.ToLower()) ||
                     b.Leeftijd.ToString().Contains(zoek.ToLower()));
             }
-            return View(new ItemScreenViewModel(voorlopige,bvm));
+            return View(new ItemScreenViewModel(voorlopige,svm));
         }
 
-        public ActionResult BoekDetail(int id)
+        public ActionResult SpelDetail(int id)
         {
-            Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
-            if (boek == null)
+            Spel spel = Mediatheek.Spels.First(s => s.Id == id);
+            if (spel == null)
                 return HttpNotFound();
             ViewBag.Title = "Details van: ";
-            ViewBag.Message = boek.Naam;
-            return PartialView(new BoekViewModel(boek));
+            ViewBag.Message = spel.Naam;
+            return PartialView(new SpelViewModel(spel));
         }
 
         #region Boek Toevoegen
         [HttpGet]
-        public ActionResult BoekToevoegen()
+        public ActionResult SpelToevoegen()
         {
-            Boek boek = new Boek();
-            ViewBag.Title = "Boek toevoegen";
-            return PartialView(new BoekViewModel(boek));
+            Spel spel = new Spel();
+            ViewBag.Title = "Spel toevoegen";
+            return PartialView(new SpelViewModel(spel));
         }
 
         [HttpPost]
-        public ActionResult BoekToevoegen(BoekViewModel bvm)
+        public ActionResult SpelToevoegen(SpelViewModel svm)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    Boek boek = new Boek();
-                    MapToBoek(bvm,boek);
-                    Mediatheek.VoegBoekToe(boek);
+                    Spel spel = new Spel();
+                    MapToSpel(svm,spel);
+                    Mediatheek.VoegSpelToe(spel);
                     MediatheekRepository.SaveChanges();
                   //  BoekRepository.SaveChanges();
-                    TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
-                    return RedirectToAction("Boek");
+                    TempData["Message"] = String.Format("{0} werd gecreëerd.", spel.Naam);
+                    return RedirectToAction("Spel");
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
@@ -88,33 +86,33 @@ namespace KrekelSchool.Controllers
                 }
                 throw raise;
             }
-            return PartialView(bvm); 
+            return PartialView(svm); 
         }
         #endregion
 
 
         [HttpGet]
-        public ActionResult BoekAanpassen(int id)
+        public ActionResult SpelAanpassen(int id)
         {
-            Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
-            if (boek == null)
+            Spel spel = Mediatheek.Spels.First(s => s.Id == id);
+            if (spel == null)
                 return HttpNotFound();
-            ViewBag.Title = "Boek: " + boek.Naam + " aanpassen";
-            return PartialView("BoekToevoegen", new BoekViewModel(boek));
+            ViewBag.Title = "Spel: " + spel.Naam + " aanpassen";
+            return PartialView("SpelToevoegen", new SpelViewModel(spel));
         }
 
         [HttpPost]
-        public ActionResult BoekAanpassen(int id, BoekViewModel bvm)
+        public ActionResult SpelAanpassen(int id, SpelViewModel svm)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
-                    MapToBoek(bvm, boek);
+                    Spel spel = Mediatheek.Spels.First(s => s.Id == id);
+                    MapToSpel(svm, spel);
                     MediatheekRepository.SaveChanges();
-                    TempData["Message"] = String.Format("{0} werd aangepast.", boek.Naam);
-                    return RedirectToAction("Boek");
+                    TempData["Message"] = String.Format("{0} werd aangepast.", spel.Naam);
+                    return RedirectToAction("Spel");
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
@@ -132,17 +130,17 @@ namespace KrekelSchool.Controllers
                 }
                 throw raise;
             }
-            return PartialView("BoekToevoegen",bvm);
+            return PartialView("SpelToevoegen",svm);
         }
 
         [HttpGet]
-        public ActionResult BoekVerwijderen(int id)
+        public ActionResult SpelVerwijderen(int id)
         {
-            Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
-            if (boek == null)
+            Spel spel = Mediatheek.Spels.First(s => s.Id == id);
+            if (spel == null)
                 return HttpNotFound();
-            ViewBag.Title = "Boek: " + boek.Naam + " verwijderen";
-            return PartialView(new BoekViewModel(boek));
+            ViewBag.Title = "Spel: " + spel.Naam + " verwijderen";
+            return PartialView(new SpelViewModel(spel));
         }
 
         [HttpPost, ActionName("BoekVerwijderen")]
@@ -150,50 +148,47 @@ namespace KrekelSchool.Controllers
         {
             try
             {
-                Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
-                if (boek == null)
-                    return HttpNotFound();
-                Mediatheek.VerwijderBoek(boek);
+                Spel spel = Mediatheek.Spels.First(s => s.Id == id);
+            if (spel == null)
+                return HttpNotFound();
+                Mediatheek.VerwijderSpel(spel);
                 MediatheekRepository.SaveChanges();
-                TempData["Message"] = String.Format("{0} werd verwijderd!", boek.Naam);
+                TempData["Message"] = String.Format("{0} werd verwijderd!", spel.Naam);
             }
             catch (Exception ex)
             {
-                TempData["error"] = ViewBag.ErrorMessage = "Verwijderen van boek mislukt. Probeer opnieuw. " +
+                TempData["error"] = ViewBag.ErrorMessage = "Verwijderen van spel mislukt. Probeer opnieuw. " +
                            "Als de problemen zich blijven voordoen, contacteer de  administrator.";
             }
-            return RedirectToAction("Boek");
+            return RedirectToAction("Spel");
         }
 
-        private void MapToBoek(BoekViewModel bvm, Boek boek)
+        private void MapToSpel(SpelViewModel svm, Spel spel)
         {
-            boek.Naam = bvm.Naam;
-            boek.Leeftijd = bvm.Leeftijd;
-            boek.Isbn = bvm.Isbn;
-            boek.Uitgever = bvm.Uitgever;
-            boek.Auteur = bvm.Auteur;
-            boek.Beschikbaar = bvm.Beschikbaar;
-            boek.Beschrijving = bvm.Beschrijving;
-            boek.ImgUrl = bvm.ImgUrl;
-            boek.Categorie = bvm.Categorie;
+            spel.Naam = svm.Naam;
+            spel.Leeftijd = svm.Leeftijd;
+            spel.Beschikbaar = svm.Beschikbaar;
+            spel.Beschrijving = svm.Beschrijving;
+            spel.ImgUrl = svm.ImgUrl;
+            spel.Categorie = svm.Categorie;
         }
         public ActionResult KiesVoorlopigItem(VoorlopigeUitlening voorlopige, int id)
         {
-            voorlopige.KiesItem(Mediatheek.Boeks.First(b => b.Id == id));
-            return RedirectToAction("Boek");
+            voorlopige.KiesItem(Mediatheek.Spels.First(s => s.Id == id));
+            return RedirectToAction("Spel");
         }
 
         public ActionResult VerwijderVoorlopigItem(VoorlopigeUitlening voorlopige, int id)
         {
             voorlopige.KiesItem(null);
-            return RedirectToAction("Boek");
+            return RedirectToAction("Spel");
         }
 
         public ActionResult BevestigVoolopigItem(VoorlopigeUitlening voorlopige, int id)
         {
-            voorlopige.KiesItem(Mediatheek.Boeks.First(b => b.Id == id));
+            voorlopige.KiesItem(Mediatheek.Spels.First(s => s.Id == id));
 
-            return RedirectToAction("Boek");
+            return RedirectToAction("Spel");
         }
         //public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
         //{
@@ -202,4 +197,5 @@ namespace KrekelSchool.Controllers
         //}
 
     }
+    
 }
