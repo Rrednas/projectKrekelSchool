@@ -188,7 +188,11 @@ namespace KrekelSchool.Controllers
             voorlopige.KiesItem(null);
             return RedirectToAction("Boek");
         }
-
+        public ActionResult VerwijderVoorlopigeLener(VoorlopigeUitlening voorlopige, int id)
+        {
+            voorlopige.KiesLener(null);
+            return RedirectToAction("Boek");
+        }
         public ActionResult BevestigVoolopigItem(VoorlopigeUitlening voorlopige, int id)
         {
             voorlopige.KiesItem(Mediatheek.Boeks.First(b => b.Id == id));
