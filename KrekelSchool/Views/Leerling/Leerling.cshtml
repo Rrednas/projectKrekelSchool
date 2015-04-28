@@ -28,19 +28,18 @@
         <div class="col-md-8 ">
             <span>@Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })</span>
             <br/>
-            @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <div class="excelAdd">
-                    <input type="file" name="file" value="" class="btn btn-default" />
+            <div class="excelAdd">
+                @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="file" name="file" value="" class="" />
                     <input type="submit" value="" class="btn btn-default addOk" />
-                </div>
-
-            }
+                }
+            </div>
             
         </div>
     }
         <br/>
-      <div class="col-md-4 gewensteLener">
+      <div class="col-md-4 gewenstItem">
                <h2>Gewenst item</h2>
                <table>
                 @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
@@ -49,7 +48,7 @@
                     {
                         if (Model.Voorlopige.Item.ImgUrl == " " || Model.Voorlopige.Item.ImgUrl == null || Model.Voorlopige.Item.ImgUrl == "")
                         {
-                            <tr class="trvuItem">
+                            <tr>
                                 <p>@Model.Voorlopige.Item.Naam</p>
                                 <img src=" " alt=" " class="gewenstItemImg itemImgEmpty" />
                                 <br />
@@ -59,7 +58,7 @@
                         }
                         else
                         {
-                            <tr class="trvuItem">
+                            <tr>
                                 <p>@Model.Voorlopige.Item.Naam</p>
                                 <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
                                 <br />
@@ -84,7 +83,10 @@
                         }
                 }
                </table>
-               @Html.ActionLink(" ", "AanvaardUitlening", null, new { @class = "btn btn-success addOk" })
+               @if (Model.Voorlopige.Lener != null && Model.Voorlopige.Item != null)
+               {
+                @Html.ActionLink(" ", "AanvaardUitlening", "Leerling", null, new { @class = "btn btn-success addOk" })
+               }
            </div>
     <table class="table">
         <tr>

@@ -30,7 +30,7 @@
                     {
                         if (Model.Voorlopige.Item.ImgUrl == " " || Model.Voorlopige.Item.ImgUrl == null || Model.Voorlopige.Item.ImgUrl == "")
                         {
-                            <tr class="trvuItem">
+                            <tr>
                                 <p>@Model.Voorlopige.Item.Naam</p>
                                 <img src=" " alt=" " class="gewenstItemImg itemImgEmpty" />
                                 <br />
@@ -40,11 +40,11 @@
                         }
                         else
                         {
-                            <tr class="trvuItem">
+                            <tr>
                                 <p>@Model.Voorlopige.Item.Naam</p>
                                 <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
                                 <br />
-                                @Html.ActionLink(" ", "VerwijderVoorlopigeLener", new { id = @Model.Voorlopige.Lener.Id }, new { @class = "btn btn-success btnRmv" })
+                                @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
                             </tr>
                         }
                     }
@@ -64,7 +64,11 @@
                 }
             }
         </table>
-        @Html.ActionLink(" toevoegen", "AanvaardUitlening", "Leerling")
+        @if (Model.Voorlopige.Lener != null && Model.Voorlopige.Item != null)
+        {
+            @Html.ActionLink(" ", "AanvaardUitlening", "Leerling", null, new { @class = "btn btn-success addOk" })
+        }
+        
       </div>
 
 
