@@ -114,7 +114,7 @@ namespace KrekelSchool
         {
             DataSet dataSet = new DataSet();
             Lener lener = new Lener();
-            if (Request.Files["file"].ContentLength >= 0)
+            if (Request.Files["file"].ContentLength > 0)
             {
                 string fileExtension = System.IO.Path.GetExtension(Request.Files["file"].FileName);
 
@@ -191,7 +191,7 @@ namespace KrekelSchool
 
                     for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                     {
-                        
+
                         if (Mediatheek.LenerBestaat(dataSet.Tables[0].Rows[i][0].ToString(),
                             dataSet.Tables[0].Rows[i][1].ToString()) == false)
                         {
@@ -206,7 +206,7 @@ namespace KrekelSchool
                             Mediatheek.VoegLenerToe(lener);
                             MediatheekRepository.SaveChanges();
                         }
-                        
+
                         //string connection = ConfigurationManager.ConnectionStrings["projecten2"].ConnectionString;
                         //MySqlConnection connect = new MySqlConnection(connection);
                         //string query =

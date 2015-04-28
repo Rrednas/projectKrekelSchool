@@ -20,7 +20,7 @@ namespace KrekelSchool
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ModelBinders.Binders.Add(typeof(VoorlopigeUitlening), new UitleningModelBinder());
-            //ModelBinders.Binders.Add(typeof(Gebruiker),new GebruikerModelBinder());
+            ModelBinders.Binders.Add(typeof(Gebruiker), new GebruikerModelBinder());
         }
     }
 }
