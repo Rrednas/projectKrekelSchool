@@ -15,7 +15,6 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
 select,
 textarea {
     max-width: 280px;
@@ -117,37 +116,27 @@ margin-right: 0;
     box-shadow: 0 0 20px chartreuse; 
 }
 .gewenstItemImg {
-    height: 140px;
-    width: 140px;
+    height: 120px;
+    width: 120px;
     margin: 0 0 15px 0;
 }
 .gewenstItem {
     top: 280px;
-    left: 70%;
+    left: 80%;
     position: fixed;
     background: chocolate;
     text-align: center;
     padding-bottom: 20px;
-    width: 195px;
+    width: 150px;
     height: 600px;
     z-index: 10;
 }
-.gewenstItem h2:nth-child(3), .gewensteLener h2:nth-child(3) {
+.gewenstItem h2, .gewenstItemImg h2 {
+    font-size: 25px;
+}
+.gewenstItem h2:nth-child(3){
     margin: 266px 0 0 0;
 }
-
-.gewensteLener {
-    top: 180px;
-    left: 70%;
-    position: fixed;
-    background: chocolate;
-    text-align: center;
-    padding-bottom: 20px;
-    width: 195px;
-    height: 600px;
-    z-index: 10;
-}
- 
 
 .itemImgEmpty {
     background-color: darkgreen;
@@ -171,6 +160,19 @@ margin-right: 0;
     padding: 25px 0 140px 20px;
 }
 
+.itemObj table{
+    width: 350px;
+}
+
+.itemObj table tr td:nth-child(1){
+    padding-right: 10px;
+    width: 150px;
+}
+
+.table {
+    width: 600px;
+}
+
 .dl-horizontal dt {
     font-size: 20px;
     font-weight: bolder;
@@ -178,23 +180,24 @@ margin-right: 0;
 .dl-horizontal {
     padding: 0 2px 0 2px;
 }
+input {
+    max-width: 500px;
+    background-color: chocolate;
+}
 .excelAdd {
     float: left;
-    margin: 0 0 10px 0;
+    /*margin: 0 0 10px 0;*/
+    width: 350px;
+    color: white;
 }
 
-.excelAdd .addOk {
-    background-size: 25px 25px;
-    width: 40px;
-    height: 40px;
-    border-width: 1px;
-}
 /*Buttons*/
 .excelAdd .addOk {
     background-size: 25px 25px;
     width: 40px;
     height: 40px;
     border-width: 1px;
+    margin: 5px 0 5px 0;
 }
 /*.excelAdd .addFile {
     background-image: url("../images/icons/save.png");
