@@ -188,6 +188,7 @@
     <Compile Include="Controllers\BoekController.cs" />
     <Compile Include="Controllers\CategorieController.cs" />
     <Compile Include="Controllers\CdController.cs" />
+    <Compile Include="Controllers\GebruikerController.cs" />
     <Compile Include="Controllers\HomeController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -195,6 +196,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\SpelController.cs" />
+    <Compile Include="InfraStruct\GebruikerModelBinder.cs" />
     <Compile Include="InfraStruct\MediatheekModelBinder.cs" />
     <Compile Include="InfraStruct\UitleningModelBinder.cs" />
     <Compile Include="Models\DAL\BoekRepository.cs" />
@@ -220,6 +222,7 @@
     <Compile Include="Models\ViewModels\CategorieViewModel.cs" />
     <Compile Include="Models\ViewModels\CdViewModel.cs" />
     <Compile Include="Models\ViewModels\DvdViewModel.cs" />
+    <Compile Include="Models\ViewModels\GebruikerViewModel.cs" />
     <Compile Include="Models\ViewModels\ItemScreenViewModel.cs" />
     <Compile Include="Models\ViewModels\BoekViewModel.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
@@ -368,6 +371,8 @@
     <Content Include="Views\Spel\SpelDetail.cshtml" />
     <Content Include="Views\Spel\SpelToevoegen.cshtml" />
     <Content Include="Views\Spel\SpelVerwijderen.cshtml" />
+    <Content Include="Views\Gebruiker\Edit.cshtml" />
+    <Content Include="Views\Gebruiker\LogIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
