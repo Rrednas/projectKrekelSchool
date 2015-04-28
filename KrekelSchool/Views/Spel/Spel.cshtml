@@ -20,17 +20,17 @@
     }
 
     @Html.ActionLink(" ", "SpelToevoegen", "Spel", null, new { @class = "modal-link btn btn-success btnAdd" })
-    <div class="col-md-4 gewenstItem">
-        <h2>Gewenst spel</h2>
-        <table>
-            @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
-            {
-                if (Model.Voorlopige.Item != null)
+    @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
+    {
+        <div class="col-md-4 gewenstItem">
+            <h2>Gewenst boek</h2>
+            <table>
+
+                @if (Model.Voorlopige.Item != null)
                 {
                     if (Model.Voorlopige.Item.ImgUrl == " " || Model.Voorlopige.Item.ImgUrl == null || Model.Voorlopige.Item.ImgUrl == "")
                     {
-                        <img src="" alt=" " class="itemImgEmpty" />
-                        <tr class="trvuItem">
+                        <tr>
                             <p>@Model.Voorlopige.Item.Naam</p>
                             <img src=" " alt=" " class="gewenstItemImg itemImgEmpty" />
                             <br />
@@ -40,32 +40,34 @@
                     }
                     else
                     {
-                        <tr class="trvuItem">
+                        <tr>
                             <p>@Model.Voorlopige.Item.Naam</p>
                             <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
                             <br />
                             @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
                         </tr>
                     }
-
                 }
-            }
-        </table>
+            </table>
 
-        <h2>Aan</h2>
-        <table>
-            @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
-            {
-                if (Model.Voorlopige.Lener != null)
+            <h2>Aan</h2>
+            <table>
+                @if (Model.Voorlopige.Lener != null)
                 {
                     <p>@(Model.Voorlopige.Lener.Naam + " " + Model.Voorlopige.Lener.Voornaam)</p>
+                    <br />
+                    @Html.ActionLink(" ", "VerwijderVoorlopigeLener", new { id = @Model.Voorlopige.Lener.Id }, new { @class = "btn btn-success btnRmv" })
+
                 }
+
+            </table>
+            @if (Model.Voorlopige.Lener != null && Model.Voorlopige.Item != null)
+            {
+                @Html.ActionLink(" ", "AanvaardUitlening", null, new { @class = "btn btn-success addOk" })
             }
-        </table>
-        @Html.ActionLink(" ", "BevestigVoolopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success addOk" })
-    </div>
-
-
+        </div>
+    }
+    
     @foreach (var p in Model.Spellen)
     {
 

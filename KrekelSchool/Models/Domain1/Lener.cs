@@ -7,9 +7,9 @@ using System.Security.Cryptography.X509Certificates;
 namespace KrekelSchool.Models.Domain1
 {
     
-    public class Lener
+    public sealed class Lener
     {
-        public virtual Collection<Uitlening> Uitleningen { get; set; }
+        public Collection<Uitlening> Uitleningen { get; set; }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

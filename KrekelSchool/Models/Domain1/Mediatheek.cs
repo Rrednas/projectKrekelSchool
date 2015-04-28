@@ -166,7 +166,7 @@ namespace KrekelSchool.Models.Domain1
 
         #region Lener
 
-        public void VoegLenerToe(Lener lener    )
+        public void VoegLenerToe(Lener lener)
         {
             Leners.Add(lener);
         }
@@ -179,7 +179,7 @@ namespace KrekelSchool.Models.Domain1
         }
         public static bool MagUitlenen(Lener l)
         {
-            if(!(l.Uitleningen.Count < 3 ))
+            if(l.Uitleningen.Count() > 3 )
             {throw new ApplicationException("Lener heeft maximum uitleningen  bereikt");}
             return true;
         }

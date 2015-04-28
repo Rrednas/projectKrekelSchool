@@ -18,17 +18,12 @@
         <div class="col-md-8 ">
             <textarea class="form-control formListSearch"></textarea>
         </div>
-        <div class="col-md-8">
-            <a class="btn btn-default btnSearch" href=""><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" /></a>
-        </div>
-
 
         @model  IEnumerable<Uitlening>
 
         <table class="table">
             <tr>
-                
-                    
+                <th></th>
                 @foreach (var p in @Model.DefaultIfEmpty(new Uitlening()).First().GetType().GetProperties())
                 {
                     <th>
@@ -41,13 +36,10 @@
             {
                 <tr>
                     <td>
-                        @*@Html.ActionLink("Edit","ItemAanpassen", new { id = l.Id })*@
                         @Html.ActionLink(" ", "UitleningAanpassen", "Uitlening", null, new { id = l.Id, @class = "modal-link btn btn-success btnEdit" })
 
-                        @*@Html.ActionLink("Details", "getItem", new { id = l.Id })*@
                         @Html.ActionLink(" ", "UitleningDetails", "Uitlening", null, new { id = l.Id, @class = "modal-link btn btn-success btnDet" })
 
-                        @*@Html.ActionLink("Delete", "removeItem", new {id = l.Id})*@
                         @Html.ActionLink(" ", "UitleningVerwijderen", "Uitlening", null, new { id = l.Id, @class = "modal-link btn btn-success btnRmv" })
 
                     </td>
