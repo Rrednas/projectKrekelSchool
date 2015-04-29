@@ -9,6 +9,7 @@ namespace KrekelSchool.Models.Domain1
         #region fields
         public DateTime eindDatum;
         public Item item;
+        public Lener lener;
         #endregion
 
         public Uitlening()
@@ -16,17 +17,19 @@ namespace KrekelSchool.Models.Domain1
             
         }
 
-        public Uitlening(int id , bool isterug ,DateTime van , DateTime tot , Item item)
+        public Uitlening(int id , bool isterug ,DateTime van , DateTime tot , Item item, Lener lener)
         {
             Id = id;
             IsTerug = isterug;
             BeginDatum = van;
             EindDatum = tot;
             Item = item;
+            Lener = lener;
         }
-        public Uitlening(Item item  )
+        public Uitlening(Item item, Lener lener)
         {
             Item = item;
+            Lener = lener;
             BeginDatum = DateTime.Today;
             EindDatum = BeginDatum.AddDays(7);
             //if (Item.Leeftijd >= 12) EindDatum = EindDatum.AddDays(7);
@@ -62,6 +65,17 @@ namespace KrekelSchool.Models.Domain1
                 if(value==null)
                     throw new ArgumentException("Ongeldig Item");
                 item = value;
+            }
+        }
+
+        public Lener Lener
+        {
+            get { return lener; }
+            set
+            {
+                if (value == null)
+                    throw new ArgumentException("Ongeldige Lener");
+                lener = value;
             }
         }
         #region methods 

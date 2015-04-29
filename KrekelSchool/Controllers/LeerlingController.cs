@@ -91,6 +91,7 @@ namespace KrekelSchool
 
         public ActionResult Leerling(string zoek,VoorlopigeUitlening uitlening)
         {
+            ViewBag.Title = "Leerling-Lijst";
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
             IEnumerable<Lener> leerlingen = Mediatheek.Leners.OrderBy(l => l.Naam);
             IEnumerable<LeerlingViewModel> lvm = leerlingen.Select(l => new LeerlingViewModel(l)).ToList();
@@ -343,7 +344,7 @@ namespace KrekelSchool
                 Lener leerling = Mediatheek.Leners.First(l => l.Id == id);
                 if (leerling == null)
                     return HttpNotFound();
-                Mediatheek.VoegLenerToe(leerling);
+                Mediatheek.VerwijderLener(leerling);
                 MediatheekRepository.SaveChanges();
                 ViewBag.Title = "Leerling verwijderen";
                 TempData["Message"] = String.Format("{0} {1} werd verwijderd!", leerling.Naam, leerling.Voornaam);

@@ -46,7 +46,7 @@ namespace KrekelSchool.Models.Domain1
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            var nieuweUitlening = new Uitlening(Boeks.First(b => b.Id == i.Id));
+            var nieuweUitlening = new Uitlening(Boeks.First(b => b.Id == i.Id), Leners.First(le =>le.Id == l.Id));
             
             //if (Uitleningen.Contains(nieuweUitlening))
             //    throw new ApplicationException("Leering heeft deze uitlening al");

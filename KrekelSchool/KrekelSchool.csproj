@@ -351,7 +351,7 @@
     <Content Include="Views\Item\Item.cshtml" />
     <Content Include="Views\Leerling\LenerEnUitlening.cshtml" />
     <Content Include="Views\Leerling\LeerlingScreen.cshtml" />
-    <Content Include="Views\Uitlening\UitleningScreen.cshtml" />
+    <Content Include="Views\Uitlening\Uitlening.cshtml" />
     <Content Include="Views\Boek\Boek.cshtml" />
     <Content Include="Views\Boek\BoekToevoegen.cshtml" />
     <Content Include="Views\Boek\BoekDetail.cshtml" />
