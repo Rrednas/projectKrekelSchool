@@ -36,18 +36,18 @@ namespace KrekelSchool.Models.Domain1
             Gemeente = gemeente;
             Email = email;
             Klas = klas;
-            Uitleningen = new Collection<Uitlening>();
         }
         
         #region methods
 
         public void KrijgLening(Uitlening uitl)
         {
+            if (Uitleningen == null)
+                Uitleningen = new Collection<Uitlening>();
             if (Uitleningen.Count >= 3)
-            {
                 throw new ApplicationException("Lener mag niet meer dan 3 uitleningen hebben.");
-            }
-                Uitleningen.Add(uitl);
+                
+            Uitleningen.Add(uitl);
         }
         #endregion
     }
