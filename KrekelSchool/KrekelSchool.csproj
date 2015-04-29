@@ -372,6 +372,8 @@
     <Content Include="Views\Spel\SpelVerwijderen.cshtml" />
     <Content Include="Views\Gebruiker\Edit.cshtml" />
     <Content Include="Views\Gebruiker\LogIn.cshtml" />
+    <Content Include="Views\Uitlening\UitleningAanpassen.cshtml" />
+    <Content Include="Views\Uitlening\UitleningVerwijderen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,9 +17,8 @@ namespace KrekelSchool.Models.Domain1
             
         }
 
-        public Uitlening(int id , bool isterug ,DateTime van , DateTime tot , Item item, Lener lener)
+        public Uitlening(bool isterug ,DateTime van , DateTime tot , Item item, Lener lener)
         {
-            Id = id;
             IsTerug = isterug;
             BeginDatum = van;
             EindDatum = tot;

@@ -20,12 +20,24 @@ namespace KrekelSchool.Controllers
             Mediatheek = mediatheekRepository.GetMediatheek();
         }
 
-        public ActionResult Uitlening()
+        public ActionResult Uitlening(string zoek)
         {
+            ViewBag.Title = "Uitleningen-Lijst";
+            ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
             IEnumerable<Uitlening> uitleningen = Mediatheek.Uitleningen.OrderBy(u => u.BeginDatum);
-            return View(uitleningen);
+            IEnumerable<UitleningViewModel> uvm = uitleningen.Select(u => new UitleningViewModel(u)).ToList();
+            if (!String.IsNullOrEmpty(zoek))
+            {
+                uvm = uvm.Where(u => u.Lener.Naam.ToLower().Contains(zoek.ToLower()) ||
+                    u.Lener.Voornaam.ToLower().Contains(zoek.ToLower()) ||
+                    u.Item.Naam.ToLower().Contains(zoek.ToLower()) ||
+                    u.BeginDatum.ToString().Contains(zoek.ToLower()) ||
+                    u.EindDatum.ToString().Contains(zoek.ToLower())
+                    );
+            }
+            return View(new UitleningScreenViewModel(uvm));
         }
-
+        
         [HttpGet]
         public ActionResult UitleningAanpassen(int id)
         {
@@ -36,8 +48,8 @@ namespace KrekelSchool.Controllers
             return PartialView(new UitleningViewModel(uitlening));
         }
 
-        [HttpPost, ActionName("UitleningAanpassen")]
-        public ActionResult UitleningAanpassenPost(int id)
+        [HttpPost]
+        public ActionResult UitleningAanpassen(int id, UitleningViewModel uvm)
         {
             try
             {
@@ -66,7 +78,7 @@ namespace KrekelSchool.Controllers
                 throw raise;
             }
             Uitlening uitleningVm = Mediatheek.Uitleningen.First(u => u.Id == id);
-            return PartialView(new UitleningViewModel(uitleningVm));
+            return PartialView("UitleningAanpassen",uvm);
         }
 
         [HttpGet]
