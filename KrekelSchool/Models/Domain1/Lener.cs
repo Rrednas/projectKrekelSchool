@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography.X509Certificates;
+using System.Web;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -21,8 +22,6 @@ namespace KrekelSchool.Models.Domain1
         public string Gemeente { get; set; }
         public string Email { get; set; }
         public string Klas { get; set; }
-
-        
 
         public Lener() { }
 

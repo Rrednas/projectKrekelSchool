@@ -8,19 +8,24 @@
 @if (TempData["Succes"] != null)
 {
     <h1>@TempData["Succes"]</h1>
-}>
+}
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Boek", "Boek", FormMethod.Get))
     {
         <div class="col-md-8 ">
             <span>
                 @Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })
             </span>
         </div>
-        @*<div class="col-md-8">
-                <input type="submit" value=" " class="btn btn-default btnSearch" href=""/><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" />
-            </div>*@
     }
+<div class="excelAdd">
+    @using (Html.BeginForm("Boek", "Boek", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="file" />
+        <input type="submit" value="" class="btn btn-default addOk" />
+    }
+</div>
+
 
         @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new { @class = "modal-link btn btn-success btnAdd" })
         @Html.ActionLink(" ", "LogIn", "Gebruiker", null, new { @class = "btn btn-success btnAdd" })

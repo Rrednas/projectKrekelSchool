@@ -7,7 +7,7 @@
 @using KrekelSchool.Models.ViewModels
 @using Microsoft.Ajax.Utilities
 @using Microsoft.AspNet.Identity
-@model KrekelSchool.Models.ViewModels.LeerlingScreenViewModel
+@model LeerlingScreenViewModel
 
 
 <h2>@ViewBag.Title.</h2>
@@ -20,21 +20,21 @@
 }
     
     <div class="row">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Get))
     {
         <div class="col-md-8 ">
-            <span>@Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })</span>
+            @Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })
             <br/>
-            <div class="excelAdd">
-                @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <input type="file" name="file"/>
-                    <input type="submit" value="" class="btn btn-default addOk" />
-                }
-            </div>
-            
         </div>
     }
+    <div class="excelAdd">
+        @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="file" />
+            <input type="submit" value="" class="btn btn-default addOk" />
+        }
+    </div>
+
         <br/>
         @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
         {
