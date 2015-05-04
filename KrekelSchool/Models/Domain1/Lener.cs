@@ -3,13 +3,14 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography.X509Certificates;
+using System.Web;
 
 namespace KrekelSchool.Models.Domain1
 {
     
-    public class Lener
+    public sealed class Lener
     {
-        public virtual Collection<Uitlening> Uitleningen { get; set; }
+        public Collection<Uitlening> Uitleningen { get; set; }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -21,8 +22,6 @@ namespace KrekelSchool.Models.Domain1
         public string Gemeente { get; set; }
         public string Email { get; set; }
         public string Klas { get; set; }
-
-        
 
         public Lener() { }
 
@@ -36,18 +35,18 @@ namespace KrekelSchool.Models.Domain1
             Gemeente = gemeente;
             Email = email;
             Klas = klas;
-            Uitleningen = new Collection<Uitlening>();
         }
         
         #region methods
 
         public void KrijgLening(Uitlening uitl)
         {
+            if (Uitleningen == null)
+                Uitleningen = new Collection<Uitlening>();
             if (Uitleningen.Count >= 3)
-            {
                 throw new ApplicationException("Lener mag niet meer dan 3 uitleningen hebben.");
-            }
-                Uitleningen.Add(uitl);
+                
+            Uitleningen.Add(uitl);
         }
         #endregion
     }

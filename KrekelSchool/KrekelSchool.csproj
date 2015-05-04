@@ -304,7 +304,6 @@
     <Content Include="fonts\GrandHotel-Regular-webfont.ttf" />
     <Content Include="fonts\GrandHotel-Regular-webfont.woff" />
     <Content Include="bin\KrekelSchool.dll.config" />
-    <Content Include="Excel\Leerlingen.xlsx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -352,7 +351,7 @@
     <Content Include="Views\Item\Item.cshtml" />
     <Content Include="Views\Leerling\LenerEnUitlening.cshtml" />
     <Content Include="Views\Leerling\LeerlingScreen.cshtml" />
-    <Content Include="Views\Uitlening\UitleningScreen.cshtml" />
+    <Content Include="Views\Uitlening\Uitlening.cshtml" />
     <Content Include="Views\Boek\Boek.cshtml" />
     <Content Include="Views\Boek\BoekToevoegen.cshtml" />
     <Content Include="Views\Boek\BoekDetail.cshtml" />
@@ -373,9 +372,12 @@
     <Content Include="Views\Spel\SpelVerwijderen.cshtml" />
     <Content Include="Views\Gebruiker\Edit.cshtml" />
     <Content Include="Views\Gebruiker\LogIn.cshtml" />
+    <Content Include="Views\Uitlening\UitleningAanpassen.cshtml" />
+    <Content Include="Views\Uitlening\UitleningVerwijderen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Excel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

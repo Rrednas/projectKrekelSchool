@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace KrekelSchool.Models.Domain1
@@ -45,7 +46,7 @@ namespace KrekelSchool.Models.Domain1
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            var nieuweUitlening = new Uitlening(Boeks.First(b => b.Id == i.Id));
+            var nieuweUitlening = new Uitlening(Boeks.First(b => b.Id == i.Id), Leners.First(le =>le.Id == l.Id));
             
             //if (Uitleningen.Contains(nieuweUitlening))
             //    throw new ApplicationException("Leering heeft deze uitlening al");
@@ -166,7 +167,7 @@ namespace KrekelSchool.Models.Domain1
 
         #region Lener
 
-        public void VoegLenerToe(Lener lener    )
+        public void VoegLenerToe(Lener lener)
         {
             Leners.Add(lener);
         }
@@ -179,8 +180,10 @@ namespace KrekelSchool.Models.Domain1
         }
         public static bool MagUitlenen(Lener l)
         {
-            if(!(l.Uitleningen.Count < 3 ))
-            {throw new ApplicationException("Lener heeft maximum uitleningen  bereikt");}
+            if (l.Uitleningen == null)
+                l.Uitleningen = new Collection<Uitlening>();
+            if(l.Uitleningen.Count() >= 3 )
+                throw new ApplicationException("Lener heeft maximum uitleningen  bereikt");
             return true;
         }
 

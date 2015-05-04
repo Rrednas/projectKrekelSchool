@@ -1,0 +1,65 @@
+﻿@using System.Security.Cryptography.X509Certificates
+@using System.Web.DynamicData
+@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
+@using KrekelSchool.Models.DAL
+@using KrekelSchool.Models.Domain1
+@using KrekelSchool.Controllers
+@using Microsoft.Ajax.Utilities
+@using Microsoft.AspNet.Identity
+@model KrekelSchool.Models.ViewModels.UitleningScreenViewModel
+
+
+<h2>@ViewBag.Title.</h2>
+<h4>@ViewBag.Message</h4>
+<hr />
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-8 ">
+            <span>@Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })</span>
+            <br />
+        </div>
+
+       
+        <table class="table">
+            <tr>
+                <th></th>
+                @foreach (var p in typeof(Uitlening).GetProperties())
+                {
+                    <th>
+                        @p.Name
+                    </th>
+                }
+
+            </tr>
+            @foreach (var p in Model.Uitleningen)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(" ", "UitleningAanpassen", "Uitlening", null, new { id = p.Id, @class = "modal-link btn btn-success btnEdit" })
+
+                        @Html.ActionLink(" ", "UitleningVerwijderen", "Uitlening", null, new { id = p.Id, @class = "modal-link btn btn-success btnRmv" })
+
+                    </td>
+                    @foreach (var prop in p.GetType().GetProperties())
+                        
+                    {
+                        if (prop.Name.Equals("Item"))
+                        {
+                            <td class="">@Model.Uitleningen.Select(u => u.Item.Naam).First()</td>
+                        }
+                        if (prop.Name.Equals("Lener"))
+                        {
+                            <td class="">@Model.Uitleningen.Select(u => u.Lener.Naam).First() </td>
+                            <td class="">@Model.Uitleningen.Select(u => u.Lener.Voornaam).First()</td>
+                        }
+                        @*<td class="">@p.GetType().GetProperty(prop.Name).GetValue(p)</td>*@
+
+                    }
+
+                </tr>
+            }
+        </table>
+    </div>
+}

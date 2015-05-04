@@ -31,7 +31,6 @@ namespace KrekelSchool
         }
 
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Naam { get; set; }

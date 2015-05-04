@@ -33,7 +33,11 @@ namespace KrekelSchool.Models.DAL
                     new Lener("Vandaele","Douwe","H. Hartstraat", "54", null, null,"joycegrieve@hotmail.com","2KA"), 
                 };
 
-                context.Mediatheeks.First().VoegLenerToe(leerlingen.First());
+                context.Mediatheeks.First().VoegLenerToe(new Lener("Bateev", "Muhammed", "A. Vanderstegenlaan", "129", null, null, null, "2KB"));
+                context.Mediatheeks.First()
+                    .VoegLenerToe(new Lener("Dalgic", "Iclal", "Klinkkouterstraat", "33", null, null,
+                        "aranhida-izzy@hotmail.com", "1KB"));
+                //context.Mediatheeks.First().VoegLenerToe(leerlingen.First());
                 context.SaveChanges();
                 
                 //Uitlening[] leningen =

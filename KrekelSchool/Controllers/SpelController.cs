@@ -183,18 +183,19 @@ namespace KrekelSchool.Controllers
             voorlopige.KiesItem(null);
             return RedirectToAction("Spel");
         }
-
-        public ActionResult BevestigVoolopigItem(VoorlopigeUitlening voorlopige, int id)
+        public ActionResult VerwijderVoorlopigeLener(VoorlopigeUitlening voorlopige, int id)
         {
-            voorlopige.KiesItem(Mediatheek.Spels.First(s => s.Id == id));
-
+            voorlopige.KiesLener(null);
             return RedirectToAction("Spel");
         }
-        //public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
-        //{
-        //    Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
-            
-        //}
+        public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
+        {
+            Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
+            MediatheekRepository.SaveChanges();
+            voorlopige.Clear();
+            TempData["Succes"] = "Uitlening succesvol aangemaakt";
+            return RedirectToAction("Spel");
+        }
 
     }
     

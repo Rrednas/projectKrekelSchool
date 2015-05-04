@@ -19,6 +19,7 @@ using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 using KrekelSchool.Models.ViewModels;
 using MySql.Data.MySqlClient;
+using Ninject.Activation;
 
 namespace KrekelSchool
 {
@@ -88,8 +89,10 @@ namespace KrekelSchool
             return View();
         }
 
-        public ActionResult Leerling(string zoek,VoorlopigeUitlening uitlening)
+        [HttpGet]
+        public ActionResult Leerling(string zoek, VoorlopigeUitlening uitlening)
         {
+            ViewBag.Title = "Leerling-Lijst";
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
             IEnumerable<Lener> leerlingen = Mediatheek.Leners.OrderBy(l => l.Naam);
             IEnumerable<LeerlingViewModel> lvm = leerlingen.Select(l => new LeerlingViewModel(l)).ToList();
@@ -98,23 +101,16 @@ namespace KrekelSchool
                 lvm = lvm.Where(s => s.Naam.ToLower().Contains(zoek.ToLower()) ||
                     s.Voornaam.ToLower().Contains(zoek.ToLower()) ||
                     s.Klas.ToLower().Contains(zoek.ToLower()) ||
-                    //s.Email.ToLower().Contains(zoek.ToLower()) ||
-                    //s.Gemeente.ToLower().Contains(zoek.ToLower()) ||
-                    //s.Straat.ToLower().Contains(zoek.ToLower()) ||
-                    //s.HuisNr.ToString().Contains(zoek.ToLower()) ||
-                    s.Id.ToString().Contains(zoek.ToLower()) //||
-                    //s.Postcode.ToLower().Contains(zoek.ToLower())
-                    );
+                    s.Id.ToString().Contains(zoek.ToLower()));
             }
-            return View(new LeerlingScreenViewModel(uitlening,lvm));
+            return View(new LeerlingScreenViewModel(uitlening, lvm));
         }
 
         [HttpPost]
         public ActionResult Leerling(HttpPostedFileBase file)
         {
             DataSet dataSet = new DataSet();
-            Lener lener = new Lener();
-            if (Request.Files["file"].ContentLength >= 0)
+            if (Request.Files["file"].ContentLength > 0)
             {
                 string fileExtension = System.IO.Path.GetExtension(Request.Files["file"].FileName);
 
@@ -191,22 +187,20 @@ namespace KrekelSchool
 
                     for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                     {
-                        
                         if (Mediatheek.LenerBestaat(dataSet.Tables[0].Rows[i][0].ToString(),
                             dataSet.Tables[0].Rows[i][1].ToString()) == false)
                         {
-                            lener = new Lener(dataSet.Tables[0].Rows[i][0].ToString(),
+                            Mediatheek.VoegLenerToe(new Lener(dataSet.Tables[0].Rows[i][0].ToString(),
                                  dataSet.Tables[0].Rows[i][1].ToString(),
                                  dataSet.Tables[0].Rows[i][2].ToString(),
                                  dataSet.Tables[0].Rows[i][3].ToString(),
                                  dataSet.Tables[0].Rows[i][4].ToString(),
                                  dataSet.Tables[0].Rows[i][5].ToString(),
                                  dataSet.Tables[0].Rows[i][6].ToString(),
-                                 dataSet.Tables[0].Rows[i][7].ToString());
-                            Mediatheek.VoegLenerToe(lener);
+                                 dataSet.Tables[0].Rows[i][7].ToString()));
                             MediatheekRepository.SaveChanges();
                         }
-                        
+
                         //string connection = ConfigurationManager.ConnectionStrings["projecten2"].ConnectionString;
                         //MySqlConnection connect = new MySqlConnection(connection);
                         //string query =
@@ -345,7 +339,7 @@ namespace KrekelSchool
                 Lener leerling = Mediatheek.Leners.First(l => l.Id == id);
                 if (leerling == null)
                     return HttpNotFound();
-                Mediatheek.VoegLenerToe(leerling);
+                Mediatheek.VerwijderLener(leerling);
                 MediatheekRepository.SaveChanges();
                 ViewBag.Title = "Leerling verwijderen";
                 TempData["Message"] = String.Format("{0} {1} werd verwijderd!", leerling.Naam, leerling.Voornaam);
@@ -390,7 +384,7 @@ namespace KrekelSchool
             Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
             MediatheekRepository.SaveChanges();
             voorlopige.Clear();
-            TempData["Succes"] = "succesvol aangemaakt";
+            TempData["Succes"] = "Uitlening succesvol aangemaakt";
             return RedirectToAction("Leerling");
         }
 

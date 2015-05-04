@@ -23,7 +23,7 @@ namespace KrekelSchool.Controllers
 
         public ActionResult Cd(string zoek,VoorlopigeUitlening voorlopige)
        {
-            ViewBag.Title = "Boeken-Lijst";
+            ViewBag.Title = "CD-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
             IEnumerable<CD> cds = Mediatheek.Cds.AsEnumerable();
             IEnumerable<CdViewModel> cvm = cds.Select(b => new CdViewModel(b)).ToList();
@@ -138,7 +138,7 @@ namespace KrekelSchool.Controllers
             CD cd = Mediatheek.Cds.First(c => c.Id == id);
             if (cd == null)
                 return HttpNotFound();
-            ViewBag.Title = "Boek: " + cd.Naam + " verwijderen";
+            ViewBag.Title = "CD: " + cd.Naam + " verwijderen";
             return PartialView(new CdViewModel(cd));
         }
 
@@ -156,7 +156,7 @@ namespace KrekelSchool.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = ViewBag.ErrorMessage = "Verwijderen van boek mislukt. Probeer opnieuw. " +
+                TempData["error"] = ViewBag.ErrorMessage = "Verwijderen van CD mislukt. Probeer opnieuw. " +
                            "Als de problemen zich blijven voordoen, contacteer de  administrator.";
             }
             return RedirectToAction("Cd");
@@ -175,6 +175,25 @@ namespace KrekelSchool.Controllers
         {
             voorlopige.KiesItem(Mediatheek.Cds.First(b => b.Id == id));
            return RedirectToAction("Cd");
+        }
+
+        public ActionResult VerwijderVoorlopigItem(VoorlopigeUitlening voorlopige, int id)
+        {
+            voorlopige.KiesItem(null);
+            return RedirectToAction("Cd");
+        }
+        public ActionResult VerwijderVoorlopigeLener(VoorlopigeUitlening voorlopige, int id)
+        {
+            voorlopige.KiesLener(null);
+            return RedirectToAction("Cd");
+        }
+        public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
+        {
+            Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
+            MediatheekRepository.SaveChanges();
+            voorlopige.Clear();
+            TempData["Succes"] = "Uitlening succesvol aangemaakt";
+            return RedirectToAction("Cd");
         }
 	}
 }
