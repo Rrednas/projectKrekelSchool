@@ -44,9 +44,10 @@
                     </td>
                     @foreach (var prop in p.GetType().GetProperties())
                     {
-                        <td class="">@Model.Uitleningen.Select(u => u.Item.Naam).First()</td>
+                       
+                        @*<td class="">@Model.Uitleningen.Select(u => u.Item).First()</td>
 
-                        @*if (prop.Name.Equals("Item"))
+                        if (prop.Name.Equals("Item"))
                         {
                             <td class="">@Model.Uitleningen.Select(u => u.Item.Naam).First()</td>
                         }
@@ -54,8 +55,8 @@
                         {
                             @*<td class="">@Model.Uitleningen.Select(u => u.Lener.Naam).First() </td>
                             <td class="">@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
-                        }
-                        <td class="">@p.GetType().GetProperty(prop.Name).GetValue(p)</td>*@
+                        }*@
+                        <td class="">@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
 
                     }
 

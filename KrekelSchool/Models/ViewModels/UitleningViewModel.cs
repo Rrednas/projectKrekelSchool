@@ -13,22 +13,33 @@ namespace KrekelSchool.Models.ViewModels
     {
         public UitleningViewModel(Uitlening uitlening)
         {
-            Item = new ItemViewModel(uitlening.Item);
-            Lener = new LeerlingViewModel(uitlening.Lener);
+            Item = uitlening.item;
+            Lener = uitlening.Lener;
             BeginDatum = uitlening.BeginDatum;
             EindDatum = uitlening.EindDatum;
             IsTerug = uitlening.IsTerug;
         }
+
+        [Display(Name = "Begin datum")]
+        public DateTime BeginDatum { get; set; }
+
+        [Display(Name = "Eind datum")]
+        public DateTime EindDatum { get; set; }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        //public Item Item { get; set; }
-        public ItemViewModel Item { get; set; }
-        //public Lener Lener { get; set; }
-        public LeerlingViewModel Lener { get; set; }
-        public DateTime BeginDatum { get; set; }
-        public DateTime EindDatum { get; set; }
+
+        [Display(Name = "Terruggebracht?")]
         public bool IsTerug { get; set; }
+        public Item Item { get; set; }
+        //public ItemViewModel Item { get; set; }
+        public Lener Lener { get; set; }
+        //public LeerlingViewModel Lener { get; set; }
+        
+        
+
+        public Mediatheek med = new Mediatheek();
     }
 
     public class UitleningScreenViewModel

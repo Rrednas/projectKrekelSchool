@@ -19,7 +19,7 @@ namespace KrekelSchool.Models.Domain1
         public Uitlening(bool isterug ,DateTime van , DateTime tot , Item item, Lener lener)
         {
             IsTerug = isterug;
-            BeginDatum = van;
+            BeginDatum = van;            
             EindDatum = tot;
             Item = item;
             Lener = lener;
@@ -28,20 +28,22 @@ namespace KrekelSchool.Models.Domain1
         {
             Item = item;
             Lener = lener;
-            BeginDatum = DateTime.Today;
+            BeginDatum = DateTime.Today.Date;
             EindDatum = BeginDatum.AddDays(7);
             //if (Item.Leeftijd >= 12) EindDatum = EindDatum.AddDays(7);
             IsTerug = false;
         }
 
+        [Display(Name = "Begin datum")]
         public DateTime BeginDatum { get; set; }
 
+        [Display(Name = "Eind datum")]
         public DateTime EindDatum
         {
             get { return eindDatum; }
             set
             {
-                if(value <= DateTime.Today)
+                if(value <= DateTime.Today.Date)
                     throw new ArgumentException("Eind datum vroeger dan begin datum");
                 eindDatum = value;
             }
@@ -51,6 +53,7 @@ namespace KrekelSchool.Models.Domain1
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Display(Name = "Terruggebracht?")]
         public bool IsTerug
         {
             get; set; }
