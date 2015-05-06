@@ -1,7 +1,11 @@
 ﻿using System;
+using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 
 namespace KrekelSchool.Models.Domain1
 {
@@ -39,12 +43,38 @@ namespace KrekelSchool.Models.Domain1
         }
         
 #region methods
+
+        private  ICollection<T> GeefCorrecteLijstVoorItem<T>(Item item)
+        {
+            Type type = item.GetType();
+            if (type == typeof(Boek))
+            {
+                return (ICollection<T>) Boeks;
+            }
+            if (type == typeof (CD))
+            {
+                return (ICollection<T>) Cds;
+            }
+            if (type == typeof (Spel))
+            {
+                return (ICollection<T>) Verteltass;
+            }
+            if (type == typeof (DVD))
+            {
+                return (ICollection<T>) Dvds;
+            }
+            else
+            {
+                throw(new ApplicationException("Geen geldig item"));
+            }
+        }
         #region Uitlening
 
         public Uitlening VoegUitleningToe(Lener l, Item i)
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
+           
             Uitlening nieuweUitlening = new Uitlening(Items.First(it => it.Id == i.Id), Leners.First(le => le.Id == l.Id));
 
             //if (Uitleningen.Contains(nieuweUitlening))
