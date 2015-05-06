@@ -27,7 +27,7 @@ namespace KrekelSchool.Controllers
         }
 
         [HttpGet]
-        public ActionResult Boek(string zoek,VoorlopigeUitlening voorlopige)
+        public ActionResult Boek(string zoek,VoorlopigeUitlening voorlopige,Gebruiker user)
        {
             ViewBag.Title = "Boeken-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
@@ -39,7 +39,7 @@ namespace KrekelSchool.Controllers
                 bvm = bvm.Where(b => b.Naam.ToLower().Contains(zoek.ToLower()) ||
                     b.Leeftijd.ToString().Contains(zoek.ToLower()));
             }
-            return View(new ItemScreenViewModel(voorlopige,bvm));
+            return View(new ItemScreenViewModel(voorlopige,bvm,user));
         }
 
         [HttpPost]
