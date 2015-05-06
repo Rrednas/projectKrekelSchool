@@ -124,7 +124,7 @@ namespace KrekelSchool.Controllers
         {
             uitlening.BeginDatum = uvm.BeginDatum;
             uitlening.EindDatum = uvm.EindDatum;
-            uitlening.Item = uvm.Item;
+            //uitlening.Item = uvm.Item;
             uitlening.Lener = Mediatheek.Leners.First();
         }
 

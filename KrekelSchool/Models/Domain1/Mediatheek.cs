@@ -44,24 +44,24 @@ namespace KrekelSchool.Models.Domain1
         
 #region methods
 
-        private  ICollection<T> GeefCorrecteLijstVoorItem<T>(Item item)
+        private  List<T> GeefCorrecteLijstVoorItem<T>(Item item)
         {
-            Type type = item.GetType();
+            Type type = item.GetType().BaseType;
             if (type == typeof(Boek))
             {
-                return (ICollection<T>) Boeks;
+                return  Boeks as List<T>;
             }
             if (type == typeof (CD))
             {
-                return (ICollection<T>) Cds;
+                return Cds as List<T>;
             }
             if (type == typeof (Spel))
             {
-                return (ICollection<T>) Verteltass;
+                return Verteltass as List<T>;
             }
             if (type == typeof (DVD))
             {
-                return (ICollection<T>) Dvds;
+                return  Dvds as List<T>;
             }
             else
             {
@@ -74,8 +74,8 @@ namespace KrekelSchool.Models.Domain1
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-           
-            Uitlening nieuweUitlening = new Uitlening(Items.First(it => it.Id == i.Id), Leners.First(le => le.Id == l.Id));
+
+            Uitlening nieuweUitlening = new Uitlening(GeefCorrecteLijstVoorItem<Item>(i).First(it => it.Id == i.Id), Leners.First(le => le.Id == l.Id));
 
             //if (Uitleningen.Contains(nieuweUitlening))
             //    throw new ApplicationException("Leering heeft deze uitlening al");
@@ -84,7 +84,7 @@ namespace KrekelSchool.Models.Domain1
             if (l.Uitleningen.Contains(nieuweUitlening))
                 throw new ApplicationException("Uitlening bestaat al");
 
-            Items.First(it => it.Id == nieuweUitlening.item.Id).Beschikbaar = false;
+            GeefCorrecteLijstVoorItem<Item>(i).First(it => it.Id == nieuweUitlening.item.Id).Beschikbaar = false;
             Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
 
             return nieuweUitlening;
