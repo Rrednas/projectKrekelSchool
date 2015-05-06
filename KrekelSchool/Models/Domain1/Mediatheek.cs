@@ -44,24 +44,24 @@ namespace KrekelSchool.Models.Domain1
         
 #region methods
 
-        private  List<T> GeefCorrecteLijstVoorItem<T>(Item item)
+        private  ICollection GeefCorrecteLijstVoorItem(Item item)
         {
             Type type = item.GetType().BaseType;
             if (type == typeof(Boek))
             {
-                return  Boeks as List<T>;
+                return  (List<Boek>) Boeks;
             }
             if (type == typeof (CD))
             {
-                return Cds as List<T>;
+                return Cds as List<CD>;
             }
-            if (type == typeof (Spel))
+            if (type == typeof (Verteltas))
             {
-                return Verteltass as List<T>;
+                return Verteltass as List<Verteltas>;
             }
             if (type == typeof (DVD))
             {
-                return  Dvds as List<T>;
+                return  Dvds as List<DVD>;
             }
             else
             {
@@ -74,8 +74,8 @@ namespace KrekelSchool.Models.Domain1
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-
-            Uitlening nieuweUitlening = new Uitlening(GeefCorrecteLijstVoorItem<Item>(i).First(it => it.Id == i.Id), Leners.First(le => le.Id == l.Id));
+            ICollection lijst = GeefCorrecteLijstVoorItem(i);
+            Uitlening nieuweUitlening = new Uitlening(lijst.Cast<Item>().First(it => it.Id == i.Id), Leners.First(le => le.Id == l.Id));
 
             //if (Uitleningen.Contains(nieuweUitlening))
             //    throw new ApplicationException("Leering heeft deze uitlening al");
@@ -84,7 +84,7 @@ namespace KrekelSchool.Models.Domain1
             if (l.Uitleningen.Contains(nieuweUitlening))
                 throw new ApplicationException("Uitlening bestaat al");
 
-            GeefCorrecteLijstVoorItem<Item>(i).First(it => it.Id == nieuweUitlening.item.Id).Beschikbaar = false;
+            lijst.Cast<Item>().First(it => it.Id == nieuweUitlening.item.Id).Beschikbaar = false;
             Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
 
             return nieuweUitlening;
