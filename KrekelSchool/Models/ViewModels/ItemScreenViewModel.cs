@@ -15,11 +15,13 @@ namespace KrekelSchool.Models.ViewModels
         public IEnumerable<DvdViewModel> Dvds { get; set; }
         public IEnumerable<SpelViewModel> Spellen { get; set; }
         public IEnumerable<VerteltasViewModel> Verteltassen { get; set; }
+        public Gebruiker User { get; set; }
 
-        public ItemScreenViewModel(VoorlopigeUitlening voorlopige , IEnumerable<BoekViewModel> boek)
+        public ItemScreenViewModel(VoorlopigeUitlening voorlopige , IEnumerable<BoekViewModel> boek,Gebruiker user)
         {
             Voorlopige = new VoorlopigeUitleningViewModel(voorlopige.VoorlopigItem,voorlopige.VoorlopigeLener);
             Boeken = boek;
+            User = user;
         }
         
         public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<DvdViewModel> items)

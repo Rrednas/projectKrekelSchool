@@ -13,7 +13,6 @@ namespace KrekelSchool.Controllers
     {
         private MediatheekRepository Repository;
         private Mediatheek Mediatheek;
-        
         public GebruikerController(MediatheekRepository repository)
         {
             Repository = repository;
@@ -28,22 +27,21 @@ namespace KrekelSchool.Controllers
         [HttpPost]
         public ActionResult LogIn(GebruikerViewModel model,Gebruiker user)
         {
+            Gebruiker gebruiker = null;
             if (ModelState.IsValid)
             {
-                var gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.Uname && g.Pswd == model.Pswd);
-                if (gebruiker != null)
-                {
-                    user = gebruiker;
-                    return Redirect("~/Item/Item");
-                }
-                else
-                {
+                 gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.Uname && g.Pswd == model.Pswd);
+                if (gebruiker == null) {
+            
                    ModelState.AddModelError("","Foutief paswoord of gebruikersnaam.");
-                    
+                   return View(model); 
                 }
                 
             }
-            return View(model);
+        
+            user = gebruiker;
+            return Redirect("~/Item/Item");
+            
         }
 
         public ActionResult Edit(Gebruiker user)
