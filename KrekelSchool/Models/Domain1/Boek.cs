@@ -8,7 +8,7 @@ using KrekelSchool.Models.DAL;
 
 namespace KrekelSchool.Models.Domain1
 {
-    public class Boek : KrekelSchool.Item
+    public class Boek : Item
     {
         public string Isbn { get; set; }
         public string Auteur { get; set; }

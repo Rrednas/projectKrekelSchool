@@ -323,7 +323,7 @@ namespace KrekelSchool.Controllers
         }
         public ActionResult AanvaardUitlening(VoorlopigeUitlening voorlopige)
         {
-            Mediatheek.VoegUitleningToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
+            Mediatheek.VoegUitleningBoekToe(voorlopige.VoorlopigeLener, voorlopige.VoorlopigItem);
             MediatheekRepository.SaveChanges();
             voorlopige.Clear();
             TempData["Succes"] = "Uitlening succesvol aangemaakt";

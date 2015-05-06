@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
-    public class Verteltas : KrekelSchool.Item
+    public class Verteltas : Item
     {
         //public ICollection<Item> Items { get; set; }
         //public virtual Categorie Categorie { get; set; }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
-    public class DVD : KrekelSchool.Item
+    public class DVD : Item
     {
         public int Size { get; set; }
 

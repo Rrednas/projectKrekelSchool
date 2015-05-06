@@ -9,7 +9,6 @@ namespace KrekelSchool.Models.Domain1
         #region fields
         public DateTime eindDatum;
         public Item item;
-        public Lener lener;
         #endregion
 
         public Uitlening()
@@ -67,16 +66,16 @@ namespace KrekelSchool.Models.Domain1
             }
         }
 
-        public Lener Lener
-        {
-            get { return lener; }
-            set
-            {
-                if (value == null)
-                    throw new ArgumentException("Ongeldige Lener");
-                lener = value;
-            }
-        }
+        public Lener Lener { get; set; }
+        //{
+        //    get { return lener; }
+        //    set
+        //    {
+        //        if (value == null)
+        //            throw new ArgumentException("Ongeldige Lener");
+        //        lener = value;
+        //    }
+        //}
         #region methods 
 
         

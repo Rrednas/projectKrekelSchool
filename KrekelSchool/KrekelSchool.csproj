@@ -252,6 +252,7 @@
     <Compile Include="Controllers\LeerlingController.cs" />
     <Compile Include="Models\Domain1\Uitlening.cs" />
     <Compile Include="Models\ViewModels\IdentityModels.cs" />
+    <Compile Include="Models\ViewModels\ItemViewModel.cs" />
     <Compile Include="Models\ViewModels\LeerlingScreenViewModel.cs" />
     <Compile Include="Models\ViewModels\LeerlingViewModel.cs" />
     <Compile Include="Models\ViewModels\SpelViewModel.cs" />

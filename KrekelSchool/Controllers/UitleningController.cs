@@ -26,6 +26,13 @@ namespace KrekelSchool.Controllers
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
             IEnumerable<Uitlening> uitleningen = Mediatheek.Uitleningen.OrderBy(u => u.BeginDatum);
             IEnumerable<UitleningViewModel> uvm = uitleningen.Select(u => new UitleningViewModel(u)).ToList();
+
+            IEnumerable<Item> items = Mediatheek.Items.OrderBy(i => i.Id);
+            IEnumerable<ItemViewModel> ivm = items.Select(i => new ItemViewModel(i)).ToList();
+
+            IEnumerable<Lener> leners = Mediatheek.Leners.OrderBy(l => l.Id);
+            IEnumerable<LeerlingViewModel> lvm = leners.Select(l => new LeerlingViewModel(l)).ToList();
+
             if (!String.IsNullOrEmpty(zoek))
             {
                 uvm = uvm.Where(u => u.Lener.Naam.ToLower().Contains(zoek.ToLower()) ||
@@ -35,7 +42,7 @@ namespace KrekelSchool.Controllers
                     u.EindDatum.ToString().Contains(zoek.ToLower())
                     );
             }
-            return View(new UitleningScreenViewModel(uvm));
+            return View(new UitleningScreenViewModel(uvm, ivm, lvm));
         }
         
         [HttpGet]
@@ -59,7 +66,7 @@ namespace KrekelSchool.Controllers
                     MapToUitlening(uvm, uitlening);
                     MediatheekRepository.SaveChanges();
                     TempData["Message"] = String.Format("Uitlening met item: {0}, van {1}, {2} werd aangepast.",
-                        uitlening.Item.Naam, uitlening.lener.Naam, uitlening.lener.Voornaam);
+                        uitlening.Item.Naam, uitlening.Lener.Naam, uitlening.Lener.Voornaam);
                     return RedirectToAction("Uitlening");
                 }
             }
@@ -103,7 +110,7 @@ namespace KrekelSchool.Controllers
                 MediatheekRepository.SaveChanges();
                 ViewBag.Title = "Uitlening verwijderen";
                 TempData["Message"] = String.Format("Uitlening met item: {0}, van {1}, {2} werd verwijderd.",
-                        uitlening.Item.Naam, uitlening.lener.Naam, uitlening.lener.Voornaam);
+                        uitlening.Item.Naam, uitlening.Lener.Naam, uitlening.Lener.Voornaam);
             }
             catch (Exception ex)
             {
@@ -118,22 +125,20 @@ namespace KrekelSchool.Controllers
             uitlening.BeginDatum = uvm.BeginDatum;
             uitlening.EindDatum = uvm.EindDatum;
             uitlening.Item = uvm.Item;
-            uitlening.Lener = uvm.Lener;
+            uitlening.Lener = Mediatheek.Leners.First();
         }
 
-        public ActionResult UitleningPartial(VoorlopigeUitlening voorlopigeUitlening)
-        {
+        //public ActionResult UitleningPartial(VoorlopigeUitlening voorlopigeUitlening)
+        //{
 
-            return PartialView(voorlopigeUitlening);
-        }
+        //    return PartialView(voorlopigeUitlening);
+        //}
 
-        public Action KiesLener(VoorlopigeUitlening voorlopigeUitlening,int id)
-        {
-
-            voorlopigeUitlening.KiesLener(Mediatheek.Leners.First(l => l.Id == id));
-            return null;
-
-        }
+        //public Action KiesLener(VoorlopigeUitlening voorlopigeUitlening,int id)
+        //{
+        //    voorlopigeUitlening.KiesLener(Mediatheek.Leners.First(l => l.Id == id));
+        //    return null;
+        //}
 
         
         
@@ -162,32 +167,32 @@ namespace KrekelSchool.Controllers
             throw new System.NotImplementedException();
         }
 
-        public void AddUitlening(Lener leerling, DateTime tot, Item item)
-        {
+        //public void AddUitlening(Lener leerling, DateTime tot, Item item)
+        //{
 
-            //item word op onbeschikbaar gezet
+        //    //item word op onbeschikbaar gezet
 
             
-           // var lener = lenerrepos.FindBy(leerling.Id);
-            //uitelning word aangemaakt met nieuw Uitgeleend item
-           // var uitlening = mediatheek.VoegUitleningToe(lener, tot,nieuwItem);
-            //uitlening word toegevoegd
-          //  repos.Add(uitlening);
-          //  repos.SaveChanges();
+        //   // var lener = lenerrepos.FindBy(leerling.Id);
+        //    //uitelning word aangemaakt met nieuw Uitgeleend item
+        //   // var uitlening = mediatheek.VoegUitleningToe(lener, tot,nieuwItem);
+        //    //uitlening word toegevoegd
+        //  //  repos.Add(uitlening);
+        //  //  repos.SaveChanges();
            
-            //uitlening word gekoppeld aan lener    
-           // mediatheek.LeenUitAan(lener, uitlening);
-            //lenerrepos.SaveChanges();
+        //    //uitlening word gekoppeld aan lener    
+        //   // mediatheek.LeenUitAan(lener, uitlening);
+        //    //lenerrepos.SaveChanges();
 
 
             
             
-            //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd) navragen
-            //item beschikbaar false done
-            //uitlening toevoegen aan leerling done
+        //    //Kinderboeken 1 week , andere 2 weken (Kijken op leeftijd) navragen
+        //    //item beschikbaar false done
+        //    //uitlening toevoegen aan leerling done
             
 
-        }
+        //}
 
         
     }

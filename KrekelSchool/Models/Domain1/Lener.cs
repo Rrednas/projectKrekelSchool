@@ -23,6 +23,7 @@ namespace KrekelSchool.Models.Domain1
         public string Email { get; set; }
         public string Klas { get; set; }
 
+
         public Lener() { }
 
         public Lener(string naam, string voornaam, string straat, string huisNr, string postcode, string gemeente, string email, string klas)

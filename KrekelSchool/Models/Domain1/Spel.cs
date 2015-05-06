@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KrekelSchool.Models.Domain1
 {
-    public class Spel : KrekelSchool.Item
+    public class Spel : Item
     {
         public Categorie Categorie { get; set; }
 

@@ -25,7 +25,7 @@ namespace KrekelSchool.Models.DAL
         }
         public Mediatheek GetMediatheek()
         {
-            return Mediatheeks.Include(m => m.Boeks).First();
+            return Mediatheeks.First();
         }
         
         public void SaveChanges()
