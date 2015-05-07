@@ -20,7 +20,10 @@ namespace KrekelSchool.Models.DAL
                 
                 context.Mediatheeks.Add(new Mediatheek());
                 context.SaveChanges();
-                context.Mediatheeks.First().Gebruikers.Add(new Medewerker("Medewerker","medewerker","medewerker",1));
+                context.Mediatheeks.First().Gebruikers.Add(new Gebruiker("", "", "Bezoeker"));
+                context.Mediatheeks.First().Gebruikers.Add(new Medewerker("Medewerker","medewerker","medewerker"));
+                context.Mediatheeks.First().Gebruikers.Add(new Vrijwilliger("Vrijwilliger","vrijwilliger","vrijwilliger"));
+                
                 context.SaveChanges();
                 Lener[] leerlingen =
                 {

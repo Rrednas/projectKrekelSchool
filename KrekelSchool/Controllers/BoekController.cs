@@ -27,7 +27,7 @@ namespace KrekelSchool.Controllers
         }
 
         [HttpGet]
-        public ActionResult Boek(string zoek,VoorlopigeUitlening voorlopige,Gebruiker user)
+        public ActionResult Boek(string zoek,VoorlopigeUitlening voorlopige,User user)
        {
             ViewBag.Title = "Boeken-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
