@@ -7,8 +7,7 @@ namespace KrekelSchool.Models.Domain1
     public class Uitlening
     {
         #region fields
-        public DateTime eindDatum;
-        public Item item;
+        public DateTime eindDatum;        
         #endregion
 
         public Uitlening()
@@ -46,6 +45,7 @@ namespace KrekelSchool.Models.Domain1
                 if(value <= DateTime.Today.Date)
                     throw new ArgumentException("Eind datum vroeger dan begin datum");
                 eindDatum = value;
+                
             }
         }
 
@@ -56,18 +56,18 @@ namespace KrekelSchool.Models.Domain1
         
         public bool Retour{ get; set; }
 
-        public Item Item
-        {
-            get { return item; }
-            set
-            {
-                if(value==null)
-                    throw new ArgumentException("Ongeldig Item");
-                item = value;
-            }
-        }
+        public virtual Item Item { get; set; }
+        //{
+        //    get { return item; }
+        //    set
+        //    {
+        //        if(value==null)
+        //            throw new ArgumentException("Ongeldig Item");
+        //        item = value;
+        //    }
+        //}
 
-        public Lener Lener { get; set; }
+        public virtual Lener Lener { get; set; }
         //{
         //    get { return lener; }
         //    set

@@ -27,11 +27,6 @@ namespace KrekelSchool.Controllers
             IEnumerable<Uitlening> uitleningen = Mediatheek.Uitleningen.OrderBy(u => u.Begindatum);
             IEnumerable<UitleningViewModel> uvm = uitleningen.Select(u => new UitleningViewModel(u)).ToList();
 
-            IEnumerable<Item> items = Mediatheek.Items.OrderBy(i => i.Id);
-            IEnumerable<ItemViewModel> ivm = items.Select(i => new ItemViewModel(i)).ToList();
-
-            IEnumerable<Lener> leners = Mediatheek.Leners.OrderBy(l => l.Id);
-            IEnumerable<LeerlingViewModel> lvm = leners.Select(l => new LeerlingViewModel(l)).ToList();
 
             if (!String.IsNullOrEmpty(zoek))
             {
@@ -42,7 +37,7 @@ namespace KrekelSchool.Controllers
                     u.EindDatum.ToString().Contains(zoek.ToLower())
                     );
             }
-            return View(new UitleningScreenViewModel(uvm, ivm, lvm));
+            return View(new UitleningScreenViewModel(uvm));
         }
         
         [HttpGet]
