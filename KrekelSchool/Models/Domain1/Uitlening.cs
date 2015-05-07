@@ -18,9 +18,9 @@ namespace KrekelSchool.Models.Domain1
 
         public Uitlening(bool isterug ,DateTime van , DateTime tot , Item item, Lener lener)
         {
-            IsTerug = isterug;
-            BeginDatum = van;            
-            EindDatum = tot;
+            Retour = isterug;
+            Begindatum = van;            
+            Einddatum = tot;
             Item = item;
             Lener = lener;
         }
@@ -28,17 +28,17 @@ namespace KrekelSchool.Models.Domain1
         {
             Item = item;
             Lener = lener;
-            BeginDatum = DateTime.Today.Date;
-            EindDatum = BeginDatum.AddDays(7);
+            Begindatum = DateTime.Today.Date;
+            Einddatum = Begindatum.AddDays(7);
             //if (Item.Leeftijd >= 12) EindDatum = EindDatum.AddDays(7);
-            IsTerug = false;
+            Retour = false;
         }
 
-        [Display(Name = "Begin datum")]
-        public DateTime BeginDatum { get; set; }
+        
+        public DateTime Begindatum { get; set; }
 
-        [Display(Name = "Eind datum")]
-        public DateTime EindDatum
+        
+        public DateTime Einddatum
         {
             get { return eindDatum; }
             set
@@ -53,10 +53,8 @@ namespace KrekelSchool.Models.Domain1
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Display(Name = "Terruggebracht?")]
-        public bool IsTerug
-        {
-            get; set; }
+        
+        public bool Retour{ get; set; }
 
         public Item Item
         {
@@ -84,11 +82,11 @@ namespace KrekelSchool.Models.Domain1
         
         public void WordTerugGebracht()
         {
-            if (IsTerug)
+            if (Retour)
             {
                 throw new ApplicationException("Deze uitlening was al teruggebracht");
             }
-            IsTerug = true;
+            Retour = true;
         }
         #endregion
     }

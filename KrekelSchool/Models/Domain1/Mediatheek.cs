@@ -46,7 +46,7 @@ namespace KrekelSchool.Models.Domain1
 
         private  ICollection<T> GeefCorrecteLijstVoorItem<T>(Item item)
         {
-            Type type = item.GetType();
+            Type type = item.GetType().BaseType;
             if (type == typeof(Boek))
             {
                 return (ICollection<T>) Boeks;
@@ -74,8 +74,9 @@ namespace KrekelSchool.Models.Domain1
         {
             if (!MagUitlenen(l))
                 throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-           
-            Uitlening nieuweUitlening = new Uitlening(Items.First(it => it.Id == i.Id), Leners.First(le => le.Id == l.Id));
+
+            Uitlening nieuweUitlening = new Uitlening(GeefCorrecteLijstVoorItem<Item>(i).First(it => it.Id == i.Id),
+                Leners.First(le => le.Id == l.Id));
 
             //if (Uitleningen.Contains(nieuweUitlening))
             //    throw new ApplicationException("Leering heeft deze uitlening al");
@@ -89,100 +90,100 @@ namespace KrekelSchool.Models.Domain1
 
             return nieuweUitlening;
         }
-        public Uitlening VoegUitleningBoekToe(Lener l ,Item b)
-        {
-            if (!MagUitlenen(l))
-                throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            Uitlening nieuweUitlening = new Uitlening(Boeks.First(bo => bo.Id == b.Id), Leners.First(le =>le.Id == l.Id));
+        //public Uitlening VoegUitleningBoekToe(Lener l ,Item b)
+        //{
+        //    if (!MagUitlenen(l))
+        //        throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
+        //    Uitlening nieuweUitlening = new Uitlening(Boeks.First(bo => bo.Id == b.Id), Leners.First(le =>le.Id == l.Id));
             
-            //if (Uitleningen.Contains(nieuweUitlening))
-            //    throw new ApplicationException("Leering heeft deze uitlening al");
-            Uitleningen.Add(nieuweUitlening);
+        //    //if (Uitleningen.Contains(nieuweUitlening))
+        //    //    throw new ApplicationException("Leering heeft deze uitlening al");
+        //    Uitleningen.Add(nieuweUitlening);
            
-            if(l.Uitleningen.Contains(nieuweUitlening))
-                throw new ApplicationException("Uitlening bestaat al");
+        //    if(l.Uitleningen.Contains(nieuweUitlening))
+        //        throw new ApplicationException("Uitlening bestaat al");
             
-             Boeks.First(bo=> bo.Id == nieuweUitlening.item.Id).Beschikbaar = false;
-             Leners.First(le=> le.Id==l.Id).KrijgLening(nieuweUitlening);
+        //     Boeks.First(bo=> bo.Id == nieuweUitlening.item.Id).Beschikbaar = false;
+        //     Leners.First(le=> le.Id==l.Id).KrijgLening(nieuweUitlening);
             
-            return nieuweUitlening;
-        }
+        //    return nieuweUitlening;
+        //}
 
-        public Uitlening VoegUitleningCdToe(Lener l, Item c)
-        {
-            if (!MagUitlenen(l))
-                throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            Uitlening nieuweUitlening = new Uitlening(Cds.First(cd => cd.Id == c.Id), Leners.First(le => le.Id == l.Id));
+        //public Uitlening VoegUitleningCdToe(Lener l, Item c)
+        //{
+        //    if (!MagUitlenen(l))
+        //        throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
+        //    Uitlening nieuweUitlening = new Uitlening(Cds.First(cd => cd.Id == c.Id), Leners.First(le => le.Id == l.Id));
 
-            //if (Uitleningen.Contains(nieuweUitlening))
-            //    throw new ApplicationException("Leering heeft deze uitlening al");
-            Uitleningen.Add(nieuweUitlening);
+        //    //if (Uitleningen.Contains(nieuweUitlening))
+        //    //    throw new ApplicationException("Leering heeft deze uitlening al");
+        //    Uitleningen.Add(nieuweUitlening);
 
-            if (l.Uitleningen.Contains(nieuweUitlening))
-                throw new ApplicationException("Uitlening bestaat al");
+        //    if (l.Uitleningen.Contains(nieuweUitlening))
+        //        throw new ApplicationException("Uitlening bestaat al");
 
-            Cds.First(cd => cd.Id == nieuweUitlening.item.Id).Beschikbaar = false;
-            Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
+        //    Cds.First(cd => cd.Id == nieuweUitlening.item.Id).Beschikbaar = false;
+        //    Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
 
-            return nieuweUitlening;
-        }
+        //    return nieuweUitlening;
+        //}
 
-        public Uitlening VoegUitleningDvdToe(Lener l, Item d)
-        {
-            if (!MagUitlenen(l))
-                throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            Uitlening nieuweUitlening = new Uitlening(Dvds.First(dv => dv.Id == d.Id), Leners.First(le => le.Id == l.Id));
+        //public Uitlening VoegUitleningDvdToe(Lener l, Item d)
+        //{
+        //    if (!MagUitlenen(l))
+        //        throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
+        //    Uitlening nieuweUitlening = new Uitlening(Dvds.First(dv => dv.Id == d.Id), Leners.First(le => le.Id == l.Id));
 
-            //if (Uitleningen.Contains(nieuweUitlening))
-            //    throw new ApplicationException("Leering heeft deze uitlening al");
-            Uitleningen.Add(nieuweUitlening);
+        //    //if (Uitleningen.Contains(nieuweUitlening))
+        //    //    throw new ApplicationException("Leering heeft deze uitlening al");
+        //    Uitleningen.Add(nieuweUitlening);
 
-            if (l.Uitleningen.Contains(nieuweUitlening))
-                throw new ApplicationException("Uitlening bestaat al");
+        //    if (l.Uitleningen.Contains(nieuweUitlening))
+        //        throw new ApplicationException("Uitlening bestaat al");
 
-            Dvds.First(dv => dv.Id == nieuweUitlening.item.Id).Beschikbaar = false;
-            Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
+        //    Dvds.First(dv => dv.Id == nieuweUitlening.item.Id).Beschikbaar = false;
+        //    Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
 
-            return nieuweUitlening;
-        }
+        //    return nieuweUitlening;
+        //}
 
-        public Uitlening VoegUitleningSpelToe(Lener l, Item s)
-        {
-            if (!MagUitlenen(l))
-                throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            Uitlening nieuweUitlening = new Uitlening(Spels.First(sp => sp.Id == s.Id), Leners.First(le => le.Id == l.Id));
+        //public Uitlening VoegUitleningSpelToe(Lener l, Item s)
+        //{
+        //    if (!MagUitlenen(l))
+        //        throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
+        //    Uitlening nieuweUitlening = new Uitlening(Spels.First(sp => sp.Id == s.Id), Leners.First(le => le.Id == l.Id));
 
-            //if (Uitleningen.Contains(nieuweUitlening))
-            //    throw new ApplicationException("Leering heeft deze uitlening al");
-            Uitleningen.Add(nieuweUitlening);
+        //    //if (Uitleningen.Contains(nieuweUitlening))
+        //    //    throw new ApplicationException("Leering heeft deze uitlening al");
+        //    Uitleningen.Add(nieuweUitlening);
 
-            if (l.Uitleningen.Contains(nieuweUitlening))
-                throw new ApplicationException("Uitlening bestaat al");
+        //    if (l.Uitleningen.Contains(nieuweUitlening))
+        //        throw new ApplicationException("Uitlening bestaat al");
 
-            Spels.First(sp => sp.Id == nieuweUitlening.item.Id).Beschikbaar = false;
-            Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
+        //    Spels.First(sp => sp.Id == nieuweUitlening.item.Id).Beschikbaar = false;
+        //    Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
 
-            return nieuweUitlening;
-        }
+        //    return nieuweUitlening;
+        //}
 
-        public Uitlening VoegUitleningVerteltasToe(Lener l, Item v)
-        {
-            if (!MagUitlenen(l))
-                throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
-            Uitlening nieuweUitlening = new Uitlening(Verteltass.First(ve => ve.Id == v.Id), Leners.First(le => le.Id == l.Id));
+        //public Uitlening VoegUitleningVerteltasToe(Lener l, Item v)
+        //{
+        //    if (!MagUitlenen(l))
+        //        throw new ApplicationException("Lener heeft maximum uitleningen bereikt");
+        //    Uitlening nieuweUitlening = new Uitlening(Verteltass.First(ve => ve.Id == v.Id), Leners.First(le => le.Id == l.Id));
 
-            //if (Uitleningen.Contains(nieuweUitlening))
-            //    throw new ApplicationException("Leering heeft deze uitlening al");
-            Uitleningen.Add(nieuweUitlening);
+        //    //if (Uitleningen.Contains(nieuweUitlening))
+        //    //    throw new ApplicationException("Leering heeft deze uitlening al");
+        //    Uitleningen.Add(nieuweUitlening);
 
-            if (l.Uitleningen.Contains(nieuweUitlening))
-                throw new ApplicationException("Uitlening bestaat al");
+        //    if (l.Uitleningen.Contains(nieuweUitlening))
+        //        throw new ApplicationException("Uitlening bestaat al");
 
-            Verteltass.First(ve => ve.Id == nieuweUitlening.item.Id).Beschikbaar = false;
-            Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
+        //    Verteltass.First(ve => ve.Id == nieuweUitlening.item.Id).Beschikbaar = false;
+        //    Leners.First(le => le.Id == l.Id).KrijgLening(nieuweUitlening);
 
-            return nieuweUitlening;
-        }
+        //    return nieuweUitlening;
+        //}
         public void VerwijderUitlening(Uitlening uitlening)
         {
             // uitleningeinddatum < huidigeDatum => Boete 

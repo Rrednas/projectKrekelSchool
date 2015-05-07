@@ -15,9 +15,9 @@ namespace KrekelSchool.Models.ViewModels
         {
             Item = uitlening.item;
             Lener = uitlening.Lener;
-            BeginDatum = uitlening.BeginDatum;
-            EindDatum = uitlening.EindDatum;
-            IsTerug = uitlening.IsTerug;
+            BeginDatum = uitlening.Begindatum;
+            EindDatum = uitlening.Einddatum;
+            IsTerug = uitlening.Retour;
         }
 
         [Display(Name = "Begin datum")]
