@@ -13,55 +13,52 @@
 <h2>@ViewBag.Title.</h2>
 <h4>@ViewBag.Message</h4>
 <hr />
-@using (Html.BeginForm())
-{
-    <div class="row">
+<div class="row">
+    @using (Html.BeginForm("Uitlening", "Uitlening", FormMethod.Get))
+    {
+
         <div class="col-md-8 ">
             <span>@Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })</span>
             <br />
         </div>
+    }
 
-       
-        <table class="table">
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().BeginDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().EindDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().Item)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().Lener)
+            </th>
+
+        </tr>
+        @foreach (var p in Model.Uitleningen)
+        {
             <tr>
-                <th></th>
-                @foreach (var p in typeof(Uitlening).GetProperties())
-                {
-                    <th>
-                        @p.Name
-                    </th>
-                }
+                <td>
+                    @Html.ActionLink(" ", "UitleningAanpassen", "Uitlening", null, new { id = p.Id, @class = "modal-link btn btn-success btnEdit" })
 
+                    @Html.ActionLink(" ", "UitleningVerwijderen", "Uitlening", null, new { id = p.Id, @class = "modal-link btn btn-success btnRmv" })
+
+                </td>
+                <td class="">@Html.DisplayFor(model => p.BeginDatum)</td>
+                <td class="">@Html.DisplayFor(model => p.EindDatum)</td>
+                <td class="">@Html.DisplayFor(model => p.Id)</td>
+                <td class="">@Html.DisplayFor(model => p.Item.Naam)</td>
+                <td class="">@Html.DisplayFor(model => p.Lener.Naam),
+                             @Html.DisplayFor(model => p.Lener.Voornaam)</td>
             </tr>
-            @foreach (var p in Model.Uitleningen)
-            {
-                <tr>
-                    <td>
-                        @Html.ActionLink(" ", "UitleningAanpassen", "Uitlening", null, new { id = p.Id, @class = "modal-link btn btn-success btnEdit" })
-
-                        @Html.ActionLink(" ", "UitleningVerwijderen", "Uitlening", null, new { id = p.Id, @class = "modal-link btn btn-success btnRmv" })
-
-                    </td>
-                    @foreach (var prop in p.GetType().GetProperties())
-                    {
-                       
-                        @*<td class="">@Model.Uitleningen.Select(u => u.Item).First()</td>
-
-                        if (prop.Name.Equals("Item"))
-                        {
-                            <td class="">@Model.Uitleningen.Select(u => u.Item.Naam).First()</td>
-                        }
-                        if (prop.Name.Equals("Lener"))
-                        {
-                            @*<td class="">@Model.Uitleningen.Select(u => u.Lener.Naam).First() </td>
-                            <td class="">@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
-                        }*@
-                        <td class="">@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
-
-                    }
-
-                </tr>
-            }
-        </table>
-    </div>
-}
+        }
+    </table>
+</div>

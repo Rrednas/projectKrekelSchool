@@ -24,14 +24,9 @@ namespace KrekelSchool.Controllers
         {
             ViewBag.Title = "Uitleningen-Lijst";
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
-            IEnumerable<Uitlening> uitleningen = Mediatheek.Uitleningen.OrderBy(u => u.BeginDatum);
+            IEnumerable<Uitlening> uitleningen = Mediatheek.Uitleningen.OrderBy(u => u.Begindatum);
             IEnumerable<UitleningViewModel> uvm = uitleningen.Select(u => new UitleningViewModel(u)).ToList();
 
-            IEnumerable<Item> items = Mediatheek.Items.OrderBy(i => i.Id);
-            IEnumerable<ItemViewModel> ivm = items.Select(i => new ItemViewModel(i)).ToList();
-
-            IEnumerable<Lener> leners = Mediatheek.Leners.OrderBy(l => l.Id);
-            IEnumerable<LeerlingViewModel> lvm = leners.Select(l => new LeerlingViewModel(l)).ToList();
 
             if (!String.IsNullOrEmpty(zoek))
             {
@@ -42,7 +37,7 @@ namespace KrekelSchool.Controllers
                     u.EindDatum.ToString().Contains(zoek.ToLower())
                     );
             }
-            return View(new UitleningScreenViewModel(uvm, ivm, lvm));
+            return View(new UitleningScreenViewModel(uvm));
         }
         
         [HttpGet]
@@ -122,9 +117,9 @@ namespace KrekelSchool.Controllers
 
         private void MapToUitlening(UitleningViewModel uvm, Uitlening uitlening)
         {
-            uitlening.BeginDatum = uvm.BeginDatum;
-            uitlening.EindDatum = uvm.EindDatum;
-            //uitlening.Item = uvm.Item;
+            uitlening.Begindatum = uvm.BeginDatum;
+            uitlening.Einddatum = uvm.EindDatum;
+            uitlening.Item = uvm.Item;
             uitlening.Lener = Mediatheek.Leners.First();
         }
 
