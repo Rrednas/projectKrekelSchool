@@ -16,14 +16,14 @@ namespace KrekelSchool.Models.Domain1
         //public Categorie Categorie { get; set; }
 
 
-        public Boek(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, IEnumerable<Categorie> categories, string isbn, string auteur, string uitgever) 
-            : base( naam, beschikbaar, beschrijving, leeftijd, imgUrl, categories)
-        {
-            Isbn = isbn;
-            Auteur = auteur;
-            Uitgever = uitgever;
+        //public Boek(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, IEnumerable<Categorie> categories, string isbn, string auteur, string uitgever) 
+        //    : base( naam, beschikbaar, beschrijving, leeftijd, imgUrl, categories)
+        //{
+        //    Isbn = isbn;
+        //    Auteur = auteur;
+        //    Uitgever = uitgever;
             
-        }
+        //}
 
         public Boek(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, Categorie categorie, string isbn, string auteur, string uitgever)
             : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl, categorie)

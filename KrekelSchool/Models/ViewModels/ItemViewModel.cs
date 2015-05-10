@@ -46,7 +46,7 @@ namespace KrekelSchool.Models.ViewModels
             Beschikbaar = item.Beschikbaar;
             Leeftijd = item.Leeftijd;
             ImgUrl = item.ImgUrl;
-            Categories = item.Categories;
+            Categorie = item.Categorie;
         }
 
 

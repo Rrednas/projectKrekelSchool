@@ -129,18 +129,13 @@ namespace KrekelSchool.Controllers
                     {
                         bool beschikbaar = dataSet.Tables[0].Rows[i][1].Equals("ja");
                         int leeftijd = (int) dataSet.Tables[0].Rows[i][3];
-                        Categorie [] cat =
-                        {
-                            new Categorie(dataSet.Tables[0].Rows[i][5].ToString())
-                        };
-                        IEnumerable<Categorie> categorie = new List<Categorie>(cat);
-
+                        Categorie cat = new Categorie(dataSet.Tables[0].Rows[i][5].ToString());
                         Mediatheek.VoegBoekToe(new Boek(dataSet.Tables[0].Rows[i][0].ToString(),
                              beschikbaar,
                              dataSet.Tables[0].Rows[i][2].ToString(),
                              leeftijd,
                              dataSet.Tables[0].Rows[i][4].ToString(),
-                             categorie,
+                             cat,
                              dataSet.Tables[0].Rows[i][6].ToString(),
                              dataSet.Tables[0].Rows[i][7].ToString(),
                              dataSet.Tables[0].Rows[i][8].ToString()));

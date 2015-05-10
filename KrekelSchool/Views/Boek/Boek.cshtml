@@ -86,8 +86,6 @@
 
     @foreach (var p in Model.Boeken)
     {
-
-
         <div class="col-md-8 itemObj">
             <h2>@p.Naam</h2>
             @if (p.ImgUrl == " " || p.ImgUrl == null || p.ImgUrl == "")
@@ -100,23 +98,23 @@
             }
             <table>
                 <tr>
-                    <td class="pName">Leeftijd : </td>
-                    <td class="pNameValue">+ @p.Leeftijd</td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Leeftijd) :</td>
+                    <td class="pNameValue">+ @Html.DisplayFor(model => p.Leeftijd)</td>
                 </tr>
                 <tr>
-                    <td class="pName">Auteur : </td>
-                    <td class="pNameValue">@p.Auteur</td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Auteur) :</td> 
+                    <td class="pNameValue">@Html.DisplayFor(model => p.Auteur)</td>
                 </tr>
                 <tr>
-                    <td class="pName">Uitgever : </td>
-                    <td class="pNameValue">@p.Uitgever</td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Uitgever) :</td>
+                    <td class="pNameValue">@Html.DisplayFor(model => p.Uitgever)</td>
                 </tr>
                 <tr>
-                    <td class="pName">Thema : </td>
-                    <td class="pNameValue">@p.Categories</td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Categorie.Beschrijving) :</td>
+                    <td class="pNameValue">@Html.DisplayFor(model => p.Categorie.Beschrijving)</td>
                 </tr>
                 <tr>
-                    <td class="pName">Beschikbaar : </td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Beschikbaar) :</td>
                     @if (p.Beschikbaar.Equals(true))
                     {
                         <td class="pNameValue"> Ja</td>;

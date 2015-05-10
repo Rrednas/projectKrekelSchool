@@ -8,16 +8,16 @@ namespace KrekelSchool.Models.Domain1
 {
     public abstract class Item
     {
-        protected Item(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, IEnumerable<Categorie> categories  )
-        {
-            Naam = naam;
-            Beschikbaar = beschikbaar;
-            Beschrijving = beschrijving;
-            Leeftijd = leeftijd;
-            ImgUrl = imgUrl;
-            Categories = new List<Categorie>(categories);
-            VoegCategoriesToe(Categories);
-        }
+        //protected Item(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, IEnumerable<Categorie> categories  )
+        //{
+        //    Naam = naam;
+        //    Beschikbaar = beschikbaar;
+        //    Beschrijving = beschrijving;
+        //    Leeftijd = leeftijd;
+        //    ImgUrl = imgUrl;
+        //    Categories = new List<Categorie>(categories);
+        //    VoegCategoriesToe(Categories);
+        //}
 
         protected Item(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, Categorie categorie)
         {
@@ -27,6 +27,7 @@ namespace KrekelSchool.Models.Domain1
             Leeftijd = leeftijd;
             ImgUrl = imgUrl;
             Categorie = categorie;
+
         }
 
         protected Item(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl)
@@ -94,13 +95,13 @@ namespace KrekelSchool.Models.Domain1
             Categories.Add(categorie);
         }
 
-        public void VoegCategoriesToe(ICollection<Categorie> list)
-        {
-            foreach (Categorie categorie in list)
-            {
-                Categories.Add(categorie);
-            }
-        }
+        //public void VoegCategoriesToe(ICollection<Categorie> list)
+        //{
+        //    foreach (Categorie categorie in list)
+        //    {
+        //        Categories.Add(categorie);
+        //    }
+        //}
 #endregion
     }
 }
