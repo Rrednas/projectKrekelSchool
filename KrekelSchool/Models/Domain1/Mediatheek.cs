@@ -38,8 +38,6 @@ namespace KrekelSchool.Models.Domain1
             Categories = new List<Categorie>();
             Leners = new List<Lener>();
             Gebruikers = new List<Gebruiker>();
-
-            
         }
         
 #region methods

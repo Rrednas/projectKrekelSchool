@@ -7,14 +7,21 @@ namespace KrekelSchool.Models.Domain1
 {
     public class Spel : Item
     {
-        public Categorie Categorie { get; set; }
-
-        public Spel( string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, Categorie categorie) : base( naam, beschikbaar, beschrijving, leeftijd, imgUrl)
+       
+        public Spel( string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, IEnumerable<Categorie> categories) : base( naam, beschikbaar, beschrijving, leeftijd, imgUrl, categories)
         {
-            Categorie = categorie;
-            Categories = new Collection<Categorie>();
-            Categories.Add(categorie);
         }
+
+        public Spel(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, Categorie categorie)
+            : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl, categorie)
+        {
+        }
+
+        public Spel(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl)
+            : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl)
+        {
+        }
+
 
         public Spel():base()
         {
