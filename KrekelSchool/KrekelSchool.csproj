@@ -202,6 +202,7 @@
     <Compile Include="Models\DAL\BoekRepository.cs" />
     <Compile Include="Models\DAL\CdRepository.cs" />
     <Compile Include="Models\DAL\DvdRepository.cs" />
+    <Compile Include="Models\DAL\GebruikerRepository.cs" />
     <Compile Include="Models\DAL\KrekelSchoolContext.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -215,9 +216,11 @@
     <Compile Include="Models\DAL\VerteltasRepository.cs" />
     <Compile Include="Models\Domain1\DVD.cs" />
     <Compile Include="Models\Domain1\Gebruiker.cs" />
+    <Compile Include="Models\Domain1\IGebruikerRepository.cs" />
     <Compile Include="Models\Domain1\IMediatheekRepository.cs" />
     <Compile Include="Models\Domain1\Medewerker.cs" />
     <Compile Include="Models\Domain1\Mediatheek.cs" />
+    <Compile Include="Models\Domain1\User.cs" />
     <Compile Include="Models\Domain1\VoorlopigeUitlening.cs" />
     <Compile Include="Models\ViewModels\CategorieViewModel.cs" />
     <Compile Include="Models\ViewModels\CdViewModel.cs" />

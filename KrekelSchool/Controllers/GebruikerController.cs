@@ -20,28 +20,28 @@ namespace KrekelSchool.Controllers
         }
         // GET: Gebruiker
         [HttpGet]
-        public ActionResult LogIn( Gebruiker user)
+        public ActionResult LogIn(User user)
         {
             return View();
         }
         [HttpPost]
-        public ActionResult LogIn(GebruikerViewModel model,Gebruiker user)
+        public ActionResult LogIn(GebruikerViewModel model,User user)
         {
-            Gebruiker gebruiker = null;
+            
             if (ModelState.IsValid)
             {
-                 gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.Uname && g.Pswd == model.Pswd);
-                if (gebruiker == null) {
-            
-                   ModelState.AddModelError("","Foutief paswoord of gebruikersnaam.");
-                   return View(model); 
+                var gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.Uname && g.Pswd == model.Pswd);
+               if (gebruiker != null) {
+                   user.LogInUser(gebruiker);
+                   return RedirectToAction("LogIn");
                 }
                 
             }
-        
-            user = gebruiker;
-            return Redirect("~/Item/Item");
+
             
+            ModelState.AddModelError("", "Foutief paswoord of gebruikersnaam.");
+            return View(model); 
+
         }
 
         public ActionResult Edit(Gebruiker user)
