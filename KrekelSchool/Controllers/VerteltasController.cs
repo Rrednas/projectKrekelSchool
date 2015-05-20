@@ -155,6 +155,7 @@ namespace KrekelSchool.Controllers
             }
             return RedirectToAction("Index");
         }
+        
         private void MapToVerteltas(VerteltasViewModel vvm, Verteltas verteltas)
         {
             verteltas.Beschikbaar = vvm.Beschikbaar;
