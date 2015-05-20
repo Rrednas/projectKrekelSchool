@@ -8,7 +8,7 @@ namespace KrekelSchool.Models.Domain1
     public interface IGebruikerRepository
     {
         Gebruiker GetGebruiker();
-        Gebruiker LogInUser();
+        void GebruikerToevoegen(Gebruiker gebruiker);
         void SaveChanges();
     }
 }

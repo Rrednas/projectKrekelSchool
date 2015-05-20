@@ -20,16 +20,10 @@ namespace KrekelSchool.Models.Domain1
         public virtual Mediatheek Mediatheek { get; set; }
         public Gebruiker()
         {
-            
+          
         }
         
-        public ICollection SearchItem(String zoekstring)
-        {
-            return null;
-        }
-
-        public void LogIn() { }
-
+       
         public string Uname { get; set; }
         public string Pswd { get; set; }
         public string Naam { get; set; }

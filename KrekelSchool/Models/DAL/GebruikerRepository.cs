@@ -21,11 +21,10 @@ namespace KrekelSchool.Models.DAL
             return gebruikers.First();
         }
 
-        public Gebruiker LogInUser()
+        public void GebruikerToevoegen(Gebruiker gebruiker)
         {
-            throw new NotImplementedException();
+            gebruikers.Add(gebruiker);
         }
-
 
         public void SaveChanges()
         {

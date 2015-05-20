@@ -378,6 +378,11 @@
     <Content Include="Views\Gebruiker\LogIn.cshtml" />
     <Content Include="Views\Uitlening\UitleningAanpassen.cshtml" />
     <Content Include="Views\Uitlening\UitleningVerwijderen.cshtml" />
+    <Content Include="Views\Gebruiker\Add.cshtml" />
+    <Content Include="Views\Gebruiker\Remove.cshtml" />
+    <Content Include="Views\Gebruiker\Gebruikers.cshtml" />
+    <Content Include="Views\Gebruiker\AddVrijwilliger.cshtml" />
+    <Content Include="Views\Gebruiker\AddMedewerker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

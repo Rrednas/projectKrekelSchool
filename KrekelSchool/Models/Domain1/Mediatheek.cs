@@ -338,8 +338,16 @@ namespace KrekelSchool.Models.Domain1
         }
         #endregion
         #region gebruiker
-        public void VerwijderGebruiker() { }
-        public void VoegGebruikerToe() { }
+
+        public void VerwijderGebruiker(Gebruiker gebruiker)
+        {
+            Gebruikers.Remove(gebruiker);
+        }
+
+        public void VoegGebruikerToe(Gebruiker gebruiker)
+        {
+            Gebruikers.Add(gebruiker);
+        }
         public void AanpassenGebruiker() { }
         #endregion
         #region SpecialFinds
