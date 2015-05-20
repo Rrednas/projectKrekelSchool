@@ -227,77 +227,81 @@ namespace KrekelSchool.Models.Domain1
         {
             return Items.First(i => i.Id == id);
         }
-        
 
-        //public void VoegBoekRangeToe(ICollection<Boek> items)
-        //{
-        //    foreach (var item in items)
-        //    {
-        //        Boeks.Add(item);
-        //    }
-        //}
-        //public void VoegCdRangeToe(ICollection<CD> cds)
-        //{
-        //    foreach (CD cd in cds)
-        //    {
-        //        Cds.Add(cd);
-        //    }
-        //}
-        //public void VoegSpelRangeToe(ICollection<Spel> spels)
-        //{
-        //    foreach (Spel spel in spels)
-        //    {
-        //        Spels.Add(spel);
-        //    }
-        //}
-        public void VoegItemToe(Item item)
-        {
-            List<Item> lijst = (List<Item>)GeefCorrecteLijstVoorItem(item);
-            lijst.Add(item);
-        }
 
-        public void VerwijderItem(Item item)
+        public void VoegBoekRangeToe(ICollection<Boek> items)
         {
-            List<Item> lijst = (List<Item>) GeefCorrecteLijstVoorItem(item);
-            lijst.Remove(item);
-        }
-
-        public void VoegItemRangeToe(ICollection<Item> items)
-        {
-            foreach (Item item in items)
+            foreach (var item in items)
             {
-                VoegItemToe(item);
+                Boeks.Add(item);
             }
         }
-
-        public void VerwijderItemRange(ICollection<Item> items)
+        public void VoegCdRangeToe(ICollection<CD> cds)
         {
-            foreach (Item item in items)
+            foreach (CD cd in cds)
             {
-                VerwijderItem(item);
+                Cds.Add(cd);
             }
         }
-        //public void VoegCdToe(CD item)
+        public void VoegSpelRangeToe(ICollection<Spel> spels)
+        {
+            foreach (Spel spel in spels)
+            {
+                Spels.Add(spel);
+            }
+        }
+        //public void VoegItemToe(Item item)
         //{
-        //    Cds.Add(item);
-        //}
-        //public void VoegSpelToe(Spel item)
-        //{
-        //    Spels.Add(item);
+        //    Items = (List<Item>)GeefCorrecteLijstVoorItem(item);
+        //    Items.Add(item);
         //}
 
-        //public void VerwijderBoek(Boek boek)
+        //public void VerwijderItem(Item item)
         //{
-        //    Boeks.Remove(boek);
+        //    List<Item> lijst = (List<Item>) GeefCorrecteLijstVoorItem(item);
+        //    lijst.Remove(item);
         //}
-        //public void VerwijderCd(CD item)
+
+        //public void VoegItemRangeToe(ICollection<Item> items)
         //{
-        //    Cds.Remove(item);
+        //    foreach (Item item in items)
+        //    {
+        //        VoegItemToe(item);
+        //    }
         //}
-        //public void VerwijderSpel(Spel item)
+
+        //public void VerwijderItemRange(ICollection<Item> items)
         //{
-        //    Spels.Remove(item);
+        //    foreach (Item item in items)
+        //    {
+        //        VerwijderItem(item);
+        //    }
         //}
+        public void VoegBoekToe(Boek item)
+        {
+            Boeks.Add(item);
+        }
+        public void VoegCdToe(CD item)
+        {
+            Cds.Add(item);
+        }
+        public void VoegSpelToe(Spel item)
+        {
+            Spels.Add(item);
+        }
+
+        public void VerwijderBoek(Boek boek)
+        {
+            Boeks.Remove(boek);
+        }
+        public void VerwijderCd(CD item)
+        {
+            Cds.Remove(item);
+        }
+        public void VerwijderSpel(Spel item)
+        {
+            Spels.Remove(item);
+        }
         public Boek LeenBoekUit(Boek boek)
         {
             Boek uitgeleendBoek = FindListForBoek(boek).First(i => i.Id == boek.Id);

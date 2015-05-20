@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 20px;
     background-image: url("../images/krekelBgnd.jpg");
     background-size: cover;
@@ -467,7 +467,7 @@ input {
     }
      .gewenstItem {
          left: 70%;
-         top: 350px;
+         top: 280px;
      }
 }
 
