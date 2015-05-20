@@ -21,7 +21,7 @@ namespace KrekelSchool.Controllers
             Mediatheek = repos.GetMediatheek();
         }
 
-        public ActionResult Spel(string zoek,VoorlopigeUitlening voorlopige, User user)
+        public ActionResult Spel(string zoek,VoorlopigeUitlening voorlopige,User user)
        {
             ViewBag.Title = "Spellen-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
@@ -33,7 +33,7 @@ namespace KrekelSchool.Controllers
                 svm = svm.Where(b => b.Naam.ToLower().Contains(zoek.ToLower()) ||
                     b.Leeftijd.ToString().Contains(zoek.ToLower()));
             }
-            return View(new ItemScreenViewModel(voorlopige,svm, user));
+            return View(new ItemScreenViewModel(voorlopige,svm,user));
         }
 
         public ActionResult SpelDetail(int id)

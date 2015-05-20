@@ -21,7 +21,7 @@ namespace KrekelSchool.Controllers
             Mediatheek = repos.GetMediatheek();
         }
 
-        public ActionResult Cd(string zoek,VoorlopigeUitlening voorlopige, User user)
+        public ActionResult Cd(string zoek,VoorlopigeUitlening voorlopige,User user)
        {
             ViewBag.Title = "CD-Lijst";
             ViewBag.Message = "Geef ID, naam,... in als zoekcriteria.";
@@ -32,7 +32,7 @@ namespace KrekelSchool.Controllers
                 cvm = cvm.Where(c => c.Naam.ToLower().Contains(zoek.ToLower()) ||
                     c.Leeftijd.ToString().Contains(zoek.ToLower()));
             }
-            return View(new ItemScreenViewModel(voorlopige,cvm, user));
+            return View(new ItemScreenViewModel(voorlopige,cvm,user));
         }
 
         public ActionResult CdDetail(int id)

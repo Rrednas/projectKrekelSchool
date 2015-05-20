@@ -45,13 +45,13 @@ namespace KrekelSchool.Controllers
         {
             
             
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 var gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.Uname && g.Pswd == model.Pswd);
                if (gebruiker != null) {
                    user.LogInUser(gebruiker);
                    return RedirectToAction("LogIn");
-                }
+                //}
                 
             }
 
