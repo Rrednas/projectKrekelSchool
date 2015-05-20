@@ -326,7 +326,9 @@
     <Content Include="Views\Home\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -384,6 +386,8 @@
     <Content Include="Views\Gebruiker\Gebruikers.cshtml" />
     <Content Include="Views\Gebruiker\AddVrijwilliger.cshtml" />
     <Content Include="Views\Gebruiker\AddMedewerker.cshtml" />
+    <Content Include="Views\Categorie\CategorieToevoegen.cshtml" />
+    <Content Include="Views\Categorie\CategorieVerwijderen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
