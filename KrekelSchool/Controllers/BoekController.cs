@@ -124,11 +124,18 @@ namespace KrekelSchool.Controllers
 
                 for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
-                    if (Mediatheek.LenerBestaat(dataSet.Tables[0].Rows[i][0].ToString(),
-                        dataSet.Tables[0].Rows[i][1].ToString()) == false)
+                    if (Mediatheek.BoekBestaat(dataSet.Tables[0].Rows[i][0].ToString()) == false)
                     {
-                        bool beschikbaar = dataSet.Tables[0].Rows[i][1].Equals("ja");
-                        int leeftijd = (int)dataSet.Tables[0].Rows[i][3];
+                        bool beschikbaar = false;
+                        if (!(dataSet.Tables[0].Rows[i][1] is DBNull))
+                        {
+                            beschikbaar = Convert.ToBoolean(dataSet.Tables[0].Rows[i][1].Equals("ja"));
+                        }
+                        int leeftijd = 0;
+                        if (!(dataSet.Tables[0].Rows[i][3] is DBNull))
+                        {
+                            leeftijd = Convert.ToInt32(dataSet.Tables[0].Rows[i][3]);
+                        }
                         Categorie cat = new Categorie(dataSet.Tables[0].Rows[i][5].ToString());
                         Mediatheek.VoegBoekToe(new Boek(dataSet.Tables[0].Rows[i][0].ToString(),
                              beschikbaar,
