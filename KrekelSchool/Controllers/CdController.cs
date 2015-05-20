@@ -63,7 +63,7 @@ namespace KrekelSchool.Controllers
                 {
                     CD cd = new CD();
                     MapToCd(cvm,cd);
-                    Mediatheek.VoegCdToe(cd);
+                    Mediatheek.VoegItemToe(cd);
                     MediatheekRepository.SaveChanges();
                   //  BoekRepository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", cd.Naam);
@@ -150,7 +150,7 @@ namespace KrekelSchool.Controllers
                 CD cd = Mediatheek.Cds.First(c => c.Id == id);
                 if (cd == null)
                     return HttpNotFound();
-                Mediatheek.VerwijderCd(cd);
+                Mediatheek.VerwijderItem(cd);
                 MediatheekRepository.SaveChanges();
                 TempData["Message"] = String.Format("{0} werd verwijderd!", cd.Naam);
             }
