@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,10 +24,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Item", "Item")</li>
-                    <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+                    <li>@Html.ActionLink(" ", "Item", "Item", null, new {@class = "btn btn-success btnHome"})</li>
+                    @*<li>@Html.ActionLink("Log in", "Login", "Account")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("App Info", "About", "Home") </li>
+                    <li>@Html.ActionLink("App Info", "About", "Home") </li>*@
+                    
+                </ul>
+                    
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink(" ", "LogIn", "Gebruiker", null, new { @class = "btn btn-success btnLogin" })</li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>
@@ -42,7 +48,7 @@
         @RenderBody()
         <hr />
         <footer>
-            &copy; @DateTime.Now.Year - web- and application design by S. De Schrijver and R. Meert in co&ouml;peration with <a href="http://www.hogent.be">HoGent</a> </p>
+            <p>&copy; @DateTime.Now.Year - web- and application design by S. De Schrijver and R. Meert in co&ouml;peration with <a href="http://www.hogent.be">HoGent</a> </p>
         </footer>
     </div>
 
