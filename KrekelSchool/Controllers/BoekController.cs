@@ -130,7 +130,7 @@ namespace KrekelSchool.Controllers
                         bool beschikbaar = dataSet.Tables[0].Rows[i][1].Equals("ja");
                         int leeftijd = (int) dataSet.Tables[0].Rows[i][3];
                         Categorie cat = new Categorie(dataSet.Tables[0].Rows[i][5].ToString());
-                        Mediatheek.VoegItemToe(new Boek(dataSet.Tables[0].Rows[i][0].ToString(),
+                        Mediatheek.VoegBoekToe(new Boek(dataSet.Tables[0].Rows[i][0].ToString(),
                              beschikbaar,
                              dataSet.Tables[0].Rows[i][2].ToString(),
                              leeftijd,
@@ -194,7 +194,7 @@ namespace KrekelSchool.Controllers
                 {
                     Boek boek = new Boek();
                     MapToBoek(bvm,boek);
-                    Mediatheek.VerwijderItem(boek);
+                    Mediatheek.VoegBoekToe(boek);
                     MediatheekRepository.SaveChanges();
                   //  BoekRepository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", boek.Naam);
@@ -281,7 +281,7 @@ namespace KrekelSchool.Controllers
                 Boek boek = Mediatheek.Boeks.First(b => b.Id == id);
                 if (boek == null)
                     return HttpNotFound();
-                Mediatheek.VerwijderItem(boek);
+                Mediatheek.VerwijderBoek(boek);
                 MediatheekRepository.SaveChanges();
                 TempData["Message"] = String.Format("{0} werd verwijderd!", boek.Naam);
             }

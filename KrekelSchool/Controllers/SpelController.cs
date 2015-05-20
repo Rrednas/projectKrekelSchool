@@ -64,7 +64,7 @@ namespace KrekelSchool.Controllers
                 {
                     Spel spel = new Spel();
                     MapToSpel(svm,spel);
-                    Mediatheek.VoegItemToe(spel);
+                    Mediatheek.VoegSpelToe(spel);
                     MediatheekRepository.SaveChanges();
                   //  BoekRepository.SaveChanges();
                     TempData["Message"] = String.Format("{0} werd gecreëerd.", spel.Naam);
@@ -151,7 +151,7 @@ namespace KrekelSchool.Controllers
                 Spel spel = Mediatheek.Spels.First(s => s.Id == id);
             if (spel == null)
                 return HttpNotFound();
-                Mediatheek.VerwijderItem(spel);
+                Mediatheek.VerwijderSpel(spel);
                 MediatheekRepository.SaveChanges();
                 TempData["Message"] = String.Format("{0} werd verwijderd!", spel.Naam);
             }

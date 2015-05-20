@@ -44,7 +44,7 @@ namespace KrekelSchool.Models.Domain1
 
         private  ICollection GeefCorrecteLijstVoorItem(Item item)
         {
-            Type type = item.GetType();
+            Type type = item.GetType().BaseType;
             if (type == typeof(Boek))
             {
                 return  (List<Boek>) Boeks;
@@ -61,11 +61,10 @@ namespace KrekelSchool.Models.Domain1
             {
                 return  Dvds as List<DVD>;
             }
-            if (type == typeof (Spel))
+            else
             {
-                return Spels as List<Spel>;
+                throw(new ApplicationException("Geen geldig item"));
             }
-            return null;
         }
 
        
