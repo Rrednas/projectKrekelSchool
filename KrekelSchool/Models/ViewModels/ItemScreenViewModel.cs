@@ -24,25 +24,29 @@ namespace KrekelSchool.Models.ViewModels
             User = user;
         }
         
-        public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<DvdViewModel> items)
+        public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<DvdViewModel> items,User user)
         {
             Voorlopige = new VoorlopigeUitleningViewModel(voorlopige.VoorlopigItem, voorlopige.VoorlopigeLener);
             Dvds = items;
+            User = user;
         }
-        public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<CdViewModel> items)
+        public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<CdViewModel> items, User user)
         {
             Voorlopige = new VoorlopigeUitleningViewModel(voorlopige.VoorlopigItem, voorlopige.VoorlopigeLener);
             Cds = items;
+            User = user;
         }
-        public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<SpelViewModel> items)
+        public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<SpelViewModel> items, User user)
         {
             Voorlopige = new VoorlopigeUitleningViewModel(voorlopige.VoorlopigItem, voorlopige.VoorlopigeLener);
             Spellen = items;
+            User = user;
         }
-        public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<VerteltasViewModel> items)
+        public ItemScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<VerteltasViewModel> items,User user)
         {
             Voorlopige = new VoorlopigeUitleningViewModel(voorlopige.VoorlopigItem, voorlopige.VoorlopigeLener);
             Verteltassen = items;
+            User = user;
         }
        
     }

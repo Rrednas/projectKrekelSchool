@@ -196,6 +196,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\SpelController.cs" />
+    <Compile Include="Controllers\VerteltasController.cs" />
     <Compile Include="InfraStruct\GebruikerModelBinder.cs" />
     <Compile Include="InfraStruct\MediatheekModelBinder.cs" />
     <Compile Include="InfraStruct\UitleningModelBinder.cs" />
@@ -388,6 +389,10 @@
     <Content Include="Views\Gebruiker\AddMedewerker.cshtml" />
     <Content Include="Views\Categorie\CategorieToevoegen.cshtml" />
     <Content Include="Views\Categorie\CategorieVerwijderen.cshtml" />
+    <Content Include="Views\Verteltas\Index.cshtml" />
+    <Content Include="Views\Verteltas\VerteltasDetail.cshtml" />
+    <Content Include="Views\Verteltas\VerteltasToevoegen.cshtml" />
+    <Content Include="Views\Verteltas\VerteltasVerwijderen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
