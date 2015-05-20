@@ -301,6 +301,7 @@
     <Content Include="images\krekelBanner.jpg" />
     <Content Include="images\krekelBanner.png" />
     <Content Include="images\krekelBgnd.jpg" />
+    <Content Include="images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Models\Domain1\Domein.cd" />
