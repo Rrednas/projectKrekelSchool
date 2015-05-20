@@ -462,14 +462,5 @@ namespace KrekelSchool.Models.Domain1
         }
         #endregion
 
-        public void VoegVerteltasToe(Verteltas verteltas)
-        {
-            Verteltass.Add(verteltas);
         }
-
-        public void VerwijderVerteltas(Verteltas verteltas)
-        {
-            Verteltass.Remove(verteltas);
-        }
-    }
 }
