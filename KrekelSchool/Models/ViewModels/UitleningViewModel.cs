@@ -13,6 +13,7 @@ namespace KrekelSchool.Models.ViewModels
     {
         public UitleningViewModel(Uitlening uitlening)
         {
+            Id = uitlening.Id;
             Item = uitlening.Item;
             Lener = uitlening.Lener;
             BeginDatum = uitlening.Begindatum;

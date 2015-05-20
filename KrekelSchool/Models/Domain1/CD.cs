@@ -8,15 +8,23 @@ namespace KrekelSchool.Models.Domain1
     public class CD : Item
     {
         public int Size { get; set; }
-        public Categorie Categorie { get; set; }
 
-        public CD(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, int size, Categorie categorie)
+        //public CD(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, IEnumerable<Categorie> categories, int size)
+        //    : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl, categories)
+        //{
+        //    Size = size;
+        //}
+
+        public CD(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, Categorie categorie, int size)
+            : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl, categorie)
+        {
+            Size = size;
+        }
+
+        public CD(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, int size)
             : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl)
         {
             Size = size;
-            Categorie = categorie;
-            Categories = new Collection<Categorie>();
-            Categories.Add(categorie);
         }
 
         public CD()

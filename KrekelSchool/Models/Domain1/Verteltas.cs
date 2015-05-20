@@ -15,15 +15,23 @@ namespace KrekelSchool.Models.Domain1
         //public ICollection<Dvd> Dvds { get; set; }
         //public ICollection<Spel> Spellen { get; set; }
 
-        public Verteltas(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl) : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl)
+        //public Verteltas(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, IEnumerable<Categorie> categories) : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl, categories)
+        //{
+        //}
+
+        public Verteltas(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl, Categorie categorie)
+            : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl, categorie)
+        {
+        }
+
+        public Verteltas(string naam, bool beschikbaar, string beschrijving, int leeftijd, string imgUrl)
+            : base(naam, beschikbaar, beschrijving, leeftijd, imgUrl)
         {
         }
 
         public Verteltas() { }
 
-        public ICollection<Item> Items { get;
-            set;
-        }
+        public ICollection<Item> Items { get; set;}
        
     }
 }
