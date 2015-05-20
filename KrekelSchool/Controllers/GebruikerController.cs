@@ -27,10 +27,18 @@ namespace KrekelSchool.Controllers
         }
         // GET: Gebruiker
         [HttpGet]
-        public ActionResult LogIn(User user)
+        public ActionResult LogIn(string zoek, User user)
         {
-            
-            return View();
+            ViewBag.Title = "Gebruiker-Lijst";
+            ViewBag.Message = "Geef gebruikersnaam of naam in als zoekcriteria.";
+            IEnumerable<Gebruiker> gebruikers = Mediatheek.Gebruikers.OrderBy(g => g.Naam);
+            IEnumerable<GebruikerViewModel> gvm = gebruikers.Select(g => new GebruikerViewModel(g)).ToList();
+            if (!String.IsNullOrEmpty(zoek))
+            {
+                gvm = gvm.Where(s => s.Naam.ToLower().Contains(zoek.ToLower()) ||
+                    s.Uname.ToLower().Contains(zoek.ToLower()));
+            }
+            return View(new GebruikerScreenViewModel(gvm,user));
         }
         [HttpPost]
         public ActionResult LogIn(GebruikerViewModel model,User user)
@@ -49,15 +57,12 @@ namespace KrekelSchool.Controllers
 
             
             ModelState.AddModelError("", "Foutief paswoord of gebruikersnaam.");
-            return View(model); 
+            return RedirectToAction("LogIn"); 
 
         }
         [HttpGet]
         public ActionResult Edit(int id,User user)
         {
-            
-             
-       
             Gebruiker gebruiker = Mediatheek.Gebruikers.First(b => b.Id == id);
             if (gebruiker == null)
                 return HttpNotFound();
@@ -192,7 +197,7 @@ namespace KrekelSchool.Controllers
             return PartialView(gvm);
         }
         [HttpGet]
-        public ActionResult Remove(int id, User user)
+        public ActionResult Remove(int id)
         {
             
             Gebruiker gebruiker = Mediatheek.Gebruikers.First(b => b.Id == id);
@@ -202,8 +207,8 @@ namespace KrekelSchool.Controllers
             return PartialView(new GebruikerViewModel(gebruiker));
         }
 
-        [HttpPost]
-        public ActionResult Remove(int id, GebruikerViewModel gvm, User user)
+        [HttpPost, ActionName("Remove")]
+        public ActionResult RemoveConfirm(int id)
         {
            
             try

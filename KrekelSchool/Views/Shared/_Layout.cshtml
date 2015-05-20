@@ -32,7 +32,9 @@
                 </ul>
                     
                 <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink(" ", "Gebruikers", "Gebruiker", null, new { @class = "btn btn-success btnAddUser" })</li>
                     <li>@Html.ActionLink(" ", "LogIn", "Gebruiker", null, new { @class = "btn btn-success btnLogin" })</li>
+                    
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>

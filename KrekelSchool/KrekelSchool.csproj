@@ -226,6 +226,7 @@
     <Compile Include="Models\ViewModels\CategorieViewModel.cs" />
     <Compile Include="Models\ViewModels\CdViewModel.cs" />
     <Compile Include="Models\ViewModels\DvdViewModel.cs" />
+    <Compile Include="Models\ViewModels\GebruikerScreenViewModel.cs" />
     <Compile Include="Models\ViewModels\GebruikerViewModel.cs" />
     <Compile Include="Models\ViewModels\ItemScreenViewModel.cs" />
     <Compile Include="Models\ViewModels\BoekViewModel.cs" />
@@ -282,11 +283,13 @@
     <Content Include="images\icons\add.png" />
     <Content Include="images\icons\addLln.png" />
     <Content Include="images\icons\books.png" />
+    <Content Include="images\icons\cog.png" />
     <Content Include="images\icons\deleteTrash.png" />
     <Content Include="images\icons\details.png" />
     <Content Include="images\icons\done.png" />
     <Content Include="images\icons\double.png" />
     <Content Include="images\icons\edit.png" />
+    <Content Include="images\icons\empl.png" />
     <Content Include="images\icons\exit.png" />
     <Content Include="images\icons\group.png" />
     <Content Include="images\icons\list.png" />
@@ -297,6 +300,7 @@
     <Content Include="images\icons\search.png" />
     <Content Include="images\icons\student.png" />
     <Content Include="images\icons\verified.png" />
+    <Content Include="images\icons\volu.png" />
     <Content Include="images\icons\work.png" />
     <Content Include="images\items\no image.jpg" />
     <Content Include="images\krekelBanner.jpg" />
@@ -378,7 +382,6 @@
     <Content Include="Views\Spel\SpelDetail.cshtml" />
     <Content Include="Views\Spel\SpelToevoegen.cshtml" />
     <Content Include="Views\Spel\SpelVerwijderen.cshtml" />
-    <Content Include="Views\Gebruiker\Edit.cshtml" />
     <Content Include="Views\Gebruiker\LogIn.cshtml" />
     <Content Include="Views\Uitlening\UitleningAanpassen.cshtml" />
     <Content Include="Views\Uitlening\UitleningVerwijderen.cshtml" />
