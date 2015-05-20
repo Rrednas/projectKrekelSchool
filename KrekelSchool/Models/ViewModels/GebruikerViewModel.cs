@@ -12,6 +12,7 @@ namespace KrekelSchool.Models.ViewModels
     {
         [Display(Name = "Gebruikersnaam")]
         public string Uname { get; set; }
+        [Display(Name = "Wachtwoord")]
         public string Pswd { get; set; }
         [Display(Name = "Naam")]
         [Required(ErrorMessage = "{0} is verplicht!!")]
