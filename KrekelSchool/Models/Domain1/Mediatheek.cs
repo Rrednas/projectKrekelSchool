@@ -243,6 +243,20 @@ namespace KrekelSchool.Models.Domain1
                 Cds.Add(cd);
             }
         }
+        public void VoegDvdRangeToe(ICollection<DVD> dvds)
+        {
+            foreach (DVD dvd in dvds)
+            {
+                Dvds.Add(dvd);
+            }
+        }
+        public void VoegVerteltasRangeToe(ICollection<Verteltas> verteltases)
+        {
+            foreach (Verteltas verteltas in verteltases)
+            {
+                Verteltass.Add(verteltas);
+            }
+        }
         public void VoegSpelRangeToe(ICollection<Spel> spels)
         {
             foreach (Spel spel in spels)
@@ -285,6 +299,14 @@ namespace KrekelSchool.Models.Domain1
         {
             Cds.Add(item);
         }
+        public void VoegDvdToe(DVD item)
+        {
+            Dvds.Add(item);
+        }
+        public void VoegVerteltasToe(Verteltas item)
+        {
+            Verteltass.Add(item);
+        }
         public void VoegSpelToe(Spel item)
         {
             Spels.Add(item);
@@ -297,6 +319,14 @@ namespace KrekelSchool.Models.Domain1
         public void VerwijderCd(CD item)
         {
             Cds.Remove(item);
+        }
+        public void VerwijderDvd(DVD item)
+        {
+            Dvds.Remove(item);
+        }
+        public void VerwijderVerteltas(Verteltas item)
+        {
+            Verteltass.Remove(item);
         }
         public void VerwijderSpel(Spel item)
         {
@@ -413,6 +443,21 @@ namespace KrekelSchool.Models.Domain1
                 
             }
             
+            return bestaat;
+        }
+
+        public bool BoekBestaat(string naam)
+        {
+            bool bestaat = false;
+            foreach (Item item in Boeks)
+            {
+                if (item.Naam == naam)
+                {
+                    bestaat = true;
+                }
+
+            }
+
             return bestaat;
         }
         #endregion
