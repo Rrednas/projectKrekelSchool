@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using KrekelSchool.Models.DAL;
 using KrekelSchool.Models.Domain1;
 using KrekelSchool.Models.ViewModels;
+using WebGrease.Css.Extensions;
 
 namespace KrekelSchool.Controllers
 {
@@ -160,7 +161,10 @@ namespace KrekelSchool.Controllers
             verteltas.Beschrijving = vvm.Beschrijving;
             verteltas.Categories = vvm.Categories;
             verteltas.Leeftijd = vvm.Leeftijd;
-           // verteltas.Items = vvm.Items;
+            foreach (Item item in vvm.Items)
+            {
+                verteltas.Items.Add(item);
+            }
         }
     }
 }
