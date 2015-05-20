@@ -66,6 +66,8 @@ namespace KrekelSchool.Models.Domain1
                 throw(new ApplicationException("Geen geldig item"));
             }
         }
+
+       
         #region Uitlening
 
         public Uitlening VoegUitleningToe(Lener l, Item i)
@@ -227,52 +229,75 @@ namespace KrekelSchool.Models.Domain1
         }
         
 
-        public void VoegBoekRangeToe(ICollection<Boek> items)
+        //public void VoegBoekRangeToe(ICollection<Boek> items)
+        //{
+        //    foreach (var item in items)
+        //    {
+        //        Boeks.Add(item);
+        //    }
+        //}
+        //public void VoegCdRangeToe(ICollection<CD> cds)
+        //{
+        //    foreach (CD cd in cds)
+        //    {
+        //        Cds.Add(cd);
+        //    }
+        //}
+        //public void VoegSpelRangeToe(ICollection<Spel> spels)
+        //{
+        //    foreach (Spel spel in spels)
+        //    {
+        //        Spels.Add(spel);
+        //    }
+        //}
+        public void VoegItemToe(Item item)
         {
-            foreach (var item in items)
-            {
-                Boeks.Add(item);
-            }
-        }
-        public void VoegCdRangeToe(ICollection<CD> cds)
-        {
-            foreach (CD cd in cds)
-            {
-                Cds.Add(cd);
-            }
-        }
-        public void VoegSpelRangeToe(ICollection<Spel> spels)
-        {
-            foreach (Spel spel in spels)
-            {
-                Spels.Add(spel);
-            }
-        }
-        public void VoegBoekToe(Boek boek)
-        {
-            Boeks.Add(boek);
-        }
-        public void VoegCdToe(CD item)
-        {
-            Cds.Add(item);
-        }
-        public void VoegSpelToe(Spel item)
-        {
-            Spels.Add(item);
+            List<Item> lijst = (List<Item>)GeefCorrecteLijstVoorItem(item);
+            lijst.Add(item);
         }
 
-        public void VerwijderBoek(Boek boek)
+        public void VerwijderItem(Item item)
         {
-            Boeks.Remove(boek);
+            List<Item> lijst = (List<Item>) GeefCorrecteLijstVoorItem(item);
+            lijst.Remove(item);
         }
-        public void VerwijderCd(CD item)
+
+        public void VoegItemRangeToe(ICollection<Item> items)
         {
-            Cds.Remove(item);
+            foreach (Item item in items)
+            {
+                VoegItemToe(item);
+            }
         }
-        public void VerwijderSpel(Spel item)
+
+        public void VerwijderItemRange(ICollection<Item> items)
         {
-            Spels.Remove(item);
+            foreach (Item item in items)
+            {
+                VerwijderItem(item);
+            }
         }
+        //public void VoegCdToe(CD item)
+        //{
+        //    Cds.Add(item);
+        //}
+        //public void VoegSpelToe(Spel item)
+        //{
+        //    Spels.Add(item);
+        //}
+
+        //public void VerwijderBoek(Boek boek)
+        //{
+        //    Boeks.Remove(boek);
+        //}
+        //public void VerwijderCd(CD item)
+        //{
+        //    Cds.Remove(item);
+        //}
+        //public void VerwijderSpel(Spel item)
+        //{
+        //    Spels.Remove(item);
+        //}
         public Boek LeenBoekUit(Boek boek)
         {
             Boek uitgeleendBoek = FindListForBoek(boek).First(i => i.Id == boek.Id);

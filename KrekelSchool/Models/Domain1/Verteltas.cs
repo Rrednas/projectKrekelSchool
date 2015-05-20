@@ -32,6 +32,24 @@ namespace KrekelSchool.Models.Domain1
         public Verteltas() { }
 
         public ICollection<Item> Items { get; set;}
+
+        public void ItemToevoegen(Item item)
+        {
+            Items.Add(item);
+        }
+
+        public void ItemsToevoegen(ICollection<Item> items)
+        {
+            foreach (Item item in items)
+            {
+                ItemToevoegen(item);
+            }
+        }
+
+        public void ItemVerwijderen(Item item)
+        {
+            Items.Remove(item);
+        }
        
     }
 }
