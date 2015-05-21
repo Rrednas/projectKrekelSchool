@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 20px;
     background-image: url("../images/krekelBgnd.jpg");
     background-size: cover;
@@ -15,7 +15,6 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
 select,
 textarea {
     max-width: 280px;
@@ -36,6 +35,13 @@ h2 {
 
 h4 {
     margin: 0 15px 0 15px;
+}
+p, td {
+    font-size: 18px;
+}
+
+th {
+    font-size: 20px;
 }
 a {
     color: brown;
@@ -58,8 +64,6 @@ img{
 footer {
     text-align: center;
 }
-
-
 
 .formListSearch {
     background-image: url("../images/icons/search.png");
@@ -111,6 +115,33 @@ margin-right: 0;
     -webkit-box-shadow: 0 0 20px chartreuse; 
     box-shadow: 0 0 20px chartreuse; 
 }
+.gewenstItemImg {
+    height: 120px;
+    width: 120px;
+    margin: 0 0 15px 0;
+}
+.gewenstItem {
+    top: 280px;
+    left: 80%;
+    position: fixed;
+    background: #ae5123;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 150px;
+    height: 600px;
+    z-index: 10;
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px black;
+}
+.gewenstItem .btnRmv {
+    margin-bottom: 26px;
+}
+.gewenstItem h2, .gewenstItemImg h2 {
+    font-size: 25px;
+}
+.gewenstItem h2:nth-child(3){
+    margin: 266px 0 0 0;
+}
 
 .itemImgEmpty {
     background-color: darkgreen;
@@ -134,6 +165,23 @@ margin-right: 0;
     padding: 25px 0 140px 20px;
 }
 
+.itemObj table{
+    width: 350px;
+}
+
+.itemObj table tr td:nth-child(1){
+    padding-right: 10px;
+    width: 150px;
+}
+
+.table {
+    width: 600px;
+}
+
+.table tr:nth-child(2) td:nth-child(1) {
+    width: 150px;
+}
+
 .dl-horizontal dt {
     font-size: 20px;
     font-weight: bolder;
@@ -141,9 +189,40 @@ margin-right: 0;
 .dl-horizontal {
     padding: 0 2px 0 2px;
 }
-
+input {
+    max-width: 500px;
+    background-color: #ae5123;
+}
+.excelAdd {
+    float: left;
+    /*margin: 0 0 10px 0;*/
+    width: 350px;
+    color: white;
+}
 
 /*Buttons*/
+.excelAdd .addOk {
+    background-size: 25px 25px;
+    width: 40px;
+    height: 40px;
+    border-width: 1px;
+    margin: 5px 0 5px 0;
+}
+/*.excelAdd .addFile {
+    background-image: url("../images/icons/save.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    background-color: darkgoldenrod;
+    color: chocolate;
+    border-width: 5px;
+    margin-left: 20px;
+    text-decoration: none;
+    overflow: hidden;
+}*/
+
 .btnClose {
     background-image: url("../images/icons/exit.png");
     background-size: 45px 45px;
@@ -152,7 +231,7 @@ margin-right: 0;
     width: 60px;
     height: 60px;
     background-color: darkgoldenrod;
-    border: 5px solid chocolate;
+    border: 5px solid #ae5123;
 }
 .btnClose:hover {
     background-color: darkgreen;
@@ -202,7 +281,7 @@ margin-right: 0;
     width: 60px;
     height: 60px;
     background-color: darkgoldenrod;
-    border-color: chocolate;
+    border-color: #ae5123;
     border-width: 5px;
     margin-left: 20px;
 }
@@ -216,7 +295,7 @@ margin-right: 0;
 }
 .btn-success {
     background-color: darkgoldenrod;
-    border-color: chocolate;
+    border-color: #ae5123;
 }
 
 .btn-success:hover {
@@ -234,7 +313,7 @@ margin-right: 0;
 }
 
 .btnEdit {
-    margin: 0 25px 5px 0;
+    margin: 0 10px 5px 0;
     height: 50px;
     width: 50px;
     background-image: url("../images/icons/edit.png");
@@ -261,10 +340,11 @@ margin-right: 0;
     background-size: 45px 45px;
     background-repeat: no-repeat;
     background-position: center;
+    float: left;
 }
 
 .btnDet {
-    margin: 0 25px 5px 0;
+    margin: 0 10px 5px 0;
     height: 50px;
     width: 50px;
     background-image: url("../images/icons/details.png");
@@ -272,6 +352,70 @@ margin-right: 0;
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.btnLeen {
+    margin: 0 0 5px 10px;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/verified.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.btnHome {
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/logo.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: grey;
+    border-color: darkgrey;
+}
+.btnLogin {
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/save.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: grey;
+    border-color: darkgrey;
+}
+.btnAddUser {
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/cog.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: grey;
+    border-color: darkgrey;
+}
+.btnAddVolu {
+    margin: 0 0 5px 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/volu.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.btnAddEmpl {
+    margin: 0 0 5px 0;
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/icons/empl.png");
+    background-size: 45px 45px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.gewenstItem .addOk {
+     margin-left: 0;
+ }
 /*tablet screen*/
 @media screen and (min-width: 391px) {
     .modal {
@@ -293,10 +437,6 @@ margin-right: 0;
     }
     .btnItem {
         margin: 0 0 0 25%;
-    }
-
-    .btnAdd {
-        margin-left: -50px;  
     }
 
     /*.btnSearch {
@@ -335,14 +475,35 @@ margin-right: 0;
          left: 40%;
     }
      .itemObj {
+         clear: left;
         padding: 25px 0 60px 20px;
+    }
+     .itemObj table{
+        width: 70%;
     }
      .itemImg:hover {
         height: 420px;
         width: 320px;
         margin: 0 25px 0 0;
         float: left;
-        border: 3px solid chocolate;
+        border: 3px solid #ae5123;
      }
+     .table {
+        width: 80%;
+    }
+     .table tr:nth-child(2) td:nth-child(1){
+        width: 100%;
+    }
+     .gewenstItem {
+         left: 70%;
+         top: 280px;
+     }
+}
+
+@media screen and (max-height: 601px) {
+    .gewenstItem {
+        top: 50px;
+        left: 80%;
+    }
 }
 

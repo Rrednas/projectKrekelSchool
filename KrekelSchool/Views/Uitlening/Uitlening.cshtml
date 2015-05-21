@@ -1,0 +1,64 @@
+﻿@using System.Security.Cryptography.X509Certificates
+@using System.Web.DynamicData
+@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
+@using KrekelSchool.Models.DAL
+@using KrekelSchool.Models.Domain1
+@using KrekelSchool.Controllers
+@using Microsoft.Ajax.Utilities
+@using Microsoft.AspNet.Identity
+@model KrekelSchool.Models.ViewModels.UitleningScreenViewModel
+
+
+<h2>@ViewBag.Title.</h2>
+<h4>@ViewBag.Message</h4>
+<hr />
+<div class="row">
+    @using (Html.BeginForm("Uitlening", "Uitlening", FormMethod.Get))
+    {
+
+        <div class="col-md-8 ">
+            <span>@Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })</span>
+            <br />
+        </div>
+    }
+
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().BeginDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().EindDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().Item)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitleningen.FirstOrDefault().Lener)
+            </th>
+
+        </tr>
+        @foreach (var p in Model.Uitleningen)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(" ", "UitleningAanpassen", "Uitlening", null, new { id = p.Id, @class = "modal-link btn btn-success btnEdit" })
+
+                    @Html.ActionLink(" ", "UitleningVerwijderen", "Uitlening", null, new { id = p.Id, @class = "modal-link btn btn-success btnRmv" })
+
+                </td>
+                <td class="">@Html.DisplayFor(model => p.BeginDatum)</td>
+                <td class="">@Html.DisplayFor(model => p.EindDatum)</td>
+                <td class="">@Html.DisplayFor(model => p.Id)</td>
+                <td class="">@Html.DisplayFor(model => p.Item.Naam)</td>
+                <td class="">@Html.DisplayFor(model => p.Lener.Naam),
+                             @Html.DisplayFor(model => p.Lener.Voornaam)</td>
+            </tr>
+        }
+    </table>
+</div>

@@ -8,8 +8,13 @@ namespace KrekelSchool
 {
     public class Medewerker : Vrijwilliger
     {
-        public Medewerker(string uname, string pswd, string naam, int id) : base(uname, pswd, naam, id)
+        public Medewerker(string uname, string pswd, string naam) : base(uname, pswd, naam)
         {
+        }
+
+        public Medewerker()
+        {
+            
         }
         #region Item
         public void ItemToevoegen() { }

@@ -13,7 +13,7 @@ namespace KrekelSchool.Models.DAL.Mappers
         {
             ToTable("Uitleningen");
             HasKey(u => u.Id);
-
+            
         }
     }
 }

@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<KrekelSchool.Models.ViewModels.CategorieViewModel>
+@{
+    ViewBag.Title = "Categorie scherm";
+}
+
+<h2>@ViewBag.Title</h2>
+<h4>@ViewBag.Message</h4>
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink(" ", "CategorieToevoegen", null, new { @class = "modal-link btn btn-success btnAdd" })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Beschrijving)
+
+                </th>
+                
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    
+                    <td>
+                        @Html.ActionLink(" ", "CategorieAanpassen", new { id = item.Id }, new { @class = "modal-link btn btn-success btnEdit " })
+                        @Html.ActionLink(" ", "CategorieVerwijderen", new { id = item.Id }, new { @class = "modal-link btn btn-success btnRmv" })
+                    </td>
+                    <td>
+                        @item.Beschrijving
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+</div>

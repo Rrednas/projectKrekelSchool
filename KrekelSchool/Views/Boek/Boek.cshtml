@@ -1,31 +1,103 @@
 ﻿@using KrekelSchool.Models
+@using Microsoft.Ajax.Utilities
+@model  KrekelSchool.Models.ViewModels.ItemScreenViewModel
 
-
-<h2>@ViewBag.Title.</h2>
+<h2>@(ViewBag.Title)</h2>
 <h4>@ViewBag.Message</h4>
 <hr />
+@if (TempData["Succes"] != null)
+{
+    <h1>@TempData["Succes"]</h1> 
+    
+}
 <div class="row">
-   
-    @using (Html.BeginForm())
+
+    @using (Html.BeginForm("Boek", "Boek", FormMethod.Get))
     {
         <div class="col-md-8 ">
             <span>
                 @Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })
             </span>
         </div>
-        @*<div class="col-md-8">
-                <input type="submit" value=" " class="btn btn-default btnSearch" href=""/><img src="~/images/icons/search.png" alt="Zoeken" class="imgSearch" />
-            </div>*@
+    }
+   @if (Model.User.Gebruiker.GetType().BaseType == typeof (Medewerker))
+   {
+       <div class="excelAdd">
+           @using (Html.BeginForm("Boek", "Boek", FormMethod.Post, new {enctype = "multipart/form-data"}))
+           {
+               <input type="file" name="file"/>
+               <input type="submit" value="" class="btn btn-default addOk"/>
+           }
+       </div>
+   }
+    
+    @if (Model.User.Gebruiker.GetType().BaseType == typeof(Medewerker))
+    {
+        @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new {@class = "modal-link btn btn-success btnAdd"})
     }
     
-    @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new { @class = "modal-link btn btn-success btnAdd" })
 
-    
-    @foreach (var p in Model)
+    @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
+    {
+        <div class="col-md-4 gewenstItem">
+            <h2>Gewenst boek</h2>
+            <table>
+
+                @if (Model.Voorlopige.Item != null)
+                {
+                    if (Model.Voorlopige.Item.ImgUrl == " " || Model.Voorlopige.Item.ImgUrl == null || Model.Voorlopige.Item.ImgUrl == "")
+                    {
+                        <tr>
+                            <p>@Model.Voorlopige.Item.Naam</p>
+                            <img src=" " alt=" " class="gewenstItemImg itemImgEmpty" />
+                            <br />
+
+                          
+                                @Html.ActionLink(" ", "VerwijderVoorlopigItem", new {id = @Model.Voorlopige.Item.Id}, new {@class = "btn btn-success btnRmv"})
+                            
+                                </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <p>@Model.Voorlopige.Item.Naam</p>
+                            <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
+                            <br />
+                          
+                               @Html.ActionLink(" ", "VerwijderVoorlopigItem", new {id = @Model.Voorlopige.Item.Id}, new {@class = "btn btn-success btnRmv"})
+                           
+                        </tr>
+                    }
+                }
+            </table>
+
+            <h2>Aan</h2>
+            <table>
+                @if (Model.Voorlopige.Lener != null)
+                {
+                    <p>@(Model.Voorlopige.Lener.Naam + " " + Model.Voorlopige.Lener.Voornaam)</p>
+                    <br />
+                    @Html.ActionLink(" ", "VerwijderVoorlopigeLener", new { id = @Model.Voorlopige.Lener.Id }, new { @class = "btn btn-success btnRmv" })
+
+                }
+
+            </table>
+            @if (Model.Voorlopige.Lener != null && Model.Voorlopige.Item != null)
+            {
+                @Html.ActionLink(" ", "AanvaardUitlening", null, new { @class = "btn btn-success addOk" })
+            }
+        </div>
+    }
+
+
+
+
+
+    @foreach (var p in Model.Boeken)
     {
         <div class="col-md-8 itemObj">
             <h2>@p.Naam</h2>
-            @if (p.ImgUrl == " " || p.ImgUrl == null)
+            @if (p.ImgUrl == " " || p.ImgUrl == null || p.ImgUrl == "")
             {
                 <img src="" alt=" " class="itemImgEmpty" />
             }
@@ -35,23 +107,23 @@
             }
             <table>
                 <tr>
-                    <td class="pName">Leeftijd : </td>
-                    <td class="pNameValue">+ @p.Leeftijd</td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Leeftijd) :</td>
+                    <td class="pNameValue">+ @Html.DisplayFor(model => p.Leeftijd)</td>
                 </tr>
                 <tr>
-                    <td class="pName">Auteur : </td>
-                    <td class="pNameValue">@p.Auteur</td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Auteur) :</td> 
+                    <td class="pNameValue">@Html.DisplayFor(model => p.Auteur)</td>
                 </tr>
                 <tr>
-                    <td class="pName">Uitgever : </td>
-                    <td class="pNameValue">@p.Uitgever</td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Uitgever) :</td>
+                    <td class="pNameValue">@Html.DisplayFor(model => p.Uitgever)</td>
                 </tr>
                 <tr>
-                    <td class="pName">Thema : </td>
-                    <td class="pNameValue">@p.Categories</td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Categorie.Beschrijving) :</td>
+                    <td class="pNameValue">@Html.DisplayFor(model => p.Categorie.Beschrijving)</td>
                 </tr>
                 <tr>
-                    <td class="pName">Nog Beschikbaar : </td>
+                    <td class="pName">@Html.DisplayNameFor(model => p.Beschikbaar) :</td>
                     @if (p.Beschikbaar.Equals(true))
                     {
                         <td class="pNameValue"> Ja</td>;
@@ -69,11 +141,22 @@
                             <td>@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
                         </tr>
                     }*@
-                @Html.ActionLink(" ", "BoekAanpassen", new { id = p.Id} ,new {@class = "modal-link btn btn-success btnEdit" })
-                @Html.ActionLink(" ", "BoekDetail", new { id = p.Id}, new {@class = "modal-link btn btn-success btnDet" })
-                @Html.ActionLink(" ", "BoekVerwijderen", new { id = p.Id}, new {@class = "modal-link btn btn-success btnRmv" })
+                @Html.ActionLink(" ", "BoekDetail", new { id = p.Id }, new { @class = "modal-link btn btn-success btnDet" })
+                
+                @if (Model.User.Gebruiker.GetType().BaseType == typeof (Medewerker))
+                {
+                    @Html.ActionLink(" ", "BoekAanpassen", new {id = p.Id}, new {@class = "modal-link btn btn-success btnEdit"})
+                    
+                    @Html.ActionLink(" ", "BoekVerwijderen", new {id = p.Id}, new {@class = "modal-link btn btn-success btnRmv"})
+                    @Html.ActionLink(" ", "KiesVoorlopigItem", new { id = p.Id }, new { @class = "btn btn-success btnLeen" })
+                }
+                @if (Model.User.Gebruiker.GetType().BaseType == typeof (Vrijwilliger))
+                {
+                    @Html.ActionLink(" ", "KiesVoorlopigItem", new { id = p.Id }, new { @class = "btn btn-success btnLeen" })
+                }
+
             </table>
         </div>
     }
-</div>
 
+</div>

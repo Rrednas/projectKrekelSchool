@@ -9,11 +9,18 @@ namespace KrekelSchool.Models.Domain1
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        [Display(Name = "Thema")]
         public string Beschrijving { get; set; }
 
         public Categorie(string beschrijving)
         {
             Beschrijving = beschrijving;
+        }
+
+        public Categorie()
+        {
+            
         }
     }
 }

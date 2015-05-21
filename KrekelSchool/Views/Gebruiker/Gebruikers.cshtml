@@ -1,0 +1,59 @@
+﻿
+@model IEnumerable<KrekelSchool.Models.ViewModels.GebruikerViewModel>
+
+@{
+    ViewBag.Title = "Gebruikers";
+}
+
+<h2>Gebruikers</h2>
+<div class="row">
+    @using (Html.BeginForm("Gebruikers", "Gebruiker", FormMethod.Get))
+    {
+        <div class="col-md-8 ">
+            @Html.TextBox("zoek", null, new { @class = "form-control formListSearch" })
+            <br />
+        </div>
+    }
+    <p>
+        @Html.ActionLink(" ", "AddVrijwilliger", null, new { @class = "modal-link btn btn-success btnAddVolu" })
+        @Html.ActionLink(" ", "AddMedewerker", null, new { @class = "modal-link btn btn-success btnAddEmpl" })
+    </p>
+    
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pswd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Naam)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "modal-link btn btn-success btnEdit " })
+
+                @Html.ActionLink(" ", "Remove", new { id = item.Id }, new { @class = "modal-link btn btn-success btnRmv" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pswd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+
+        </tr>
+    }
+
+</table>
+</div>

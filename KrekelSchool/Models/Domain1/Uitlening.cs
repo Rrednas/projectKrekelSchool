@@ -7,8 +7,7 @@ namespace KrekelSchool.Models.Domain1
     public class Uitlening
     {
         #region fields
-        public DateTime eindDatum;
-        public Item item;
+        public DateTime eindDatum;        
         #endregion
 
         public Uitlening()
@@ -16,32 +15,37 @@ namespace KrekelSchool.Models.Domain1
             
         }
 
-        public Uitlening(int id , bool isterug ,DateTime van , DateTime tot , Item item)
+        public Uitlening(bool isterug ,DateTime van , DateTime tot , Item item, Lener lener)
         {
-            Id = id;
-            IsTerug = isterug;
-            BeginDatum = van;
-            EindDatum = tot;
+            Retour = isterug;
+            Begindatum = van;            
+            Einddatum = tot;
             Item = item;
+            Lener = lener;
         }
-        public Uitlening(Item item , DateTime eind  )
+        public Uitlening(Item item, Lener lener)
         {
             Item = item;
-            BeginDatum = DateTime.Today;
-            EindDatum = eind;
-            IsTerug = false;
+            Lener = lener;
+            Begindatum = DateTime.Today.Date;
+            Einddatum = Begindatum.AddDays(7);
+            //if (Item.Leeftijd >= 12) EindDatum = EindDatum.AddDays(7);
+            Retour = false;
         }
 
-        public DateTime BeginDatum { get; set; }
+        
+        public DateTime Begindatum { get; set; }
 
-        public DateTime EindDatum
+        
+        public DateTime Einddatum
         {
             get { return eindDatum; }
             set
             {
-                if(value <= DateTime.Today)
+                if(value <= DateTime.Today.Date)
                     throw new ArgumentException("Eind datum vroeger dan begin datum");
                 eindDatum = value;
+                
             }
         }
 
@@ -49,31 +53,40 @@ namespace KrekelSchool.Models.Domain1
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public bool IsTerug
-        {
-            get; set; }
+        
+        public bool Retour{ get; set; }
 
-        public Item Item
-        {
-            get { return item; }
-            set
-            {
-                if(value==null)
-                    throw new ArgumentException("Ongeldig Item");
-                if(!Item.Beschikbaar)
-                    throw new ArgumentException("Item niet beschikbaar");
-                item = value;
-            }
-        }
+        public virtual Item Item { get; set; }
+        //{
+        //    get { return item; }
+        //    set
+        //    {
+        //        if(value==null)
+        //            throw new ArgumentException("Ongeldig Item");
+        //        item = value;
+        //    }
+        //}
+
+        public virtual Lener Lener { get; set; }
+        //{
+        //    get { return lener; }
+        //    set
+        //    {
+        //        if (value == null)
+        //            throw new ArgumentException("Ongeldige Lener");
+        //        lener = value;
+        //    }
+        //}
         #region methods 
 
+        
         public void WordTerugGebracht()
         {
-            if (IsTerug)
+            if (Retour)
             {
                 throw new ApplicationException("Deze uitlening was al teruggebracht");
             }
-            IsTerug = true;
+            Retour = true;
         }
         #endregion
     }

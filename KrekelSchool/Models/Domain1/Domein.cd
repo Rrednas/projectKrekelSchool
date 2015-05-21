@@ -15,17 +15,17 @@
       <Property Name="Uitleningen" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="KrekelSchool.Models.Domain1.Boek">
+  <Class Name="KrekelSchool.Models.Domain1.Boek" Collapsed="true">
     <Position X="0.5" Y="9.75" Width="1.5" />
     <InheritanceLine Type="KrekelSchool.Item" FixedToPoint="true">
       <Path>
-        <Point X="2.5" Y="5.312" />
-        <Point X="2.5" Y="10.648" />
-        <Point X="2" Y="10.648" />
+        <Point X="2.25" Y="5.312" />
+        <Point X="2.25" Y="10.096" />
+        <Point X="2" Y="10.096" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAABAAAAAAAAAAiAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\Boek.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -33,9 +33,9 @@
     <Position X="5.75" Y="13.25" Width="1.5" />
     <InheritanceLine Type="KrekelSchool.Item" FixedToPoint="true">
       <Path>
-        <Point X="2.5" Y="5.312" />
-        <Point X="2.5" Y="14.187" />
-        <Point X="5.75" Y="14.187" />
+        <Point X="2.906" Y="5.312" />
+        <Point X="2.906" Y="14.092" />
+        <Point X="5.75" Y="14.092" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -43,17 +43,17 @@
       <FileName>Models\Domain1\Verteltas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.Models.Domain1.Spel">
+  <Class Name="KrekelSchool.Models.Domain1.Spel" Collapsed="true">
     <Position X="0.5" Y="6.5" Width="1.5" />
     <InheritanceLine Type="KrekelSchool.Item" ManuallyRouted="true" FixedToPoint="true">
       <Path>
         <Point X="2.5" Y="5.312" />
-        <Point X="2.5" Y="6.723" />
-        <Point X="2" Y="6.723" />
+        <Point X="2.5" Y="6.625" />
+        <Point X="2" Y="6.625" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\Spel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -71,7 +71,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAEAABAEAAAAAAQAAAAEAAACAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAEAABAEAAAAAAQAAAAEAABCAAAAQgAAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\Uitlening.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -95,17 +95,17 @@
       <Property Name="Categories" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="KrekelSchool.Models.Domain1.CD">
+  <Class Name="KrekelSchool.Models.Domain1.CD" Collapsed="true">
     <Position X="0.5" Y="11.5" Width="1.5" />
     <InheritanceLine Type="KrekelSchool.Item" ManuallyRouted="true" FixedToPoint="true">
       <Path>
         <Point X="2.5" Y="5.312" />
-        <Point X="2.5" Y="12.117" />
-        <Point X="2" Y="12.117" />
+        <Point X="2.5" Y="11.753" />
+        <Point X="2" Y="11.753" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\CD.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -143,6 +143,9 @@
       <HashCode>AAACAAAAAAAAAAAACAAABAAAAAACABgAAAQAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\Gebruiker.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Mediatheek" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="KrekelSchool.Vrijwilliger" Collapsed="true">
     <Position X="10.75" Y="0.5" Width="1.5" />
@@ -158,18 +161,25 @@
       <FileName>Models\Domain1\Medewerker.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="KrekelSchool.Models.Domain1.DVD">
+  <Class Name="KrekelSchool.Models.Domain1.DVD" Collapsed="true">
     <Position X="0.5" Y="8" Width="1.5" />
     <InheritanceLine Type="KrekelSchool.Item" ManuallyRouted="true" FixedToPoint="true">
       <Path>
         <Point X="2.5" Y="5.312" />
-        <Point X="2.5" Y="8.505" />
-        <Point X="2" Y="8.505" />
+        <Point X="2.5" Y="8.207" />
+        <Point X="2" Y="8.207" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain1\DVD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KrekelSchool.Models.Domain1.Mediatheek" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgGCQAAAIEQmASQECQAYYQggABAUAAIBgBQIwAJQQA=</HashCode>
+      <FileName>Models\Domain1\Mediatheek.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

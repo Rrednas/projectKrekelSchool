@@ -1,0 +1,53 @@
+﻿@model KrekelSchool.Models.ViewModels.GebruikerViewModel
+
+
+<div>
+    <h2 class="modalFormTitle">@ViewBag.Title</h2>
+    <h4>Bent u zeker dat u @Model.Uname, @Model.Naam wil verwijderen?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Uname) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pswd) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pswd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Naam) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+    <div class="form-actions no-color">
+        <input type="submit" value=" " class="btn btn-default addOk" />
+        <button type="button" class="btn btn-default btnClose" data-dismiss="modal"></button>
+    </div>
+    }
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('addOk').click(function () {
+            $('#modal-container').modal('hide');
+            location.reload();
+        });
+        $('.btnClose').click(function () {
+            location.reload();
+        });
+    });
+</script>

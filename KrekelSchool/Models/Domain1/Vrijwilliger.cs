@@ -9,12 +9,17 @@ namespace KrekelSchool
 {
     public class Vrijwilliger : Gebruiker
     {
-        public Vrijwilliger (string uname, string pswd, string naam, int id) : base (uname, pswd, naam, id)
+        public Vrijwilliger (string uname, string pswd, string naam) : base (uname, pswd, naam)
         {
         }
         public void CheckIn(Item i , Lener l , DateTime tot)
         {
           //  Mediatheek.VoegUitleningToe(l,tot,i);
+        }
+
+        public Vrijwilliger()
+        {
+            
         }
 
         public void CheckOut()

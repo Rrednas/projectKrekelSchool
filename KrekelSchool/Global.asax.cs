@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using KrekelSchool.InfraStruct;
+using KrekelSchool.Models.DAL;
+using KrekelSchool.Models.Domain1;
 
 namespace KrekelSchool
 {
@@ -16,6 +19,8 @@ namespace KrekelSchool
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ModelBinders.Binders.Add(typeof(VoorlopigeUitlening), new UitleningModelBinder());
+            ModelBinders.Binders.Add(typeof(User), new GebruikerModelBinder());
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model KrekelSchool.Models.BoekViewModel
+﻿@model KrekelSchool.Models.ViewModels.BoekViewModel
 
 <div>
     <h2 class="modalFormTitle">@ViewBag.Title</h2>
@@ -22,11 +22,11 @@
             @Html.DisplayFor(model => model.Beschrijving)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Categories) :
+            @Html.DisplayNameFor(model => model.Categorie.Beschrijving) :
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Categories)
+            @Html.DisplayFor(model => model.Categorie.Beschrijving)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Beschikbaar) :
