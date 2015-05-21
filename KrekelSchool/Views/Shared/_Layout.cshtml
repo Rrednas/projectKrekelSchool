@@ -1,4 +1,4 @@
-﻿
+﻿@model KrekelSchool.Models.ViewModels.GebruikerScreenViewModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,10 +25,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(" ", "Item", "Item", null, new {@class = "btn btn-success btnHome"})</li>
-                    @*<li>@Html.ActionLink("Log in", "Login", "Account")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("App Info", "About", "Home") </li>*@
-                    
+                   <li>@Html.DisplayFor(m=>m.User.Gebruiker.Uname)</li>
                 </ul>
                     
                 <ul class="nav navbar-nav navbar-right">

@@ -11,6 +11,7 @@ namespace KrekelSchool.Models.ViewModels
         public IEnumerable<GebruikerViewModel> Gebruikers { get; set; }
         public User User { get; set;}
 
+        public GebruikerScreenViewModel() { }
         public GebruikerScreenViewModel(IEnumerable<GebruikerViewModel> gebruiker, User user)
         {
             Gebruikers = gebruiker;

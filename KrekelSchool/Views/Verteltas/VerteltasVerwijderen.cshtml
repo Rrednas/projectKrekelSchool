@@ -1,12 +1,13 @@
 ﻿@model KrekelSchool.Models.ViewModels.VerteltasViewModel
 
-<h3>Are you sure you want to delete this?</h3>
+
 <div>
-    <h4>VerteltasViewModel</h4>
+    <h2>@ViewBag.Title</h2>
+    <h4>Bent u zeker dat u @Model.Naam wil verwijderen?</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Naam)
+            @Html.DisplayNameFor(model => model.Naam) :
         </dt>
 
         <dd>
@@ -14,7 +15,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Beschrijving)
+            @Html.DisplayNameFor(model => model.Beschrijving) :
         </dt>
 
         <dd>
@@ -22,7 +23,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Beschikbaar)
+            @Html.DisplayNameFor(model => model.Beschikbaar) :
         </dt>
 
         <dd>
@@ -30,7 +31,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Leeftijd)
+            @Html.DisplayNameFor(model => model.Leeftijd) :
         </dt>
 
         <dd>
@@ -42,9 +43,20 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value=" " class="btn btn-default addOk" />
+        <button type="button" class="btn btn-default btnClose" data-dismiss="modal"></button>
+    </div>
     }
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('addOk').click(function () {
+            $('#modal-container').modal('hide');
+            location.reload();
+        });
+        $('.btnClose').click(function () {
+            location.reload();
+        });
+    });
+</script>

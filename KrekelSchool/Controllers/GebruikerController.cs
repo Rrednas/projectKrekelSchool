@@ -41,15 +41,16 @@ namespace KrekelSchool.Controllers
             return View(new GebruikerScreenViewModel(gvm,user));
         }
         [HttpPost]
-        public ActionResult LogIn(GebruikerViewModel model,User user)
+        public ActionResult LogIn(GebruikerScreenViewModel model,User user)
         {
             
             
             //if (ModelState.IsValid)
             //{
-                var gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.Uname && g.Pswd == model.Pswd);
+                var gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.User.Gebruiker.Uname && g.Pswd == model.User.Gebruiker.Pswd);
                if (gebruiker != null) {
                    user.LogInUser(gebruiker);
+                   ViewBag.gebruiker = gebruiker.Uname;
                    return RedirectToAction("LogIn");
                 //}
                 
