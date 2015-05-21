@@ -90,7 +90,7 @@ namespace KrekelSchool
         }
 
         [HttpGet]
-        public ActionResult Leerling(string zoek, VoorlopigeUitlening uitlening)
+        public ActionResult Leerling(string zoek, VoorlopigeUitlening uitlening,User user)
         {
             ViewBag.Title = "Leerling-Lijst";
             ViewBag.Message = "Geef ID, naam of achternaam in als zoekcriteria.";
@@ -103,7 +103,7 @@ namespace KrekelSchool
                     s.Klas.ToLower().Contains(zoek.ToLower()) ||
                     s.Id.ToString().Contains(zoek.ToLower()));
             }
-            return View(new LeerlingScreenViewModel(uitlening, lvm));
+            return View(new LeerlingScreenViewModel(uitlening, lvm,user));
         }
 
         [HttpPost]

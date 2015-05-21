@@ -20,16 +20,21 @@
             </span>
         </div>
     }
-    <div class="excelAdd">
-        @using (Html.BeginForm("Boek", "Boek", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            <input type="file" name="file" />
-            <input type="submit" value="" class="btn btn-default addOk" />
-        }
-    </div>
-
-
-    @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new { @class = "modal-link btn btn-success btnAdd" })
+   @if (Model.User.Gebruiker.GetType().BaseType == typeof (Medewerker))
+   {
+       <div class="excelAdd">
+           @using (Html.BeginForm("Boek", "Boek", FormMethod.Post, new {enctype = "multipart/form-data"}))
+           {
+               <input type="file" name="file"/>
+               <input type="submit" value="" class="btn btn-default addOk"/>
+           }
+       </div>
+   }
+    
+    @if (Model.User.Gebruiker.GetType().BaseType == typeof(Medewerker))
+    {
+        @Html.ActionLink(" ", "BoekToevoegen", "Boek", null, new {@class = "modal-link btn btn-success btnAdd"})
+    }
     
 
     @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
@@ -47,8 +52,10 @@
                             <img src=" " alt=" " class="gewenstItemImg itemImgEmpty" />
                             <br />
 
-                            @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
-                        </tr>
+                          
+                                @Html.ActionLink(" ", "VerwijderVoorlopigItem", new {id = @Model.Voorlopige.Item.Id}, new {@class = "btn btn-success btnRmv"})
+                            
+                                </tr>
                     }
                     else
                     {
@@ -56,7 +63,9 @@
                             <p>@Model.Voorlopige.Item.Naam</p>
                             <img src="@Model.Voorlopige.Item.ImgUrl" alt="@Model.Voorlopige.Item.Naam" class="gewenstItemImg" />
                             <br />
-                            @Html.ActionLink(" ", "VerwijderVoorlopigItem", new { id = @Model.Voorlopige.Item.Id }, new { @class = "btn btn-success btnRmv" })
+                          
+                               @Html.ActionLink(" ", "VerwijderVoorlopigItem", new {id = @Model.Voorlopige.Item.Id}, new {@class = "btn btn-success btnRmv"})
+                           
                         </tr>
                     }
                 }
@@ -132,10 +141,19 @@
                             <td>@p.GetType().GetProperty(prop.Name).GetValue(p)</td>
                         </tr>
                     }*@
-                @Html.ActionLink(" ", "BoekAanpassen", new { id = p.Id }, new { @class = "modal-link btn btn-success btnEdit" })
                 @Html.ActionLink(" ", "BoekDetail", new { id = p.Id }, new { @class = "modal-link btn btn-success btnDet" })
-                @Html.ActionLink(" ", "BoekVerwijderen", new { id = p.Id }, new { @class = "modal-link btn btn-success btnRmv" })
-                @Html.ActionLink(" ", "KiesVoorlopigItem", new { id = p.Id }, new { @class = "btn btn-success btnLeen" })
+                
+                @if (Model.User.Gebruiker.GetType().BaseType == typeof (Medewerker))
+                {
+                    @Html.ActionLink(" ", "BoekAanpassen", new {id = p.Id}, new {@class = "modal-link btn btn-success btnEdit"})
+                    
+                    @Html.ActionLink(" ", "BoekVerwijderen", new {id = p.Id}, new {@class = "modal-link btn btn-success btnRmv"})
+                    @Html.ActionLink(" ", "KiesVoorlopigItem", new { id = p.Id }, new { @class = "btn btn-success btnLeen" })
+                }
+                @if (Model.User.Gebruiker.GetType().BaseType == typeof (Vrijwilliger))
+                {
+                    @Html.ActionLink(" ", "KiesVoorlopigItem", new { id = p.Id }, new { @class = "btn btn-success btnLeen" })
+                }
 
             </table>
         </div>

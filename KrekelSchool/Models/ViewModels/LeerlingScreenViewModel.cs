@@ -12,11 +12,13 @@ namespace KrekelSchool.Models.ViewModels
     {
         public VoorlopigeUitleningViewModel Voorlopige { get; set; }
         public IEnumerable<LeerlingViewModel> Leners { get; set; }
+        public User User { get; set; }
 
-        public LeerlingScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<LeerlingViewModel> obj)
+        public LeerlingScreenViewModel(VoorlopigeUitlening voorlopige, IEnumerable<LeerlingViewModel> obj,User user)
         {
             Voorlopige = new VoorlopigeUitleningViewModel(voorlopige.VoorlopigItem, voorlopige.VoorlopigeLener);
             Leners = obj;
+            User = user;
         }
     }
 }

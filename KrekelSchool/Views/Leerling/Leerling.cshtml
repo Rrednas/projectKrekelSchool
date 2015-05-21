@@ -27,13 +27,16 @@
             <br/>
         </div>
     }
-    <div class="excelAdd">
-        @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            <input type="file" name="file" />
-            <input type="submit" value="" class="btn btn-default addOk" />
-        }
-    </div>
+    @if (Model.User.Gebruiker.GetType().BaseType == typeof (Medewerker))
+    {
+        <div class="excelAdd">
+            @using (Html.BeginForm("Leerling", "Leerling", FormMethod.Post, new {enctype = "multipart/form-data"}))
+            {
+                <input type="file" name="file"/>
+                <input type="submit" value="" class="btn btn-default addOk"/>
+            }
+        </div>
+    }
 
         <br/>
         @if (Model.Voorlopige.Item != null || Model.Voorlopige.Lener != null)
@@ -86,8 +89,10 @@
     <table class="table">
         <tr>
             <th>
-                @Html.ActionLink(" ", "LeerlingToevoegen", null, new {@class = "modal-link btn btn-success btnAddLln"})
-                
+               @if (Model.User.Gebruiker.GetType().BaseType == typeof (Medewerker))
+               {
+                   @Html.ActionLink(" ", "LeerlingToevoegen", null, new {@class = "modal-link btn btn-success btnAddLln"})
+               }
             </th>
                 
             @foreach (var p in typeof (Lener).GetProperties())
@@ -105,14 +110,21 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(" ", "LeerlingAanpassen", new {id = l.Id}, new {@class = "modal-link btn btn-success btnEdit "})
-
                     @Html.ActionLink(" ", "LeerlingDetail", new {id = l.Id}, new {@class = "modal-link btn btn-success btnDet"})
+                    @if (Model.User.Gebruiker.GetType().BaseType == typeof (Medewerker))
+                    {
+                        @Html.ActionLink(" ", "LeerlingAanpassen", new {id = l.Id}, new {@class = "modal-link btn btn-success btnEdit "})
 
-                    @Html.ActionLink(" ", "LeerlingVerwijderen", new {id = l.Id}, new {@class = "modal-link btn btn-success btnRmv"})
 
-                    @Html.ActionLink(" ", "KiesVoorlopigeLener", new { id = l.Id }, new { @class = "btn btn-success btnLeen" })
 
+                        @Html.ActionLink(" ", "LeerlingVerwijderen", new {id = l.Id}, new {@class = "modal-link btn btn-success btnRmv"})
+
+                        @Html.ActionLink(" ", "KiesVoorlopigeLener", new {id = l.Id}, new {@class = "btn btn-success btnLeen"})
+                    }
+                    @if (Model.User.Gebruiker.GetType().BaseType == typeof (Vrijwilliger))
+                    {
+                        @Html.ActionLink(" ", "KiesVoorlopigeLener", new {id = l.Id}, new {@class = "btn btn-success btnLeen"})
+                    }
                 </td>
                 @foreach (var p in l.GetType().GetProperties())
                 {

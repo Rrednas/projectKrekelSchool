@@ -38,20 +38,20 @@ namespace KrekelSchool.Controllers
                 gvm = gvm.Where(s => s.Naam.ToLower().Contains(zoek.ToLower()) ||
                     s.Uname.ToLower().Contains(zoek.ToLower()));
             }
-            return View(new GebruikerScreenViewModel(gvm,user));
+            return View(new GebruikerViewModel());
         }
         [HttpPost]
-        public ActionResult LogIn(GebruikerScreenViewModel model,User user)
+        public ActionResult LogIn(GebruikerViewModel model,User user)
         {
             
             
             //if (ModelState.IsValid)
             //{
-                var gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.User.Gebruiker.Uname && g.Pswd == model.User.Gebruiker.Pswd);
+                var gebruiker = Mediatheek.Gebruikers.First(g => g.Uname == model.Uname && g.Pswd == model.Pswd);
                if (gebruiker != null) {
                    user.LogInUser(gebruiker);
                    ViewBag.gebruiker = gebruiker.Uname;
-                   return RedirectToAction("LogIn");
+                   return RedirectToAction("Item","Item");
                 //}
                 
             }
